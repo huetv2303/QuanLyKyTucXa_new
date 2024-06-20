@@ -20,7 +20,8 @@ class TKNuoc extends controller
 
     function thongkenuoc()
     {    
-        
+
+        $dulieu = null;
         $dulieu1 = $this->dsdv->getid_room();
         if (isset($_POST['btnTKN'])) {
             $tkn = $_POST['txtTKN'];
