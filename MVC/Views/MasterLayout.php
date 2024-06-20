@@ -13,6 +13,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=1"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    
     <link rel="stylesheet" href="/Public/CSS/masterlayout.css">
     <style>
         * {
@@ -57,7 +60,7 @@
 
         #content-right1 {
             padding-top: 10px;
-            float: right;
+            float: left;
             width: 80%;
         }
 
@@ -141,6 +144,37 @@
                     <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
                             <a href="" class="btn">Chuc nang 1</a>
+                            <a href="" class="btn">Chuc nang 2</a>
+                            <a href="" class="btn">Chuc nang 3</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <a class="btn" data-bs-toggle="collapse" href="#collapseThree">
+                            Dịch vụ
+                        </a>
+                    </div>
+                    <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachPDV" class="btn">Đăng ký dịch vụ</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDN" class="btn">Điện nước</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV" class="btn">Dịch vụ khác</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV" class="btn">Hóa đơn dịch vụ</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <a class="btn" data-bs-toggle="collapse" href="#collapseFour">
+                            Thống kê
+                        </a>
+                    </div>
+                    <div id="collapseFour" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            <a href="http://localhost/QuanLyKyTucXa_new/TKNuoc" class="btn">Thống kê nước</a>
                             <a href="" class="btn">Chuc nang 2</a>
                             <a href="" class="btn">Chuc nang 3</a>
                         </div>

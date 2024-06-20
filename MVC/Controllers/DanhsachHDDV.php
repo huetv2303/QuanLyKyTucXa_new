@@ -181,12 +181,12 @@ class DanhsachHDDV extends controller
         if ($kq) {
             echo "<script>
                     alert('Xóa thành công!');
-                    window.location.href = 'http://localhost/De5/DachsachHDDV';
+                    window.location.href = 'http://localhost/QuanLyKyTucXa_new/DachsachHDDV';
                   </script>";
         } else {
             echo "<script>
                     alert('Xóa thất bại!');
-                    window.location.href = 'http://localhost/De5/DachsachHDDV';
+                    window.location.href = 'http://localhost/QuanLyKyTucXa_new/DachsachHDDV';
                   </script>";
         }
 
@@ -215,14 +215,14 @@ class DanhsachHDDV extends controller
             $kq1 = $this->dsdv->check_trung_ma($id_invoice);
             if ($id_invoice == '' || $id_room == '' || $status == '' || $created_day == '') {
                 echo "<script>alert('Vui lòng điền đầy đủ thông tin!')
-                window.location.href = 'http://localhost/De5/DachsachHDDV';
+                window.location.href = 'http://localhost/QuanLyKyTucXa_new/DachsachHDDV';
                 </script>";
             } else {
 
                 if ($kq1) {
                     echo "<script>
                     alert('Trùng mã!');
-                    window.location.href = 'http://localhost/De5/DachsachHDDV';
+                    window.location.href = 'http://localhost/QuanLyKyTucXa_new/DachsachHDDV';
                   </script>";
                     exit();
                 } else {
@@ -232,12 +232,12 @@ class DanhsachHDDV extends controller
                     if ($kq) {
                         echo "<script>
                         alert('Thêm mới thành công!');
-                        window.location.href = 'http://localhost/De5/DachsachHDDV';
+                        window.location.href = 'http://localhost/QuanLyKyTucXa_new/DachsachHDDV';
                       </script>";
                     } else {
                         echo "<script>
                         alert('Thêm mới thất bại!');
-                        window.location.href = 'http://localhost/De5/DachsachHDDV';
+                        window.location.href = 'http://localhost/QuanLyKyTucXa_new/DachsachHDDV';
                       </script>";
                     }
                     exit();

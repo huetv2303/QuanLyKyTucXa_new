@@ -5,12 +5,14 @@
 
 <head>
     <title>Thống Kê Nước Theo Tháng</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
+<style>
+ 
+</style>
 <body>
+    <div class="main">
     <form action="http://localhost/QuanLyKyTucXa_new/TKNuoc/thongkenuoc" method="POST">
-
+        <div class="head_tknuoc">
         <h1>Thống Kê Nước Theo Tháng</h1>
 
         <label>Mã phòng</label>
@@ -31,7 +33,8 @@
         </select>
         <button style="margin: 10px 0px" type="submit" class="btn btn-success" name="btnTKN">Tìm</button>
         <a href="http://localhost/QuanLyKyTucXa_new/TKNuoc/" type="button" class="btn btn-success" >Quay về</a>
-        <canvas id="waterUsageChart" width="400" height="120"></canvas>
+        </div>
+        <canvas id="waterUsageChart" width="350" height="120"></canvas>
 
 
 
@@ -42,7 +45,7 @@
 
         if (isset($data['dulieu'])) {
             while ($row = mysqli_fetch_assoc($data['dulieu'])) {
-                var_dump($row);
+                
                 $labels1[] = $row['id_room'];
                 $labels[] = $row['month'];
                 $dataPoints[] = $row['tong_chi_phi_nuoc'];
@@ -76,6 +79,7 @@
             });
         </script>
     </form>
+    </div>
 </body>
 
 </html>
