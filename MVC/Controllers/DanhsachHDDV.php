@@ -114,6 +114,8 @@ class DanhsachHDDV extends controller
             header('Cache-Control: must-revalidate');
             header('Pragma: no-cache');
             readfile($fileName);
+            unlink($fileName);
+            exit;
         }
     }
 
