@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <script src="http://localhost/De5/Public/JS/DichVu_js.js"> </script> -->
+    <!-- <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js"> </script> -->
     <title>Quản lý dịch vụ</title>
 </head>
 
@@ -16,7 +16,7 @@
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal"> Thêm </button>
 
 
-            <form method="post" action="http://localhost/De5/DachsachPDV/themmoi">
+            <form method="post" action="http://localhost/QuanLyKyTucXa_new/DachsachPDV/themmoi">
                 <!-- Modal -->
                 <div class="modal-add">
                     <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
@@ -27,7 +27,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="post" action="http://localhost/De5/DachsachPDV/themmoi">
+                                    <form method="post" action="http://localhost/QuanLyKyTucXa_new/DachsachPDV/themmoi">
                                         <div class="form-group">
                                             <!-- <label>Mã Phòng</label>
                                             <input type="text" class="form-control" placeholder="Nhập mã dịch vụ" name="txtMaPhong" > -->
@@ -77,7 +77,7 @@
                 </div>
             </form>
         </div>
-        <form method="post" action="http://localhost/De5/DanhsachPDV/suadl">
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachPDV/suadl">
             <!-- Modal -->
             <div class="modal-update">
                 <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
@@ -134,7 +134,7 @@
                 </div>
             </div>
         </form>
-        <form method="post" action="http://localhost/De5/DanhsachPDV/timkiem">
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachPDV/timkiem">
             <div class="form-inline">
                 <label style="width: 100px;">Mã phòng</label>
                 <input type="text" name="txtMaPhong" placeholder="Mã Phòng" class="form-control">
@@ -170,7 +170,7 @@
                                     <td>
 
                                         <a class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal" onclick="updateDataPDV('<?php echo htmlspecialchars(json_encode($row)) ?>')"><i class="fa-regular fa-pen-to-square"></i></a>
-                                        <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/De5/DanhsachPDV/xoa/<?php echo $row['id'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+                                        <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachPDV/xoa/<?php echo $row['id'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
 
 
                                     </td>
