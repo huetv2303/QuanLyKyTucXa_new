@@ -97,9 +97,9 @@
                                     <?php
 
                                     if (isset($data['dulieu4']) && mysqli_num_rows($data['dulieu4']) > 0) {
-                                        while ($c = mysqli_fetch_assoc($data['dulieu4'])) {
+                                        while ($row = mysqli_fetch_assoc($data['dulieu4'])) {
                                     ?>
-                                            <option value="<?php echo $c['id_room'] ?>"><?php echo $c['id_room'] ?></option>
+                                            <option value="<?php echo $row['id_room'] ?>"><?php echo $row['id_room'] ?></option>
                                     <?php
                                         }
                                     }
@@ -107,7 +107,9 @@
                                     ?>
                                 </select>
 
+
                                 <label>Dịch vụ</label>
+
                                 <select name="txtMaDV" class="form-control" id="txtMaDV">
                                     <?php
 

@@ -19,6 +19,7 @@ class PDV_m extends connectDB
         $sql = "SELECT id_service, name_service FROM dich_vu_khac";
         return mysqli_query($this->conn, $sql);
     }
+
     public function dichvu_idP()
     {
         $sql = "SELECT id_room FROM phong_ky_tuc_xa";
