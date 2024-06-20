@@ -13,25 +13,152 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=1"> </script>
+    <link rel="stylesheet" href="/Public/CSS/masterlayout.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .color-hover {
+            color: #e43f32;
+        }
+
+        #nav1 ul {
+            background-color: #212526;
+        }
+
+        #nav1 a {
+            color: #000000;
+            font-weight: 500;
+        }
+
+        #nav1 a:hover {
+            color: #e43f32;
+        }
+
+        #menu-left1 {
+            float: left;
+            width: 20%;
+            width: 210px;
+        }
+
+        #menu-left1 img {
+            width: 100%;
+        }
+
+        #menu-left1 .main-list {
+            background: #dddddd;
+            font-weight: 500;
+            text-align: left;
+        }
+
+
+        #content-right1 {
+            padding-top: 10px;
+            float: right;
+            width: 80%;
+        }
+
+        #content-right1 .textbox1 {
+            width: 200px;
+        }
+
+        #content-right1 .label1 {
+            width: 80px;
+        }
+
+        #content-right1 .label2 {
+            width: 60px;
+        }
+    </style>
 </head>
+
 
 <body>
     <div class="container-fluid">
-        <div class="header1">
-            <h2>Danh sách dịch vụ</h2>
-        </div>
-        <div class="menu1">
-           
-        </div>
-       
-            <div class="row">
-                <div class="content1">
-                    <?php include_once './MVC/Views/Pages/'.$data['page'].'.php'; ?>
-                </div>
+        <!-- Start: Header -->
+        <div id="header1">
+            <!-- <img src="https://utt.edu.vn/uploads/images/site/1447346709LOGO_GTVT.png" alt="LOGO UTT"> -->
+            <div id="nav1">
+                <ul class="nav navbar justify-content bg-light ">
+                    <img style="width : 200px;" src="https://utt.edu.vn/uploads/images/site/1447346709LOGO_GTVT.png" alt="LOGO UTT">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Trang chủ</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Quản lí phòng</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Quản lí sinh viên</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Quản lí hợp đồng</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Thoát</a>
+
+                    </li>
+
+                </ul>
             </div>
         </div>
+        <!-- End: Header -->
+
+        <!-- Start: Content -->
+        <div id="content1">
+            <div id="menu-left1">
+                <!-- <img src="https://utt.edu.vn/uploads/images/site/1447346709LOGO_GTVT.png" alt="LOGO UTT"> -->
+
+                <div class="card">
+                    <div class="card-header">
+                        <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+                            Chính #1
+                        </a>
+                    </div>
+                    <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            <a href="" class="btn">Chuc nang 1</a>
+                            <a href="" class="btn">Chuc nang 2</a>
+                            <a href="" class="btn">Chuc nang 3</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <a class="btn" data-bs-toggle="collapse" href="#collapseTwo">
+                            Chính #2
+                        </a>
+                    </div>
+                    <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            <a href="" class="btn">Chuc nang 1</a>
+                            <a href="" class="btn">Chuc nang 2</a>
+                            <a href="" class="btn">Chuc nang 3</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="content-right1">
+                <?php
+                // echo "Masterlayout";
+                include_once './MVC/Views/Pages/' . $data['page'] . '.php';
+                ?>
+            </div>
+        </div>
+        <!-- End: Content -->
     </div>
-  
 </body>
 
 </html>
