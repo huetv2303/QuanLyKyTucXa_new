@@ -1,7 +1,7 @@
 <?php
 class app
 {
-    protected $controller ='DanhsachHDDV';
+    protected $controller ='DanhsachDV';
     protected $action = 'Get_data';
     protected $param = [];
 

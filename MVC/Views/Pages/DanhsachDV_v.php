@@ -14,7 +14,7 @@
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal"> Thêm </button>
                
-
+                <!-- Thêm mới -->
                 <form  method="post" action="http://localhost/De5/DachsachDV/themmoi">
                     <!-- Modal -->
                     <div class="modal-add">
@@ -52,6 +52,8 @@
                     </div>
                 </form>
             </div>
+
+            <!-- Sửa -->
     <form method="post" action="http://localhost/De5/DanhsachDV/suadl">
         <!-- Modal -->
         <div class="modal-update">
@@ -83,6 +85,8 @@
             </div>
         </div>
     </form>
+
+    <!-- Nhập excel -->
     <form action="http://localhost/De5/DanhsachDV/import" enctype="multipart/form-data" method="post">
         <label for="myFile2">Cập nhật thông tin</label>
         <table>
@@ -94,6 +98,8 @@
             </tr>
         </table>
     </form>
+
+    <!-- Tìm kiếm -->
     <form method="post" action="http://localhost/De5/DanhsachDV/timkiem">
         <div class="form-inline">
             <label style="width: 100px;">Mã dịch vụ</label>
@@ -101,7 +107,6 @@
             <label style="width: 100px;">Tên dịch vụ</label>
             <input type="text" placeholder="Tìm tên dịch vụ" class="form-control" name="txtTenDV">
             <button type="submit" style="margin: 30px 0px" class="btn btn-success" name="btnTimKiem">Tìm kiếm</button>
-            <button type="submit" style="margin: 30px 0px" class="btn btn-success" name="btnXuat">Xuất</button>
           
             <table class="table table-hover">
                 <thead>
