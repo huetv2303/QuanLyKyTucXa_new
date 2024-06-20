@@ -12,7 +12,7 @@ class TKNuoc extends controller
     {
         // Lấy dữ liệu ban đầu để hiển thị form thống kê nước
         $dulieu1 = $this->dsdv->getid_room();
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'TKNuoc_v',
             'dulieu1' => $dulieu1,
         ]);
@@ -32,7 +32,7 @@ class TKNuoc extends controller
         }
 
         // Truyền dữ liệu vào View
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'TKNuoc_v',
             'dulieu' => $dulieu,
             'dulieu1' => $dulieu1,
