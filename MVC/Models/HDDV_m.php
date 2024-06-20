@@ -1,7 +1,7 @@
 <?php
 class HDDV_m extends connectDB
 {
-    public function hddv_ins($id_invoice, $id_room, $electricity, $water, $created_day, $ended_day, $status)
+    public function hddv_ins($id_invoice, $id_room, $electricity, $water, $created_day,$ended_day, $status)
     {
         $sql = "INSERT INTO hoa_don_dich_vu(id_invoice, id_room, electricity, water, created_day, ended_day, status) VALUES ('$id_invoice','$id_room','$electricity','$water','$created_day','$ended_day','$status')";
 
