@@ -20,7 +20,7 @@ class DanhsachPDV extends controller
         
         // var_dump($_GET);
 
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'DanhsachPDV_v',
             'dulieu' => $dulieu,
             'dulieu1' => $dulieu1,
@@ -33,7 +33,7 @@ class DanhsachPDV extends controller
 
     function them()
     {
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'DanhsachPDV_v'
         ]);
     }
@@ -47,7 +47,7 @@ class DanhsachPDV extends controller
 
             $dulieu = $this->dsdv->dichvuPDV_find($id_room, $id_service);
             //Gọi lại giao diện và truyền $dulieu ra
-            $this->view('LayoutDV', [
+            $this->view('MasterLayout', [
                 'page' => 'DanhsachPDV_v',
                 'dulieu' => $dulieu,
                 'madv' => $id_service,
@@ -59,7 +59,7 @@ class DanhsachPDV extends controller
 
     function sua($id)
     {
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'DanhsachPDV_v',
             'dulieu' => $this->dsdv->dichvuPDV_find($id, '')
         ]);
@@ -78,7 +78,7 @@ class DanhsachPDV extends controller
 
         
         $dulieu = $this->dsdv->dichvuPDV_all();
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'DanhsachPDV_v',
             'dulieu' => $dulieu,
             'dulieu1' => $dulieu1,
@@ -107,7 +107,7 @@ class DanhsachPDV extends controller
             // var_dump($_GET);
   
             $dulieu = $this->dsdv->dichvuPDV_all();
-            $this->view('LayoutDV', [
+            $this->view('MasterLayout', [
                 'page' => 'DanhsachPDV_v',
                 'dulieu' => $dulieu,
                 'dulieu1' => $dulieu1,
@@ -143,7 +143,7 @@ class DanhsachPDV extends controller
 
          
         $dulieu = $this->dsdv->dichvuPDV_all();
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'DanhsachPDV_v',
             'dulieu' => $dulieu,
             'dulieu1' => $dulieu1,
@@ -181,7 +181,7 @@ class DanhsachPDV extends controller
 
 
             $dulieu = $this->dsdv->dichvuPDV_all();
-            $this->view('LayoutDV', [
+            $this->view('MasterLayout', [
                 'page' => 'DanhsachPDV_v',
                 'dulieu' => $dulieu,
                 'dulieu1' => $dulieu1,

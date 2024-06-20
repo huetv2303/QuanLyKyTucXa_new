@@ -13,7 +13,7 @@ class DanhsachDV extends controller
 
         $dulieu = $this->dsdv->dichvu_all();
 
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'DanhsachDV_v',
             'dulieu' => $dulieu,
 
@@ -23,7 +23,7 @@ class DanhsachDV extends controller
 
     function them()
     {
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'DanhsachDV_v'
         ]);
     }
@@ -57,7 +57,7 @@ class DanhsachDV extends controller
         }
 
         $dulieu = $this->dsdv->dichvu_all();
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'DanhsachDV_v',
             'dulieu' => $dulieu,
 
@@ -73,7 +73,7 @@ class DanhsachDV extends controller
             $dulieu1 = $this->dsdv->dichvu_all();
             //Gọi lại giao diện và truyền $dulieu ra
 
-            $this->view('LayoutDV', [
+            $this->view('MasterLayout', [
                 'page' => 'DanhsachDV_v',
                 'dulieu' => $dulieu,
                 'madv' => $id_service,
@@ -87,7 +87,7 @@ class DanhsachDV extends controller
 
     function sua($id_service)
     {
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'dichvu_sua_v',
             'dulieu' => $this->dsdv->dichvu_find($id_service, '')
         ]);
@@ -113,7 +113,7 @@ class DanhsachDV extends controller
             //Gọi lại giao diện và truyền $dulieu ra
 
             $dulieu = $this->dsdv->dichvu_all();
-            $this->view('LayoutDV', [
+            $this->view('MasterLayout', [
                 'page' => 'DanhsachDV_v',
                 'dulieu' => $dulieu,
 
@@ -132,7 +132,7 @@ class DanhsachDV extends controller
 
 
         $dulieu = $this->dsdv->dichvu_all();
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'DanhsachDV_v',
             'dulieu' => $dulieu,
 
@@ -153,7 +153,7 @@ class DanhsachDV extends controller
 
             // if ($id == '' || $ml == '' || $tl == '' || $mk == '') {
             //     echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
-            //     $this->view('LayoutDV', [
+            //     $this->view('MasterLayout', [
             //         'page' => 'DichVu_v',
 
             //     ]);
@@ -162,7 +162,7 @@ class DanhsachDV extends controller
             $kq1 = $this->dsdv->check_trung_ma($id_service);
             if ($kq1) {
                 echo "<script>alert('Trùng  mã!')</script>";
-                $this->view('LayoutDV', [
+                $this->view('MasterLayout', [
                     'page' => 'DanhsachDV_v',
 
                 ]);
@@ -178,7 +178,7 @@ class DanhsachDV extends controller
             }
         }
         $dulieu = $this->dsdv->dichvu_all();
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'DanhsachDV_v',
             'dulieu' => $dulieu,
 

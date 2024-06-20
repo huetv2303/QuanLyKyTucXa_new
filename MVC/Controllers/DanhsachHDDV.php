@@ -14,7 +14,7 @@ class DanhsachHDDV extends controller
         $dulieu = $this->dsdv->hddv_invoice();
         $dulieu1 = $this->dsdv->hddv_idP();
         $dulieu3 = $this->dsdv->hddv_idP();
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'DanhsachHDDV_v',
             'dulieu' => $dulieu,
             'dulieu1' => $dulieu1,
@@ -25,7 +25,7 @@ class DanhsachHDDV extends controller
 
     function them()
     {
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'DanhsachHDDV_v'
         ]);
     }
@@ -41,7 +41,7 @@ class DanhsachHDDV extends controller
             $dulieu3 = $this->dsdv->hddv_idP();
 
             //Gọi lại giao diện và truyền $dulieu ra
-            $this->view('LayoutDV', [
+            $this->view('MasterLayout', [
                 'page' => 'DanhsachHDDV_v',
                 'dulieu' => $dulieu,
                 'dulieu2' => $dulieu2,
@@ -195,7 +195,7 @@ class DanhsachHDDV extends controller
 
     function sua($id_service)
     {
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'dichvu_sua_v',
             'dulieu' => $this->dsdv->hddv_find($id_service, '')
         ]);
@@ -228,7 +228,7 @@ class DanhsachHDDV extends controller
             // Gọi lại giao diện và truyền $dulieu ra
 
 
-            $this->view('LayoutDV', [
+            $this->view('MasterLayout', [
                 'page' => 'DanhsachHDDV_v',
                 'dulieu' => $dulieu,
                 'dulieu1' => $dulieu1,
@@ -311,7 +311,7 @@ class DanhsachHDDV extends controller
 
             // $dulieu = $this->dsdv->hddv_invoice();
             // $dulieu1 = $this->dsdv->hddv_idP();
-            // $this->view('LayoutDV', [
+            // $this->view('MasterLayout', [
             //     'page' => 'DanhsachHDDV_v',
             //     'dulieu1' => $dulieu1,
 

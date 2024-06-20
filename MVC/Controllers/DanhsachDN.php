@@ -11,16 +11,16 @@ class DanhsachDN extends controller{
     {
         $dulieu = $this->dsdv->dichvuDN_all();
         
-        $this->view('LayoutDV', [
+        $this->view('MasterLayout', [
             'page' => 'DanhsachDN_v',
             'dulieu' => $dulieu,
 
         ]);
 
-        $this->view('LayoutDV', ['page' => 'DanhsachDN_v']);
+        $this->view('MasterLayout', ['page' => 'DanhsachDN_v']);
 
         // if(isset($_POST['btnadd'])){
-        // $this->view('LayoutDV', [
+        // $this->view('MasterLayout', [
         //             'page' => 'DichVu_v'
         //       ]);
         // }      
@@ -46,7 +46,7 @@ class DanhsachDN extends controller{
             //Gọi lại giao diện và truyền $dulieu ra
            
             // $dulieu = $this->dsdv->dichvuDN_all();
-            // $this->view('LayoutDV', [
+            // $this->view('MasterLayout', [
             //     'page' => 'DanhsachDN_v',
             //     'dulieu' => $dulieu,
                 

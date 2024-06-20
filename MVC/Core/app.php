@@ -1,7 +1,7 @@
 <?php
 class app
 {
-    protected $controller ='TKNuoc';
+    protected $controller ='DanhsachHDDV';
     protected $action = 'Get_data';
     protected $param = [];
 
