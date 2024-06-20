@@ -66,5 +66,12 @@ p{
 }
 
 .head_tknuoc{
-    padding: 5px 30px;
+    padding: 5 30px;
+}
+
+
+.dv {
+    display: flex;
+    gap: 500px;
+    padding: 0px 0px 10px 20px;
 }

@@ -32,7 +32,6 @@
             ?>
         </select>
         <button style="margin: 10px 0px" type="submit" class="btn btn-success" name="btnTKN">Tìm</button>
-        <a href="http://localhost/QuanLyKyTucXa_new/TKNuoc/" type="button" class="btn btn-success" >Quay về</a>
         </div>
         <canvas id="waterUsageChart" width="350" height="120"></canvas>
 
