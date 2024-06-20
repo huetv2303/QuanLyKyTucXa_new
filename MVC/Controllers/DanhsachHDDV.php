@@ -80,10 +80,10 @@ class DanhsachHDDV extends controller
             $id_invoice = $_POST['MaHD1'];
             $id_room = $_POST['MaPhong1'];
             $dulieu = $this->dsdv->hddv_find($id_invoice, $id_room);
-           
+
             $rowCount = 2;
             while ($row = mysqli_fetch_array($dulieu)) {
-              
+
                 $sheet->setCellValue('A' . $rowCount, $rowCount - 1);
                 $sheet->setCellValue('B' . $rowCount, $row['id_room']);
                 $sheet->setCellValue('C' . $rowCount, $row['id_invoice']);
@@ -120,77 +120,6 @@ class DanhsachHDDV extends controller
     }
 
 
-    function ExportExcel()
-    {
-        if (isset($_POST['btnXuat'])) {
-             // Adjust the path to the PHPExcel library
-
-            $objExcel = new PHPExcel();
-            $objExcel->setActiveSheetIndex(0);
-            $sheet = $objExcel->getActiveSheet()->setTitle('DSLS');
-            $rowCount = 1;
-
-            // Create column headers
-            $sheet->setCellValue('A' . $rowCount, 'STT');
-            $sheet->setCellValue('B' . $rowCount, 'Mã Phòng');
-            $sheet->setCellValue('C' . $rowCount, 'Mã hóa đơn');
-            $sheet->setCellValue('D' . $rowCount, 'Số điện');
-            $sheet->setCellValue('E' . $rowCount, 'Số nước');
-            $sheet->setCellValue('F' . $rowCount, 'Tổng điện nước');
-            $sheet->setCellValue('G' . $rowCount, 'Tổng dịch vụ khác');
-            $sheet->setCellValue('H' . $rowCount, 'Trạng thái');
-            $sheet->setCellValue('I' . $rowCount, 'Tổng');
-
-            // Apply styles
-            $sheet->getStyle('A1:I1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('00FF00');
-            $sheet->getStyle('A1:I1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-
-            // Fetch data from database
-            $id_invoice = $_POST['txtMaHD'];
-            $id_room = $_POST['txtMaPhong'];
-            $dulieu = $this->dsdv->hddv_find($id_invoice, $id_room);
-
-            // Populate the Excel sheet with data
-            $rowCount = 2; // Start from the second row for data
-            while ($row = mysqli_fetch_array($dulieu)) {
-                $sheet->setCellValue('A' . $rowCount, $rowCount - 1);
-                $sheet->setCellValue('B' . $rowCount, $row['id_room']);
-                $sheet->setCellValue('C' . $rowCount, $row['id_invoice']);
-                $sheet->setCellValue('D' . $rowCount, $row['electricity']);
-                $sheet->setCellValue('E' . $rowCount, $row['water']);
-                $sheet->setCellValue('F' . $rowCount, $row['tong_dien_nuoc']);
-                $sheet->setCellValue('G' . $rowCount, $row['tong_dich_vu_khac']);
-                $sheet->setCellValue('H' . $rowCount, $row['status']);
-                $sheet->setCellValue('I' . $rowCount, $row['tong_tat_ca']);
-                $rowCount++;
-            }
-
-            // Style the table with borders
-            // $styleArray = array(
-            //     'borders' => array(
-            //         'allborders' => array(
-            //             'style' => PHPExcel_Style_Border::BORDER_THIN
-            //         )
-            //     )
-            // );
-            // $sheet->getStyle('A1:I' . ($rowCount - 1))->applyFromArray($styleArray);
-
-            // Save and output the Excel file
-            $objWriter = new PHPExcel_Writer_Excel2007($objExcel);
-            $fileName = 'ExportExcel.xlsx';
-            $objWriter->save($fileName);
-            header('Content-Disposition: attachment; filename="' . $fileName . '"');
-            header('Content-Type: application/vnd.openxlmformatsofficedocument.speadsheetml.sheet');
-            header('Content-Length: ' . filesize($fileName));
-            header('Content-Transfer-Encoding:binary');
-            header('Cache-Control: must-revalidate');
-            header('Pragma: no-cache');
-            readfile($fileName);
-
-            // Delete the file after download
-            
-        }
-    }
 
 
     function sua($id_service)
@@ -284,39 +213,47 @@ class DanhsachHDDV extends controller
 
             // Kiểm tra trùng mã
             $kq1 = $this->dsdv->check_trung_ma($id_invoice);
-            if ($kq1) {
-                echo "<script>
+            if ($id_invoice == '' || $id_room == '' || $status == '' || $created_day == '') {
+                echo "<script>alert('Vui lòng điền đầy đủ thông tin!')
+                window.location.href = 'http://localhost/De5/DachsachHDDV';
+                </script>";
+            } else {
+
+                if ($kq1) {
+                    echo "<script>
                     alert('Trùng mã!');
                     window.location.href = 'http://localhost/De5/DachsachHDDV';
                   </script>";
-                exit();
-            } else {
-                // Gọi hàm thêm dl trong model
-                $kq = $this->dsdv->hddv_ins($id_invoice, $id_room, $electricity, $water, $created_day, $ended_day, $status);
+                    exit();
+                } else {
+                    // Gọi hàm thêm dl trong model
+                    $kq = $this->dsdv->hddv_ins($id_invoice, $id_room, $electricity, $water, $created_day, $ended_day, $status);
 
-                if ($kq) {
-                    echo "<script>
+                    if ($kq) {
+                        echo "<script>
                         alert('Thêm mới thành công!');
                         window.location.href = 'http://localhost/De5/DachsachHDDV';
                       </script>";
-                } else {
-                    echo "<script>
+                    } else {
+                        echo "<script>
                         alert('Thêm mới thất bại!');
                         window.location.href = 'http://localhost/De5/DachsachHDDV';
                       </script>";
+                    }
+                    exit();
                 }
-                exit();
+
             }
+            
+
+                // $dulieu = $this->dsdv->hddv_invoice();
+                // $dulieu1 = $this->dsdv->hddv_idP();
+                // $this->view('MasterLayout', [
+                //     'page' => 'DanhsachHDDV_v',
+                //     'dulieu1' => $dulieu1,
 
 
-            // $dulieu = $this->dsdv->hddv_invoice();
-            // $dulieu1 = $this->dsdv->hddv_idP();
-            // $this->view('MasterLayout', [
-            //     'page' => 'DanhsachHDDV_v',
-            //     'dulieu1' => $dulieu1,
-
-
-            // ]);
+                // ]);
         }
     }
 }

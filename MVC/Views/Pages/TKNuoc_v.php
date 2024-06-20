@@ -16,7 +16,7 @@
         <label>Mã phòng</label>
         <select name="txtTKN" class="form-control tkn" id="txtTKN">
 
-            <option value="">-----Chọn mã phòng-----</option>
+            <option value="<?php if (isset($data['id_room'])) echo $data['id_room'] ?>">-----Chọn mã phòng-----</option>
             <?php
 
             if (isset($data['dulieu1']) && mysqli_num_rows($data['dulieu1']) > 0) {
@@ -31,7 +31,7 @@
         </select>
         <button style="margin: 10px 0px" type="submit" class="btn btn-success" name="btnTKN">Tìm</button>
         <a href="http://localhost/De5/TKNuoc/" type="button" class="btn btn-success" >Quay về</a>
-        <canvas id="waterUsageChart" width="400" height="150"></canvas>
+        <canvas id="waterUsageChart" width="400" height="120"></canvas>
 
 
 

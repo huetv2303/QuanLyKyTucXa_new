@@ -27,6 +27,17 @@ class DichVu_m extends connectDB
         return $kq;
     }
 
+    function check_name($name_service)
+    {
+        $sql = "SELECT * FROM dich_vu_khac WHERE name_service ='$name_service' ";
+        $dl = mysqli_query($this->conn, $sql);
+        $kq = false;
+        if (mysqli_num_rows($dl) > 0) {
+            $kq = true;  //trùng mã
+        }
+        return $kq;
+    }
+
     function dichvu_find($id_service, $name)
     {
         $sql = "SELECT * FROM dich_vu_khac WHERE id_service like '%$id_service%' 

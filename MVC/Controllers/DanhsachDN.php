@@ -38,10 +38,15 @@ class DanhsachDN extends controller{
             //gọi hàm sủa dl tacgia_udp trong model
             $kq = $this->dsdv->dichvuDN_upd($id_service,$name, $price, $unit);
 
-            if ($kq) {
-                echo "<script>alert('Sửa thành công!')</script>";
-            } else
-                echo "<script>alert('Sửa thất bại!')</script>";
+          
+                    //gọi hàm thêm dl tacgia_ins trong model
+                    if ($kq) {
+                        echo "<script>alert('Sửa thành công!')</script>";
+                    } else
+                        echo "<script>alert('Sửa thất bại!')</script>";
+                
+            }
+           
 
             //Gọi lại giao diện và truyền $dulieu ra
            
@@ -51,7 +56,7 @@ class DanhsachDN extends controller{
             //     'dulieu' => $dulieu,
                 
             // ]);
-        }
-        header("location: http://localhost/De5/DachsachDN");
-    }   
+        
+      header("location: http://localhost/De5/DachsachDN");
+    } 
 }

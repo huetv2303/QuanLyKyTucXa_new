@@ -13,4 +13,6 @@ class DienNuoc_m extends connectDB
         $sql = "UPDATE dich_vu_dien_nuoc SET name_service ='$name', price ='$price', unit ='$unit'   WHERE id_service ='$id_service'";
         return mysqli_query($this->conn, $sql);
     }
+
+    
 }

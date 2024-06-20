@@ -177,7 +177,7 @@ class DanhsachPDV extends controller
                 echo "<script>alert('Thêm mới thành công!')</script>";
             } else
 
-                echo "<script>alert('Thêm mới thất bại!')</script>";
+                echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
 
 
             $dulieu = $this->dsdv->dichvuPDV_all();

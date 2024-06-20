@@ -11,7 +11,7 @@
 <body>
     <div class="main">
         <div class="header">
-            <h3>Danh sách phòng sử dụng dịch vụ</h3>
+            <h3>Đăng ký dịch vụ</h3>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal"> Thêm </button>
 
