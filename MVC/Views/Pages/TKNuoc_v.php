@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="http://localhost/De5/TKNuoc/thongkenuoc" method="POST">
+    <form action="http://localhost/QuanLyKyTucXa_new/TKNuoc/thongkenuoc" method="POST">
 
         <h1>Thống Kê Nước Theo Tháng</h1>
 
@@ -30,7 +30,7 @@
             ?>
         </select>
         <button style="margin: 10px 0px" type="submit" class="btn btn-success" name="btnTKN">Tìm</button>
-        <a href="http://localhost/De5/TKNuoc/" type="button" class="btn btn-success" >Quay về</a>
+        <a href="http://localhost/QuanLyKyTucXa_new/TKNuoc/" type="button" class="btn btn-success" >Quay về</a>
         <canvas id="waterUsageChart" width="400" height="120"></canvas>
 
 

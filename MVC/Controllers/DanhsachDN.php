@@ -57,6 +57,6 @@ class DanhsachDN extends controller{
                 
             // ]);
         
-      header("location: http://localhost/De5/DachsachDN");
+      header("location: http://localhost/QuanLyKyTucXa_new/DachsachDN");
     } 
 }

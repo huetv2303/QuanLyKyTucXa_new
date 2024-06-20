@@ -30,8 +30,6 @@ class DanhsachDV extends controller
 
     function import()
     {
-
-
         if (isset($_POST['btnUpLoad'])) {
             $file = $_FILES['txtfile']['tmp_name'];
             $objReader = PHPExcel_IOFactory::createReaderForFile($file);

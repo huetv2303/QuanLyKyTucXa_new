@@ -15,7 +15,7 @@
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal"> Thêm </button>
 
-            <form method="post" action="http://localhost/De5/DachsachHDDV/themmoi">
+            <form method="post" action="http://localhost/QuanLyKyTucXa_new/DachsachHDDV/themmoi">
                 <!-- Modal -->
                 <div class="modal-add">
                     <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
@@ -65,7 +65,7 @@
                 </div>
             </form>
         </div>
-        <form method="post" action="http://localhost/De5/DanhsachHDDV/suadl">
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/suadl">
             <!-- Modal -->
             <div class="modal-update">
                 <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
@@ -112,7 +112,7 @@
         </form>
 
                                     <!--Hóa đơn  -->
-        <form action="http://localhost/De5/DanhsachHDDV/timkiem" method="POST">
+        <form action="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/timkiem" method="POST">
             <div class="modal fade" id="ExPortModal" tabindex="-1" aria-labelledby="ExPortModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -195,7 +195,7 @@
             </div>
         </form>
 
-        <form method="post" action="http://localhost/De5/DanhsachHDDV/timkiem">
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/timkiem">
             <div class="form-inline">
                 <label style="width: 100px;">Mã hóa đơn</label>
                 <input type="text" placeholder="Tìm mã dịch vụ" class="form-control" name="txtMaHD">
@@ -237,7 +237,7 @@
                                     <td>
                                         <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ExPortModal" onclick="updateDataExportHDDV('<?php echo htmlspecialchars(json_encode($row)) ?>')"><i class="fa-solid fa-file-invoice"></i></a>
                                         <a class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal" onclick="updateDataHDDV('<?php echo htmlspecialchars(json_encode($row)) ?>')"><i class="fa-regular fa-pen-to-square"></i></a>
-                                        <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/De5/DanhsachHDDV/xoa/<?php echo $row['id_invoice'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+                                        <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/xoa/<?php echo $row['id_invoice'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>
                         <?php

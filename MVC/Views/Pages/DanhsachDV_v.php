@@ -15,7 +15,7 @@
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal"> Thêm </button>
                
                 <!-- Thêm mới -->
-                <form  method="post" action="http://localhost/De5/DachsachDV/themmoi">
+                <form  method="post" action="http://localhost/QuanLyKyTucXa_new/DachsachDV/themmoi">
                     <!-- Modal -->
                     <div class="modal-add">
                         <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
@@ -54,7 +54,7 @@
             </div>
 
             <!-- Sửa -->
-    <form method="post" action="http://localhost/De5/DanhsachDV/suadl">
+    <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachDV/suadl">
         <!-- Modal -->
         <div class="modal-update">
             <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
@@ -87,7 +87,7 @@
     </form>
 
     <!-- Nhập excel -->
-    <form action="http://localhost/De5/DanhsachDV/import" enctype="multipart/form-data" method="post">
+    <form action="http://localhost/QuanLyKyTucXa_new/DanhsachDV/import" enctype="multipart/form-data" method="post">
         <label for="myFile2">Cập nhật thông tin</label>
         <table>
             <tr>
@@ -100,7 +100,7 @@
     </form>
 
     <!-- Tìm kiếm -->
-    <form method="post" action="http://localhost/De5/DanhsachDV/timkiem">
+    <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachDV/timkiem">
         <div class="form-inline">
             <label style="width: 100px;">Mã dịch vụ</label>
             <input type="text" placeholder="Tìm mã dịch vụ" class="form-control" name="txtMaDV" >
@@ -143,8 +143,8 @@
 
                                   
                                     <button onclick="updateData('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
-                                    <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/De5/DanhsachDV/xoa/<?php echo $row['id_service'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
-                                    <!-- <a href="http://localhost/De5/DanhsachDV/sua/" onclick="updateData('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></a> -->
+                                    <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachDV/xoa/<?php echo $row['id_service'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+                                    <!-- <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV/sua/" onclick="updateData('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></a> -->
                                 </td>
 
                             </tr>
