@@ -15,6 +15,7 @@ class DanhsachPDV extends controller
         $dulieu = $this->dsdv->dichvuPDV_all();
         $dulieu1 = $this->dsdv->dichvu_idnamdv();
         $dulieu2 = $this->dsdv->dichvu_idP();
+        
         $dulieu3 = $this->dsdv->dichvu_idnamdv();
         $dulieu4 = $this->dsdv->dichvu_idP();
         

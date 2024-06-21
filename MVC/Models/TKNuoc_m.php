@@ -22,7 +22,7 @@ class TKNuoc_m extends connectDB
 
     public function getid_room()
     {
-        $sql = "SELECT id_room FROM phong_ky_tuc_xa";
+        $sql = "SELECT maPhong FROM phong";
         return mysqli_query($this->conn, $sql);
     }
 }
