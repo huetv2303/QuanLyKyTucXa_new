@@ -95,7 +95,7 @@
                     <td class="dv">
                         <div class="file">
                             <input type="file" class="btn btn-outline-primary" name="txtfile">
-                            <button style="padding-rigt: 300px" type="submit" class="btn btn-primary" name="btnUpLoad">Lưu</button>
+                            <button style="padding-right: 300px" type="submit" class="btn btn-primary" name="btnUpLoad">Lưu</button>
                         </div>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">Thêm mới </button>
                     </td>
