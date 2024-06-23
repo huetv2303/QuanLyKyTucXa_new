@@ -4,7 +4,6 @@ class PDV_m extends connectDB
     public function dichvuPDV_ins($id_room, $id_service)
     {
         $sql = "INSERT INTO dang_ky_dich_vu(id_room,id_service) VALUES ('$id_room','$id_service')";
-       
         return mysqli_query($this->conn, $sql);
     }
 
@@ -37,6 +36,7 @@ class PDV_m extends connectDB
     function dichvuPDV_del($id)
     {
         $sql = "DELETE FROM dang_ky_dich_vu WHERE id ='$id'";
+        
         return mysqli_query($this->conn, $sql);
     }
 

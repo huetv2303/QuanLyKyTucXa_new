@@ -15,7 +15,7 @@
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal"> Thêm </button>
 
-            <form method="post" action="http://localhost/QuanLyKyTucXa_new/DachsachHDDV/themmoi">
+            <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/themmoi" id="addInvoiceForm">
                 <!-- Modal -->
                 <div class="modal-add">
                     <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
@@ -27,11 +27,13 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label>Mã hóa đơn:</label>
-                                        <input type="text" class="form-control" placeholder="Nhập mã dịch vụ" name="txtMaHD">
+                                        <label for="txtMaHD">Mã hóa đơn:</label>
+                                        <input type="text" class="form-control" placeholder="Nhập mã dịch vụ" name="txtMaHD" id="txtMaHD1" required>
+                                        <span class="error-message" id="errorTxtMaHD"></span>
+                                        <br>
 
-                                        <label for="">Chọn mã phòng</label>
-                                        <select name="txtMaPhong" class="form-control">
+                                        <label for="txtMaPhong">Chọn mã phòng:</label>
+                                        <select name="txtMaPhong" class="form-control" id="txtMaPhong1" required>
                                             <option value="">-------Chọn--------</option>
                                             <?php
                                             if (isset($data['dulieu1']) && mysqli_num_rows($data['dulieu1']) > 0) {
@@ -43,27 +45,52 @@
                                             }
                                             ?>
                                         </select>
-                                        <label>Điện</label>
-                                        <input type="number" class="form-control" placeholder="Nhập giá" name="txtDien">
-                                        <label>Nước</label>
-                                        <input type="number" class="form-control" placeholder="Nhập đơn vị" name="txtNuoc">
-                                        <label>Ngày tạo</label>
-                                        <input type="date" class="form-control" placeholder="Nhập ghi chú" name="txtNgayTao">
-                                        <label>Hạn nộp</label>
-                                        <input type="date" class="form-control" placeholder="Nhập ghi chú" name="txtNgayKT">
-                                        <label>Trạng thái</label>
-                                        <input type="text" class="form-control" placeholder="Nhập ghi chú" name="txtTrangThai">
+                                        <span class="error-message" id="errorTxtMaPhong"></span>
+                                        <br>
+
+                                        <label for="txtDien">Điện:</label>
+                                        <input type="number" class="form-control" placeholder="Nhập giá" name="txtDien" id="txtDien1" required>
+                                        <span class="error-message" id="errorTxtDien"></span>
+                                        <br>
+
+                                        <label for="txtNuoc">Nước:</label>
+                                        <input type="number" class="form-control" placeholder="Nhập đơn vị" name="txtNuoc" id="txtNuoc1" required>
+                                        <span class="error-message" id="errorTxtNuoc"></span>
+                                        <br>
+
+                                        <label for="txtNgayTao">Ngày tạo:</label>
+                                        <input type="date" class="form-control" name="txtNgayTao" id="txtNgayTao1" required>
+                                        <span class="error-message" id="errorTxtNgayTao"></span>
+                                        <br>
+
+                                        <label for="txtNgayKT">Hạn nộp:</label>
+                                        <input type="date" class="form-control" name="txtNgayKT" id="txtNgayKT1">
+                                        <span class="error-message" id="errorTxtNgayKT"></span>
+                                        <br>
+
+                                        <label for="txtTrangThai">Trạng thái:</label>
+                                        <!-- <input type="text" class="form-control" placeholder="Nhập trạng thái" name="txtTrangThai" id="txtTrangThai1" required>
+                                        <span class="error-message" id="errorTxtTrangThai"></span> -->
+
+                                        <select name="txtTrangThai" class="form-control" id="txtTrangThai1" required>
+                                            <option value="">------Chọn------</option>
+                                            <option value="Đã thanh toán">Đã thanh toán</option>
+                                            <option value="Chưa thanh toán">Chưa thanh toán</option>
+                                            <option value="Nợ">Nợ</option>
+                                        </select>
+                                        <span class="error-message" id="errorTxtTrangThai"></span>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary" name="btnLuuDV">Lưu</button>
+                                    <button type="submit" class="btn btn-primary" name="btnLuu" onclick="validateForm()">Lưu</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
+
         </div>
         <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/suadl">
             <!-- Modal -->
@@ -77,14 +104,14 @@
                             </div>
                             <div class="modal-body">
                                 <label>Mã hóa đơn:</label>
-                                <input type="text" class="form-control" name="txtMaHD" id="txtMaHD" value="">
+                                <input type="text" class="form-control" name="txtMaHD" id="txtMaHD" value="" disabled>
                                 <label>Mã phòng</label>
                                 <select name="txtMaPhong" class="form-control" id="txtMaPhong">
                                     <?php
                                     if (isset($data['dulieu3']) && mysqli_num_rows($data['dulieu3']) > 0) {
                                         while ($c = mysqli_fetch_assoc($data['dulieu3'])) {
                                     ?>
-                                            <option value="<?php echo $c['id_room'] ?>"><?php echo $c['id_room'] ?></option>
+                                            <option value="<?php echo $c['maPhong'] ?>"><?php echo $c['maPhong'] ?></option>
                                     <?php
                                         }
                                     }
@@ -99,7 +126,11 @@
                                 <label>Hạn nộp</label>
                                 <input type="date" class="form-control" name="txtNgayKT" id="txtNgayKT" value="">
                                 <label>Trạng thái</label>
-                                <input type="text" class="form-control" name="txtTrangThai" id="txtTrangThai" value="">
+                                <select name="txtTrangThai" class="form-control" id="txtTrangThai" required>
+                                    <option value="Đã thanh toán">Đã thanh toán</option>
+                                    <option value="Chưa thanh toán">Chưa thanh toán</option>
+                                    <option value="Nợ">Nợ</option>
+                                </select>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -111,7 +142,7 @@
             </div>
         </form>
 
-                                    <!--Hóa đơn  -->
+        <!--Hóa đơn  -->
         <form action="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/timkiem" method="POST">
             <div class="modal fade" id="ExPortModal" tabindex="-1" aria-labelledby="ExPortModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -251,5 +282,62 @@
     </div>
 
 </body>
+<script>
+    function validateForm() {
+        var maHD = document.getElementById('txtMaHD1').value;
+        var maPhong = document.getElementById('txtMaPhong1').value;
+        var dien = document.getElementById('txtDien1').value;
+        var nuoc = document.getElementById('txtNuoc1').value;
+        var ngayTao = document.getElementById('txtNgayTao1').value;
+        var trangThai = document.getElementById('txtTrangThai1').value;
+
+        var valid = true;
+
+        if (maHD.trim() === '') {
+            document.getElementById('errorTxtMaHD').textContent = 'Mã hóa đơn không được để trống';
+            valid = false;
+        } else {
+            document.getElementById('errorTxtMaHD').textContent = '';
+        }
+
+        if (maPhong.trim() === '') {
+            document.getElementById('errorTxtMaPhong').textContent = 'Vui lòng chọn mã phòng';
+            valid = false;
+        } else {
+            document.getElementById('errorTxtMaPhong').textContent = '';
+        }
+
+        if (dien.trim() === '' || isNaN(dien) || parseInt(dien) < 0) {
+            document.getElementById('errorTxtDien').textContent = 'Giá trị điện không hợp lệ';
+            valid = false;
+        } else {
+            document.getElementById('errorTxtDien').textContent = '';
+        }
+
+        if (nuoc.trim() === '' || isNaN(nuoc) || parseInt(nuoc) < 0) {
+            document.getElementById('errorTxtNuoc').textContent = 'Giá trị nước không hợp lệ';
+            valid = false;
+        } else {
+            document.getElementById('errorTxtNuoc').textContent = '';
+        }
+
+        if (ngayTao.trim() === '') {
+            document.getElementById('errorTxtNgayTao').textContent = 'Ngày tạo không được để trống';
+            valid = false;
+        } else {
+            document.getElementById('errorTxtNgayTao').textContent = '';
+        }
+
+
+        if (trangThai.trim() === '') {
+            document.getElementById('errorTxtTrangThai').textContent = 'Trạng thái không được để trống';
+            valid = false;
+        } else {
+            document.getElementById('errorTxtTrangThai').textContent = '';
+        }
+
+        return valid;
+    }
+</script>
 
 </html>

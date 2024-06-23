@@ -15,10 +15,9 @@ class DanhsachPDV extends controller
         $dulieu = $this->dsdv->dichvuPDV_all();
         $dulieu1 = $this->dsdv->dichvu_idnamdv();
         $dulieu2 = $this->dsdv->dichvu_idP();
-        
         $dulieu3 = $this->dsdv->dichvu_idnamdv();
         $dulieu4 = $this->dsdv->dichvu_idP();
-        
+
         // var_dump($_GET);
 
         $this->view('MasterLayout', [
@@ -69,7 +68,7 @@ class DanhsachPDV extends controller
     function suadl()
     {
 
-       
+
 
         $dulieu1 = $this->dsdv->dichvu_idnamdv();
         $dulieu2 = $this->dsdv->dichvu_idP();
@@ -77,17 +76,8 @@ class DanhsachPDV extends controller
         $dulieu3 = $this->dsdv->dichvu_idnamdv();
         $dulieu4 = $this->dsdv->dichvu_idP();
 
-        
-        $dulieu = $this->dsdv->dichvuPDV_all();
-        $this->view('MasterLayout', [
-            'page' => 'DanhsachPDV_v',
-            'dulieu' => $dulieu,
-            'dulieu1' => $dulieu1,
-            'dulieu2' => $dulieu2,
-            'dulieu3' => $dulieu3,
-            'dulieu4' => $dulieu4,
 
-        ]);
+
 
         if (isset($_POST['btnLuu'])) {
 
@@ -106,7 +96,7 @@ class DanhsachPDV extends controller
             //Gọi lại giao diện và truyền $dulieu ra
 
             // var_dump($_GET);
-  
+
             $dulieu = $this->dsdv->dichvuPDV_all();
             $this->view('MasterLayout', [
                 'page' => 'DanhsachPDV_v',
@@ -115,15 +105,14 @@ class DanhsachPDV extends controller
                 'dulieu2' => $dulieu2,
                 'dulieu3' => $dulieu3,
                 'dulieu4' => $dulieu4,
-    
+
             ]);
-    
         }
     }
 
     function xoa($id)
     {
-       
+
         // var_dump($_GET);
         $dulieu1 = $this->dsdv->dichvu_idnamdv();
         $dulieu2 = $this->dsdv->dichvu_idP();
@@ -131,7 +120,7 @@ class DanhsachPDV extends controller
         $dulieu3 = $this->dsdv->dichvu_idnamdv();
         $dulieu4 = $this->dsdv->dichvu_idP();
 
-  
+
 
         $kq = $this->dsdv->dichvuPDV_del($id);
         if ($kq)
@@ -142,7 +131,7 @@ class DanhsachPDV extends controller
         // $msv = $_POST['txtMaSinhVien'];
         // $tsv = $_POST['txtTenSinhVien'];
 
-         
+
         $dulieu = $this->dsdv->dichvuPDV_all();
         $this->view('MasterLayout', [
             'page' => 'DanhsachPDV_v',
@@ -158,12 +147,8 @@ class DanhsachPDV extends controller
     function themmoi()
     {
 
-        $dulieu1 = $this->dsdv->dichvu_idnamdv();
-        $dulieu2 = $this->dsdv->dichvu_idP();
-        $dulieu = $this->dsdv->dichvuPDV_all();
-        $dulieu3 = $this->dsdv->dichvu_idnamdv();
-        $dulieu4 = $this->dsdv->dichvu_idP();
-        
+
+
         // var_dump($_GET);
 
         if (isset($_POST['btnLuu'])) {
@@ -173,25 +158,26 @@ class DanhsachPDV extends controller
 
 
             $kq = $this->dsdv->dichvuPDV_ins($id_room, $id_service);
-
             if ($kq) {
                 echo "<script>alert('Thêm mới thành công!')</script>";
             } else
 
                 echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
-
-
-            $dulieu = $this->dsdv->dichvuPDV_all();
-            $this->view('MasterLayout', [
-                'page' => 'DanhsachPDV_v',
-                'dulieu' => $dulieu,
-                'dulieu1' => $dulieu1,
-                'dulieu2' => $dulieu2,
-                'dulieu3' => $dulieu3,
-                'dulieu4' => $dulieu4,
-
-            ]);
         }
+        $dulieu1 = $this->dsdv->dichvu_idnamdv();
+        $dulieu2 = $this->dsdv->dichvu_idP();
+        $dulieu = $this->dsdv->dichvuPDV_all();
+        $dulieu3 = $this->dsdv->dichvu_idnamdv();
+        $dulieu4 = $this->dsdv->dichvu_idP();
+        $this->view('MasterLayout', [
+            'page' => 'DanhsachPDV_v',
+            'dulieu' => $dulieu,
+            'dulieu1' => $dulieu1,
+            'dulieu2' => $dulieu2,
+            'dulieu3' => $dulieu3,
+            'dulieu4' => $dulieu4,
+
+        ]);
     }
 }
 // }

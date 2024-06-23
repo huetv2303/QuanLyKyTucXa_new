@@ -38,7 +38,7 @@ nav>ul>li{
 }
 
 .main , .title{
-    margin: 50px 100px ;
+    margin: 50px 50px ;
     
 }
 
@@ -71,4 +71,10 @@ p{
     display: flex;
     gap: 500px;
     padding: 0px 0px 10px 20px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    font-style: italic;
 }

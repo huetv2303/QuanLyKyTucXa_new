@@ -59,7 +59,6 @@
 
 
         #content-right1 {
-            padding-top: 10px;
             float: left;
             width: 80%;
         }
