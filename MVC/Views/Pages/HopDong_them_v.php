@@ -70,7 +70,7 @@
                                     if (isset($data['sinhvien']) && mysqli_num_rows($data['sinhvien']) > 0) {
                                         while ($c = mysqli_fetch_assoc($data['sinhvien'])) {
                                     ?>
-                                            <option value="<?php echo $c['maSinhVien'] ?>"><?php echo $c['hoTen'] ?></option>
+                                            <option value="<?php echo $c['maSinhVien'] ?>" ><?php echo $c['hoTen'] ?></option>
                                     <?php
                                         }
                                     }
