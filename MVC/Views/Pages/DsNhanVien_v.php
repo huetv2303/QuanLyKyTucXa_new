@@ -98,6 +98,7 @@
                                 <td><?php echo $row['SoDienThoai'] ?></td>
                                 <td><?php echo $row['MaToa'] ?></td>
                                 <td>
+<<<<<<< HEAD
 
                                     <a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien/loadForm/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square">&nbsp;&nbsp;</i>Sửa</a> &nbsp;
                                     <a onclick="return confirm('Bạn có muốn xóa nhân viên này không ?')" href="http://localhost/QuanLyKyTucXa_new/DsNhanVien/Delete/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash">&nbsp;&nbsp;</i>Xóa</a>
@@ -105,6 +106,10 @@
 
                                    
 
+=======
+                                    <a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien/loadForm/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square">&nbsp;&nbsp;</i>Sửa</a> &nbsp;
+                                    <a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien/Delete/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash">&nbsp;&nbsp;</i>Xóa</a>
+>>>>>>> 9fc4ec337a7e3286e1430f0e7300287319c94468
                                 </td>
                             </tr>
                     <?php
