@@ -11,8 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/7c35a47a4f.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
-    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
+    <link rel="stylesheet" href="http://localhost:9090/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
+    <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     
@@ -88,7 +88,7 @@
                     <img style="width : 300px;" src="https://utt.edu.vn/uploads/images/site/1447346709LOGO_GTVT.png" alt="LOGO UTT">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/QuanLyKyTucXa_new/Home">Trang chủ</a>
+                        <a class="nav-link" href="http://localhost:9090/QuanLyKyTucXa_new/Home">Trang chủ</a>
                     </li>
 
                     <li class="nav-item">
@@ -142,7 +142,7 @@
                     </div>
                     <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
-                            <a href="http://localhost/QuanLyKyTucXa_new/HopDong" class="btn">Danh sách hợp đồng</a>
+                            <a href="http://localhost:9090/QuanLyKyTucXa_new/HopDong" class="btn">Danh sách hợp đồng</a>
                             <a href="" class="btn">Chuc nang 2</a>
                             <a href="" class="btn">Chuc nang 3</a>
                         </div>
@@ -157,10 +157,10 @@
                     </div>
                     <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
-                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachPDV" class="btn">Đăng ký dịch vụ</a>
-                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDN" class="btn">Điện nước</a>
-                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV" class="btn">Dịch vụ khác</a>
-                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV" class="btn">Hóa đơn dịch vụ</a>
+                            <a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPDV" class="btn">Đăng ký dịch vụ</a>
+                            <a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDN" class="btn">Điện nước</a>
+                            <a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV" class="btn">Dịch vụ khác</a>
+                            <a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachHDDV" class="btn">Hóa đơn dịch vụ</a>
                         </div>
                     </div>
                 </div>
@@ -173,7 +173,7 @@
                     </div>
                     <div id="collapseFour" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
-                            <a href="http://localhost/QuanLyKyTucXa_new/TKNuoc" class="btn">Thống kê nước</a>
+                            <a href="http://localhost:9090/QuanLyKyTucXa_new/TKNuoc" class="btn">Thống kê nước</a>
                             <a href="" class="btn">Chuc nang 2</a>
                             <a href="" class="btn">Chuc nang 3</a>
                         </div>

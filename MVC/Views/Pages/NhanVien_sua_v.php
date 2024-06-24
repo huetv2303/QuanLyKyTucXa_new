@@ -35,7 +35,7 @@
                     <label>Số điện thoại</label>
                     <input type="text" class="form-control" placeholder="Số điện thoại" name="txtSdt" value="<?php echo $row['SoDienThoai'] ?>">
                     <label>Mã tòa</label>
-                    <input type="text" class="form-control" placeholder="Mã tòa" name="txtMaToa" value="<?php echo $row['MaToa'] ?>">
+                    <input type="text" class="form-control" placeholder="Mã tòa" name="txtMaToa" value="<?php echo $row['maToa'] ?>">
             <?php
                 }
             }

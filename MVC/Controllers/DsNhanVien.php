@@ -75,7 +75,7 @@ class DsNhanVien extends controller
                 $sheet->setCellValue('E' . $rowCount, $row['NgaySinh']);
                 $sheet->setCellValue('F' . $rowCount, $row['DiaChi']);
                 $sheet->setCellValue('G' . $rowCount, $row['SoDienThoai']);
-                $sheet->setCellValue('H' . $rowCount, $row['MaToa']);
+                $sheet->setCellValue('H' . $rowCount, $row['maToa']);
             }
             //Kẻ bảng 
             $styleAray = array(
