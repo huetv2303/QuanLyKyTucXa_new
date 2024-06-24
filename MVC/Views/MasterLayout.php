@@ -85,10 +85,10 @@
             <!-- <img src="https://utt.edu.vn/uploads/images/site/1447346709LOGO_GTVT.png" alt="LOGO UTT"> -->
             <div id="nav1">
                 <ul class="nav navbar justify-content bg-light ">
-                    <img style="width : 200px;" src="https://utt.edu.vn/uploads/images/site/1447346709LOGO_GTVT.png" alt="LOGO UTT">
+                    <img style="width : 300px;" src="https://utt.edu.vn/uploads/images/site/1447346709LOGO_GTVT.png" alt="LOGO UTT">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Trang chủ</a>
+                        <a class="nav-link" href="http://localhost/QuanLyKyTucXa_new/Home">Trang chủ</a>
                     </li>
 
                     <li class="nav-item">
