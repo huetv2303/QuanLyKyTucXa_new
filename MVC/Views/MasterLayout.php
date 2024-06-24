@@ -103,22 +103,9 @@
                          <h1>Quản lý ký túc xá</h1>
                     </li>
 
-<<<<<<< HEAD
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Quản lí phòng</a>
-                    </li>
+                    
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:2929/QuanLyKyTucXa_new/DanhsachSV">Quản lí sinh viên</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Quản lí hợp đồng</a>
-                    </li>
-=======
-                  
-
->>>>>>> 9fc4ec337a7e3286e1430f0e7300287319c94468
+                    
 
                     <li class="nav-item">
                         <a class="nav-link" href="#">Thoát</a>
@@ -176,10 +163,6 @@
                         <div class="card-body">
                             <a href="http://localhost/QuanLyKyTucXa_new/HopDong" class="btn">Danh sách hợp đồng</a>
                             <a href="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan" class="btn">Gia hạn hợp đồng</a>
-<<<<<<< HEAD
-=======
-                            <a href="" class="btn">Chuc nang 3</a>
->>>>>>> 9fc4ec337a7e3286e1430f0e7300287319c94468
                         </div>
                     </div>
                 </div>
