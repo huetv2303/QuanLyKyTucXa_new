@@ -1,11 +1,7 @@
 <?php
 class app
 {
-<<<<<<< HEAD
     protected $controller ='DanhsachSV';
-=======
-    protected $controller ='NopPhat';
->>>>>>> 94688866de83f24a8b807f90948041736ba5cc57
     protected $action = 'Get_data';
     protected $param = [];
 

@@ -99,7 +99,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Quản lí sinh viên</a>
+                        <a class="nav-link" href="http://localhost:2929/QuanLyKyTucXa_new/DanhsachSV">Quản lí sinh viên</a>
                     </li>
 
                     <li class="nav-item">
