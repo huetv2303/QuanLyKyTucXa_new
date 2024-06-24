@@ -1,0 +1,181 @@
+<?php
+class HopDong extends controller
+{
+    protected $hopdong;
+    public function __construct()
+    {
+        $this->hopdong = $this->model('HopDong_m');
+    }
+
+    public function Get_data()
+    {
+        
+        $dulieu = $this->hopdong->hopdong_all(); //load toàn bộ danh sách hợp đồng
+        $this->view('Masterlayout', [
+            'page' => 'HopDong_v',
+            'dulieu' => $dulieu,
+            // 'nhanvien' => $nhanvien,
+            // 'sinhvien' => $sinhvien,
+            // 'phong' => $phong
+        ]);
+    }
+
+    public function xoa($mhd)
+    {
+        $kq = $this->hopdong->hopdong_del($mhd);
+        if ($kq) echo "<script>alert('xoa thành công')</script>";
+        else echo "<script>alert('xoa thất bai')</script>";
+
+
+        $dulieu = $this->hopdong->hopdong_all();
+        //Goi lai giao dien va truyen $duleiu ra
+        $this->view('Masterlayout', [
+            'page' => 'HopDong_v',
+            'dulieu' => $dulieu,
+        ]);
+    }
+    
+    public function sua($mhd){
+        $nhanvien = $this->hopdong->nhanvien_all();
+        $sinhvien = $this->hopdong->sinhvien_all();
+        $phong = $this->hopdong->phong_all();
+        $this->view('Masterlayout', [
+            'page' => 'HopDong_sua_v',
+            'dulieu' => $this->hopdong->hopdong_find($mhd, '','',''),
+            'nhanvien' => $nhanvien,
+            'sinhvien' => $sinhvien,
+            'phong' => $phong
+        ]);
+    }
+
+    public function suadl(){
+        if (isset($_POST['btnLuu'])) {
+            $mhd = $_POST['txtMaHopDong'];
+            $mnv = $_POST['txtMaNhanVien'];
+            $msv = $_POST['txtMaSinhVien'];
+            $mp = $_POST['txtMaPhong'];
+            $start = $_POST['txtNgayBatDau'];
+            $end = $_POST['txtNgayKetThuc'];
+            $tt = $_POST['txtTinhTrang'];
+
+            $kq = $this->hopdong->hopdong_upd($mhd, $mnv, $msv, $mp, $start, $end, $tt);
+            if ($kq) {
+                echo "<script>alert('Sửa thành công!')</script>";
+            } else
+                echo "<script>alert('Sửa thất bại!')</script>";
+
+            //Gọi lại giao diện và truyền $dulieu ra
+            $dulieu = $this->hopdong->hopdong_all();
+            $this->view('Masterlayout', [
+                'page' => 'HopDong_v',
+                'dulieu' => $dulieu
+            ]);
+        }
+    }
+
+    public function timkiem(){
+        //code nút tìm kiếm
+        if (isset($_POST['btnTimkiem'])) {
+            $mhd = $_POST['txtMaHopDong'];
+            $mnv = $_POST['txtMaNhanVien'];
+            $msv = $_POST['txtMaSinhVien'];
+            $mp = $_POST['txtMaPhong'];
+
+            $dulieu = $this->hopdong->hopdong_find($mhd, $mnv, $msv, $mp);
+            $this->view('Masterlayout', [
+                'page' => 'HopDong_v',
+                'dulieu' => $dulieu,
+                'maHopDong'=> $mhd,
+                'maNhanVien'=>$mnv,
+                'maSinhVien'=>$msv,
+                'maPhong'=>$mp
+            ]);
+        }
+
+        //code nút xuất excel
+        if (isset($_POST['btnXuatExcel'])) {
+            //code xuất excel
+            $objExcel = new PHPExcel();
+            $objExcel->setActiveSheetIndex(0);
+            $sheet = $objExcel->getActiveSheet()->setTitle('Danh sach');
+            $rowCount = 1;
+            
+            //Tạo tiêu đề cho cột trong excel
+            $sheet->setCellValue('A' . $rowCount, 'STT');
+            $sheet->setCellValue('B' . $rowCount, 'Mã Hợp đồng');
+            $sheet->setCellValue('C' . $rowCount, 'Mã Nhân viên');
+            $sheet->setCellValue('D' . $rowCount, 'Mã Sinh viên');
+            $sheet->setCellValue('E' . $rowCount, 'Mã phòng');
+            $sheet->setCellValue('F' . $rowCount, 'Ngày bắt dầu');
+            $sheet->setCellValue('G' . $rowCount, 'Ngày kết thúc');
+            $sheet->setCellValue('H' . $rowCount, 'Tình trạng');
+            
+
+            //định dạng cột tiêu đề
+            $sheet->getColumnDimension('A')->setAutoSize(true);
+            $sheet->getColumnDimension('B')->setAutoSize(true);
+            $sheet->getColumnDimension('C')->setAutoSize(true);
+            $sheet->getColumnDimension('D')->setAutoSize(true);
+            $sheet->getColumnDimension('E')->setAutoSize(true);
+            $sheet->getColumnDimension('F')->setAutoSize(true);
+            $sheet->getColumnDimension('G')->setAutoSize(true);
+            $sheet->getColumnDimension('H')->setAutoSize(true);
+
+            //gán màu nền
+            $sheet->getStyle('A1:H1')->getFill()->setFillType(\PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b9e0c1');
+            //căn giữa
+            $sheet->getStyle('A1:H1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+            //bôi đậm dòng tiêu đề
+            $sheet->getStyle('A1:H1')->getFont()->setBold(true); 
+            
+            //Điền dữ liệu vào các dòng. Dữ liệu lấy từ DB
+            $mhd = $_POST['txtMaHopDong'];
+            $mnv = $_POST['txtMaNhanVien'];
+            $msv = $_POST['txtMaSinhVien'];
+            $mp = $_POST['txtMaPhong'];
+
+            $data = $this->hopdong->hopdong_find($mhd, $mnv, $msv, $mp);
+
+            while ($row = mysqli_fetch_array($data)) {
+                $rowCount++;
+                $sheet->setCellValue('A' . $rowCount, $rowCount - 1);
+                $sheet->setCellValue('B' . $rowCount, $row['maHopDong']);
+                $sheet->setCellValue('C' . $rowCount, $row['maNhanVien']);
+                $sheet->setCellValue('D' . $rowCount, $row['maSinhVien']);
+                $sheet->setCellValue('E' . $rowCount, $row['maPhong']);
+                $sheet->setCellValue('F' . $rowCount, $row['ngayBatDau']);
+                $sheet->setCellValue('G' . $rowCount, $row['ngayKetThuc']);
+                $sheet->setCellValue('H' . $rowCount, $row['tinhTrang']);
+            }
+            //Kẻ bảng 
+            $styleAray = array(
+                'borders' => array(
+                    'allborders' => array(
+                        'style' => PHPExcel_Style_Border::BORDER_THIN
+                    )
+                )
+            );
+            $sheet->getStyle('A1:' . 'H' . ($rowCount))->applyFromArray($styleAray);
+            //căn giữa cột stt
+            $sheet->getStyle('A2:A'.($rowCount))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER); 
+
+            
+            $objWriter = new PHPExcel_Writer_Excel2007($objExcel);
+            $fileName = 'xuattttt.xlsx';
+            $objWriter->save($fileName);
+
+            header('Content-Disposition: attachment; filename="' . $fileName . '"');
+            header('Content-Type: application/vnd.openxlmformatsofficedocument.speadsheetml.sheet');
+            // header('Content-Type: application/vnd.ms-excel');
+            header('Content-Length: ' . filesize($fileName));
+            header('Content-Transfer-Encoding: binary');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: no-cache');
+            readfile($fileName);
+        }
+    }
+
+
+
+
+}

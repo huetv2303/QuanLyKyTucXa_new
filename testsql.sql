@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `qlktx1`
+-- Database: `testsql`
 --
 
 -- --------------------------------------------------------
@@ -116,13 +116,13 @@ CREATE TABLE `hopdong` (
 --
 
 CREATE TABLE `nhanvien` (
-  `MaNhanVien` varchar(10) NOT NULL,
-  `TenNhanVien` varchar(50) NOT NULL,
-  `GioiTinh` varchar(10) NOT NULL,
-  `NgaySinh` date NOT NULL,
-  `DiaChi` varchar(100) NOT NULL,
-  `SoDienThoai` varchar(20) NOT NULL,
-  `MaToa` varchar(50) NOT NULL
+  `maNhanVien` varchar(10) NOT NULL,
+  `tenNhanVien` varchar(50) NOT NULL,
+  `gioiTinh` varchar(10) NOT NULL,
+  `ngaySinh` date NOT NULL,
+  `diaChi` varchar(100) NOT NULL,
+  `soDienThoai` varchar(20) NOT NULL,
+  `maToa` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
