@@ -125,9 +125,9 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Mã Nhân Viên :</label>
-                            <input type="text" class="form-control" placeholder="Nhập mã" name="txtMaNv">
+                            <input type="text" class="form-control" placeholder="Nhập mã" name="txtMaNv" require>
                             <label>Họ và Tên :</label>
-                            <input type="text" class="form-control" placeholder="Nhập họ tên" name="txtTenNv">
+                            <input type="text" class="form-control" placeholder="Nhập họ tên" name="txtTenNv" require>
                             <label>Giới tính:</label>
                             <select class="form-control" name="txtGioiTinh">
                                 <option>--- Chọn giới tính ---</option>
@@ -140,9 +140,9 @@
                             <label>Địa Chỉ :</label>
                             <input type="text" class="form-control" placeholder="Nhập địa chỉ" name="txtDiaChi">
                             <label>Số Điện Thoại :</label>
-                            <input type="number" class="form-control" placeholder="Nhập số điện thoại" name="txtSdt">
+                            <input type="number" class="form-control" placeholder="Nhập số điện thoại" name="txtSdt" require>
                             <label>Mã Tòa :</label>
-                            <input type="text" class="form-control" placeholder="Nhập phân khu" name="txtMaToa">
+                            <input type="text" class="form-control" placeholder="Nhập phân khu" name="txtMaToa" require>
                         </div>
                     </div>
 

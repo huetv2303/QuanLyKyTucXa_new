@@ -42,6 +42,7 @@
             ?>
             <br>
             <button type="submit" class="btn btn-primary" name="btnCapNhat">Cập nhật</button>
+            <button type="submit" class="btn btn-primary" name="btnBack">Quay lại</button>
         </div>
     </form>
 </div>

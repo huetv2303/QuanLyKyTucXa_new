@@ -5,7 +5,7 @@ class connectDB
     protected $serverName = "localhost";
     protected $userName = "root";
     protected $pwd = "";
-    protected $dbName = "testsql";
+    protected $dbName = "qlkytucxa";
 
     function __construct()
     {
