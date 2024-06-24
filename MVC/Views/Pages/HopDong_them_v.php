@@ -51,7 +51,7 @@
                                     if (isset($data['nhanvien']) && mysqli_num_rows($data['nhanvien']) > 0) {
                                         while ($c = mysqli_fetch_assoc($data['nhanvien'])) {
                                     ?>
-                                            <option value="<?php echo $c['MaNhanVien'] ?>" <?php if (isset($data['MaNhanVien']) && ($c['MaNhanVien'] == $data['MaNhanVien'])) echo "selected"; ?>>
+                                            <option value="<?php echo $c['MaNhanVien'] ?>" >
                                                 <?php echo $c['TenNhanVien']; ?></option>
                                     <?php
                                         }
@@ -70,7 +70,7 @@
                                     if (isset($data['sinhvien']) && mysqli_num_rows($data['sinhvien']) > 0) {
                                         while ($c = mysqli_fetch_assoc($data['sinhvien'])) {
                                     ?>
-                                            <option value="<?php echo $c['maSinhVien'] ?>" <?php if (isset($data['maSinhVien']) && ($c['maSinhVien'] == $data['maSinhVien'])) echo "selected"; ?>><?php echo $c['hoTen'] ?></option>
+                                            <option value="<?php echo $c['maSinhVien'] ?>"><?php echo $c['hoTen'] ?></option>
                                     <?php
                                         }
                                     }
@@ -87,7 +87,7 @@
                                     if (isset($data['phong']) && mysqli_num_rows($data['phong']) > 0) {
                                         while ($c = mysqli_fetch_assoc($data['phong'])) {
                                     ?>
-                                            <option value="<?php echo $c['maPhong'] ?>" <?php if (isset($data['maPhong']) && ($c['maPhong'] == $data['maPhong'])) echo "selected"; ?>><?php echo $c['maPhong'] ?></option>
+                                            <option value="<?php echo $c['maPhong'] ?>"><?php echo $c['maPhong'] ?></option>
                                     <?php
                                         }
                                     }

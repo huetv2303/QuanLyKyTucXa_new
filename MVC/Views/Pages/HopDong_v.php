@@ -5,12 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách hợp đồng</title>
-<<<<<<< HEAD
 
     <link rel="stylesheet" href="/Public/CSS/style.css">
-=======
-    
->>>>>>> a8bee1ccf93fe07c9bee46489ce1a0559d4ba9d4
     <style>
         .inputSearch {
             width: 300px;

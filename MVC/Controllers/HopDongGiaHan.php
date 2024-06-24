@@ -34,12 +34,12 @@ class HopDongGiaHan extends controller
     {
         if (isset($_POST['btnLuu'])) {
             $mhd = $_POST['txtMaHopDong'];
-            $start = $_POST['txtNgayBatDau'];
             $end = $_POST['txtNgayKetThuc'];
+            $giahan = $_POST['txtNgayGiaHan'];
 
-            if ($start > $end) echo "<script>alert('Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu hợp đồng')</script>";
+            if ($end >= $giahan) echo "<script>alert('Ngày gia hạn thêm phải lớn hơn ngày kết thúc hợp đồng!')</script>";
             else {
-                $kq = $this->hopdonggiahan->hopdonggiahan_giahan($mhd, $end);
+                $kq = $this->hopdonggiahan->hopdonggiahan_giahan($mhd, $giahan);
                 if ($kq) {
                     echo "<script>alert('Gia hạn hợp đồng thành công')</script>";
                 } else {
