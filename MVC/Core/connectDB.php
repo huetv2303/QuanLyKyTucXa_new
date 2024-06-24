@@ -5,7 +5,7 @@ class connectDB
     protected $serverName = "localhost";
     protected $userName = "root";
     protected $pwd = "";
-    protected $dbName = "qlnv";
+    protected $dbName = "qlkytucxa";
     function __construct()
     {
         $this->conn = mysqli_connect($this->serverName, $this->userName, $this->pwd, $this->dbName);
