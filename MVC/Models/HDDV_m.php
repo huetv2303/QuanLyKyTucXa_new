@@ -40,9 +40,9 @@ class HDDV_m extends connectDB
         id_room,
         COALESCE(SUM(dvk.price), 0) AS tong_dich_vu_khac
     FROM
-        phong_dich_vu
+        dang_ky_dich_vu
     LEFT JOIN
-        dich_vu_khac dvk ON dvk.id_service = phong_dich_vu.id_service
+        dich_vu_khac dvk ON dvk.id_service = dang_ky_dich_vu.id_service
     GROUP BY
         id_room) AS dich_vu_khac ON hdv.id_room = dich_vu_khac.id_room";
 
@@ -62,7 +62,7 @@ class HDDV_m extends connectDB
 
     public function hddv_idP()
     {
-        $sql = "SELECT id_room FROM phong_ky_tuc_xa";
+        $sql = "SELECT maPhong FROM phong";
         return mysqli_query($this->conn, $sql);
     }
 
@@ -104,9 +104,9 @@ class HDDV_m extends connectDB
                     id_room,
                     COALESCE(SUM(dvk.price), 0) AS tong_dich_vu_khac
                  FROM
-                    phong_dich_vu
+                    dang_ky_dich_vu
                  LEFT JOIN
-                    dich_vu_khac dvk ON dvk.id_service = phong_dich_vu.id_service
+                    dich_vu_khac dvk ON dvk.id_service = dang_ky_dich_vu.id_service
                  GROUP BY
                     id_room) AS dich_vu_khac ON hdv.id_room = dich_vu_khac.id_room
             WHERE

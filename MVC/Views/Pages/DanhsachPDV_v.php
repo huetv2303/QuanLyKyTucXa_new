@@ -39,7 +39,7 @@
                                                 if (isset($data['dulieu2']) && mysqli_num_rows($data['dulieu2']) > 0) {
                                                     while ($c = mysqli_fetch_assoc($data['dulieu2'])) {
                                                 ?>
-                                                        <option value="<?php echo $c['id_room'] ?>"><?php echo $c['id_room'] ?></option>
+                                                        <option value="<?php echo $c['maPhong'] ?>"><?php echo $c['maPhong'] ?></option>
                                                 <?php
                                                     }
                                                 }

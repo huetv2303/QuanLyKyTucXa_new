@@ -13,6 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=1"> </script>
+   
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     
@@ -138,13 +139,13 @@
                 <div class="card">
                     <div class="card-header">
                         <a class="btn" data-bs-toggle="collapse" href="#collapseTwo">
-                            Chính #2
+                            Phòng
                         </a>
                     </div>
                     <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
-                            <a href="" class="btn">Chuc nang 1</a>
-                            <a href="" class="btn">Chuc nang 2</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c" class="btn">Danh sách phòng</a>
+                            <a href="" class="btn">Chức năng 2</a>
                             <a href="" class="btn">Chuc nang 3</a>
                         </div>
                     </div>

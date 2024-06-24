@@ -19,13 +19,13 @@
                 <label>Mã phòng</label>
                 <select name="txtTKN" class="form-control tkn" id="txtTKN">
 
-                    <option value="<?php if (isset($data['id_room'])) echo $data['id_room'] ?>">-----Chọn mã phòng-----</option>
+                    <option value="<?php if (isset($data['maPhong'])) echo $data['maPhong'] ?>">-----Chọn mã phòng-----</option>
                     <?php
 
                     if (isset($data['dulieu1']) && mysqli_num_rows($data['dulieu1']) > 0) {
                         while ($c = mysqli_fetch_assoc($data['dulieu1'])) {
                     ?>
-                            <option value="<?php echo $c['id_room'] ?>"><?php echo $c['id_room'] ?></option>
+                            <option value="<?php echo $c['maPhong'] ?>"><?php echo $c['maPhong'] ?></option>
                     <?php
                         }
                     }
@@ -46,7 +46,7 @@
             if (isset($data['dulieu'])) {
                 while ($row = mysqli_fetch_assoc($data['dulieu'])) {
 
-                    $labels1[] = $row['id_room'];
+                    $labels1[] = $row['maPhong'];
                     $labels[] = $row['month'];
                     $dataPoints[] = $row['tong_chi_phi_nuoc'];
                 }
