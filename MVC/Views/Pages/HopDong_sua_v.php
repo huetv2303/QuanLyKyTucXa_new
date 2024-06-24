@@ -21,9 +21,10 @@
 </head>
 
 <body>
+<div class="main">
     <div class="content">
-
-        <a class="text-black content1" href="http://localhost/QuanLyKyTucXa_new/HopDong">
+        <br>
+        <a style="margin: 20px;" class="text-black content1" href="http://localhost/QuanLyKyTucXa_new/HopDong">
             << Quay lại</a>
                 <br>
 
@@ -124,6 +125,7 @@
                             </table>
                 </form>
     </div>
+</div>
 </body>
 
 </html>
