@@ -16,9 +16,8 @@
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal"> Thêm </button>
 
-
             <!-- Modal -->
-            <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachPDV/themmoi">
+            <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPDV/themmoi">
 
                 <div class="modal-add">
                     <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
@@ -44,7 +43,6 @@
                                             <?php
                                                 }
                                             }
-
                                             ?>
                                         </select>
                                         <span class="error-message" id="errorTxtMaPhong"></span>
@@ -81,7 +79,7 @@
             </form>
 
         </div>
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachPDV/suadl">
+        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPDV/suadl">
             <!-- Modal -->
             <div class="modal-update">
                 <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
@@ -94,8 +92,6 @@
                             <div class="modal-body">
                                 <label>ID</label>
                                 <input type="text" class="form-control" name="txtID" id="txtID" value="" readonly>
-
-
                                 <label>Mã phòng</label>
                                 <select name="txtMaPhong" class="form-control" id="txtMaPhong">
                                     <?php
@@ -107,13 +103,9 @@
                                     <?php
                                         }
                                     }
-
                                     ?>
                                 </select>
-
-
                                 <label>Dịch vụ</label>
-
                                 <select name="txtMaDV" class="form-control" id="txtMaDV">
                                     <?php
 
@@ -124,12 +116,8 @@
                                     <?php
                                         }
                                     }
-
                                     ?>
                                 </select>
-
-
-
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -140,7 +128,7 @@
                 </div>
             </div>
         </form>
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachPDV/timkiem">
+        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPDV/timkiem">
             <div class="form-inline">
                 <div class="head_timkiem">
                     <div>
@@ -150,7 +138,6 @@
                     <div>
                         <label style="width: 100px;">Mã dịch vụ</label>
                         <input type="text" name="txtMaDV" placeholder="Mã Dịch Vụ" class="form-control" value="<?php echo isset($_POST['txtMaDV']) ? htmlspecialchars($_POST['txtMaDV']) : ''; ?>">
-
                     </div>
                     <div>
                         <button type="submit" style="margin: 24px 0px;" class="btn btn-success" name="btnTimKiem">Tìm kiếm</button>
@@ -164,9 +151,6 @@
                             <th>Mã phòng</th>
                             <th>Mã dịch vụ</th>
                             <th>Thao tác</th>
-
-
-
                         </tr>
                     </thead>
                     <tbody>
@@ -174,26 +158,19 @@
 
                         // if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
                         while ($row = mysqli_fetch_assoc($data['dulieu'])) {
-
                         ?>
                             <tr>
-
                                 <td><?php echo htmlspecialchars($row['id']) ?></td>
                                 <td><?php echo htmlspecialchars($row['id_room']) ?></td>
                                 <td><?php echo htmlspecialchars($row['id_service']) ?></td>
-
-
                                 <td>
 
                                     <a class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal" onclick="updateDataPDV('<?php echo htmlspecialchars(json_encode($row)) ?>')"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachPDV/xoa/<?php echo $row['id'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
-
-
+                                    <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPDV/xoa/<?php echo $row['id'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
                                 </td>
 
                             </tr>
                         <?php
-
                         }
                         // }
                         ?>
@@ -221,7 +198,6 @@
         } else {
             document.getElementById('errorTxtMaPhong').textContent = '';
         }
-
 
         return valid;
     }
