@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý phòng</title>
+    <title></title>
     <style>
         .center-dulieu {
     display: flex;
@@ -16,6 +16,7 @@
 .td2{
     width: 250px;
 }
+
     </style>
 </head>
 
@@ -87,7 +88,21 @@
                                 <label>Mã phòng</label>
                                 <input type="text" class="form-control" name="txtMaphong" id="txtMaphong" value="">
                                 <label>Mã tòa</label>
-                                <input type="text" class="form-control" name="txtMatoa" id="txtMatoa" value="">
+                            <select name="txtMatoa" id="txtMatoa" class="form-control" >
+                            <?php
+
+                            if (isset($data['ma1']) && mysqli_num_rows($data['ma1']) > 0) {
+                                while ($row = mysqli_fetch_assoc($data['ma1'])) {
+                                    ?>
+                                        <option value="<?php echo $row['maToa'] ?>"><?php echo $row['maToa'] ?></option>
+                                <?php
+                                }
+                            }
+
+                            ?>
+                            </select>
+                                <!-- <label>Mã tòa</label>
+                                <input type="text" class="form-control" name="txtMatoa" id="txtMatoa" value=""> -->
                                 <label>Số người</label>
                                 <input type="text" class="form-control" name="txtSonguoi" id="txtSonguoi" value="">
                                 <label>Tiền phòng</label>
@@ -160,26 +175,26 @@
                     <th>Trạng thái</th>
                     <th>Thao tác</th>
                 </tr>
-                <?php 
-                    if(isset($data['dulieu']) && mysqli_num_rows($data['dulieu'])>0){
-                        $i=0;
-                        while($row=mysqli_fetch_assoc($data['dulieu'])){
-                ?>
-                        <tr >
-                           <td><?php echo (++$i) ?></td>
-                           <td><?php echo $row['maPhong'] ?></td>
-                           <td><?php echo $row['maToa'] ?></td>
-                           <td><?php echo $row['soNguoi'] ?></td>
-                           <td><?php echo $row['tienPhong'] ?></td>
-                           <td><?php echo $row['trangThai'] ?></td>
-                           <td>
-                           <button onclick="updateDataP('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
-                           <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/xoa/<?php echo $row['maPhong'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
-                           </td>
-                        </tr>
                 <?php
-                        }
+                if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
+                    $i = 0;
+                    while ($row = mysqli_fetch_assoc($data['dulieu'])) {
+                        ?>
+                                                                <tr >
+                                                                   <td><?php echo (++$i) ?></td>
+                                                                   <td><?php echo $row['maPhong'] ?></td>
+                                                                   <td><?php echo $row['maToa'] ?></td>
+                                                                   <td><?php echo $row['soNguoi'] ?></td>
+                                                                   <td><?php echo $row['tienPhong'] ?></td>
+                                                                   <td><?php echo $row['trangThai'] ?></td>
+                                                                   <td>
+                                                                   <button onclick="updateDataP('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
+                                                                   <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/xoa/<?php echo $row['maPhong'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+                                                                   </td>
+                                                                </tr>
+                                                        <?php
                     }
+                }
                 ?>
         </table>
         </div>

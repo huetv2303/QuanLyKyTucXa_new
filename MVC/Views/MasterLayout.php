@@ -60,7 +60,6 @@
 
 
         #content-right1 {
-            padding-top: 10px;
             float: left;
             width: 80%;
         }
@@ -145,7 +144,7 @@
                     <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
                             <a href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c" class="btn">Danh sách phòng</a>
-                            <a href="http://localhost/QuanLyKyTucXa_new/Toa_c" class="btn">Tòa</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/Toa_c" class="btn">Thông tin tòa</a>
                             <a href="" class="btn">Chuc nang 3</a>
                         </div>
                     </div>

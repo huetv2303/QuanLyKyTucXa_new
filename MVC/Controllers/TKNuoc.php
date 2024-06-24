@@ -11,24 +11,24 @@ class TKNuoc extends controller
     function Get_data()
     {
         // Lấy dữ liệu ban đầu để hiển thị form thống kê nước
+        $dulieu = $this->dsdv->getMonthlyWaterUsage('');
         $dulieu1 = $this->dsdv->getid_room();
         $this->view('MasterLayout', [
             'page' => 'TKNuoc_v',
             'dulieu1' => $dulieu1,
+            'dulieu' => $dulieu,
         ]);
     }
 
     function thongkenuoc()
-    {    
-
+    {
         $dulieu = null;
         $dulieu1 = $this->dsdv->getid_room();
+
         if (isset($_POST['btnTKN'])) {
             $tkn = $_POST['txtTKN'];
-            $dulieu = $this->dsdv->getMonthlyWaterUsage($tkn);
-
-            // Kiểm tra và xử lý dữ liệu trước khi truyền sang View
-          
+            $month = isset($_POST['SearchMonth']) ? $_POST['SearchMonth'] : null;
+            $dulieu = $this->dsdv->getMonthlyWaterUsage($tkn, $month);
         }
 
         // Truyền dữ liệu vào View
@@ -39,4 +39,5 @@ class TKNuoc extends controller
         ]);
     }
 }
+
 ?>

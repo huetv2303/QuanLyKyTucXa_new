@@ -10,7 +10,7 @@ class Phong_m extends connectDB{
         return mysqli_query($this->conn,$sql);
     }
     function checktrungma($maphong){
-        $sql="SELECT * From phong Where maPhong='$maphong'";
+        $sql="SELECT * From phong Where maPhong='$maphong' ";
         $dl=mysqli_query($this->conn,$sql);
         $kq=false;
         if(mysqli_num_rows($dl)>0){
@@ -28,11 +28,11 @@ class Phong_m extends connectDB{
     }
     
     function find($maphong,$matoa,$trangthai){
-        $sql="SELECT * FROM phong  WHERE maPhong like N'%$maphong%'  OR maToa like '$matoa' OR trangThai like N'%$trangthai%' " ;
+        $sql="SELECT * FROM phong  WHERE maPhong like N'%$maphong%'  AND maToa like '$matoa' OR trangThai like N'%$trangthai%' " ;
         return mysqli_query($this->conn,$sql);
     }
     function find2($maphong){
-        $sql="SELECT * FROM phong WHERE maPhong = '$maphong'  " ;
+        $sql="SELECT * FROM phong WHERE maPhong = '$maphong' " ;
         return mysqli_query($this->conn,$sql);
     }
     function delete($maphong){
@@ -44,8 +44,13 @@ class Phong_m extends connectDB{
         return mysqli_query($this->conn,$sql);
     }
     public function toa_All(){
-        $sql = "SELECT * FROM toa";//nếu bài bạn là phòng thì đây là tòa
+        $sql = "SELECT * FROM toa";
         return mysqli_query($this->conn,$sql);
     }
+    function sumPhong($maphong){
+        $sql = "SELECT maPhong, COUNT(*) AS soNguoi FROM phong WHERE maPhong = '$maphong' GROUP BY maPhong HAVING COUNT(*) = 8";
+        return mysqli_query($this->conn, $sql);
+    }
+   
 }
 ?>

@@ -15,7 +15,7 @@ function updateDataT(data) {
     // Target the specific modal by ID and update the input values
    
     document.getElementById('txtMatoa').value = newData.maToa;
-    document.getElementById('txtSonguoi').value = newData.soNguoi;
+    document.getElementById('txtSophong').value = newData.soPhong;
    
 }
 function updateDataNV(data) {
@@ -24,6 +24,7 @@ function updateDataNV(data) {
     // Target the specific modal by ID and update the input values
   
     document.getElementById('txtMatoa').value = newData.maToa;
+
     document.getElementById('txtTennv').value = newData.TenNhanVien;
     document.getElementById('txtSDT').value = newData.SoDienThoai;
   

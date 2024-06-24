@@ -33,27 +33,27 @@
  <form method="post" action="http://localhost/QuanLyKyTucXa_new/Toa_c/thongtin">
             <div class="form-inline">
             <div class="center-dulieu">
-            <table style=" text-align:center">
-                <tr></tr>
-                <tr >
-                <label>Mã tòa</label>
-                <select id="txtMatoa" name="txtMatoa" onchange="this.form.submit()">
-            <option value="">---Chọn mã---</option>
-            <?php
-            if (isset($data['ma']) && mysqli_num_rows($data['ma']) > 0) {
-                while ($r1 = mysqli_fetch_assoc($data['ma'])) {
-                    echo '<option value="' . $r1["maToa"] . '"';
-                    if (isset($_POST['txtMatoa']) && $_POST['txtMatoa'] == $r1["maToa"]) {
-                        echo ' selected';
-                    }
-                    echo '>' . $r1["maToa"] . '</option>';
-                }
-            }
-            ?>
-        </select>
-                 </tr>
-            </table>
-            </div>
+    
+        <table style="margin: auto; background color:blue">
+            <tr>
+                <td>
+                    
+                    <select id="txtMatoa" name="txtMatoa" onchange="this.form.submit()" class="form-control">
+                        <option value="">Chọn mã tòa</option>
+                        <?php
+                        if (isset($data['ma']) && mysqli_num_rows($data['ma']) > 0) {
+                            while ($r1 = mysqli_fetch_assoc($data['ma'])) {
+                                echo '<option value="' . $r1["maToa"] . '">' . $r1["maToa"] . '</option>';
+                            }
+                        }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    
+</div>
+
             <br>
             
          <br>
@@ -64,6 +64,7 @@
                 <tr style="background:ccc">
                     <th>STT</th>
                     <th>Mã tòa</th>
+                    <th>Số phòng</th>
                     <th>Tên nhân viên</th>
                     <th>Số điện thoại</th>
                     <th>Tác vụ</th>
@@ -78,12 +79,14 @@
                            <td><?php echo (++$i) ?></td>
                           
                            <td><?php echo $row['maToa'] ?></td>
+                           <td><?php echo $row['soPhong'] ?></td>
+                           
                            <td><?php echo $row['TenNhanVien'] ?></td>
                            <td><?php echo $row['SoDienThoai'] ?></td>
                            <td>
-                           <button onclick="updateDataP,updateDataNV('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
+                           <button onclick="updateDataT,updateDataNV('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
                            
-                           <!-- <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/Toa_c/xoa/<?php echo $row['maPhong'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a> -->
+                           <!-- <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/Toa_c/xoa/<?php echo $row['maToa'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a> -->
                            </td>
                         </tr>
                 <?php
@@ -111,7 +114,7 @@
     // document.getElementById('txtTennv').value = newData.TenNhanVien;
     // document.getElementById('txtSDT').value = newData.SoDienThoai;
     
-}
+//}
 
 </script>
 </html>

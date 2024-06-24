@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DsNhanVien/Update">
+    <form method="post" action="http://localhost/QuanLyKyTucXa_new/DsNhanVien/Update">
         <div class="form-group">
             <?php
             if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
@@ -34,7 +34,7 @@
                     <label>Số điện thoại</label>
                     <input type="text" class="form-control" placeholder="Số điện thoại" name="txtSdt" value="<?php echo $row['SoDienThoai'] ?>">
                     <label>Mã tòa</label>
-                    <input type="text" class="form-control" placeholder="Mã tòa" name="txtMaToa" value="<?php echo $row['MaToa'] ?>">
+                    <input type="text" class="form-control" placeholder="Mã tòa" name="txtMaToa" value="<?php echo $row['maToa'] ?>">
             <?php
                 }
             }
