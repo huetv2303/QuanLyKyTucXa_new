@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <>
+    
         <div class="header">
             <h3>Thông tin tòa KTX</h3>
             <!-- Button trigger modal -->

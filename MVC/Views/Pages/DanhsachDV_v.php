@@ -14,7 +14,7 @@
             <!-- Button trigger modal -->
         </div>
         <!-- Thêm mới -->
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DachsachDV/themmoi" id="addServiceForm">
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachDV/themmoi" id="addServiceForm">
             <!-- Modal -->
             <div class="modal-add">
                 <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">

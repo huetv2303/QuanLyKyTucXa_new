@@ -76,7 +76,6 @@
                                             <option value="">------Chọn------</option>
                                             <option value="Đã thanh toán">Đã thanh toán</option>
                                             <option value="Chưa thanh toán">Chưa thanh toán</option>
-                                            <option value="Nợ">Nợ</option>
                                         </select>
                                         <span class="error-message" id="errorTxtTrangThai"></span>
                                     </div>

@@ -129,7 +129,7 @@
                     <td class="dv">
                         <div class="file">
                             <input type="file" class="btn btn-outline-primary" name="txtfile">
-                            <button style="padding-rigt: 300px" type="submit" class="btn btn-primary" name="btnUpLoad">Lưu</button>
+                            <button  type="submit" class="btn btn-primary" name="btnUpLoad">Lưu</button>
                         </div>
                         
                     </td>

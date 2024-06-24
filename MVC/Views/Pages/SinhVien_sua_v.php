@@ -28,11 +28,11 @@
                             <label>Họ tên</label>
                             <input type="text" class="form-control" placeholder="Nhập họ tên" name="txtHoTen" required value="<?php echo $row['hoTen']; ?>">
 
-                            <label>Mã tòa</label>
+                            <!-- <label>Mã tòa</label>
                             <input type="text" class="form-control dd1"  name="txtMaToa" readonly style="background-color: #0606063d" value="<?php echo $row['maToa']; ?>">
 
                             <label>Mã phòng</label>
-                            <input type="text" class="form-control dd1"  name="txtMaPhong" readonly style="background-color: #0606063d" value="<?php echo $row['maPhong']; ?>">
+                            <input type="text" class="form-control dd1"  name="txtMaPhong" readonly style="background-color: #0606063d" value="<?php echo $row['maPhong']; ?>"> -->
 
                             <label>Email</label>
                             <input type="email" class="form-control" placeholder="Nhập email" name="txtEmail" required value="<?php echo $row['email']; ?>">
@@ -44,7 +44,13 @@
                             <input type="date" class="form-control" placeholder="Nhập ngày sinh" name="txtNgaySinh" required value="<?php echo $row['ngaySinh']; ?>">
 
                             <label>Giới tính</label>
-                            <input type="text" class="form-control" placeholder="Nhập giới tính" name="txtGioiTinh" required value="<?php echo $row['gioiTinh']; ?>">
+                            <br>
+                            <select name="txtGioiTinh" id="" class="form-control" required>
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nữ</option>
+                                <option value="Khác">Khác</option>
+                            </select>
+                            <br>
 
                             <label>CCCD</label>
                             <input type="number" class="form-control" placeholder="Nhập cccd" name="txtCccd" required value="<?php echo $row['cccd']; ?>">

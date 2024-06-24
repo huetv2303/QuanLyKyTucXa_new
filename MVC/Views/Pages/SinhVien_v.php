@@ -60,7 +60,7 @@
                 <label>Họ tên</label>
                 <input type="text" class="form-control" placeholder="Nhập họ tên" name="txtHoTen" required>
 
-                <label>Mã tòa</label>
+                <!-- <label>Mã tòa</label>
                 <select name="txtMaToa" class="form-control" id="maToa">
                     <option value="">-------Chọn--------</option>
                     <?php
@@ -74,7 +74,7 @@
                 <label>Mã phòng</label>
                 <select name="txtMaPhong" class="form-control" id="maPhong">
                     <option value="">-------Chọn--------</option>
-                </select>
+                </select> -->
 
                 <label>Email</label>
                 <input type="email" class="form-control" placeholder="Nhập email" name="txtEmail" required>
