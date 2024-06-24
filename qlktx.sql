@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2024 at 01:22 PM
+-- Generation Time: Jun 24, 2024 at 04:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `testsql`
+-- Database: `qlktx`
 --
 
 -- --------------------------------------------------------
@@ -32,6 +32,15 @@ CREATE TABLE `dang_ky_dich_vu` (
   `id_room` varchar(50) NOT NULL,
   `id_service` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `dang_ky_dich_vu`
+--
+
+INSERT INTO `dang_ky_dich_vu` (`id`, `id_room`, `id_service`) VALUES
+(1, 'A101', 'DV01'),
+(2, 'A104', 'DV09'),
+(3, 'A104', 'DV02');
 
 -- --------------------------------------------------------
 
@@ -74,8 +83,9 @@ CREATE TABLE `dich_vu_khac` (
 
 INSERT INTO `dich_vu_khac` (`id_service`, `name_service`, `price`, `unit`, `note`) VALUES
 ('DV01', 'Internet', 300000, 'tháng', ''),
-('DV02', 'Dịch vụ giặt là', 50000, 'lần', ''),
-('DV05', 'Xe', 300000, 'Tháng', '');
+('DV02', 'Dịch vụ giặt là', 50000, 'Tháng', ''),
+('DV08', 'TV', 323423, 'Tháng', ''),
+('DV09', 'Wifi', 300000, 'Tháng', '');
 
 -- --------------------------------------------------------
 
@@ -92,6 +102,14 @@ CREATE TABLE `hoa_don_dich_vu` (
   `ended_day` date NOT NULL,
   `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `hoa_don_dich_vu`
+--
+
+INSERT INTO `hoa_don_dich_vu` (`id_invoice`, `id_room`, `electricity`, `water`, `created_day`, `ended_day`, `status`) VALUES
+('HD01', 'A102', 6, 5, '2024-06-24', '0000-00-00', 'Chưa thanh toán'),
+('HD02', 'A104', 6, 5, '2024-07-09', '0000-00-00', 'Chưa thanh toán');
 
 -- --------------------------------------------------------
 
@@ -116,14 +134,30 @@ CREATE TABLE `hopdong` (
 --
 
 CREATE TABLE `nhanvien` (
-  `maNhanVien` varchar(10) NOT NULL,
-  `tenNhanVien` varchar(50) NOT NULL,
-  `gioiTinh` varchar(10) NOT NULL,
-  `ngaySinh` date NOT NULL,
-  `diaChi` varchar(100) NOT NULL,
-  `soDienThoai` varchar(20) NOT NULL,
+  `MaNhanVien` varchar(10) NOT NULL,
+  `TenNhanVien` varchar(50) NOT NULL,
+  `GioiTinh` varchar(10) NOT NULL,
+  `NgaySinh` date NOT NULL,
+  `DiaChi` varchar(100) NOT NULL,
+  `SoDienThoai` varchar(20) NOT NULL,
   `maToa` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `nhanvien`
+--
+
+INSERT INTO `nhanvien` (`MaNhanVien`, `TenNhanVien`, `GioiTinh`, `NgaySinh`, `DiaChi`, `SoDienThoai`, `maToa`) VALUES
+('NV001', 'Nguyễn Văn An', 'Nam', '1990-01-01', 'Hà Nội', '0901234567', 'A'),
+('NV002', 'Trần Thị Bích', 'Nữ', '1992-02-02', 'Hải Phòng', '0912345678', 'A'),
+('NV003', 'Lê Văn Cường', 'Nam', '1993-03-03', 'Đà Nẵng', '0923456789', 'B'),
+('NV004', 'Phạm Thị Diễm', 'Nữ', '1994-04-04', 'Huế', '0934567890', 'B'),
+('NV005', 'Hoàng Văn Đức', 'Nam', '1995-05-05', 'Nha Trang', '0945678901', 'C'),
+('NV006', 'Đỗ Thị Phương', 'Nữ', '1996-06-06', 'Cần Thơ', '0956789012', 'C'),
+('NV007', 'Nguyễn Văn Giang', 'Nam', '1997-07-07', 'Vũng Tàu', '0967890123', 'A'),
+('NV008', 'Trần Thị Hương', 'Nữ', '1998-08-08', 'Đà Lạt', '0978901234', 'B'),
+('NV009', 'Lê Văn Hải', 'Nam', '1999-09-09', 'Buôn Ma Thuột', '0989012345', 'C'),
+('NV010', 'Phạm Thị Kim', 'Nữ', '2000-10-10', 'Hồ Chí Minh', '0990123456', 'A');
 
 -- --------------------------------------------------------
 
@@ -139,6 +173,22 @@ CREATE TABLE `phong` (
   `trangThai` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `phong`
+--
+
+INSERT INTO `phong` (`maPhong`, `maToa`, `soNguoi`, `tienPhong`, `trangThai`) VALUES
+('A101', 'A', 4, 2000000, 'còn'),
+('A102', 'A', 3, 2000000, 'còn'),
+('A103', 'A', 8, 2000000, 'đủ người'),
+('A104', 'A', 6, 2000000, 'còn'),
+('B201', 'B', 5, 2500000, 'còn'),
+('B202', 'B', 8, 2500000, 'đủ người'),
+('B203', 'B', 7, 2500000, 'còn'),
+('C301', 'C', 2, 3000000, 'còn'),
+('C302', 'C', 8, 3000000, 'đủ người'),
+('C303', 'C', 6, 3000000, 'còn');
+
 -- --------------------------------------------------------
 
 --
@@ -148,6 +198,8 @@ CREATE TABLE `phong` (
 CREATE TABLE `thongtinsinhvien` (
   `maSinhVien` varchar(50) NOT NULL,
   `hoTen` varchar(100) NOT NULL,
+  `maToa` varchar(50) NOT NULL,
+  `maPhong` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `soDienThoai` int(50) NOT NULL,
   `ngaySinh` date NOT NULL,
@@ -155,6 +207,22 @@ CREATE TABLE `thongtinsinhvien` (
   `cccd` varchar(50) NOT NULL,
   `diaChi` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `thongtinsinhvien`
+--
+
+INSERT INTO `thongtinsinhvien` (`maSinhVien`, `hoTen`, `maToa`, `maPhong`, `email`, `soDienThoai`, `ngaySinh`, `gioiTinh`, `cccd`, `diaChi`) VALUES
+('SV001', 'Nguyễn Thị Hương', 'A', 'A101', 'huongnguyen@gmail.com', 901234567, '1998-05-10', 'Nữ', '123456789', 'Hà Nội'),
+('SV002', 'Trần Văn Nam', 'A', 'A102', 'namtran@gmail.com', 912345678, '1999-06-15', 'Nam', '234567890', 'Hải Phòng'),
+('SV003', 'Lê Thị Minh', 'A', 'A103', 'minhle@gmail.com', 923456789, '1997-07-20', 'Nữ', '345678901', 'Đà Nẵng'),
+('SV004', 'Phạm Văn Tuấn', 'A', 'A104', 'tuantuan@gmail.com', 934567890, '1998-08-25', 'Nam', '456789012', 'Huế'),
+('SV005', 'Hoàng Thị An', 'B', 'B201', 'anhoang@gmail.com', 945678901, '2000-09-30', 'Nữ', '567890123', 'Nha Trang'),
+('SV006', 'Đỗ Văn Đức', 'B', 'B202', 'ducdo@gmail.com', 956789012, '1999-10-05', 'Nam', '678901234', 'Cần Thơ'),
+('SV007', 'Nguyễn Thị Lan', 'B', 'B203', 'lannguyen@gmail.com', 967890123, '1998-11-15', 'Nữ', '789012345', 'Vũng Tàu'),
+('SV008', 'Trần Văn Anh', 'C', 'C301', 'anhtran@gmail.com', 978901234, '2001-12-20', 'Nam', '890123456', 'Đà Lạt'),
+('SV009', 'Lê Thị Phương', 'C', 'C302', 'phuongle@gmail.com', 989012345, '2000-01-25', 'Nữ', '901234567', 'Buôn Ma Thuột'),
+('SV010', 'Phạm Văn Bình', 'C', 'C303', 'binhpham@gmail.com', 990123456, '1999-02-28', 'Nam', '012345678', 'Hồ Chí Minh');
 
 -- --------------------------------------------------------
 
@@ -164,17 +232,17 @@ CREATE TABLE `thongtinsinhvien` (
 
 CREATE TABLE `toa` (
   `maToa` varchar(50) NOT NULL,
-  `soNhanVien` int(50) NOT NULL
+  `soPhong` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `toa`
 --
 
-INSERT INTO `toa` (`maToa`, `soNhanVien`) VALUES
-('MT1', 2),
-('MT2', 2),
-('MT3', 3);
+INSERT INTO `toa` (`maToa`, `soPhong`) VALUES
+('A', 25),
+('B', 30),
+('C', 35);
 
 --
 -- Indexes for dumped tables
@@ -211,25 +279,32 @@ ALTER TABLE `hoa_don_dich_vu`
 -- Indexes for table `hopdong`
 --
 ALTER TABLE `hopdong`
-  ADD PRIMARY KEY (`maHopDong`);
+  ADD PRIMARY KEY (`maHopDong`),
+  ADD KEY `maNhanVien` (`maNhanVien`),
+  ADD KEY `maPhong` (`maPhong`),
+  ADD KEY `maSinhVien` (`maSinhVien`);
 
 --
 -- Indexes for table `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  ADD PRIMARY KEY (`maNhanVien`);
+  ADD PRIMARY KEY (`MaNhanVien`),
+  ADD KEY `maToa` (`maToa`);
 
 --
 -- Indexes for table `phong`
 --
 ALTER TABLE `phong`
-  ADD PRIMARY KEY (`maPhong`);
+  ADD PRIMARY KEY (`maPhong`),
+  ADD KEY `maToa` (`maToa`);
 
 --
 -- Indexes for table `thongtinsinhvien`
 --
 ALTER TABLE `thongtinsinhvien`
-  ADD PRIMARY KEY (`maSinhVien`);
+  ADD PRIMARY KEY (`maSinhVien`),
+  ADD KEY `maPhong` (`maPhong`),
+  ADD KEY `maToa` (`maToa`);
 
 --
 -- Indexes for table `toa`
@@ -245,7 +320,7 @@ ALTER TABLE `toa`
 -- AUTO_INCREMENT for table `dang_ky_dich_vu`
 --
 ALTER TABLE `dang_ky_dich_vu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -263,6 +338,33 @@ ALTER TABLE `dang_ky_dich_vu`
 --
 ALTER TABLE `hoa_don_dich_vu`
   ADD CONSTRAINT `hoa_don_dich_vu_ibfk_1` FOREIGN KEY (`id_room`) REFERENCES `phong` (`maPhong`);
+
+--
+-- Constraints for table `hopdong`
+--
+ALTER TABLE `hopdong`
+  ADD CONSTRAINT `hopdong_ibfk_1` FOREIGN KEY (`maNhanVien`) REFERENCES `nhanvien` (`MaNhanVien`),
+  ADD CONSTRAINT `hopdong_ibfk_2` FOREIGN KEY (`maPhong`) REFERENCES `phong` (`maPhong`),
+  ADD CONSTRAINT `hopdong_ibfk_3` FOREIGN KEY (`maSinhVien`) REFERENCES `thongtinsinhvien` (`maSinhVien`);
+
+--
+-- Constraints for table `nhanvien`
+--
+ALTER TABLE `nhanvien`
+  ADD CONSTRAINT `nhanvien_ibfk_1` FOREIGN KEY (`maToa`) REFERENCES `toa` (`maToa`);
+
+--
+-- Constraints for table `phong`
+--
+ALTER TABLE `phong`
+  ADD CONSTRAINT `phong_ibfk_1` FOREIGN KEY (`maToa`) REFERENCES `toa` (`maToa`);
+
+--
+-- Constraints for table `thongtinsinhvien`
+--
+ALTER TABLE `thongtinsinhvien`
+  ADD CONSTRAINT `thongtinsinhvien_ibfk_1` FOREIGN KEY (`maPhong`) REFERENCES `phong` (`maPhong`),
+  ADD CONSTRAINT `thongtinsinhvien_ibfk_2` FOREIGN KEY (`maToa`) REFERENCES `toa` (`maToa`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

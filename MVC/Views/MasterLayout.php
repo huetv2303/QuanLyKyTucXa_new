@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/l1.css">
     
     
     <link rel="stylesheet" href="/Public/CSS/masterlayout.css">
@@ -74,6 +75,8 @@
         #content-right1 .label2 {
             width: 60px;
         }
+
+
     </style>
 </head>
 
@@ -85,23 +88,13 @@
             <!-- <img src="https://utt.edu.vn/uploads/images/site/1447346709LOGO_GTVT.png" alt="LOGO UTT"> -->
             <div id="nav1">
                 <ul class="nav navbar justify-content bg-light ">
-                    <img style="width : 300px;" src="https://utt.edu.vn/uploads/images/site/1447346709LOGO_GTVT.png" alt="LOGO UTT">
-
+                   <a href="http://localhost/QuanLyKyTucXa_new/Home" ><img style="width : 300px;" src="https://utt.edu.vn/uploads/images/site/1447346709LOGO_GTVT.png" alt="LOGO UTT">
+                   </a> 
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/QuanLyKyTucXa_new/Home">Trang chủ</a>
+                        <!-- <a class="nav-link" href="http://localhost/QuanLyKyTucXa_new/Home">Trang chủ</a> -->
+                         <h1>Quản lý ký túc xá</h1>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Quản lí phòng</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Quản lí sinh viên</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Quản lí hợp đồng</a>
-                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="#">Thoát</a>
@@ -120,19 +113,34 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
-                            Chính #1
+                        <a class="btn" data-bs-toggle="collapse" href="#collapseFive">
+                            Ký túc xá
                         </a>
                     </div>
-                    <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
+                    <div id="collapseFive" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
-                            <a href="" class="btn">Chuc nang 1</a>
-                            <a href="" class="btn">Chuc nang 2</a>
-                            <a href="" class="btn">Chuc nang 3</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/Toa_c" class="btn">Danh sách tòa</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c" class="btn">Danh sách phòng</a>
+                         
                         </div>
                     </div>
                 </div>
 
+                
+                <div class="card">
+                    <div class="card-header">
+                        <a class="btn" data-bs-toggle="collapse" href="#collapseSix">
+                            Quản lý thông tin
+                        </a>
+                    </div>
+                    <div id="collapseSix" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            <a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien" class="btn">Danh sách nhân viên</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachSV" class="btn">Danh sách sinh viên</a>
+                         
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card">
                     <div class="card-header">
@@ -165,6 +173,8 @@
                     </div>
                 </div>
 
+                
+
                 <div class="card">
                     <div class="card-header">
                         <a class="btn" data-bs-toggle="collapse" href="#collapseFour">
@@ -174,7 +184,7 @@
                     <div id="collapseFour" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
                             <a href="http://localhost/QuanLyKyTucXa_new/TKNuoc" class="btn">Thống kê nước</a>
-                            <a href="" class="btn">Chuc nang 2</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/TKDien" class="btn">Thống kê điện</a>
                             <a href="" class="btn">Chuc nang 3</a>
                         </div>
                     </div>

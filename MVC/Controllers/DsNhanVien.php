@@ -75,7 +75,7 @@ class DsNhanVien extends controller
                 $sheet->setCellValue('E' . $rowCount, $row['NgaySinh']);
                 $sheet->setCellValue('F' . $rowCount, $row['DiaChi']);
                 $sheet->setCellValue('G' . $rowCount, $row['SoDienThoai']);
-                $sheet->setCellValue('H' . $rowCount, $row['MaToa']);
+                $sheet->setCellValue('H' . $rowCount, $row['maToa']);
             }
             //Kẻ bảng 
             $styleAray = array(
@@ -213,6 +213,13 @@ class DsNhanVien extends controller
                 echo "<script>alert('Sửa thất bại!')</script>";
 
             //Gọi lại giao diện và truyền dữ liệu ra
+            $dulieu = $this->dsnv->searchNhanVien('', '');
+            $this->view('Masterlayout', [
+                'page' => 'DsNhanVien_v',
+                'dulieu' => $dulieu
+            ]);
+        }
+        if (isset($_POST['btnBack'])) {
             $dulieu = $this->dsnv->searchNhanVien('', '');
             $this->view('Masterlayout', [
                 'page' => 'DsNhanVien_v',
