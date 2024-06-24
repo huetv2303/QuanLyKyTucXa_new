@@ -48,15 +48,14 @@ class DanhsachDN extends controller{
             }
            
 
-            //Gọi lại giao diện và truyền $dulieu ra
+            // Gọi lại giao diện và truyền $dulieu ra
            
-            // $dulieu = $this->dsdv->dichvuDN_all();
-            // $this->view('MasterLayout', [
-            //     'page' => 'DanhsachDN_v',
-            //     'dulieu' => $dulieu,
+            $dulieu = $this->dsdv->dichvuDN_all();
+            $this->view('MasterLayout', [
+                'page' => 'DanhsachDN_v',
+                'dulieu' => $dulieu,
                 
-            // ]);
+            ]);
         
-      header("location: http://localhost/QuanLyKyTucXa_new/DachsachDN");
     } 
 }
