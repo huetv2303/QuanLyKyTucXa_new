@@ -21,21 +21,23 @@
 </head>
 
 <body>
-    <div class="content">
+    <div class="main">
 
-        <a class="text-black" href="http://localhost/qlktx/HopDong">
+        <a class="text-black content1" href="http://localhost/QuanLyKyTucXa_new/HopDong">
             << Quay lại</a>
                 <br>
 
-                <h2>Thêm mới</h2>
-                <form action="http://localhost/qlktx/HopDongThem/them" method="post">
+                
+                <h3 class="content1">Thêm hợp đồng mới</h3>
+                
+                <form class = "content1" action="http://localhost/QuanLyKyTucXa_new/HopDongThem/them" method="post">
                     <table>
                         <tr>
                             <td class="lable_tb">
                                 <label for="mhd" class="form-label">Mã hợp đồng:</label>
                             </td>
                             <td class="input_tb">
-                                <input readonly style="width:700px" type="text" name="txtMaHopDong" class="form-control" id="mhd" value = "<?php if(isset($data['maHopDong'])) echo $data['maHopDong']?>">
+                                <input required style="width:700px" type="text" name="txtMaHopDong" class="form-control" id="mhd" value = "<?php if(isset($data['maHopDong'])) echo $data['maHopDong']?>">
                             </td>
                         </tr>
                         <tr>
@@ -47,8 +49,8 @@
                                         if (isset($data['nhanvien']) && mysqli_num_rows($data['nhanvien']) > 0) {
                                             while ($c = mysqli_fetch_assoc($data['nhanvien'])) {
                                         ?>
-                                                <option value="<?php echo $c['maNhanVien'] ?>" <?php if(isset($data['maNhanVien']) && ($c['maNhanVien'] == $data['maNhanVien'])) echo "selected"; ?>>
-                                                <?php echo $c['tenNhanVien']; ?></option>
+                                                <option value="<?php echo $c['MaNhanVien'] ?>" <?php if(isset($data['MaNhanVien']) && ($c['MaNhanVien'] == $data['MaNhanVien'])) echo "selected"; ?>>
+                                                <?php echo $c['TenNhanVien']; ?></option>
                                         <?php
                                             }
                                         }

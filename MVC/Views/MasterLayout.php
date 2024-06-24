@@ -137,12 +137,12 @@
                 <div class="card">
                     <div class="card-header">
                         <a class="btn" data-bs-toggle="collapse" href="#collapseTwo">
-                            Chính #2
+                            Quản lý hợp đồng
                         </a>
                     </div>
                     <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
-                            <a href="" class="btn">Chuc nang 1</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/HopDong" class="btn">Danh sách hợp đồng</a>
                             <a href="" class="btn">Chuc nang 2</a>
                             <a href="" class="btn">Chuc nang 3</a>
                         </div>

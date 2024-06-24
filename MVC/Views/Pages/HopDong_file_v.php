@@ -11,11 +11,11 @@
 </head>
 
 <body>
-    <form action="http://localhost/qlktx/HopDongFile/themmoi" method="post" enctype="multipart/form-data">
+    <form action="http://localhost/QuanLyKyTucXa_new/HopDongFile/themmoi" method="post" enctype="multipart/form-data">
         <!-- <label for="myFile">Chọn file</label>
         <input type="file" name="txtFile" id="myFile">
         <button type="submit" class="btn btn-primary" name="btnUpload">Upload</button> -->
-        <a class="text-black" href="http://localhost/qlktx/HopDong">
+        <a class="text-black" href="http://localhost/QuanLyKyTucXa_new/HopDong">
             << Quay lại</a>
                 <br>
         <div class="mb-3">
