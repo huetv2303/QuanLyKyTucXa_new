@@ -104,7 +104,11 @@
                                     </tr>
                                     <tr>
                                         <td><label for="nkt" class="form-label">Ngày kết thúc:</label></td>
-                                        <td><input required type="date" name="txtNgayKetThuc" class="form-control" id="nkt" value="<?php echo $row['ngayKetThuc'] ?>"></td>
+                                        <td><input readonly type="date" name="txtNgayKetThuc" class="form-control" id="nkt" value="<?php echo $row['ngayKetThuc'] ?>"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="nkt" class="form-label">Ngày gia hạn thêm:</label></td>
+                                        <td><input required type="date" name="txtNgayGiaHan" class="form-control" id="nkt" value="<?php echo $row['ngayKetThuc'] ?>"></td>
                                     </tr>
                             <?php
                             }
