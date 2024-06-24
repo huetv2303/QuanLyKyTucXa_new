@@ -9,7 +9,12 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <form method="post" action="http://localhost/QuanLyKyTucXa_new/DsNhanVien/Update">
+=======
+<div class="main">
+    <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DsNhanVien/Update">
+>>>>>>> f770876d90aee1fad12040aad941248a52a25a3e
         <div class="form-group">
             <?php
             if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
@@ -41,8 +46,10 @@
             ?>
             <br>
             <button type="submit" class="btn btn-primary" name="btnCapNhat">Cập nhật</button>
+            <button type="submit" class="btn btn-primary" name="btnBack">Quay lại</button>
         </div>
     </form>
+</div>
 </body>
 
 </html>

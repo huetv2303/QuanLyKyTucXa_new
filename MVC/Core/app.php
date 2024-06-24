@@ -1,7 +1,15 @@
 <?php
 class app
 {
+<<<<<<< HEAD
     protected $controller ='DanhsachPhong_c';
+=======
+<<<<<<< HEAD
+    protected $controller ='DanhsachSV';
+=======
+    protected $controller ='NopPhat';
+>>>>>>> 94688866de83f24a8b807f90948041736ba5cc57
+>>>>>>> f770876d90aee1fad12040aad941248a52a25a3e
     protected $action = 'Get_data';
     protected $param = [];
 

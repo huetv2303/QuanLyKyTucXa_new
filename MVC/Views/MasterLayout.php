@@ -12,9 +12,14 @@
     <script src="https://kit.fontawesome.com/7c35a47a4f.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
+<<<<<<< HEAD
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=1"> </script>
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/phong.js?v=1"> </script>
+=======
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
+>>>>>>> f770876d90aee1fad12040aad941248a52a25a3e
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/l1.css">
     
     
     <link rel="stylesheet" href="/Public/CSS/masterlayout.css">
@@ -75,6 +80,8 @@
         #content-right1 .label2 {
             width: 60px;
         }
+
+
     </style>
 </head>
 
@@ -86,10 +93,10 @@
             <!-- <img src="https://utt.edu.vn/uploads/images/site/1447346709LOGO_GTVT.png" alt="LOGO UTT"> -->
             <div id="nav1">
                 <ul class="nav navbar justify-content bg-light ">
-                    <img style="width : 200px;" src="https://utt.edu.vn/uploads/images/site/1447346709LOGO_GTVT.png" alt="LOGO UTT">
+                    <img style="width : 300px;" src="https://utt.edu.vn/uploads/images/site/1447346709LOGO_GTVT.png" alt="LOGO UTT">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Trang chủ</a>
+                        <a class="nav-link" href="http://localhost/QuanLyKyTucXa_new/Home">Trang chủ</a>
                     </li>
 
                     <li class="nav-item">
@@ -138,13 +145,22 @@
                 <div class="card">
                     <div class="card-header">
                         <a class="btn" data-bs-toggle="collapse" href="#collapseTwo">
+<<<<<<< HEAD
                             Phòng
+=======
+                            Quản lý hợp đồng
+>>>>>>> f770876d90aee1fad12040aad941248a52a25a3e
                         </a>
                     </div>
                     <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
+<<<<<<< HEAD
                             <a href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c" class="btn">Danh sách phòng</a>
                             <a href="http://localhost/QuanLyKyTucXa_new/Toa_c" class="btn">Thông tin tòa</a>
+=======
+                            <a href="http://localhost/QuanLyKyTucXa_new/HopDong" class="btn">Danh sách hợp đồng</a>
+                            <a href="" class="btn">Chuc nang 2</a>
+>>>>>>> f770876d90aee1fad12040aad941248a52a25a3e
                             <a href="" class="btn">Chuc nang 3</a>
                         </div>
                     </div>

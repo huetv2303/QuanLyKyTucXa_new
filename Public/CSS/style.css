@@ -37,13 +37,17 @@ nav>ul>li{
     
 }
 
-.main , .title{
+.main{
+    height: 700px;
+    background-color: #fff;
+    border-radius: 20px;
     margin: 50px 50px ;
     
 }
 
-.main{
-    height: 700px;
+.main-home{
+    margin: 50px 50px ;
+    height: 400px;
     background-color: #fff;
     border-radius: 20px;
     
@@ -73,6 +77,8 @@ p{
     padding: 0px 0px 10px 20px;
 }
 
+<<<<<<< HEAD
+=======
 .error-message {
     color: red;
     font-size: 14px;
@@ -84,3 +90,5 @@ p{
     display: flex;
     gap: 10px
 }
+>>>>>>> 94688866de83f24a8b807f90948041736ba5cc57
+

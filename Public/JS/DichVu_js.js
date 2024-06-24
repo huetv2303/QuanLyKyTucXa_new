@@ -1,15 +1,27 @@
-function updateData(data) {
+function updateDataDV(data) {
     let newData = JSON.parse(data);
-
+    console.log(newData)
     // Target the specific modal by ID and update the input values
     document.getElementById('txtMaDV').value = newData.id_service;
     document.getElementById('txtTenDV').value = newData.name_service;
     document.getElementById('txtGia').value = newData.price;
     document.getElementById('txtDonVi').value = newData.unit;
     document.getElementById('txtGhiChu').value = newData.note;
+    ;
     
 }
 
+function updateDataDN(data) {
+    let newData = JSON.parse(data);
+    console.log(newData)
+    // Target the specific modal by ID and update the input values
+    document.getElementById('txtMaDV').value = newData.id_service;
+    document.getElementById('txtTenDV').value = newData.name_service;
+    document.getElementById('txtGia').value = newData.price;
+    document.getElementById('txtDonVi').value = newData.unit;
+    ;
+    
+}
 
 function updateDataPDV(data) {
     let newData = JSON.parse(data);
@@ -17,6 +29,7 @@ function updateDataPDV(data) {
     document.getElementById('txtID').value = newData.id;
     document.getElementById('txtMaPhong').value = newData.id_room;
     document.getElementById('txtMaDV').value = newData.id_service;
+    console.log(newData);
     
 }
 
