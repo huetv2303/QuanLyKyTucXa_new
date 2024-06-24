@@ -11,9 +11,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/7c35a47a4f.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <link rel="stylesheet" href="http://localhost:9090/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
     <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
+
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=1"> </script>
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/phong.js?v=1"> </script>
+
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/l1.css">
     
     
     <link rel="stylesheet" href="/Public/CSS/masterlayout.css">
@@ -74,6 +82,8 @@
         #content-right1 .label2 {
             width: 60px;
         }
+
+
     </style>
 </head>
 
@@ -126,7 +136,7 @@
                     </div>
                     <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
-                            <a href="" class="btn">Chuc nang 1</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien" class="btn">Nhân viên</a>
                             <a href="" class="btn">Chuc nang 2</a>
                             <a href="" class="btn">Chuc nang 3</a>
                         </div>
@@ -173,8 +183,8 @@
                     </div>
                     <div id="collapseFour" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
-                            <a href="http://localhost:9090/QuanLyKyTucXa_new/TKNuoc" class="btn">Thống kê nước</a>
-                            <a href="" class="btn">Chuc nang 2</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/TKNuoc" class="btn">Thống kê nước</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/TKDien" class="btn">Thống kê điện</a>
                             <a href="" class="btn">Chuc nang 3</a>
                         </div>
                     </div>
