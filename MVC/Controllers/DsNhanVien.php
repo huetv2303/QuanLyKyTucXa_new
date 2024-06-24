@@ -219,5 +219,12 @@ class DsNhanVien extends controller
                 'dulieu' => $dulieu
             ]);
         }
+        if (isset($_POST['btnBack'])) {
+            $dulieu = $this->dsnv->searchNhanVien('', '');
+            $this->view('Masterlayout', [
+                'page' => 'DsNhanVien_v',
+                'dulieu' => $dulieu
+            ]);
+        }
     }
 }

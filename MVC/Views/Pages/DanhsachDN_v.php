@@ -10,7 +10,7 @@
 <body>
 <div class="main">
             <div class="header">
-                <h3>Danh sách dịch vụ điện nước</h3>
+                <h3>Danh sách điện nước</h3>
                 <!-- Button trigger modal -->
                 
             </div>
@@ -26,9 +26,9 @@
                         </div>
                         <div class="modal-body">
                             <label>Mã dịch vụ</label>
-                            <input type="text" class="form-control" name="txtMaDV" id="txtMaDV" value="">
+                            <input type="text" class="form-control" name="txtMaDV" id="txtMaDV" value="" readonly>
                             <label>Tên dịch vụ</label>
-                            <input type="text" class="form-control" name="txtTenDV" id="txtTenDV" value="">
+                            <input type="text" class="form-control" name="txtTenDV" id="txtTenDV" value="" readonly>
                             <label>Giá</label>
                             <input type="text" class="form-control" name="txtGia" id="txtGia" value="">
                             <label>Đơn vị</label>
@@ -43,13 +43,13 @@
             </div>
         </div>
     </form>
-    <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachDV/timkiem">
+    <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachDN/timkiem">
         <div class="form-inline">
-            <label style="width: 100px;">Mã dịch vụ</label>
+            <!-- <label style="width: 100px;">Mã dịch vụ</label>
             <input type="text" placeholder="Tìm mã dịch vụ" class="form-control" name="txtMaDV" >
             <label style="width: 100px;">Tên dịch vụ</label>
             <input type="text" placeholder="Tìm tên dịch vụ" class="form-control" name="txtTenDV">
-            <button type="submit" style="margin: 30px 0px" class="btn btn-success" name="btnTimKiem">Tìm kiếm</button>
+            <button type="submit" style="margin: 30px 0px" class="btn btn-success" name="btnTimKiem">Tìm kiếm</button> -->
             <table class="table table-hover">
                 <thead>
                     <tr >
@@ -81,8 +81,8 @@
                                
                                 <td>
 
-                                  
-                                    <button onclick="updateData('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
+                                <!-- htmlspecialchars dùng để các chuỗi chứa ký tự đặc biệt không gây ra vấn đề bảo mật khi được nhúng vào HTML. -->
+                                    <button onclick="updateDataDN('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
                                     <!-- <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV/sua/" onclick="updateData('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></a> -->
                                 </td>
 

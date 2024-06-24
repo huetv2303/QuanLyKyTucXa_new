@@ -21,16 +21,14 @@ class TKNuoc extends controller
     }
 
     function thongkenuoc()
-    {    
-
+    {
         $dulieu = null;
         $dulieu1 = $this->dsdv->getid_room();
+
         if (isset($_POST['btnTKN'])) {
             $tkn = $_POST['txtTKN'];
-            $dulieu = $this->dsdv->getMonthlyWaterUsage($tkn);
-
-            // Kiểm tra và xử lý dữ liệu trước khi truyền sang View
-          
+            $month = isset($_POST['SearchMonth']) ? $_POST['SearchMonth'] : null;
+            $dulieu = $this->dsdv->getMonthlyWaterUsage($tkn, $month);
         }
 
         // Truyền dữ liệu vào View
@@ -41,4 +39,5 @@ class TKNuoc extends controller
         ]);
     }
 }
+
 ?>

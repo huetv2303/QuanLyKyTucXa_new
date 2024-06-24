@@ -99,7 +99,7 @@
                                 <td><?php echo $row['MaToa'] ?></td>
                                 <td>
                                     <a href="http://localhost:9090/QuanLyKyTucXa_new/DsNhanVien/loadForm/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square">&nbsp;&nbsp;</i>Sửa</a> &nbsp;
-                                    <a href="http://localhost:9090/QuanLyKyTucXa_new/DsNhanVien/Delete/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash">&nbsp;&nbsp;</i>Xóa</a>
+                                    <a onclick="return confirm('Bạn có muốn xóa nhân viên này không ?')" href="http://localhost:9090/QuanLyKyTucXa_new/DsNhanVien/Delete/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash">&nbsp;&nbsp;</i>Xóa</a>
                                 </td>
                             </tr>
                     <?php
@@ -125,19 +125,24 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Mã Nhân Viên :</label>
-                            <input type="text" class="form-control" placeholder="Nhập mã" name="txtMaNv">
+                            <input type="text" class="form-control" placeholder="Nhập mã" name="txtMaNv" require>
                             <label>Họ và Tên :</label>
-                            <input type="text" class="form-control" placeholder="Nhập họ tên" name="txtTenNv">
-                            <label>Giới Tính :</label>
-                            <input type="text" class="form-control" placeholder="Nhập giới tính" name="txtGioiTinh">
+                            <input type="text" class="form-control" placeholder="Nhập họ tên" name="txtTenNv" require>
+                            <label>Giới tính:</label>
+                            <select class="form-control" name="txtGioiTinh">
+                                <option>--- Chọn giới tính ---</option>
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nữ</option>
+                                <option value="Khác">Khác</option>
+                            </select>
                             <label>Ngày Sinh :</label>
                             <input type="date" class="form-control" placeholder="Chọn ngày sinh" name="txtNgaySinh">
                             <label>Địa Chỉ :</label>
                             <input type="text" class="form-control" placeholder="Nhập địa chỉ" name="txtDiaChi">
                             <label>Số Điện Thoại :</label>
-                            <input type="number" class="form-control" placeholder="Nhập số điện thoại" name="txtSdt">
+                            <input type="number" class="form-control" placeholder="Nhập số điện thoại" name="txtSdt" require>
                             <label>Mã Tòa :</label>
-                            <input type="text" class="form-control" placeholder="Nhập phân khu" name="txtMaToa">
+                            <input type="text" class="form-control" placeholder="Nhập phân khu" name="txtMaToa" require>
                         </div>
                     </div>
 

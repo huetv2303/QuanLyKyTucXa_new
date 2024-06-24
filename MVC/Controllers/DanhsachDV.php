@@ -31,44 +31,48 @@ class DanhsachDV extends controller
     function import()
     {
         if (isset($_POST['btnUpLoad'])) {
-            $file = $_FILES['txtfile']['tmp_name'];
-            $objReader = PHPExcel_IOFactory::createReaderForFile($file);
-            $objExcel = $objReader->load($file);
-            //Lấy sheet hiện tại
-            $sheetData = $objExcel->getActiveSheet()->toArray(null, true, true, true);
-            $highestRow = $objExcel->setActiveSheetIndex()->getHighestRow();
-
-            for ($i = 2; $i <= $highestRow; $i++) {
-                $id_service = $sheetData[$i]["A"];
-                $name = $sheetData[$i]["B"];
-                $price = $sheetData[$i]["C"];
-                $unit = $sheetData[$i]["D"];
-                $note = $sheetData[$i]["E"];
-                $kq = $this->dsdv->dichvu_ins($id_service, $name, $price, $unit, $note);
-            }
-
-            if ($id_service == '' || $name == '' || $price == '' || $unit == '') {
-                echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
+            if (empty($_GET['txtfile'])) {
+                echo "<script>alert('Vui lòng chọn file!')</script>";
             } else {
-                //Kiểm tra trùng mã tác giả
-                $kq1 = $this->dsdv->check_trung_ma($id_service);
-                $kq2 = $this->dsdv->check_name($name);
-                if ($kq1) {
-                    echo "<script>alert('Mã dịch vụ đã tồn tại!')</script>";
-                } else if ($kq2) {
-                    echo "<script>alert(' Tên dịch vụ này đã tồn tại!')</script>";
+                $file = $_FILES['txtfile']['tmp_name'];
+                $objReader = PHPExcel_IOFactory::createReaderForFile($file);
+                $objExcel = $objReader->load($file);
+                //Lấy sheet hiện tại
+                $sheetData = $objExcel->getActiveSheet()->toArray(null, true, true, true);
+                $highestRow = $objExcel->setActiveSheetIndex()->getHighestRow();
+
+                for ($i = 2; $i <= $highestRow; $i++) {
+                    $id_service = $sheetData[$i]["A"];
+                    $name = $sheetData[$i]["B"];
+                    $price = $sheetData[$i]["C"];
+                    $unit = $sheetData[$i]["D"];
+                    $note = $sheetData[$i]["E"];
+                    // $kq = $this->dsdv->dichvu_ins($id_service, $name, $price, $unit, $note);
+                }
+
+
+                if ($id_service == '' || $name == '' || $price == '' || $unit == '') {
+                    echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
                 } else {
-                    //gọi hàm thêm dl tacgia_ins trong model
-                    $kq = $this->dsdv->dichvu_ins($id_service, $name, $price, $unit, $note);
+                    //Kiểm tra trùng mã tác giả
+                    $kq1 = $this->dsdv->check_trung_ma($id_service);
+                    $kq2 = $this->dsdv->check_name($name);
+                    if ($kq1) {
+                        echo "<script>alert('Mã dịch vụ đã tồn tại!')</script>";
+                    } else if ($kq2) {
+                        echo "<script>alert(' Tên dịch vụ này đã tồn tại!')</script>";
+                    } else {
+                        //gọi hàm thêm dl tacgia_ins trong model
+                        $kq = $this->dsdv->dichvu_ins($id_service, $name, $price, $unit, $note);
 
-                    if ($kq) {
-                        echo "<script>alert('Import thành công!')</script>";
-                    } else
+                        if ($kq) {
+                            echo "<script>alert('Import thành công!')</script>";
+                        } else
 
-                        echo "<script>alert('Import thất bại!')</script>";
+                            echo "<script>alert('Import thất bại!')</script>";
+                    }
                 }
             }
-
         }
 
         $dulieu = $this->dsdv->dichvu_all();
@@ -146,7 +150,7 @@ class DanhsachDV extends controller
         if ($kq)
             echo "<script>alert('Xóa thành công!')</script>";
         else
-            echo "<script>alert('Xóa thất bại!')</script>";
+            echo "<script>alert('Hiện có phòng đang sử dụng dịch vụ này không thể xóa được')</script>";
         //Gọi lại giao diện và truyền $dulieu ra
 
 
@@ -160,7 +164,6 @@ class DanhsachDV extends controller
 
     function themmoi()
     {
-        $dulieu1 = $this->dsdv->dichvu_all();
 
 
         if (isset($_POST['btnLuuDV'])) {
@@ -192,12 +195,13 @@ class DanhsachDV extends controller
                         echo "<script>alert('Thêm mới thất bại!')</script>";
                 }
             }
-            $this->view('MasterLayout', [
-                'page' => 'DanhsachDV_v',
-                'dulieu' => $dulieu1,
-
-            ]);
         }
+        $dulieu = $this->dsdv->dichvu_all();
+        $this->view('MasterLayout', [
+            'page' => 'DanhsachDV_v',
+            'dulieu' => $dulieu,
+
+        ]);
     }
 }
 // }

@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<div class="main">
     <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DsNhanVien/Update">
         <div class="form-group">
             <?php
@@ -41,8 +42,10 @@
             ?>
             <br>
             <button type="submit" class="btn btn-primary" name="btnCapNhat">Cập nhật</button>
+            <button type="submit" class="btn btn-primary" name="btnBack">Quay lại</button>
         </div>
     </form>
+</div>
 </body>
 
 </html>

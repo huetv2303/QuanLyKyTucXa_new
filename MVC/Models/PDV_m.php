@@ -4,7 +4,6 @@ class PDV_m extends connectDB
     public function dichvuPDV_ins($id_room, $id_service)
     {
         $sql = "INSERT INTO dang_ky_dich_vu(id_room,id_service) VALUES ('$id_room','$id_service')";
-       
         return mysqli_query($this->conn, $sql);
     }
 
@@ -12,6 +11,18 @@ class PDV_m extends connectDB
     {
         $sql = "SELECT * FROM dang_ky_dich_vu";
         return mysqli_query($this->conn, $sql);
+    }
+
+    function check_trung_ma($id_room, $id_service)
+    {
+        
+        $sql = "SELECT * FROM dang_ky_dich_vu WHERE id_service ='$id_service' and id_room = '$id_room' ";
+        $dl = mysqli_query($this->conn, $sql);
+        $kq = false;
+        if (mysqli_num_rows($dl) > 0) {
+            $kq = true;  //trùng mã
+        }
+        return $kq;
     }
 
     public function dichvu_idnamdv()
@@ -37,6 +48,7 @@ class PDV_m extends connectDB
     function dichvuPDV_del($id)
     {
         $sql = "DELETE FROM dang_ky_dich_vu WHERE id ='$id'";
+        
         return mysqli_query($this->conn, $sql);
     }
 

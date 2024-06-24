@@ -37,18 +37,19 @@ class DanhsachHDDV extends controller
             $id_invoice = $_POST['txtMaHD'];
             $id_room = $_POST['txtMaPhong'];
             $dulieu = $this->dsdv->hddv_find($id_invoice, $id_room);
-            $dulieu2 = $this->dsdv->hddv_idP();
+            $dulieu1 = $this->dsdv->hddv_idP();
             $dulieu3 = $this->dsdv->hddv_idP();
-
-            //Gọi lại giao diện và truyền $dulieu ra
             $this->view('MasterLayout', [
                 'page' => 'DanhsachHDDV_v',
                 'dulieu' => $dulieu,
-                'dulieu2' => $dulieu2,
+                'dulieu1' => $dulieu1,
                 'dulieu3' => $dulieu3,
                 'mahd' => $id_invoice,
                 'map' => $id_room,
+
+
             ]);
+          
         }
 
         if (isset($_POST['btnXuat'])) {
@@ -132,12 +133,7 @@ class DanhsachHDDV extends controller
 
     function suadl()
     {
-        $dulieu = $this->dsdv->hddv_invoice();
-        $dulieu1 = $this->dsdv->hddv_idP();
-        $dulieu3 = $this->dsdv->hddv_idP();
         if (isset($_POST['btnLuu'])) {
-
-
             $id_invoice = $_POST['txtMaHD'];
             $id_room = $_POST['txtMaPhong'];
             $electricity = $_POST['txtDien'];
@@ -154,55 +150,57 @@ class DanhsachHDDV extends controller
             } else
                 echo "<script>alert('Sửa thất bại!')</script>";
 
-            // Gọi lại giao diện và truyền $dulieu ra
-
-
-            $this->view('MasterLayout', [
-                'page' => 'DanhsachHDDV_v',
-                'dulieu' => $dulieu,
-                'dulieu1' => $dulieu1,
-                'dulieu3' => $dulieu3,
-
-
-            ]);
         }
+        $dulieu = $this->dsdv->hddv_invoice();
+        $dulieu1 = $this->dsdv->hddv_idP();
+        $dulieu3 = $this->dsdv->hddv_idP();
+        $this->view('MasterLayout', [
+            'page' => 'DanhsachHDDV_v',
+            'dulieu' => $dulieu,
+            'dulieu1' => $dulieu1,
+            'dulieu3' => $dulieu3,
+
+
+        ]);
     }
 
     function xoa($id_service)
     {
         $kq = $this->dsdv->hddv_del($id_service);
 
-        // Fetch the data after deletion
-        $dulieu1 = $this->dsdv->hddv_idP();
-        $dulieu2 = $this->dsdv->hddv_invoice();
-        $dulieu3 = $this->dsdv->hddv_idP();
 
         // Display the alert based on the result of deletion
         if ($kq) {
             echo "<script>
                     alert('Xóa thành công!');
-                    window.location.href = 'http://localhost/QuanLyKyTucXa_new/DachsachHDDV';
                   </script>";
         } else {
             echo "<script>
                     alert('Xóa thất bại!');
-                    window.location.href = 'http://localhost/QuanLyKyTucXa_new/DachsachHDDV';
                   </script>";
         }
+
+        $dulieu = $this->dsdv->hddv_invoice();
+        $dulieu1 = $this->dsdv->hddv_idP();
+        $dulieu3 = $this->dsdv->hddv_idP();
+        $this->view('MasterLayout', [
+            'page' => 'DanhsachHDDV_v',
+            'dulieu' => $dulieu,
+            'dulieu1' => $dulieu1,
+            'dulieu3' => $dulieu3,
+
+
+        ]);
 
         exit();
     }
 
     function themmoi()
     {
-
-        // $dulieu = $this->dsdv->hddv_all();
-        $dulieu1 = $this->dsdv->hddv_idP();
-        $dulieu2 = $this->dsdv->hddv_invoice();
+        if (isset($_POST['btnLuu'])) {
 
 
-        if (isset($_POST['btnLuuDV'])) {
-
+            // Kiểm tra trùng mã
             $id_invoice = $_POST['txtMaHD'];
             $id_room = $_POST['txtMaPhong'];
             $electricity = $_POST['txtDien'];
@@ -211,18 +209,16 @@ class DanhsachHDDV extends controller
             $ended_day = $_POST['txtNgayKT'];
             $status = $_POST['txtTrangThai'];
 
-            // Kiểm tra trùng mã
+            // Gọi lại giao diện và truyền $dulieu ra
             $kq1 = $this->dsdv->check_trung_ma($id_invoice);
             if ($id_invoice == '' || $id_room == '' || $status == '' || $created_day == '') {
                 echo "<script>alert('Vui lòng điền đầy đủ thông tin!')
-                window.location.href = 'http://localhost/QuanLyKyTucXa_new/DachsachHDDV';
                 </script>";
             } else {
 
                 if ($kq1) {
                     echo "<script>
                     alert('Trùng mã!');
-                    window.location.href = 'http://localhost/QuanLyKyTucXa_new/DachsachHDDV';
                   </script>";
                     exit();
                 } else {
@@ -232,28 +228,26 @@ class DanhsachHDDV extends controller
                     if ($kq) {
                         echo "<script>
                         alert('Thêm mới thành công!');
-                        window.location.href = 'http://localhost/QuanLyKyTucXa_new/DachsachHDDV';
                       </script>";
                     } else {
                         echo "<script>
                         alert('Thêm mới thất bại!');
-                        window.location.href = 'http://localhost/QuanLyKyTucXa_new/DachsachHDDV';
                       </script>";
                     }
-                    exit();
                 }
-
             }
-            
 
-                // $dulieu = $this->dsdv->hddv_invoice();
-                // $dulieu1 = $this->dsdv->hddv_idP();
-                // $this->view('MasterLayout', [
-                //     'page' => 'DanhsachHDDV_v',
-                //     'dulieu1' => $dulieu1,
+            $dulieu = $this->dsdv->hddv_invoice();
+            $dulieu1 = $this->dsdv->hddv_idP();
+            $dulieu3 = $this->dsdv->hddv_idP();
+            $this->view('MasterLayout', [
+                'page' => 'DanhsachHDDV_v',
+                'dulieu' => $dulieu,
+                'dulieu1' => $dulieu1,
+                'dulieu3' => $dulieu3,
 
 
-                // ]);
+            ]);
         }
     }
 }
