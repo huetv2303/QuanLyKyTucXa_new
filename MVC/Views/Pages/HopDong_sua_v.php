@@ -24,13 +24,13 @@
 <div class="main">
     <div class="content">
         <br>
-        <a style="margin: 20px;" class="text-black content1" href="http://localhost:9090/QuanLyKyTucXa_new/HopDong">
+        <a style="margin: 20px;" class="text-black content1" href="http://localhost/QuanLyKyTucXa_new/HopDong">
             << Quay lại</a>
                 <br>
                 <div class="header">
                     <h3>Sửa hợp đồng</h3>
                 </div>
-                <form class = "content1" action="http://localhost:9090/QuanLyKyTucXa_new/HopDong/suadl" method="post">
+                <form class = "content1" action="http://localhost/QuanLyKyTucXa_new/HopDong/suadl" method="post">
                     <?php
                     if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
                         while ($row = mysqli_fetch_array($data['dulieu'])) {
@@ -111,6 +111,8 @@
                                     <td><select required style="width:700px" class="input_tb form-select" name="txtTinhTrang" id="">
                                         <option value="Còn hạn" <?php if ($row['tinhTrang'] == "Còn hạn") echo "selected";?>>Còn hạn</option>
                                         <option value="Hết hạn" <?php if ($row['tinhTrang'] == "Hết hạn") echo "selected";?>>Hết hạn</option>
+                                        
+                                        <?php if ($row['tinhTrang'] == "Gia hạn") echo '<option selected value="Gia hạn">Gia hạn</option>';?>
                                     </select></td>
                                     
                                 </tr>

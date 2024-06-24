@@ -26,18 +26,29 @@
         }
 
 
+        public function hopdonggiahan_all(){
+            $query = "SELECT * FROM hopdong WHERE tinhTrang = 'Hết hạn'";
+            return mysqli_query($this->conn, $query);
+        }
+
+        public function hopdonggiahan_giahan($mhd, $end){
+            $query = "UPDATE hopdong SET tinhTrang='Gia hạn', ngayKetThuc ='$end' WHERE maHopDong = '$mhd'";
+            return mysqli_query($this->conn, $query);
+        }
+
+
         public function nhanvien_all(){
-            $query = "SELECT MaNhanVien, TenNhanVien FROM nhanvien ORDER BY TenNhanVien ASC;";
+            $query = "SELECT MaNhanVien, TenNhanVien FROM nhanvien ORDER BY maNhanVien ASC;";
             return mysqli_query($this->conn, $query);
         }
 
 
         public function sinhvien_all(){
-            $query = "SELECT hoTen, maSinhVien FROM thongtinsinhvien ORDER BY hoTen ASC";
+            $query = "SELECT hoTen, maSinhVien FROM thongtinsinhvien ORDER BY maSinhVien ASC";
             return mysqli_query($this->conn, $query);
         }
         public function sinhvien_available(){
-            $query = "SELECT sv.hoTen, sv.maSinhVien FROM thongtinsinhvien sv WHERE NOT EXISTS (SELECT 1 FROM hopdong hd WHERE hd.maSinhVien = sv.maSinhVien) ORDER BY hoTen ASC";
+            $query = "SELECT sv.hoTen, sv.maSinhVien FROM thongtinsinhvien sv WHERE NOT EXISTS (SELECT 1 FROM hopdong hd WHERE hd.maSinhVien = sv.maSinhVien) ORDER BY maSinhVien ASC";
             return mysqli_query($this->conn, $query);
         }
 

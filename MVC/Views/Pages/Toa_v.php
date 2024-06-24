@@ -34,7 +34,7 @@
             <div class="form-inline">
             <div class="center-dulieu">
     
-        <table style="margin: auto; background color:blue">
+        <table style="margin: auto; background-color:blue">
             <tr>
                 <td>
                     
