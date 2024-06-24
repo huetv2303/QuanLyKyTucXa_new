@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2024 at 04:28 PM
+-- Generation Time: Jun 24, 2024 at 07:24 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -213,7 +213,7 @@ CREATE TABLE `thongtinsinhvien` (
 --
 
 INSERT INTO `thongtinsinhvien` (`maSinhVien`, `hoTen`, `maToa`, `maPhong`, `email`, `soDienThoai`, `ngaySinh`, `gioiTinh`, `cccd`, `diaChi`) VALUES
-('SV001', 'Nguyễn Thị Hương', 'A', 'A101', 'huongnguyen@gmail.com', 901234567, '1998-05-10', 'Nữ', '123456789', 'Hà Nội'),
+('SV001', 'Nguyễn Thị Long', 'A', 'A101', 'huongnguyen@gmail.com', 901234567, '1998-05-10', 'Nữ', '123456789', 'Hà Nội'),
 ('SV002', 'Trần Văn Nam', 'A', 'A102', 'namtran@gmail.com', 912345678, '1999-06-15', 'Nam', '234567890', 'Hải Phòng'),
 ('SV003', 'Lê Thị Minh', 'A', 'A103', 'minhle@gmail.com', 923456789, '1997-07-20', 'Nữ', '345678901', 'Đà Nẵng'),
 ('SV004', 'Phạm Văn Tuấn', 'A', 'A104', 'tuantuan@gmail.com', 934567890, '1998-08-25', 'Nam', '456789012', 'Huế'),
@@ -352,19 +352,6 @@ ALTER TABLE `hopdong`
 --
 ALTER TABLE `nhanvien`
   ADD CONSTRAINT `nhanvien_ibfk_1` FOREIGN KEY (`maToa`) REFERENCES `toa` (`maToa`);
-
---
--- Constraints for table `phong`
---
-ALTER TABLE `phong`
-  ADD CONSTRAINT `phong_ibfk_1` FOREIGN KEY (`maToa`) REFERENCES `toa` (`maToa`);
-
---
--- Constraints for table `thongtinsinhvien`
---
-ALTER TABLE `thongtinsinhvien`
-  ADD CONSTRAINT `thongtinsinhvien_ibfk_1` FOREIGN KEY (`maPhong`) REFERENCES `phong` (`maPhong`),
-  ADD CONSTRAINT `thongtinsinhvien_ibfk_2` FOREIGN KEY (`maToa`) REFERENCES `toa` (`maToa`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

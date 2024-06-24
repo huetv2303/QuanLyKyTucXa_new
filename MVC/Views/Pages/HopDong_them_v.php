@@ -24,7 +24,7 @@
 <body>
     <div class="main">
     <br>
-        <a style="margin: 20px;"  class="text-black" href="http://localhost/QuanLyKyTucXa_new/HopDong">
+        <a style="margin: 20px;"  class="text-black" href="http://localhost:9090/QuanLyKyTucXa_new/HopDong">
             
             << Quay lại</a>
                 <br>
@@ -32,7 +32,7 @@
 
                 <h3 class="content1">Thêm hợp đồng mới</h3>
 
-                <form class="content1" action="http://localhost/QuanLyKyTucXa_new/HopDongThem/them" method="post">
+                <form class="content1" action="http://localhost:9090/QuanLyKyTucXa_new/HopDongThem/them" method="post">
                     <table>
                         <tr>
                             <td class="lable_tb">

@@ -31,15 +31,18 @@ class DanhsachDV extends controller
     function import()
     {
         if (isset($_POST['btnUpLoad'])) {
-            if (empty($_GET['txtfile'])) {
+            if (empty($_FILES['txtfile']['name'])) {
                 echo "<script>alert('Vui lòng chọn file!')</script>";
+            } elseif ($_FILES['txtfile']['size'] == 0) {
+                echo "<script>alert('File không được để trống!')</script>";
             } else {
                 $file = $_FILES['txtfile']['tmp_name'];
                 $objReader = PHPExcel_IOFactory::createReaderForFile($file);
                 $objExcel = $objReader->load($file);
-                //Lấy sheet hiện tại
+                // Lấy sheet hiện tại
                 $sheetData = $objExcel->getActiveSheet()->toArray(null, true, true, true);
                 $highestRow = $objExcel->setActiveSheetIndex()->getHighestRow();
+                $importSuccess = true;
 
                 for ($i = 2; $i <= $highestRow; $i++) {
                     $id_service = $sheetData[$i]["A"];
@@ -47,30 +50,38 @@ class DanhsachDV extends controller
                     $price = $sheetData[$i]["C"];
                     $unit = $sheetData[$i]["D"];
                     $note = $sheetData[$i]["E"];
-                    // $kq = $this->dsdv->dichvu_ins($id_service, $name, $price, $unit, $note);
-                }
 
+                    if (empty($id_service) || empty($name) || empty($price) || empty($unit)) {
+                        echo "<script>alert('Vui lòng điền đầy đủ thông tin ở hàng {$i}!')</script>";
+                        $importSuccess = false;
+                        continue;
+                    }
 
-                if ($id_service == '' || $name == '' || $price == '' || $unit == '') {
-                    echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
-                } else {
-                    //Kiểm tra trùng mã tác giả
+                    // Kiểm tra trùng mã dịch vụ và tên dịch vụ
                     $kq1 = $this->dsdv->check_trung_ma($id_service);
                     $kq2 = $this->dsdv->check_name($name);
                     if ($kq1) {
-                        echo "<script>alert('Mã dịch vụ đã tồn tại!')</script>";
-                    } else if ($kq2) {
-                        echo "<script>alert(' Tên dịch vụ này đã tồn tại!')</script>";
+                        echo "<script>alert('Mã dịch vụ ở hàng {$i} đã tồn tại!')</script>";
+                        $importSuccess = false;
+                        continue;
+                    } elseif ($kq2) {
+                        echo "<script>alert('Tên dịch vụ ở hàng {$i} đã tồn tại!')</script>";
+                        $importSuccess = false;
+                        continue;
                     } else {
-                        //gọi hàm thêm dl tacgia_ins trong model
+                        // Gọi hàm thêm dl dichvu_ins trong model
                         $kq = $this->dsdv->dichvu_ins($id_service, $name, $price, $unit, $note);
-
-                        if ($kq) {
-                            echo "<script>alert('Import thành công!')</script>";
-                        } else
-
-                            echo "<script>alert('Import thất bại!')</script>";
+                        if (!$kq) {
+                            echo "<script>alert('Import thất bại ở hàng {$i}!')</script>";
+                            $importSuccess = false;
+                        }
                     }
+                }
+
+                if ($importSuccess) {
+                    echo "<script>alert('Import thành công!')</script>";
+                } else {
+                    echo "<script>alert('Có lỗi xảy ra khi import! Vui lòng kiểm tra lại.')</script>";
                 }
             }
         }
@@ -79,9 +90,9 @@ class DanhsachDV extends controller
         $this->view('MasterLayout', [
             'page' => 'DanhsachDV_v',
             'dulieu' => $dulieu,
-
         ]);
     }
+
 
     function timkiem()
     {

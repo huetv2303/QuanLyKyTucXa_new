@@ -12,12 +12,9 @@
         <div class="header">
             <h3>Danh sách dịch vụ</h3>
             <!-- Button trigger modal -->
-
-
-
         </div>
         <!-- Thêm mới -->
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DachsachDV/themmoi" id="addServiceForm">
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachDV/themmoi" id="addServiceForm">
             <!-- Modal -->
             <div class="modal-add">
                 <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
@@ -30,12 +27,10 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <h4>Thêm dịch vụ</h4>
-
                                     <label for="txtMaDV">Mã dịch vụ</label>
                                     <input type="text" class="form-control" placeholder="Nhập mã dịch vụ" name="txtMaDV" id="txtMaDV1" required>
                                     <span class="error-message" id="errorTxtMaDV"></span>
                                     <br>
-
                                     <label for="txtTenDV">Tên dịch vụ</label>
                                     <input type="text" class="form-control" placeholder="Nhập tên dịch" name="txtTenDV" id="txtTenDV1" required>
                                     <span class="error-message" id="errorTxtTenDV"></span>
@@ -64,7 +59,7 @@
         </form>
 
         <!-- Sửa -->
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachDV/suadl">
+        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV/suadl">
             <!-- Modal -->
             <div class="modal-update">
                 <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
@@ -97,7 +92,7 @@
         </form>
 
         <!-- Nhập excel -->
-        <form action="http://localhost/QuanLyKyTucXa_new/DanhsachDV/import" enctype="multipart/form-data" method="post">
+        <form action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV/import" enctype="multipart/form-data" method="post">
             <label for="myFile2"></label>
             <table>
                 <tr>
@@ -113,10 +108,8 @@
         </form>
 
         <!-- Tìm kiếm -->
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachDV/timkiem">
+        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV/timkiem">
             <div class="form-inline">
-
-
                 <div class="head_timkiem">
                     <div>
                         <label style="width: 100px;">Mã dịch vụ</label>
@@ -125,7 +118,6 @@
                     <div>
                         <label style="width: 100px;">Tên dịch vụ</label>
                         <input placeholder="Nhập tên nhân viên" type="text" id="txtTenDV" class="form-control" name="txtTenDV" value="<?php echo isset($_POST['txtTenDV']) ? htmlspecialchars($_POST['txtTenDV']) : ''; ?>">
-
                     </div>
                     <div>
                         <button type="submit" style="margin: 24px 0px;" class="btn btn-primary" name="btnTimKiem" id="btnTimKiem"><i class="fa-solid fa-magnifying-glass">&nbsp;&nbsp;</i>Tìm Kiếm </button>
@@ -142,14 +134,11 @@
                         <th>Đơn vị</th>
                         <th>Ghi chú</th>
                         <th>Thao tác</th>
-
-
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     $i = 1;
-
                     if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
                         while ($row = mysqli_fetch_assoc($data['dulieu'])) {
                     ?>
@@ -160,16 +149,13 @@
                                 <td><?php echo htmlspecialchars($row['price']) ?></td>
                                 <td><?php echo htmlspecialchars($row['unit']) ?></td>
                                 <td><?php echo htmlspecialchars($row['note']) ?></td>
-
                                 <td>
                                     <button onclick="updateDataDV('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
-                                    <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachDV/xoa/<?php echo $row['id_service'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+                                    <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV/xoa/<?php echo $row['id_service'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
                                     <!-- <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV/sua/" onclick="updateData('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></a> -->
                                 </td>
-
                             </tr>
                     <?php
-
                         }
                     }
                     ?>
@@ -183,9 +169,7 @@
         var tenDV = document.getElementById('txtTenDV1').value;
         var gia = document.getElementById('txtGia1').value;
         var donVi = document.getElementById('txtDonVi1').value;
-
         var valid = true;
-
         if (maDV.trim() === '') {
             document.getElementById('errorTxtMaDV').textContent = 'Mã dịch vụ không được để trống';
             valid = false;
@@ -213,7 +197,6 @@
         } else {
             document.getElementById('errorTxtDonVi').textContent = '';
         }
-
         return valid;
     }
 </script>

@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách hợp đồng</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="/Public/CSS/style.css">
+    
     <style>
         .inputSearch {
             width: 300px;
@@ -27,7 +25,7 @@
 <body>
     <div class="main">
         <div>
-            <form class="content1" action="http://localhost/QuanLyKyTucXa_new/HopDong/timkiem" class="text-center padd" method="post"> <!-- form tìm kiếm -->
+            <form class="content1" action="http://localhost:9090/QuanLyKyTucXa_new/HopDong/timkiem" class="text-center padd" method="post"> <!-- form tìm kiếm -->
                 <table class="text-center">
                     <tr>
                         <td>
@@ -67,8 +65,8 @@
 
                 <!-- thẻ div chứa các button thêm mới, nhập, xuất excel -->
                 <div class="text-center padd">
-                    <a href="http://localhost/QuanLyKyTucXa_new/HopDongThem" class="btn btn-primary">+ Thêm mới</a>
-                    <a href="http://localhost/QuanLyKyTucXa_new/HopDongFile" class="btn btn-outline-primary">Nhập excel</a>
+                    <a href="http://localhost:9090/QuanLyKyTucXa_new/HopDongThem" class="btn btn-primary">+ Thêm mới</a>
+                    <a href="http://localhost:9090/QuanLyKyTucXa_new/HopDongFile" class="btn btn-outline-primary">Nhập excel</a>
                     <button type="submit" class="btn-outline-primary btn" name="btnXuatExcel">Xuất excel</button>
                 </div>
 
@@ -106,8 +104,8 @@
                                 <td><?php echo $row['tinhTrang'] ?></td>
                                 <td>
                                     <!-- <a href="">Xóa</a> -->
-                                    <a href="http://localhost/QuanLyKyTucXa_new/HopDong/sua/<?php echo $row['maHopDong'] ?>" class="btn btn-outline-primary">Sửa</a>
-                                    <a href="http://localhost/QuanLyKyTucXa_new/HopDong/xoa/<?php echo $row['maHopDong'] ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa ko?')" class="btn btn-outline-danger">Xóa</a>
+                                    <a href="http://localhost:9090/QuanLyKyTucXa_new/HopDong/sua/<?php echo $row['maHopDong'] ?>" class="btn btn-outline-primary">Sửa</a>
+                                    <a href="http://localhost:9090/QuanLyKyTucXa_new/HopDong/xoa/<?php echo $row['maHopDong'] ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa ko?')" class="btn btn-outline-danger">Xóa</a>
 
                                 </td>
                             </tr>

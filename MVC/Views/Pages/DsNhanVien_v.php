@@ -38,7 +38,7 @@
 </style>
 
 <body>
-    <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DsNhanVien/Search">
+    <form method="post" action="http://localhost/QuanLyKyTucXa_new/DsNhanVien/Search">
         <div>
             <h6>DANH SÁCH NHÂN VIÊN</h6>
             <br>
@@ -98,8 +98,18 @@
                                 <td><?php echo $row['SoDienThoai'] ?></td>
                                 <td><?php echo $row['MaToa'] ?></td>
                                 <td>
-                                    <a href="http://localhost:9090/QuanLyKyTucXa_new/DsNhanVien/loadForm/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square">&nbsp;&nbsp;</i>Sửa</a> &nbsp;
-                                    <a onclick="return confirm('Bạn có muốn xóa nhân viên này không ?')" href="http://localhost:9090/QuanLyKyTucXa_new/DsNhanVien/Delete/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash">&nbsp;&nbsp;</i>Xóa</a>
+<<<<<<< HEAD
+
+                                    <a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien/loadForm/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square">&nbsp;&nbsp;</i>Sửa</a> &nbsp;
+                                    <a onclick="return confirm('Bạn có muốn xóa nhân viên này không ?')" href="http://localhost/QuanLyKyTucXa_new/DsNhanVien/Delete/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash">&nbsp;&nbsp;</i>Xóa</a>
+
+
+                                   
+
+=======
+                                    <a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien/loadForm/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square">&nbsp;&nbsp;</i>Sửa</a> &nbsp;
+                                    <a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien/Delete/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash">&nbsp;&nbsp;</i>Xóa</a>
+>>>>>>> bf0b4c51130babc7131f31188653846deab5e359
                                 </td>
                             </tr>
                     <?php
@@ -156,7 +166,7 @@
     </form>
 
     <!-- Modal choose file Excel -->
-    <form action="http://localhost:9090/QuanLyKyTucXa_new/DsNhanVien/ImportExcel" method="post" enctype="multipart/form-data">
+    <form action="http://localhost/QuanLyKyTucXa_new/DsNhanVien/ImportExcel" method="post" enctype="multipart/form-data">
         <div class="modal" id="modalExcel">
             <div class="modal-dialog">
                 <div class="modal-content">
