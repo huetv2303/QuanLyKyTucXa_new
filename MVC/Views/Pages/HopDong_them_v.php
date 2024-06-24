@@ -104,8 +104,8 @@
                             <td><input required type="date" name="txtNgayKetThuc" class="form-control" id="nkt" value="<?php if (isset($data['ngayKetThuc'])) echo $data['ngayKetThuc'] ?>"></td>
                         </tr>
                         <tr>
-                            <td><label for="ttp" class="form-label">Tình trạng phòng:</label></td>
-                            <td><input readonly type="text" name="txtTinhTrang" class="form-control" value="Còn hạn" id="ttp"></td>
+                            <td><label style="display:none" for="ttp" class="form-label">Tình trạng:</label></td>
+                            <td><input  style="display:none" readonly type="text" name="txtTinhTrang" class="form-control" value="Còn hạn" id="ttp"></td>
                         </tr>
                         <tr>
                             <td colspan="2"><input type="submit" class="btn btn-primary" name="btnLuu" value="Thêm"></td>

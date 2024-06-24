@@ -107,7 +107,7 @@
                                     <td><input required type="date" name="txtNgayKetThuc" class="form-control" id="nkt" value="<?php echo $row['ngayKetThuc'] ?>"></td>
                                 </tr>
                                 <tr>
-                                    <td><label for="ttp" class="form-label">Tình trạng phòng:</label></td>
+                                    <td><label for="ttp" class="form-label">Tình trạng hợp đồng:</label></td>
                                     <td><select required style="width:700px" class="input_tb form-select" name="txtTinhTrang" id="">
                                         <option value="Còn hạn" <?php if ($row['tinhTrang'] == "Còn hạn") echo "selected";?>>Còn hạn</option>
                                         <option value="Hết hạn" <?php if ($row['tinhTrang'] == "Hết hạn") echo "selected";?>>Hết hạn</option>

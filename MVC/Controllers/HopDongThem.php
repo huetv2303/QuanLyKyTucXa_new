@@ -43,6 +43,7 @@ class HopDongThem extends controller
                 if ($checkmhd) echo "<script>alert('Trùng mã hợp đồng')</script>";
                 if ($checkmasv) echo "<script>alert('Trùng mã sinh viên')</script>";
                 if ($start > $end) echo "<script>alert('Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu hợp đồng')</script>";
+                $view = 'HopDong_them_v';
             } else {
                 $kq = $this->hopdongthem->hopdong_ins($mhd, $mnv, $msv, $mp, $start, $end, $tt);
                 if ($kq) {
