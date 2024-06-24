@@ -46,7 +46,7 @@
 </head>
 
 <body>
-    <form method="post" action="http://localhost:2929/QuanLyKyTucXa_new/SinhVien/themmoi">
+    <form method="post" action="http://localhost/QuanLyKyTucXa_new/SinhVien/themmoi">
         <div id="wrapper" style="height: -webkit-fill-available;">
 
             <div class="header" style="color: #08449b">
@@ -60,7 +60,7 @@
                 <label>Họ tên</label>
                 <input type="text" class="form-control" placeholder="Nhập họ tên" name="txtHoTen" required>
 
-                <label>Mã tòa</label>
+                <!-- <label>Mã tòa</label>
                 <select name="txtMaToa" class="form-control" id="maToa">
                     <option value="">-------Chọn--------</option>
                     <?php
@@ -74,7 +74,7 @@
                 <label>Mã phòng</label>
                 <select name="txtMaPhong" class="form-control" id="maPhong">
                     <option value="">-------Chọn--------</option>
-                </select>
+                </select> -->
 
                 <label>Email</label>
                 <input type="email" class="form-control" placeholder="Nhập email" name="txtEmail" required>
@@ -112,7 +112,7 @@
                 var maToa = $(this).val();
                 if (maToa != '') {
                     $.ajax({
-                        url: 'http://localhost:2929/QuanLyKyTucXa_new/SinhVien/get_phong_by_toa',
+                        url: 'http://localhost/QuanLyKyTucXa_new/SinhVien/get_phong_by_toa',
                         method: 'POST',
                         data: {
                             maToa: maToa

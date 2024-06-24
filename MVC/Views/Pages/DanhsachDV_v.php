@@ -59,7 +59,7 @@
         </form>
 
         <!-- Sửa -->
-        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV/suadl">
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachDV/suadl">
             <!-- Modal -->
             <div class="modal-update">
                 <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
@@ -92,7 +92,7 @@
         </form>
 
         <!-- Nhập excel -->
-        <form action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV/import" enctype="multipart/form-data" method="post">
+        <form action="http://localhost/QuanLyKyTucXa_new/DanhsachDV/import" enctype="multipart/form-data" method="post">
             <label for="myFile2"></label>
             <table>
                 <tr>
@@ -108,7 +108,7 @@
         </form>
 
         <!-- Tìm kiếm -->
-        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV/timkiem">
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachDV/timkiem">
             <div class="form-inline">
                 <div class="head_timkiem">
                     <div>
@@ -151,7 +151,7 @@
                                 <td><?php echo htmlspecialchars($row['note']) ?></td>
                                 <td>
                                     <button onclick="updateDataDV('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
-                                    <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV/xoa/<?php echo $row['id_service'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+                                    <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachDV/xoa/<?php echo $row['id_service'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
                                     <!-- <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV/sua/" onclick="updateData('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></a> -->
                                 </td>
                             </tr>

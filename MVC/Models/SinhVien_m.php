@@ -1,9 +1,10 @@
 <?php
 class SinhVien_m extends connectDB
 {
-    public function sinhvien_ins($msv, $tensv, $matoa, $maphong, $email, $sdt, $ns, $gt, $cccd, $dc)
+    // $matoa, $maphong,
+    public function sinhvien_ins($msv, $tensv, $email, $sdt, $ns, $gt, $cccd, $dc)
     {
-        $sql = "INSERT INTO thongtinsinhvien VALUES ('$msv','$tensv', '$matoa', '$maphong','$email','$sdt','$ns','$gt','$cccd','$dc')";
+        $sql = "INSERT INTO thongtinsinhvien VALUES ('$msv','$tensv', '', '', '$email','$sdt','$ns','$gt','$cccd','$dc')";
         return mysqli_query($this->conn, $sql);
     }
 

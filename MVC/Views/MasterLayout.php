@@ -12,8 +12,8 @@
     <script src="https://kit.fontawesome.com/7c35a47a4f.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="http://localhost:9090/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
-    <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
+    <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
 
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=1"> </script>
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/phong.js?v=1"> </script>
@@ -98,10 +98,12 @@
                    <a href="http://localhost/QuanLyKyTucXa_new/Home" ><img style="width : 300px;" src="https://utt.edu.vn/uploads/images/site/1447346709LOGO_GTVT.png" alt="LOGO UTT">
                    </a> 
                     <li class="nav-item">
-                        <!-- <a class="nav-link" href="http://localhost:9090/QuanLyKyTucXa_new/Home">Trang chủ</a> -->
+                        <!-- <a class="nav-link" href="http://localhost/QuanLyKyTucXa_new/Home">Trang chủ</a> -->
 
                          <h1>Quản lý ký túc xá</h1>
                     </li>
+
+                  
 
 
                     <li class="nav-item">
