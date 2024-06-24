@@ -44,7 +44,7 @@ class DanhsachDV extends controller
                 $price = $sheetData[$i]["C"];
                 $unit = $sheetData[$i]["D"];
                 $note = $sheetData[$i]["E"];
-                $kq = $this->dsdv->dichvu_ins($id_service, $name, $price, $unit, $note);
+                // $kq = $this->dsdv->dichvu_ins($id_service, $name, $price, $unit, $note);
             }
 
             if ($id_service == '' || $name == '' || $price == '' || $unit == '') {

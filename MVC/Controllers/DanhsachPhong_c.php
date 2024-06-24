@@ -8,10 +8,11 @@ class DanhsachPhong_c extends controller{
 
     function Get_data(){
         $dulieu = $this->ds->all();
+        $ma=$this->ds-> toa_All();
         $this->view('Masterlayout',[
             'page'=>'DanhsachPhong_v',
             'dulieu'=>$dulieu,
-            'ma'=> $this->ds-> toa(),// Lấy tất cả dữ liệu từ bảng lớp học, nếu bài bạn là phòng thì đây là tòa
+            'ma'=>$ma,// Lấy tất cả dữ liệu từ bảng lớp học, nếu bài bạn là phòng thì đây là tòa
         
     ]);
     }
@@ -69,25 +70,23 @@ class DanhsachPhong_c extends controller{
         if(isset($_POST['btnTimkiem'])){
             $maphong=$_POST['txtTimkiem'];
             $matoa=$_POST['txtTimkiem'];
-           
-            $songuoi=$_POST['txtTimkiem'];
             $trangthai=$_POST['txtTimkiem'];
             // $tienphong=$_POST['txtTimkiem'];
-            
-            $dulieu=$this->ds->find($maphong,$matoa,$songuoi,$trangthai);
+            $dulieu=$this->ds->find($maphong,$matoa,$trangthai);
             //Gọi lại giao diện và truyền $dulieu ra
             $this->view('Masterlayout',[
                 'page'=>'DanhsachPhong_v',
                 'dulieu'=>$dulieu,
                 'maphong'=>$maphong,
                     'matoa'=>$matoa,
-                    'songuoi'=>$songuoi,
-                    
                     'trangthai'=>$trangthai,
                 
             ]);
         }
+       
+          
     }
+    
      
 
     function xoa($maphong){
@@ -105,72 +104,57 @@ class DanhsachPhong_c extends controller{
     }
     function sua($maphong){
         $this->view('Masterlayout',[
-            'page'=>'suaPhong_v',
+            'page'=>'DanhsachPhong_v',
             'dulieu'=>$this->ds->find2($maphong),
-            'ma'=> $this->ds-> toa(),// Lấy tất cả dữ liệu từ bảng lớp học, nếu bài bạn là phòng thì đây là tòa
+            'ma'=> $this->ds->toa_All(), // Lấy tất cả dữ liệu từ bảng lớp học, nếu bài bạn là phòng thì đây là tòa
         ]);
     }
     function suadl(){
         if(isset($_POST['btnLuu'])){
-            $maphong=$_POST['txtMaphong'];
-            $matoa=$_POST['cboMatoa'];
-            $songuoi=$_POST['txtSonguoi'];
-            $tienphong=$_POST['txtTienphong'];
-            $trangthai=$_POST['txtTrangthai'];
-            //gọi hàm sủa dl tacgia_udp trong model
-            $kq=$this->ds->upd($maphong,$matoa,$songuoi,$tienphong,$trangthai);
-            if($kq){
+            $maphong = $_POST['txtMaphong'];
+            $matoa = $_POST['txtMatoa'];
+            $songuoi = $_POST['txtSonguoi'];
+            $tienphong = $_POST['txtTienphong'];
+            $trangthai = $_POST['txtTrangthai'];
+    
+            // Kiểm tra dữ liệu trống
+            if(empty($maphong) || empty($matoa) || empty($songuoi) || empty($tienphong) || empty($trangthai)){
                 echo "<script>alert('Không để trống dữ liệu !')</script>";
-
-                //Gọi lại giao diện và truyền $dulieu ra
-                $maphong=$_POST['txtMaphong'];
-                $matoa=$_POST['cboMatoa'];
-                $songuoi=$_POST['txtSonguoi'];
-                $tienphong=$_POST['txtTienphong'];
-                $trangthai=$_POST['txtTrangthai'];
-                $dulieu=$this->ds->find($maphong,$matoa,$songuoi,$tienphong,$trangthai);
+    
+                $dulieu = $this->ds->find($maphong, $matoa, $songuoi, $tienphong, $trangthai);
                 $this->view('Masterlayout',[
-                    'page'=>'suaPhong_v',
-                    'dulieu'=>$dulieu,
-                    'ma' => $this->ds -> toa(),// Lấy tất cả dữ liệu từ bảng lớp học, nếu bài bạn là phòng thì đây là tòa
-                    'maphong'=>$maphong,
-                    'matoa'=>$matoa,
-                    'songuoi'=>$songuoi,
-                    'tienphong'=>$tienphong,
-                    'trangthai'=>$trangthai,
-            ]);
-            }
-            else{
-                //gọi hàm sủa dl _udp trong model
-                $kq=$this->ds->update($maphong,$matoa,$songuoi,$tienphong,$trangthai);
+                    'page' => 'DanhsachPhong_v',
+                    'dulieu' => $dulieu,
+                    'ma' => $this->ds->toa_All(),
+                    'maphong' => $maphong,
+                    'matoa' => $matoa,
+                    'songuoi' => $songuoi,
+                    'tienphong' => $tienphong,
+                    'trangthai' => $trangthai,
+                ]);
+            } else {
+                // Gọi hàm update dữ liệu trong model
+                $kq = $this->ds->update($maphong, $matoa, $songuoi, $tienphong, $trangthai);
                 
                 if($kq){
                     echo "<script>alert('Sửa thành công!')</script>";
-                }
-                else
+                } else {
                     echo "<script>alert('Sửa thất bại!')</script>";
-
-                    //Gọi lại giao diện và truyền $dulieu ra
-                    $maphong=$_POST['txtMaphong'];
-                    $matoa=$_POST['cboMatoa'];
-                    $songuoi=$_POST['txtSonguoi'];
-                    $tienphong=$_POST['txtTienphong'];
-                    $trangthai=$_POST['txtTrangthai'];
-                    $dulieu=$this->ds->all();
-                    $this->view('Masterlayout',[
-                        'page'=>'suaPhong_v',
-                        'dulieu'=>$dulieu,
-                        'ma' => $this->ds -> toa(),
-                        'maphong'=>$maphong,
-                        'matoa'=>$matoa,
-                        'songuoi'=>$songuoi,
-                        'tienphong'=>$tienphong,
-                        'trangthai'=>$trangthai,
-                    ]);
+                }
+    
+                // Lấy lại tất cả dữ liệu để hiển thị
+                $dulieu = $this->ds->all();
+                $this->view('Masterlayout',[
+                    'page' => 'DanhsachPhong_v',
+                    'dulieu' => $dulieu,
+                    'ma' => $this->ds->toa_All(),
+                    'maphong' => $maphong,
+                    'matoa' => $matoa,
+                    'songuoi' => $songuoi,
+                    'tienphong' => $tienphong,
+                    'trangthai' => $trangthai,
+                ]);
             }
-            
-           
-                
         }
     }
 }

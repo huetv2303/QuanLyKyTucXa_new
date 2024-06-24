@@ -13,7 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=1"> </script>
-   
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/phong.js?v=1"> </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     
@@ -128,7 +128,7 @@
                     </div>
                     <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
-                            <a href="" class="btn">Chuc nang 1</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien" class="btn">Nhân viên</a>
                             <a href="" class="btn">Chuc nang 2</a>
                             <a href="" class="btn">Chuc nang 3</a>
                         </div>
@@ -145,7 +145,7 @@
                     <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
                             <a href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c" class="btn">Danh sách phòng</a>
-                            <a href="" class="btn">Chức năng 2</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/Toa_c" class="btn">Tòa</a>
                             <a href="" class="btn">Chuc nang 3</a>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                     <div id="collapseFour" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
                             <a href="http://localhost/QuanLyKyTucXa_new/TKNuoc" class="btn">Thống kê nước</a>
-                            <a href="" class="btn">Chuc nang 2</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/TKDien" class="btn">Thống kê điện</a>
                             <a href="" class="btn">Chuc nang 3</a>
                         </div>
                     </div>

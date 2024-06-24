@@ -37,7 +37,7 @@
                                             if (isset($data['dulieu1']) && mysqli_num_rows($data['dulieu1']) > 0) {
                                                 while ($c = mysqli_fetch_assoc($data['dulieu1'])) {
                                             ?>
-                                                    <option value="<?php echo $c['id_room'] ?>"><?php echo $c['id_room'] ?></option>
+                                                    <option value="<?php echo $c['maPhong'] ?>"><?php echo $c['maPhong'] ?></option>
                                             <?php
                                                 }
                                             }
@@ -84,7 +84,7 @@
                                     if (isset($data['dulieu3']) && mysqli_num_rows($data['dulieu3']) > 0) {
                                         while ($c = mysqli_fetch_assoc($data['dulieu3'])) {
                                     ?>
-                                            <option value="<?php echo $c['id_room'] ?>"><?php echo $c['id_room'] ?></option>
+                                            <option value="<?php echo $c['maPhong'] ?>"><?php echo $c['maPhong'] ?></option>
                                     <?php
                                         }
                                     }

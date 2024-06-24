@@ -27,7 +27,6 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="post" action="http://localhost/QuanLyKyTucXa_new/DachsachPDV/themmoi">
                                         <div class="form-group">
                                             <!-- <label>Mã Phòng</label>
                                             <input type="text" class="form-control" placeholder="Nhập mã dịch vụ" name="txtMaPhong" > -->
@@ -99,7 +98,7 @@
                                     if (isset($data['dulieu4']) && mysqli_num_rows($data['dulieu4']) > 0) {
                                         while ($row = mysqli_fetch_assoc($data['dulieu4'])) {
                                     ?>
-                                            <option value="<?php echo $row['id_room'] ?>"><?php echo $row['id_room'] ?></option>
+                                            <option value="<?php echo $row['maPhong'] ?>"><?php echo $row['maPhong'] ?></option>
                                     <?php
                                         }
                                     }
