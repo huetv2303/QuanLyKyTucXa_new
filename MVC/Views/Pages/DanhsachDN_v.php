@@ -26,9 +26,9 @@
                         </div>
                         <div class="modal-body">
                             <label>Mã dịch vụ</label>
-                            <input type="text" class="form-control" name="txtMaDV" id="txtMaDV" value="" disabled>
+                            <input type="text" class="form-control" name="txtMaDV" id="txtMaDV" value="" readonly>
                             <label>Tên dịch vụ</label>
-                            <input type="text" class="form-control" name="txtTenDV" id="txtTenDV" value="" disabled>
+                            <input type="text" class="form-control" name="txtTenDV" id="txtTenDV" value="" readonly>
                             <label>Giá</label>
                             <input type="text" class="form-control" name="txtGia" id="txtGia" value="">
                             <label>Đơn vị</label>

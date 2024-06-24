@@ -13,6 +13,18 @@ class PDV_m extends connectDB
         return mysqli_query($this->conn, $sql);
     }
 
+    function check_trung_ma($id_room, $id_service)
+    {
+        
+        $sql = "SELECT * FROM dang_ky_dich_vu WHERE id_service ='$id_service' and id_room = '$id_room' ";
+        $dl = mysqli_query($this->conn, $sql);
+        $kq = false;
+        if (mysqli_num_rows($dl) > 0) {
+            $kq = true;  //trùng mã
+        }
+        return $kq;
+    }
+
     public function dichvu_idnamdv()
     {
         $sql = "SELECT id_service, name_service FROM dich_vu_khac";

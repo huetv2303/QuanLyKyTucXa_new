@@ -37,18 +37,19 @@ class DanhsachHDDV extends controller
             $id_invoice = $_POST['txtMaHD'];
             $id_room = $_POST['txtMaPhong'];
             $dulieu = $this->dsdv->hddv_find($id_invoice, $id_room);
-            $dulieu2 = $this->dsdv->hddv_idP();
+            $dulieu1 = $this->dsdv->hddv_idP();
             $dulieu3 = $this->dsdv->hddv_idP();
-
-            //Gọi lại giao diện và truyền $dulieu ra
             $this->view('MasterLayout', [
                 'page' => 'DanhsachHDDV_v',
                 'dulieu' => $dulieu,
-                'dulieu2' => $dulieu2,
+                'dulieu1' => $dulieu1,
                 'dulieu3' => $dulieu3,
                 'mahd' => $id_invoice,
                 'map' => $id_room,
+
+
             ]);
+          
         }
 
         if (isset($_POST['btnXuat'])) {

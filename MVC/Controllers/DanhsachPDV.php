@@ -45,15 +45,33 @@ class DanhsachPDV extends controller
             $id_room = $_POST['txtMaPhong'];
             $id_service = $_POST['txtMaDV'];
 
-            $dulieu = $this->dsdv->dichvuPDV_find($id_room, $id_service);
-            //Gọi lại giao diện và truyền $dulieu ra
+            $timkiem = $this->dsdv->dichvuPDV_find($id_room, $id_service);
+            // Gọi lại giao diện và truyền $dulieu ra
+            // $this->view('MasterLayout', [
+            //     'page' => 'DanhsachPDV_v',
+            //     'dulieu' => $timkiem,
+            //     'madv' => $id_service,
+            //     'map' => $id_room,
+            // ]);
+            $dulieu1 = $this->dsdv->dichvu_idnamdv();
+            $dulieu2 = $this->dsdv->dichvu_idP();
+            // $dulieu = $this->dsdv->dichvuPDV_all();
+            $dulieu3 = $this->dsdv->dichvu_idnamdv();
+            $dulieu4 = $this->dsdv->dichvu_idP();
             $this->view('MasterLayout', [
                 'page' => 'DanhsachPDV_v',
-                'dulieu' => $dulieu,
+                // 'dulieu' => $dulieu,
+                'dulieu1' => $dulieu1,
+                'dulieu2' => $dulieu2,
+                'dulieu3' => $dulieu3,
+                'dulieu4' => $dulieu4,
+                'dulieu' => $timkiem,
                 'madv' => $id_service,
                 'map' => $id_room,
+    
             ]);
         }
+       
     }
 
 
@@ -157,12 +175,18 @@ class DanhsachPDV extends controller
             $id_room = $_POST['txtMaPhong'];
 
 
-            $kq = $this->dsdv->dichvuPDV_ins($id_room, $id_service);
-            if ($kq) {
-                echo "<script>alert('Thêm mới thành công!')</script>";
-            } else
 
-                echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
+            $kq1 = $this->dsdv->check_trung_ma($id_room, $id_service);
+            if ($kq1) {
+                echo "<script>alert('Phòng đã sử dụng dịch vụ này!')</script>";
+            } else {
+                $kq = $this->dsdv->dichvuPDV_ins($id_room, $id_service);
+                if ($kq)
+                    echo "<script>alert('Thêm mới thành công!')</script>";
+                else
+
+                    echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
+            }
         }
         $dulieu1 = $this->dsdv->dichvu_idnamdv();
         $dulieu2 = $this->dsdv->dichvu_idP();

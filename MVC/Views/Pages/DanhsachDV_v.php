@@ -76,7 +76,7 @@
                             </div>
                             <div class="modal-body">
                                 <label>Mã dịch vụ</label>
-                                <input type="text" class="form-control" name="txtMaDV" id="txtMaDV" value="" disabled>
+                                <input type="text" class="form-control" name="txtMaDV" id="txtMaDV" value="" readonly>
                                 <label>Tên dịch vụ</label>
                                 <input type="text" class="form-control" name="txtTenDV" id="txtTenDV" value="">
                                 <label>Giá</label>
@@ -115,25 +115,22 @@
         <!-- Tìm kiếm -->
         <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachDV/timkiem">
             <div class="form-inline">
-                <table>
-                    <tr>
-                        <td>
-                            <label style="width: 100px;">Mã dịch vụ</label>
-                            <input placeholder="Nhập mã nhân viên" type="text" id="txtMaDV" class="form-control" name="txtMaDV" value="<?php if (isset($data['id_service'])) echo $data['id_service'] ?>">
-                        </td>
 
-                        <td>
-                            <label style="width: 100px;">Tên dịch vụ</label>
-                            <input placeholder="Nhập tên nhân viên" type="text" id="txtTenDV" class="form-control" name="txtTenDV" value="<?php if (isset($data['name_service'])) echo $data['name_service'] ?>">
-                        </td>
-                        <td>
-                            <div></div>
-                            <button type="submit" class="btn btn-primary" name="btnTimKiem" id="btnTimKiem"><i class="fa-solid fa-magnifying-glass">&nbsp;&nbsp;</i>Tìm Kiếm </button>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                </table>
+
+                <div class="head_timkiem">
+                    <div>
+                        <label style="width: 100px;">Mã dịch vụ</label>
+                        <input placeholder="Nhập mã nhân viên" type="text" id="txtMaDV" class="form-control" name="txtMaDV" value="<?php echo isset($_POST['txtMaDV']) ? htmlspecialchars($_POST['txtMaDV']) : ''; ?>" >
+                    </div>
+                    <div>
+                        <label style="width: 100px;">Tên dịch vụ</label>
+                        <input placeholder="Nhập tên nhân viên" type="text" id="txtTenDV" class="form-control" name="txtTenDV" value="<?php echo isset($_POST['txtTenDV']) ? htmlspecialchars($_POST['txtTenDV']) : ''; ?>">
+
+                    </div>
+                    <div>
+                        <button type="submit" style="margin: 24px 0px;" class="btn btn-primary" name="btnTimKiem" id="btnTimKiem"><i class="fa-solid fa-magnifying-glass">&nbsp;&nbsp;</i>Tìm Kiếm </button>
+                    </div>
+                </div>
             </div>
             <table class="table table-hover">
                 <thead>

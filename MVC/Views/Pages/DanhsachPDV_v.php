@@ -32,7 +32,7 @@
                                         <!-- <label>Mã Phòng</label>
                                             <input type="text" class="form-control" placeholder="Nhập mã dịch vụ" name="txtMaPhong" > -->
                                         <label>Chọn mã phòng</label>
-                                        <select name="txtMaPhong" class="form-control"  id="txtMaPhong1" required>
+                                        <select name="txtMaPhong" class="form-control" id="txtMaPhong1" required>
                                             <option value="">-------Chọn--------</option>
                                             <?php
 
@@ -51,7 +51,7 @@
                                         <!-- <label>Mã dịch vụ</label>
                                             <input type="text" class="form-control" placeholder="Nhập tên dịch" name="txtMaDV" > -->
                                         <label>Chọn dịch vụ</label>
-                                        <select name="txtMaDV" class="form-control"  id="txtMaDV1" required>
+                                        <select name="txtMaDV" class="form-control" id="txtMaDV1" required>
                                             <option value="">-------Chọn--------</option>
                                             <?php
 
@@ -92,7 +92,7 @@
                             </div>
                             <div class="modal-body">
                                 <label>ID</label>
-                                <input type="text" class="form-control" name="txtID" id="txtID" value="" disabled>
+                                <input type="text" class="form-control" name="txtID" id="txtID" value="" readonly>
 
 
                                 <label>Mã phòng</label>
@@ -141,11 +141,21 @@
         </form>
         <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachPDV/timkiem">
             <div class="form-inline">
-                <label style="width: 100px;">Mã phòng</label>
-                <input type="text" name="txtMaPhong" placeholder="Mã Phòng" class="form-control">
-                <label style="width: 100px;">Mã dịch vụ</label>
-                <input type="text" name="txtMaDV" placeholder="Mã Dịch Vụ" class="form-control">
-                <button type="submit" style="margin: 30px 0px" class="btn btn-success" name="btnTimKiem">Tìm kiếm</button>
+                <div class="head_timkiem">
+                    <div>
+                        <label style="width: 100px;">Mã phòng</label>
+                        <input type="text" name="txtMaPhong" placeholder="Mã Phòng" class="form-control" value="<?php echo isset($_POST['txtMaPhong']) ? htmlspecialchars($_POST['txtMaPhong']) : ''; ?>">
+                    </div>
+                    <div>
+                        <label style="width: 100px;">Mã dịch vụ</label>
+                        <input type="text" name="txtMaDV" placeholder="Mã Dịch Vụ" class="form-control"  value="<?php echo isset($_POST['txtMaDV']) ? htmlspecialchars($_POST['txtMaDV']) : ''; ?>">
+
+                    </div>
+                    <div >
+                    <button type="submit" style="margin: 24px 0px;" class="btn btn-success" name="btnTimKiem">Tìm kiếm</button>
+                    </div>
+                </div>
+
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -190,29 +200,30 @@
                 </table>
             </div>
 </body>
-    <script>
-        function VadlidateForm(){
-            var id_room = document.getElementById('txtMaPhong1').value;
-            var id_service = document.getElementById('txtMaDV1').value;
+<script>
+    function VadlidateForm() {
+        var id_room = document.getElementById('txtMaPhong1').value;
+        var id_service = document.getElementById('txtMaDV1').value;
 
-            var valid = true;
+        var valid = true;
 
-            if(id_room.trim() === ''){
-                document.getElementById('errorTxtMaPhong').textContent ='Vui lòng chọn mã phòng';
-                valid = false;
-            }else{
-                document.getElementById('errorTxtMaPhong').textContent ='';
-            }
-
-            if(id_service.trim() === ''){
-                document.getElementById('errorTxtMaDV').textContent ='Vui lòng chọn dịch vụ';
-                valid = false;
-            }else{
-                document.getElementById('errorTxtMaPhong').textContent ='';
-            }
-
-
-            return valid;
+        if (id_room.trim() === '') {
+            document.getElementById('errorTxtMaPhong').textContent = 'Vui lòng chọn mã phòng';
+            valid = false;
+        } else {
+            document.getElementById('errorTxtMaPhong').textContent = '';
         }
-    </script>
+
+        if (id_service.trim() === '') {
+            document.getElementById('errorTxtMaDV').textContent = 'Vui lòng chọn dịch vụ';
+            valid = false;
+        } else {
+            document.getElementById('errorTxtMaPhong').textContent = '';
+        }
+
+
+        return valid;
+    }
+</script>
+
 </html>
