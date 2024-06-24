@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=1"> </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/l1.css">
     
     
     <link rel="stylesheet" href="/Public/CSS/masterlayout.css">
@@ -75,6 +76,8 @@
         #content-right1 .label2 {
             width: 60px;
         }
+
+
     </style>
 </head>
 
