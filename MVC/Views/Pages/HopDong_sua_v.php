@@ -15,20 +15,23 @@
         }
 
         .dd1 {
-            margin-left: 100px
+            margin-left: 100px;
         }
     </style>
 </head>
 
 <body>
+<div class="main">
     <div class="content">
-
-        <a class="text-black" href="http://localhost/qlktx/HopDong">
+        <br>
+        <a style="margin: 20px;" class="text-black content1" href="http://localhost/QuanLyKyTucXa_new/HopDong">
             << Quay lại</a>
                 <br>
 
-                <h2>Thêm mới</h2>
-                <form action="http://localhost/qlktx/HopDong/suadl" method="post">
+                <div class="header">
+                    <h3>Sửa hợp đồng</h3>
+                </div>
+                <form class = "content1" action="http://localhost/QuanLyKyTucXa_new/HopDong/suadl" method="post">
                     <?php
                     if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
                         while ($row = mysqli_fetch_array($data['dulieu'])) {
@@ -45,14 +48,14 @@
                                 <tr>
                                     <td><label for="nhanvien" class="form-label">Mã nhân viên:</label></td>
                                     <td>
-                                        <select required style="width:700px" class="input_tb form-select" name="txtMaNhanVien" id="nhanvien" value="<?php echo $row['manNhanVien'] ?>">
+                                        <select required style="width:700px" class="input_tb form-select" name="txtMaNhanVien" id="nhanvien" value="<?php echo $row['ManNhanVien'] ?>">
                                             <option value="">-----Chọn nhân viên-----</option>
                                             <?php
                                             if (isset($data['nhanvien']) && mysqli_num_rows($data['nhanvien']) > 0) {
                                                 while ($c = mysqli_fetch_assoc($data['nhanvien'])) {
                                             ?>
-                                                    <option value="<?php echo $c['maNhanVien'] ?>" <?php if ($c['maNhanVien'] == $row['maNhanVien']) echo "selected"; ?>>
-                                                        <?php echo $c['tenNhanVien']; ?></option>
+                                                    <option value="<?php echo $c['MaNhanVien'] ?>" <?php if ($c['MaNhanVien'] == $row['maNhanVien']) echo "selected"; ?>>
+                                                        <?php echo $c['TenNhanVien']; ?></option>
                                             <?php
                                                 }
                                             }
@@ -122,6 +125,7 @@
                             </table>
                 </form>
     </div>
+</div>
 </body>
 
 </html>
