@@ -13,7 +13,7 @@ class HopDongThem extends controller
     {
         $nhanvien = $this->hopdongthem->nhanvien_all();
         $sinhvien = $this->hopdongthem->sinhvien_available();
-        $phong = $this->hopdongthem->phong_available();
+        $phong = $this->hopdongthem->phong_all();
         $this->view('Masterlayout', [
             'page' => 'HopDong_them_v',
             'nhanvien' => $nhanvien,
