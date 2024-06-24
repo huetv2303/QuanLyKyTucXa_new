@@ -148,11 +148,11 @@
                     </div>
                     <div>
                         <label style="width: 100px;">Mã dịch vụ</label>
-                        <input type="text" name="txtMaDV" placeholder="Mã Dịch Vụ" class="form-control"  value="<?php echo isset($_POST['txtMaDV']) ? htmlspecialchars($_POST['txtMaDV']) : ''; ?>">
+                        <input type="text" name="txtMaDV" placeholder="Mã Dịch Vụ" class="form-control" value="<?php echo isset($_POST['txtMaDV']) ? htmlspecialchars($_POST['txtMaDV']) : ''; ?>">
 
                     </div>
-                    <div >
-                    <button type="submit" style="margin: 24px 0px;" class="btn btn-success" name="btnTimKiem">Tìm kiếm</button>
+                    <div>
+                        <button type="submit" style="margin: 24px 0px;" class="btn btn-success" name="btnTimKiem">Tìm kiếm</button>
                     </div>
                 </div>
 
