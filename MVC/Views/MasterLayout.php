@@ -98,7 +98,9 @@
                    <a href="http://localhost/QuanLyKyTucXa_new/Home" ><img style="width : 300px;" src="https://utt.edu.vn/uploads/images/site/1447346709LOGO_GTVT.png" alt="LOGO UTT">
                    </a> 
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:9090/QuanLyKyTucXa_new/Home">Trang chủ</a>
+                        <!-- <a class="nav-link" href="http://localhost:9090/QuanLyKyTucXa_new/Home">Trang chủ</a> -->
+
+                         <h1>Quản lý ký túc xá</h1>
                     </li>
 
 
