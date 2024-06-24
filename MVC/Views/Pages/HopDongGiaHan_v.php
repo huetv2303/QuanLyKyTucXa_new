@@ -4,30 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách hợp đồng</title>
-
-    <link rel="stylesheet" href="/Public/CSS/style.css">
-    <style>
-        .inputSearch {
-            width: 300px;
-            height: 40px
-        }
-
-        .padd {
-            padding: 10px;
-        }
-
-        .dd2 {
-            padding-left: 10px !important;
-        }
-    </style>
+    <title>Gia hạn hợp đồng</title>
 </head>
 
 <body>
     <div class="main">
         <div>
-            <h3  class="header">Danh sách hợp đồng</h3>
-            <form class="content1" action="http://localhost/QuanLyKyTucXa_new/HopDong/timkiem" class="text-center padd" method="post"> <!-- form tìm kiếm -->
+            <h3 class="header">Danh sách hợp đồng hết hạn</h3>
+            <form class="content1" action="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan/timkiem" class="text-center padd" method="post"> <!-- form tìm kiếm -->
                 <table class="text-center">
                     <tr>
                         <td>
@@ -65,13 +49,6 @@
                     </tr>
                 </table>
 
-                <!-- thẻ div chứa các button thêm mới, nhập, xuất excel -->
-                <div class="text-center padd">
-                    <a href="http://localhost/QuanLyKyTucXa_new/HopDongThem" class="btn btn-primary">+ Thêm mới</a>
-                    <a href="http://localhost/QuanLyKyTucXa_new/HopDongFile" class="btn btn-outline-primary">Nhập excel</a>
-                    <button type="submit" class="btn-outline-primary btn" name="btnXuatExcel">Xuất excel</button>
-                </div>
-
             </form>
 
             <table class="table table-striped">
@@ -106,8 +83,7 @@
                                 <td><?php echo $row['tinhTrang'] ?></td>
                                 <td>
                                     <!-- <a href="">Xóa</a> -->
-                                    <a href="http://localhost/QuanLyKyTucXa_new/HopDong/sua/<?php echo $row['maHopDong'] ?>" class="btn btn-outline-primary">Sửa</a>
-                                    <a href="http://localhost/QuanLyKyTucXa_new/HopDong/xoa/<?php echo $row['maHopDong'] ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa ko?')" class="btn btn-outline-danger">Xóa</a>
+                                    <a href="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan/giahan/<?php echo $row['maHopDong'] ?>" class="btn btn-outline-success">Gia hạn</a>
 
                                 </td>
                             </tr>

@@ -111,6 +111,8 @@
                                     <td><select required style="width:700px" class="input_tb form-select" name="txtTinhTrang" id="">
                                         <option value="Còn hạn" <?php if ($row['tinhTrang'] == "Còn hạn") echo "selected";?>>Còn hạn</option>
                                         <option value="Hết hạn" <?php if ($row['tinhTrang'] == "Hết hạn") echo "selected";?>>Hết hạn</option>
+                                        
+                                        <?php if ($row['tinhTrang'] == "Gia hạn") echo '<option selected value="Gia hạn">Gia hạn</option>';?>
                                     </select></td>
                                     
                                 </tr>
