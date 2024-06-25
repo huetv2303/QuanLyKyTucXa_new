@@ -23,7 +23,7 @@ class DanhsachSV extends controller
         if (isset($_POST['btnTimKiem'])) {
             $tensv = $_POST['txtTenSinhVien'];
             $masv = $_POST['txtMaSinhVien'];
-            $dulieu = $this->dssv->sinhvien_find($tensv, $masv);
+            $dulieu = $this->dssv->sinhvien_find( $masv,$tensv);
             //Gọi lại giao diện và truyền $dulieu ra
             $this->view('Masterlayout', [
                 'page' => 'DanhsachSV_v',

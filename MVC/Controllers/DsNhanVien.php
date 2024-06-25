@@ -189,13 +189,15 @@ class DsNhanVien extends controller
     {
         $this->view('Masterlayout', [
             'page' => 'NhanVien_sua_v',
-            'dulieu' => $this->dsnv->searchNhanVien($mnv, '')
+            'dulieu' => $this->dsnv->searchNhanVien($mnv, ''),
+            'matoa' => $this->dsnv->getMaToa()
         ]);
     }
 
     //Function cập nhật thông tin nhân viên
     function Update()
     {
+
         if (isset($_POST['btnCapNhat'])) {
             $mnv = $_POST['txtMaNv'];
             $tnv = $_POST['txtTenNv'];
@@ -226,5 +228,6 @@ class DsNhanVien extends controller
                 'dulieu' => $dulieu
             ]);
         }
+       
     }
 }

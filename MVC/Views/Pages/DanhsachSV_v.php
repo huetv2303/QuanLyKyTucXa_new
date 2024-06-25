@@ -47,15 +47,15 @@
 <body>
     <div id="wrapper" style="height: -webkit-fill-available;">
         <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachSV/timKiem">
-            <div class="header" style="color: #08449b">
-                <h2>Quản lý thông tin sinh viên</h2>
-            </div>
+            <!-- <div class="header" style="color: #08449b">
+                
+            </div> -->
 
             <div class="form-inline">
 
                 <table id="tableThem" style="width: 100%">
                     <tr>
-                        <td style="float: left;">Danh sách sinh viên</td>
+                        <td style="float: left;"><h2>Quản lý thông tin sinh viên</h2></td>
                         <td style="float: right;  margin: 10px">
                             <button type="submit" class="btn btn-success" name=""><a href="http://localhost/QuanLyKyTucXa_new/SinhVien" style="text-decoration: none; color:white">Thêm mới</a></button>
                         </td>
@@ -123,7 +123,7 @@
 
                                 <td>
                                     <a href="http://localhost/QuanLyKyTucXa_new/DanhsachSV/sua/<?php echo $row['maSinhVien'] ?>" class="btn btn-outline-primary">Sửa</a> &nbsp;
-                                    <a href="http://localhost/QuanLyKyTucXa_new/DanhsachSV/xoa/<?php echo $row['maSinhVien'] ?>" class="btn btn-outline-danger">Xóa</a>
+                                    <a onclick="return confirm('Bạn có muốn xóa sinh viên này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachSV/xoa/<?php echo $row['maSinhVien'] ?>" class="btn btn-outline-danger">Xóa</a>
                                 </td>
                             </tr>
                     <?php

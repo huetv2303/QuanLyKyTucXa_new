@@ -180,19 +180,19 @@
                     $i = 0;
                     while ($row = mysqli_fetch_assoc($data['dulieu'])) {
                         ?>
-                                                                <tr >
-                                                                   <td><?php echo (++$i) ?></td>
-                                                                   <td><?php echo $row['maPhong'] ?></td>
-                                                                   <td><?php echo $row['maToa'] ?></td>
-                                                                   <td><?php echo $row['soNguoi'] ?></td>
-                                                                   <td><?php echo $row['tienPhong'] ?></td>
-                                                                   <td><?php echo $row['trangThai'] ?></td>
-                                                                   <td>
-                                                                   <button onclick="updateDataP('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
-                                                                   <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/xoa/<?php echo $row['maPhong'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
-                                                                   </td>
-                                                                </tr>
-                                                        <?php
+                    <tr >
+                         <td><?php echo (++$i) ?></td>
+                        <td><?php echo $row['maPhong'] ?></td>
+                         <td><?php echo $row['maToa'] ?></td>
+                        <td><?php echo $row['soNguoi'] ?></td>
+                         <td><?php echo $row['tienPhong'] ?></td>
+                         <td><?php echo $row['trangThai'] ?></td>
+                         <td>
+                         <button onclick="updateDataP('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
+                         <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/xoa/<?php echo $row['maPhong'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+                         </td>
+                     </tr>
+                         <?php
                     }
                 }
                 ?>

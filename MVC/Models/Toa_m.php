@@ -39,16 +39,25 @@ class Toa_m extends connectDB{
     //     return mysqli_query($this->conn,$sql);
     // }
 
-   public function update($matoa){
-        $sql = "SELECT toa.*, nhanvien.TenNhanVien, nhanvien.SoDienThoai
+   public function truyen($matoa){
+        $sql = "SELECT toa.*,nhanvien.MaNhanVien, nhanvien.TenNhanVien, nhanvien.SoDienThoai
                 FROM toa
                 JOIN nhanvien ON toa.maToa = nhanvien.maToa
                 WHERE toa.maToa='$matoa' ";
         return  mysqli_query($this->conn, $sql);
         
     }
+    function update1($sophong,$matoa){
+        $sql="UPDATE toa SET soPhong='$sophong' where maToa='$matoa'";
+        return mysqli_query($this->conn,$sql);
+    }
+    function update2($tennv,$sdt,$manv){
+        $sql="UPDATE nhanvien SET TenNhanVien='$tennv', SoDienThoai='$sdt' where MaNhanVien='$manv'";
+        return mysqli_query($this->conn,$sql);
+    }
+
     public function all_toa(){
-        $sql = "SELECT toa.*, nhanvien.TenNhanVien, nhanvien.SoDienThoai
+        $sql = "SELECT toa.*,nhanvien.MaNhanVien, nhanvien.TenNhanVien, nhanvien.SoDienThoai
                 FROM toa
                 JOIN nhanvien ON toa.maToa = nhanvien.maToa";
         return  mysqli_query($this->conn, $sql);
@@ -59,6 +68,11 @@ class Toa_m extends connectDB{
         $sql="SELECT * FROM toa WHERE maToa = '$matoa'  " ;
         return mysqli_query($this->conn,$sql);
     }
+    function find3($manv){
+        $sql="SELECT * FROM nhanvien WHERE MaNhanVien = '$manv'  " ;
+        return mysqli_query($this->conn,$sql);
+    }
+
 
     function find($tennv){
         $sql="SELECT * FROM nhanvien  WHERE TenNhanVien like N'%$tennv%'" ;
