@@ -37,7 +37,7 @@
         <div class="form-inline">
             <table>
                 <tr>
-                    <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/QLyGuiXe/search">
+                    <form method="post" action="http://localhost/QuanLyKyTucXa_new/QLyGuiXe/search">
                         <td>
                             <input placeholder="Nhập mã sinh viên" type="text" id="txtMaSv" class="form-control" name="txtMaSV" value="<?php if (isset($data['maNv'])) echo $data['maNv'] ?>">
                         </td>
@@ -103,8 +103,8 @@
                             <td><?php echo $row['typeOfVehicle'] ?></td>
                             <td><?php echo $row['plate'] ?></td>
                             <td>
-                                <a href="http://localhost:9090/QuanLyKyTucXa_new/QLyGuiXe/Update/<?php echo $row['ID'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square">&nbsp;&nbsp;</i>Sửa</a> &nbsp;
-                                <a onclick="return confirm('Bạn có muốn xóa nhân viên này không ?')" href="http://localhost:9090/QuanLyKyTucXa_new/QLyGuiXe/Delete/<?php echo $row['ID'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash">&nbsp;&nbsp;</i>Xóa</a>
+                                <a href="http://localhost/QuanLyKyTucXa_new/QLyGuiXe/Update/<?php echo $row['ID'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square">&nbsp;&nbsp;</i>Sửa</a> &nbsp;
+                                <a onclick="return confirm('Bạn có muốn xóa nhân viên này không ?')" href="http://localhost/QuanLyKyTucXa_new/QLyGuiXe/Delete/<?php echo $row['ID'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash">&nbsp;&nbsp;</i>Xóa</a>
                             </td>
                         </tr>
                 <?php

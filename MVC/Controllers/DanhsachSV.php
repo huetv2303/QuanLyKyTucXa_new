@@ -44,14 +44,14 @@ class DanhsachSV extends controller
             $sheet->setCellValue('A' . $rowCount, 'STT');
             $sheet->setCellValue('B' . $rowCount, 'Mã sinh viên');
             $sheet->setCellValue('C' . $rowCount, 'Họ tên');
-            $sheet->setCellValue('D' . $rowCount, 'Mã tòa');
-            $sheet->setCellValue('E' . $rowCount, 'Mã phòng');
-            $sheet->setCellValue('F' . $rowCount, 'Email');
-            $sheet->setCellValue('G' . $rowCount, 'Số điện thoại');
-            $sheet->setCellValue('H' . $rowCount, 'Ngày sinh');
-            $sheet->setCellValue('I' . $rowCount, 'Giới tính');
-            $sheet->setCellValue('J' . $rowCount, 'CCCD');
-            $sheet->setCellValue('K' . $rowCount, 'Địa chỉ');
+            // $sheet->setCellValue('D' . $rowCount, 'Mã tòa');
+            // $sheet->setCellValue('E' . $rowCount, 'Mã phòng');
+            $sheet->setCellValue('D' . $rowCount, 'Email');
+            $sheet->setCellValue('E' . $rowCount, 'Số điện thoại');
+            $sheet->setCellValue('F' . $rowCount, 'Ngày sinh');
+            $sheet->setCellValue('G' . $rowCount, 'Giới tính');
+            $sheet->setCellValue('H' . $rowCount, 'CCCD');
+            $sheet->setCellValue('I' . $rowCount, 'Địa chỉ');
 
             //định dạng cột tiêu đề
             $sheet->getColumnDimension('A')->setAutoSize(true);
@@ -65,7 +65,7 @@ class DanhsachSV extends controller
             $sheet->getColumnDimension('I')->setAutoSize(true);
             $sheet->getColumnDimension('J')->setAutoSize(true);
             //gán màu nền
-            $sheet->getStyle('A1:K1')->getFill()->setFillType(\PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('00FF00');
+            $sheet->getStyle('A1:I1')->getFill()->setFillType(\PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('00FF00');
             //căn giữa
             $sheet->getStyle('A1:J1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
             //Điền dữ liệu vào các dòng. Dữ liệu lấy từ DB
@@ -76,14 +76,14 @@ class DanhsachSV extends controller
                 $sheet->setCellValue('A' . $rowCount, $rowCount - 1);
                 $sheet->setCellValue('B' . $rowCount, $row['maSinhVien']);
                 $sheet->setCellValue('C' . $rowCount, $row['hoTen']);
-                $sheet->setCellValue('D' . $rowCount, $row['maToa']);
-                $sheet->setCellValue('E' . $rowCount, $row['maPhong']);
-                $sheet->setCellValue('F' . $rowCount, $row['email']);
-                $sheet->setCellValue('G' . $rowCount, $row['soDienThoai']);
-                $sheet->setCellValue('H' . $rowCount, $row['ngaySinh']);
-                $sheet->setCellValue('I' . $rowCount, $row['gioiTinh']);
-                $sheet->setCellValue('J' . $rowCount, $row['cccd']);
-                $sheet->setCellValue('K' . $rowCount, $row['diaChi']);
+                // $sheet->setCellValue('D' . $rowCount, $row['maToa']);
+                // $sheet->setCellValue('E' . $rowCount, $row['maPhong']);
+                $sheet->setCellValue('D' . $rowCount, $row['email']);
+                $sheet->setCellValue('E' . $rowCount, $row['soDienThoai']);
+                $sheet->setCellValue('F' . $rowCount, $row['ngaySinh']);
+                $sheet->setCellValue('G' . $rowCount, $row['gioiTinh']);
+                $sheet->setCellValue('H' . $rowCount, $row['cccd']);
+                $sheet->setCellValue('I' . $rowCount, $row['diaChi']);
             }
             //Kẻ bảng 
             $styleAray = array(
@@ -93,7 +93,7 @@ class DanhsachSV extends controller
                     )
                 )
             );
-            $sheet->getStyle('A1:' . 'K' . ($rowCount))->applyFromArray($styleAray);
+            $sheet->getStyle('A1:' . 'I' . ($rowCount))->applyFromArray($styleAray);
             $objWriter = new PHPExcel_Writer_Excel2007($objExcel);
             $fileName = 'ExportExcel.xlsx';
             $objWriter->save($fileName);
@@ -121,8 +121,8 @@ class DanhsachSV extends controller
     {
         if (isset($_POST['btnLuu'])) {
             $msv = $_POST['txtMaSinhVien'];
-            $matoa = $_POST['txtMaToa'];
-            $maphong = $_POST['txtMaPhong'];
+            // $matoa = $_POST['txtMaToa'];
+            // $maphong = $_POST['txtMaPhong'];
             $ht = $_POST['txtHoTen'];
             $email = $_POST['txtEmail'];
             $sdt = $_POST['txtSoDienThoai'];
@@ -180,16 +180,16 @@ class DanhsachSV extends controller
             for ($i = 2; $i <= $highestRow; $i++) {
                 $masv = $sheetData[$i]["A"];
                 $hoten = $sheetData[$i]["B"];
-                $matoa = $sheetData[$i]["C"];
-                $maphong = $sheetData[$i]["D"];
-                $email = $sheetData[$i]["E"];
-                $sdt = $sheetData[$i]["F"];
-                $ngaysinh = $sheetData[$i]["G"];
-                $gioitinh = $sheetData[$i]["H"];
-                $cccd = $sheetData[$i]["I"];
-                $diachi = $sheetData[$i]["J"];
+                // $matoa = $sheetData[$i]["C"];
+                // $maphong = $sheetData[$i]["D"];
+                $email = $sheetData[$i]["C"];
+                $sdt = $sheetData[$i]["D"];
+                $ngaysinh = $sheetData[$i]["E"];
+                $gioitinh = $sheetData[$i]["F"];
+                $cccd = $sheetData[$i]["G"];
+                $diachi = $sheetData[$i]["H"];
 
-                $kq = $this->dssv->sinhvien_ins($masv, $hoten, $matoa, $maphong, $email, $sdt, $ngaysinh, $gioitinh, $cccd, $diachi);
+                $kq = $this->dssv->sinhvien_ins($masv, $hoten, $email, $sdt, $ngaysinh, $gioitinh, $cccd, $diachi);
             }
             if ($kq) {
                 echo "<script>alert('Nhập thành công !!!')</script>";

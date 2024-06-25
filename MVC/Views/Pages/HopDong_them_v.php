@@ -51,7 +51,7 @@
                                     if (isset($data['nhanvien']) && mysqli_num_rows($data['nhanvien']) > 0) {
                                         while ($c = mysqli_fetch_assoc($data['nhanvien'])) {
                                     ?>
-                                            <option value="<?php echo $c['MaNhanVien'] ?>" <?php if (isset($data['MaNhanVien']) && ($c['MaNhanVien'] == $data['MaNhanVien'])) echo "selected"; ?>>
+                                            <option value="<?php echo $c['MaNhanVien'] ?>" >
                                                 <?php echo $c['TenNhanVien']; ?></option>
                                     <?php
                                         }
@@ -70,7 +70,7 @@
                                     if (isset($data['sinhvien']) && mysqli_num_rows($data['sinhvien']) > 0) {
                                         while ($c = mysqli_fetch_assoc($data['sinhvien'])) {
                                     ?>
-                                            <option value="<?php echo $c['maSinhVien'] ?>" <?php if (isset($data['maSinhVien']) && ($c['maSinhVien'] == $data['maSinhVien'])) echo "selected"; ?>><?php echo $c['hoTen'] ?></option>
+                                            <option value="<?php echo $c['maSinhVien'] ?>" ><?php echo $c['hoTen'] ?></option>
                                     <?php
                                         }
                                     }
@@ -87,7 +87,7 @@
                                     if (isset($data['phong']) && mysqli_num_rows($data['phong']) > 0) {
                                         while ($c = mysqli_fetch_assoc($data['phong'])) {
                                     ?>
-                                            <option value="<?php echo $c['maPhong'] ?>" <?php if (isset($data['maPhong']) && ($c['maPhong'] == $data['maPhong'])) echo "selected"; ?>><?php echo $c['maPhong'] ?></option>
+                                            <option value="<?php echo $c['maPhong'] ?>"><?php echo $c['maPhong'] ?></option>
                                     <?php
                                         }
                                     }
@@ -104,8 +104,7 @@
                             <td><input required type="date" name="txtNgayKetThuc" class="form-control" id="nkt" value="<?php if (isset($data['ngayKetThuc'])) echo $data['ngayKetThuc'] ?>"></td>
                         </tr>
                         <tr>
-                            <td><label for="ttp" class="form-label">Tình trạng phòng:</label></td>
-                            <td><input readonly type="text" name="txtTinhTrang" class="form-control" value="Còn hạn" id="ttp"></td>
+                            <td><input style="display: none;" type="text" name="txtTinhTrang" class="form-control" value="Còn hạn" id="ttp"></td>
                         </tr>
                         <tr>
                             <td colspan="2"><input type="submit" class="btn btn-primary" name="btnLuu" value="Thêm"></td>

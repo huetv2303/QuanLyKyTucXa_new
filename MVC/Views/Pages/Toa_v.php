@@ -29,7 +29,7 @@ select:hover{
 </head>
 
 <body>
-    <>
+    
         <div class="header">
             <h3>Thông tin tòa KTX</h3>
             <!-- Button trigger modal -->
@@ -43,7 +43,7 @@ select:hover{
             <div class="form-inline">
             <div class="center-dulieu">
     
-        <table style="margin: auto; background color:blue">
+        <table style="margin: auto; background-color:blue">
             <tr>
                 <td>
                     

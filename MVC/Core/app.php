@@ -2,7 +2,12 @@
 class app
 {
 
+<<<<<<< HEAD
     protected $controller ='DanhsachPhong_c';
+=======
+    protected $controller ='Home';
+
+>>>>>>> afa79e69154fea50d178dffb74a0167b55b9b1f7
 
     protected $action = 'Get_data';
     protected $param = [];

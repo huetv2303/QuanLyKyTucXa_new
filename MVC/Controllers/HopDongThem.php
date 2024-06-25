@@ -13,7 +13,7 @@ class HopDongThem extends controller
     {
         $nhanvien = $this->hopdongthem->nhanvien_all();
         $sinhvien = $this->hopdongthem->sinhvien_available();
-        $phong = $this->hopdongthem->phong_available();
+        $phong = $this->hopdongthem->phong_all();
         $this->view('Masterlayout', [
             'page' => 'HopDong_them_v',
             'nhanvien' => $nhanvien,
@@ -37,13 +37,13 @@ class HopDongThem extends controller
 
             $checkmhd = $this->hopdongthem->checkmahopdong($mhd);
             $checkmasv = $this->hopdongthem->checkmasv($msv);
-            $checkphong = $this->hopdongthem->checkphong($mp);
+            // $checkphong = $this->hopdongthem->checkphong($mp);
 
-            if ($checkmhd || $checkmasv || $checkphong || ($start > $end)) {
+            if ($checkmhd || $checkmasv || ($start > $end)) {
                 if ($checkmhd) echo "<script>alert('Trùng mã hợp đồng')</script>";
                 if ($checkmasv) echo "<script>alert('Trùng mã sinh viên')</script>";
-                if ($checkphong) echo "<script>alert('Trùng mã phòng')</script>";
                 if ($start > $end) echo "<script>alert('Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu hợp đồng')</script>";
+                $view = 'HopDong_them_v';
             } else {
                 $kq = $this->hopdongthem->hopdong_ins($mhd, $mnv, $msv, $mp, $start, $end, $tt);
                 if ($kq) {
@@ -58,7 +58,7 @@ class HopDongThem extends controller
         $dulieu = $this->hopdongthem->hopdong_all();
         $nhanvien = $this->hopdongthem->nhanvien_all();
         $sinhvien = $this->hopdongthem->sinhvien_available();
-        $phong = $this->hopdongthem->phong_available();
+        $phong = $this->hopdongthem->phong_all();
         $this->view('Masterlayout', [
             'page' => $view,
             'maHopDong' => $mhd,

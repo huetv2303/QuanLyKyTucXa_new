@@ -12,7 +12,7 @@
 
         #wrapper {
             padding: 50px;
-            background-color: #0dcaf02b;
+            /* background-color: #0dcaf02b; */
             height: 100%;
             position: absolute;
             width: 87%;
@@ -30,7 +30,7 @@
         }
 
         #tableTimKiem {
-            margin-left: 450px;
+            margin-left: 400px;
             margin-bottom: 10px;
             margin-top: 10px;
         }
@@ -46,9 +46,9 @@
 
 <body>
     <div id="wrapper" style="height: -webkit-fill-available;">
-        <form method="post" action="http://localhost:2929/QuanLyKyTucXa_new/DanhsachSV/timKiem">
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachSV/timKiem">
             <div class="header" style="color: #08449b">
-                <h2>Quản lý thông tin sinh viên ở kí túc xá</h2>
+                <h2>Quản lý thông tin sinh viên</h2>
             </div>
 
             <div class="form-inline">
@@ -57,7 +57,7 @@
                     <tr>
                         <td style="float: left;">Danh sách sinh viên</td>
                         <td style="float: right;  margin: 10px">
-                            <button type="submit" class="btn btn-success" name=""><a href="http://localhost:2929/QuanLyKyTucXa_new/SinhVien" style="text-decoration: none; color:white">Thêm mới</a></button>
+                            <button type="submit" class="btn btn-success" name=""><a href="http://localhost/QuanLyKyTucXa_new/SinhVien" style="text-decoration: none; color:white">Thêm mới</a></button>
                         </td>
 
                         <td style="float: right; margin: 10px">
@@ -84,15 +84,15 @@
 
 
 
-                <button type="submit" class="btn btn-primary" name="btnTimKiem" style="margin-bottom: 20px; margin-right: 10px; margin-left: 620px;">Tìm kiếm</button>
+                <button type="submit" class="btn btn-primary" name="btnTimKiem" style="margin-bottom: 20px; margin-right: 10px; margin-left: 570px;">Tìm kiếm</button>
 
                 <table class="table table-striped" style="text-align: center;">
 
                     <tr style="background: #e9e6e6;">
                         <th>Mã sinh viên</th>
                         <th>Họ tên</th>
-                        <th>Mã tòa</th>
-                        <th>Mã phòng</th>
+                        <!-- <th>Mã tòa</th>
+                        <th>Mã phòng</th> -->
                         <th>Email</th>
                         <th>Số điện thoại</th>
                         <th>Ngày sinh</th>
@@ -111,8 +111,8 @@
                             <tr>
                                 <td><?php echo $row['maSinhVien'] ?></td>
                                 <td><?php echo $row['hoTen'] ?></td>
-                                <td><?php echo $row['maToa'] ?></td>
-                                <td><?php echo $row['maPhong'] ?></td>
+                                <!-- <td><?php echo $row['maToa'] ?></td>
+                                <td><?php echo $row['maPhong'] ?></td> -->
                                 <td><?php echo $row['email'] ?></td>
                                 <td><?php echo $row['soDienThoai'] ?></td>
                                 <td><?php echo $row['ngaySinh'] ?></td>
@@ -122,8 +122,8 @@
 
 
                                 <td>
-                                    <a href="http://localhost:2929/QuanLyKyTucXa_new/DanhsachSV/sua/<?php echo $row['maSinhVien'] ?>" class="btn btn-outline-primary">Sửa</a> &nbsp;
-                                    <a href="http://localhost:2929/QuanLyKyTucXa_new/DanhsachSV/xoa/<?php echo $row['maSinhVien'] ?>" class="btn btn-outline-danger">Xóa</a>
+                                    <a href="http://localhost/QuanLyKyTucXa_new/DanhsachSV/sua/<?php echo $row['maSinhVien'] ?>" class="btn btn-outline-primary">Sửa</a> &nbsp;
+                                    <a href="http://localhost/QuanLyKyTucXa_new/DanhsachSV/xoa/<?php echo $row['maSinhVien'] ?>" class="btn btn-outline-danger">Xóa</a>
                                 </td>
                             </tr>
                     <?php
@@ -139,7 +139,7 @@
     </div>
 
     <!-- Modal choose file Excel -->
-    <form action="http://localhost:2929/QuanLyKyTucXa_new/DanhsachSv/ImportExcel" method="post" enctype="multipart/form-data">
+    <form action="http://localhost/QuanLyKyTucXa_new/DanhsachSv/ImportExcel" method="post" enctype="multipart/form-data">
         <div class="modal" id="modalExcel">
             <div class="modal-dialog">
                 <div class="modal-content">

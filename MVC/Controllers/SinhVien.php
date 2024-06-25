@@ -20,8 +20,8 @@ class SinhVien extends controller
         if (isset($_POST['btnLuu'])) {
             $msv = $_POST['txtMaSinhVien'];
             $ht = $_POST['txtHoTen'];
-            $matoa = $_POST['txtMaToa'];
-            $maphong = $_POST['txtMaPhong'];
+            // $matoa = $_POST['txtMaToa'];
+            // $maphong = $_POST['txtMaPhong'];
             $email = $_POST['txtEmail'];
             $sdt = $_POST['txtSoDienThoai'];
             $gt = $_POST['txtGioiTinh'];
@@ -33,7 +33,7 @@ class SinhVien extends controller
             if ($kq1) {
                 echo "<script>alert('Trùng mã sinh viên!')</script>";
             } else {
-                $kq = $this->sinhvien->sinhvien_ins($msv, $ht, $matoa, $maphong, $email, $sdt, $ns, $gt, $cccd, $dc);
+                $kq = $this->sinhvien->sinhvien_ins($msv, $ht, $email, $sdt, $ns, $gt, $cccd, $dc);
 
                 if ($kq) {
                     echo "<script>alert('Thêm mới thành công!')</script>";
@@ -50,8 +50,8 @@ class SinhVien extends controller
                     'dulieu' => $dulieu,
                     'msv' => $msv,
                     'hoten' => $ht,
-                    'matoa' => $matoa,
-                    'maphong' => $maphong,
+                    // 'matoa' => $matoa,
+                    // 'maphong' => $maphong,
                     'email' => $email,
                     'sdt' => $sdt,
                     'gt' => $gt,
