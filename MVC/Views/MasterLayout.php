@@ -177,7 +177,7 @@
                         <div class="card-body">
                             <a href="http://localhost/QuanLyKyTucXa_new/DanhsachPDV" class="btn">Đăng ký dịch vụ</a>
                             <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDN" class="btn">Điện nước</a>
-                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV" class="btn">Dịch vụ khác</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV/" class="btn">Dịch vụ khác</a>
                             <a href="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV" class="btn">Hóa đơn dịch vụ</a>
                         </div>
                     </div>

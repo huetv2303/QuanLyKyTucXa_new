@@ -89,3 +89,12 @@ p{
     gap: 10px
 }
 
+.overdue {
+    color: red;
+}
+.paid {
+    color: green;
+}
+.pending {
+    color: orange;
+}

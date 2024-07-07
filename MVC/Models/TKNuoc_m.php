@@ -1,33 +1,61 @@
 <?php
 class TKNuoc_m extends connectDB
 {
-    public function getMonthlyWaterUsage($room_id, $month = null)
+
+
+    
+    public function getMonthlyWaterUsage($room_id = null, $month = null, $year = null, $maToa = null)
     {
         $sql = "SELECT
+                    hdv.month,
+                    hdv.year,
                     hdv.id_room,
-                    -- Định dạng lại cột created_day thành chuỗi năm-tháng .
-                    DATE_FORMAT(created_day, '%Y-%m') AS month,
-                    SUM(hdv.water * dvn.price) AS tong_chi_phi_nuoc
+                    hdv.maToa,
+                    SUM((hdv.water - hdv.KhoiNuoc) * dvn.price) AS tong_chi_phi_nuoc
                 FROM
                     hoa_don_dich_vu hdv
                 JOIN
                     dich_vu_dien_nuoc dvn ON dvn.id_service = 'Nuoc'
-                WHERE
-                    hdv.id_room LIKE '%$room_id%'";
+                WHERE 1=1";
 
-        if ($month) {
-            $sql .= " AND DATE_FORMAT(created_day, '%Y-%m') = '$month'";
+       
+        
+        if($maToa){
+            $sql .= " AND hdv.maToa = '$maToa'";
+        }
+        if ($room_id) {
+            $sql .= " AND hdv.id_room = '$room_id'";
         }
 
-        $sql .= " GROUP BY month";
+        if ($month) {
+
+            $sql .= "  AND hdv.month = '$month'   ";
+        }
+        if ($year) {
+
+            $sql .= " AND hdv.year = '$year'";
+        }
+        
+
+        $sql .= " GROUP BY  hdv.month, hdv.year";
+
+        // if ($room_id) {
+        //     $sql .= ", hdv.id_room";
+        // }
 
         return mysqli_query($this->conn, $sql);
     }
 
     public function getid_room()
     {
-        $sql = "SELECT maPhong FROM phong";
+        $sql = "SELECT maPhong FROM phong  ";
+        return mysqli_query($this->conn, $sql);
+    }
+
+    public function get_all_toa()
+    {
+        $sql = "SELECT maToa FROM toa";
+        
         return mysqli_query($this->conn, $sql);
     }
 }
-
