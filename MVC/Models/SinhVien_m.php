@@ -4,7 +4,8 @@ class SinhVien_m extends connectDB
     // $matoa, $maphong,
     public function sinhvien_ins($msv, $tensv, $email, $sdt, $ns, $gt, $cccd, $dc)
     {
-        $sql = "INSERT INTO thongtinsinhvien VALUES ('$msv','$tensv', '', '', '$email','$sdt','$ns','$gt','$cccd','$dc')";
+        $sql = "INSERT INTO thongtinsinhvien VALUES ('$msv','$tensv', '$email','$sdt','$ns','$gt','$cccd','$dc')";
+        var_dump($sql);
         return mysqli_query($this->conn, $sql);
     }
 

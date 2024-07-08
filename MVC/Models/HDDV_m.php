@@ -48,6 +48,7 @@ class HDDV_m extends connectDB
                 hd.soDien,
                 hd.khoiNuoc,
                 hd.maToa,
+                -- hd.advance_deposit,
                 CASE 
                     WHEN ended_day < CURDATE() AND status != 'Đã thanh toán' THEN 'Hóa đơn quá hạn'
                     WHEN status = 'Đã thanh toán' THEN 'Đã thanh toán'
@@ -93,11 +94,12 @@ class HDDV_m extends connectDB
             ec.id_room,
             ec.month,
             ec.year,
+            -- ewu.advance_deposit,
             ROUND(COALESCE(ec.electricity_cost, 0), 2) AS electricity_cost,
             ROUND(COALESCE(ec.water_cost, 0), 2) AS water_cost,
             ROUND(COALESCE(ec.electricity_cost, 0) + COALESCE(ec.water_cost, 0))  AS total_electricity_water_cost,
             ROUND(COALESCE(sc.total_service_cost, 0)) AS total_service_cost,
-            ROUND((COALESCE(ec.electricity_cost, 0) + COALESCE(ec.water_cost, 0) + COALESCE(sc.total_service_cost, 0))) AS total_cost,
+            ROUND((COALESCE(ec.electricity_cost, 0) + COALESCE(ec.water_cost, 0) + COALESCE(sc.total_service_cost, 0) )) AS total_cost,
             ewu.id_invoice,
             ewu.status,
             ewu.electricity,
@@ -195,6 +197,7 @@ class HDDV_m extends connectDB
                     hd.soDien,
                     hd.khoiNuoc,
                     hd.maToa,
+                    -- hd.advance_deposit,
                       CASE 
                     WHEN ended_day < CURDATE() AND status != 'Đã thanh toán' THEN 'Hóa đơn quá hạn'
                     WHEN status = 'Đã thanh toán' THEN 'Đã thanh toán'
@@ -241,11 +244,12 @@ class HDDV_m extends connectDB
                 ec.id_room,
                 ec.month,
                 ec.year,
+                -- ewu.advance_deposit,
                 ROUND(COALESCE(ec.electricity_cost, 0), 2) AS electricity_cost,
                 ROUND(COALESCE(ec.water_cost, 0), 2) AS water_cost,
                 ROUND(COALESCE(ec.electricity_cost, 0) + COALESCE(ec.water_cost, 0))  AS total_electricity_water_cost,
                 ROUND(COALESCE(sc.total_service_cost, 0), 2) AS total_service_cost,
-                ROUND((COALESCE(ec.electricity_cost, 0) + COALESCE(ec.water_cost, 0) + COALESCE(sc.total_service_cost, 0)), 2) AS total_cost,
+                ROUND((COALESCE(ec.electricity_cost, 0) + COALESCE(ec.water_cost, 0) + COALESCE(sc.total_service_cost, 0)  ), 0) AS total_cost,
                 ewu.id_invoice,
                 ewu.status,
                 ewu.electricity,

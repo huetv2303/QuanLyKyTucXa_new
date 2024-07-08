@@ -76,9 +76,11 @@
         </aside>
         <main class="main-content flex-grow-1">
             <header class="header">
-                <div class="header-content d-flex justify-content-between align-items-center">
-                    <h1>Quản lý ký túc xá</h1>
-                </div>
+                <!-- <div class="header_1" >
+                </div> -->
+                <p></p>
+                <h1 class="h1">Quản lý ký túc xá</h1>
+                <p>Thoát</p>
             </header>
             <section id="content-right1">
                 <?php

@@ -31,6 +31,7 @@ function updateDataPDV(data) {
     document.getElementById('txtMaDV').value = newData.id_service;
     document.getElementById('txtThang').value = newData.month;
     document.getElementById('txtNam').value = newData.year;
+    document.getElementById('txtMaToa').value = newData.maToa;
 
     console.log(newData);
     
@@ -51,6 +52,8 @@ function updateDataHDDV(data) {
     document.getElementById('txtDienBD').value = newData.soDien;
     document.getElementById('txtNuocBD').value = newData.khoiNuoc;
     document.getElementById('txtMaToa').value = newData.maToa;
+    // document.getElementById('TienCoc').value = newData.advance_deposit;
+
     console.log(newData);
 
 }
@@ -64,6 +67,7 @@ function updateDataExportHDDV(data) {
     document.getElementById('Nuoc').innerText = `${newData.water_usage} m3`;
     document.getElementById('TrangThai').innerText = newData.status;
     document.getElementById('TongDN').innerText = `${newData.total_electricity_water_cost} VND`;
+    // document.getElementById('TienCoc2').innerText = `${newData.advance_deposit} VND`;
     document.getElementById('TongDV').innerText = `${newData.total_service_cost} VND`;
     document.getElementById('Tong').innerText = `Tổng: ${newData.total_cost} VND`;
     // document.getElementById('month').innerText = newData.month;

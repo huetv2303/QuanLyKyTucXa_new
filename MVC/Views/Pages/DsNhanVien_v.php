@@ -96,7 +96,7 @@
                                 <td><?php echo $row['NgaySinh'] ?></td>
                                 <td><?php echo $row['DiaChi'] ?></td>
                                 <td><?php echo $row['SoDienThoai'] ?></td>
-                                <td><?php echo $row['MaToa'] ?></td>
+                                <td><?php echo $row['maToa'] ?></td>
                                 <td>
 
                                     <a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien/loadForm/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square">&nbsp;&nbsp;</i>Sửa</a> &nbsp;

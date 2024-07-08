@@ -14,6 +14,7 @@ class DichVu_m extends connectDB
         $sql = "SELECT * FROM dich_vu_khac limit  $offset,$limit ";
         return mysqli_query($this->conn, $sql);
     }
+    
     function count() {
         $sql = "SELECT COUNT(*) as total FROM dich_vu_khac";
         $result = mysqli_query($this->conn, $sql);

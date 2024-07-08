@@ -29,25 +29,31 @@
                                     <div class="form-group">
                                         <!-- <label>Mã Phòng</label>
                                             <input type="text" class="form-control" placeholder="Nhập mã dịch vụ" name="txtMaPhong" > -->
-                                        <label>Chọn mã phòng</label>
-                                        <select name="txtMaPhong" class="form-control" id="txtMaPhong1" required>
+                                            <label>Mã tòa</label>
+                                        <select name="txtMaToa" class="form-control maToa" id="maToa" required>
                                             <option value="">-------Chọn--------</option>
                                             <?php
-
-                                            if (isset($data['dulieu2']) && mysqli_num_rows($data['dulieu2']) > 0) {
-                                                while ($c = mysqli_fetch_assoc($data['dulieu2'])) {
+                                            if (isset($data['toa']) && mysqli_num_rows($data['toa']) > 0) {
+                                                while ($c = mysqli_fetch_assoc($data['toa'])) {
                                             ?>
-                                                    <option value="<?php echo $c['maPhong'] ?>"><?php echo $c['maPhong'] ?></option>
+                                                    <option value="<?php echo $c['maToa'] ?>"><?php echo $c['maToa'] ?></option>
                                             <?php
                                                 }
                                             }
                                             ?>
                                         </select>
-                                        <span class="error-message" id="errorTxtMaPhong"></span>
+
+                                        <label>Mã phòng</label>
+                                        <select name="txtMaPhong" class="form-control maPhong" id="maPhong" required>
+                                            <option value="">-------Chọn--------</option>
+                                        </select>
+
                                         <br>
                                         <!-- <label>Mã dịch vụ</label>
                                             <input type="text" class="form-control" placeholder="Nhập tên dịch" name="txtMaDV" > -->
-                                        <label>Chọn dịch vụ</label>
+                                     
+                                     
+                                            <label>Chọn dịch vụ</label>
                                         <select name="txtMaDV" class="form-control" id="txtMaDV1" required>
                                             <option value="">-------Chọn--------</option>
                                             <?php
@@ -116,14 +122,27 @@
                             <div class="modal-body">
                                 <label>ID</label>
                                 <input type="text" class="form-control" name="txtID" id="txtID" value="" readonly>
-                                <label>Mã phòng</label>
-                                <select name="txtMaPhong" class="form-control" id="txtMaPhong">
+                                <label>Mã tòa</label>
+                                <select name="txtMaToa"  class="form-control maToa" id="txtMaToa" required>
+                                    <option value="">-------Chọn--------</option>
                                     <?php
-
-                                    if (isset($data['dulieu4']) && mysqli_num_rows($data['dulieu4']) > 0) {
-                                        while ($row = mysqli_fetch_assoc($data['dulieu4'])) {
+                                    if (isset($data['toa1']) && mysqli_num_rows($data['toa1']) > 0) {
+                                        while ($c = mysqli_fetch_assoc($data['toa1'])) {
                                     ?>
-                                            <option value="<?php echo $row['maPhong'] ?>"><?php echo $row['maPhong'] ?></option>
+                                            <option value="<?php echo $c['maToa'] ?>"><?php echo $c['maToa'] ?></option>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </select>
+
+                                <label>Mã phòng</label>
+                                <select type name="txtMaPhong" class="form-control maPhong" id="txtMaPhong" required>
+                                    <?php
+                                    if (isset($data['phong']) && mysqli_num_rows($data['phong']) > 0) {
+                                        while ($c = mysqli_fetch_assoc($data['phong'])) {
+                                    ?>
+                                            <option value="<?php echo $c['maPhong'] ?>"><?php echo $c['maPhong'] ?></option>
                                     <?php
                                         }
                                     }
@@ -207,6 +226,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Mã Tòa</th>
                             <th>Mã phòng</th>
                             <th>Mã dịch vụ</th>
                             <th>Tháng</th>
@@ -222,6 +242,7 @@
                         ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($row['id']) ?></td>
+                                <td><?php echo htmlspecialchars($row['maToa']) ?></td>
                                 <td><?php echo htmlspecialchars($row['id_room']) ?></td>
                                 <td><?php echo htmlspecialchars($row['id_service']) ?></td>
                                 <td><?php echo htmlspecialchars($row['month']) ?></td>
@@ -264,6 +285,34 @@
             </nav>
        </form>    
 </body>
-
+     
+<script>
+     $(document).ready(function() {
+        $('.maToa').change(function() {
+            var maToa = $(this).val();
+            if (maToa != '') {
+                $.ajax({
+                    url: 'http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/get_phong_by_toa',
+                    method: 'POST',
+                    data: {
+                        maToa: maToa
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        $('.maPhong').html('<option value="">-------Chọn--------</option>');
+                        $.each(data, function(index, room) {
+                            $('.maPhong').append('<option value="' + room.maPhong + '">' + room.maPhong + '</option>');
+                        });
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error(textStatus, errorThrown);
+                    }
+                });
+            } else {
+                $('.maPhong').html('<option value="">-------Chọn--------</option>');
+            }
+        });
+    });
+</script>
 
 </html>

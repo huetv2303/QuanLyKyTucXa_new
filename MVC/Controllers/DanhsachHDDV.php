@@ -8,6 +8,8 @@ class DanhsachHDDV extends controller
         $this->dsdv = $this->model('HDDV_m');
     }
 
+
+  
     function Get_data()
     {
 
@@ -18,16 +20,16 @@ class DanhsachHDDV extends controller
         $total_page = ceil($total / $limit);
       
         $dulieu = $this->dsdv->hddv_invoice($page, $limit);
-        $dulieu1 = $this->dsdv->hddv_idP();
-        $dulieu3 = $this->dsdv->hddv_idP();
+        // $dulieu1 = $this->dsdv->hddv_idP();
+        // $dulieu3 = $this->dsdv->hddv_idP();
         $toa = $this->dsdv->get_all_toa();
         $toa1 = $this->dsdv->get_all_toa();
         $phong = $this->dsdv->get_all_phong();
         $this->view('MasterLayout', [
             'page' => 'DanhsachHDDV_v',
             'dulieu' => $dulieu,
-            'dulieu1' => $dulieu1,
-            'dulieu3' => $dulieu3,
+            // 'dulieu1' => $dulieu1,
+            // 'dulieu3' => $dulieu3,
             'toa' => $toa,
             'toa1' => $toa1,
             'phong' => $phong,
@@ -110,11 +112,13 @@ class DanhsachHDDV extends controller
             //căn giữa
             $sheet->getStyle('A1:K1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
             //Điền dữ liệu vào các dòng. Dữ liệu lấy từ DB
+            
             $id_invoice = $_POST['MaHD1'];
             $id_room = $_POST['MaPhong1'];
             $month = $_POST['month1'];
             $year = $_POST['year1'];
-            $dulieu = $this->dsdv->hddv_find($id_invoice, $id_room, $month, $year);
+            $status = $_POST['TrangThai1'];
+            $dulieu = $this->dsdv->hddv_find($id_invoice, $id_room, $month, $year,$status );
 
             $rowCount = 2;
             while ($row = mysqli_fetch_array($dulieu)) {
@@ -155,7 +159,7 @@ class DanhsachHDDV extends controller
             exit;
         }
     }
-
+    
 
     function get_phong_by_toa()
     {
@@ -288,6 +292,7 @@ class DanhsachHDDV extends controller
             $month = $_POST['txtThang'];
             $year = $_POST['txtNam'];
             $maToa = $_POST['txtMaToa'];
+            // $TienCoc = $_POST['TienCoc'];
 
 
 
@@ -309,7 +314,7 @@ class DanhsachHDDV extends controller
                   </script>";
                 } else {
                     // Gọi hàm thêm dl trong model
-                    $kq = $this->dsdv->hddv_ins($id_invoice, $maToa, $id_room, $soDien, $khoiNuoc, $electricity, $water, $month, $year, $ended_day, $status);
+                    $kq = $this->dsdv->hddv_ins($id_invoice, $maToa, $id_room, $soDien, $khoiNuoc, $electricity, $water, $month, $year , $ended_day, $status);
 
                     if ($kq) {
                         echo "<script>
