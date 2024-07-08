@@ -147,7 +147,7 @@
                     <div id="collapseSix" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
                             <a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien" class="btn">Danh sách nhân viên</a>
-                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachSV" class="btn">Danh sách sinh viên</a>
+                            <a href="http://localhost:2929/QuanLyKyTucXa_new/DanhsachSV" class="btn">Danh sách sinh viên</a>
                          
                         </div>
                     </div>
@@ -161,7 +161,7 @@
                     </div>
                     <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
-                            <a href="http://localhost/QuanLyKyTucXa_new/HopDong" class="btn">Danh sách hợp đồng</a>
+                            <a href="http://localhost:2929/QuanLyKyTucXa_new/HopDong" class="btn">Danh sách hợp đồng</a>
                             <a href="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan" class="btn">Gia hạn hợp đồng</a>
                         </div>
                     </div>
@@ -179,6 +179,7 @@
                             <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDN" class="btn">Điện nước</a>
                             <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV" class="btn">Dịch vụ khác</a>
                             <a href="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV" class="btn">Hóa đơn dịch vụ</a>
+                            <a href="http://localhost:2929/QuanLyKyTucXa_new/NopTienPhong" class="btn">Nộp tiền phòng</a>
                         </div>
                     </div>
                 </div>

@@ -49,7 +49,6 @@ class DanhsachHDDV extends controller
 
 
             ]);
-          
         }
 
         if (isset($_POST['btnXuat'])) {
@@ -149,7 +148,6 @@ class DanhsachHDDV extends controller
                 echo "<script>alert('Sửa thành công!')</script>";
             } else
                 echo "<script>alert('Sửa thất bại!')</script>";
-
         }
         $dulieu = $this->dsdv->hddv_invoice();
         $dulieu1 = $this->dsdv->hddv_idP();
