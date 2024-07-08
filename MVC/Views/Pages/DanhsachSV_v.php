@@ -10,24 +10,34 @@
             text-align: center;
         }
 
-        #wrapper {
+        /* #wrapper {
             padding: 50px;
-            /* background-color: #0dcaf02b; */
+            background-color: #0dcaf02b;
             height: 100%;
             position: absolute;
             width: 87%;
+        } */
+
+        #wrapper {
+            padding: 50px;
+            background-color: #0dcaf02b;
+            min-height: 100vh;
+            /* Đảm bảo phần tử có chiều cao tối thiểu */
+            width: 87%;
+            overflow: auto;
+            /* Cho phép cuộn nếu nội dung vượt quá chiều cao */
         }
 
-        .form-inline {
+        /* .form-inline {
             border-radius: 20px;
             background-color: white;
             padding: 40px;
             text-align: left;
-        }
+        } */
 
-        .container-fluid {
+        /* .container-fluid {
             padding: 0px;
-        }
+        } */
 
         #tableTimKiem {
             margin-left: 400px;
@@ -46,7 +56,7 @@
 
 <body>
     <div id="wrapper" style="height: -webkit-fill-available;">
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachSV/timKiem">
+        <form method="post" action="http://localhost:2929/QuanLyKyTucXa_new/DanhsachSV/timKiem">
             <!-- <div class="header" style="color: #08449b">
                 
             </div> -->
@@ -55,9 +65,11 @@
 
                 <table id="tableThem" style="width: 100%">
                     <tr>
-                        <td style="float: left;"><h2>Quản lý thông tin sinh viên</h2></td>
+                        <td style="float: left;">
+                            <h2>Quản lý thông tin sinh viên</h2>
+                        </td>
                         <td style="float: right;  margin: 10px">
-                            <button type="submit" class="btn btn-success" name=""><a href="http://localhost/QuanLyKyTucXa_new/SinhVien" style="text-decoration: none; color:white">Thêm mới</a></button>
+                            <button type="submit" class="btn btn-success" name=""><a href="http://localhost:2929/QuanLyKyTucXa_new/SinhVien" style="text-decoration: none; color:white">Thêm mới</a></button>
                         </td>
 
                         <td style="float: right; margin: 10px">
@@ -84,7 +96,7 @@
 
 
 
-                <button type="submit" class="btn btn-primary" name="btnTimKiem" style="margin-bottom: 20px; margin-right: 10px; margin-left: 570px;">Tìm kiếm</button>
+                <button type="submit" class="btn btn-primary" name="btnTimKiem" style="margin-bottom: 20px; margin-right: 10px; margin-left: 580px;">Tìm kiếm</button>
 
                 <table class="table table-striped" style="text-align: center;">
 
@@ -122,8 +134,8 @@
 
 
                                 <td>
-                                    <a href="http://localhost/QuanLyKyTucXa_new/DanhsachSV/sua/<?php echo $row['maSinhVien'] ?>" class="btn btn-outline-primary">Sửa</a> &nbsp;
-                                    <a onclick="return confirm('Bạn có muốn xóa sinh viên này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachSV/xoa/<?php echo $row['maSinhVien'] ?>" class="btn btn-outline-danger">Xóa</a>
+                                    <a href="http://localhost:2929/QuanLyKyTucXa_new/DanhsachSV/sua/<?php echo $row['maSinhVien'] ?>" class="btn btn-outline-primary">Sửa</a> &nbsp;
+                                    <a onclick="return confirm('Bạn có muốn xóa sinh viên này không?');" href="http://localhost:2929/QuanLyKyTucXa_new/DanhsachSV/xoa/<?php echo $row['maSinhVien'] ?>" class="btn btn-outline-danger">Xóa</a>
                                 </td>
                             </tr>
                     <?php
@@ -139,7 +151,7 @@
     </div>
 
     <!-- Modal choose file Excel -->
-    <form action="http://localhost/QuanLyKyTucXa_new/DanhsachSv/ImportExcel" method="post" enctype="multipart/form-data">
+    <form action="http://localhost:2929/QuanLyKyTucXa_new/DanhsachSv/ImportExcel" method="post" enctype="multipart/form-data">
         <div class="modal" id="modalExcel">
             <div class="modal-dialog">
                 <div class="modal-content">

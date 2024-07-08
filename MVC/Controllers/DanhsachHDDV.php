@@ -18,7 +18,7 @@ class DanhsachHDDV extends controller
         $limit = 5;
         $total = $this->dsdv->count();
         $total_page = ceil($total / $limit);
-      
+
         $dulieu = $this->dsdv->hddv_invoice($page, $limit);
         // $dulieu1 = $this->dsdv->hddv_idP();
         // $dulieu3 = $this->dsdv->hddv_idP();
@@ -198,15 +198,12 @@ class DanhsachHDDV extends controller
             $maToa  = $_POST['txtMaToa'];
 
             //gọi hàm sủa dl tacgia_udp trong model
-            
 
-           
-
-                    $kq = $this->dsdv->hddv_upd($id_invoice, $maToa, $id_room, $soDien, $khoiNuoc, $electricity, $water, $month, $year,  $ended_day, $status);
-                    if ($kq) {
-                        echo "<script>alert('Sửa thành công!')</script>";
-                    } else
-                        echo "<script>alert('Sửa thất bại!')</script>";
+            $kq = $this->dsdv->hddv_upd($id_invoice, $maToa, $id_room, $soDien, $khoiNuoc, $electricity, $water, $month, $year,  $ended_day, $status);
+            if ($kq) {
+                echo "<script>alert('Sửa thành công!')</script>";
+            } else
+                echo "<script>alert('Sửa thất bại!')</script>";
         }
         $page = 1;
         if (isset($_GET['page']))  $page = $_GET['page'];
@@ -271,7 +268,6 @@ class DanhsachHDDV extends controller
             'limit' => $limit,
             'page_number' => $page
         ]);
-
     }
 
     function themmoi()

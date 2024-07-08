@@ -17,10 +17,11 @@
     <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/l1.css">
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=<?php echo time(); ?>"></script>
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/phong.js?v=1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https:/cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
+
     <div class="d-flex">
         <aside class="sidebar">
             <div class="sidebar-header">
@@ -45,7 +46,7 @@
                     <a href="#uiElementsSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lý thông tin</a>
                     <ul class="collapse list-unstyled" id="uiElementsSubmenu">
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien">Danh sách nhân viên</a></li>
-                        <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachSV">Danh sách sinh viên</a></li>
+                        <li><a href="http://http://localhost//QuanLyKyTucXa_new/DanhsachSV">Danh sách sinh viên</a></li>
                     </ul>
                 </li>
                 <li>
@@ -62,6 +63,7 @@
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachDN">Điện nước</a></li>
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV/">Dịch vụ khác</a></li>
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV">Hóa đơn dịch vụ</a></li>
+                        <li><a href="http://http://localhost//QuanLyKyTucXa_new/NopTienPhong">Nộp tiền phòng</a></li>
                     </ul>
                 </li>
                 <li>
