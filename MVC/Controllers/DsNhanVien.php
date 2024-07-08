@@ -197,6 +197,7 @@ class DsNhanVien extends controller
     //Function cập nhật thông tin nhân viên
     function Update()
     {
+
         if (isset($_POST['btnCapNhat'])) {
             $mnv = $_POST['txtMaNv'];
             $tnv = $_POST['txtTenNv'];
@@ -227,5 +228,6 @@ class DsNhanVien extends controller
                 'dulieu' => $dulieu
             ]);
         }
+       
     }
 }

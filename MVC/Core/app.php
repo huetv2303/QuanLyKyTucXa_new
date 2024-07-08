@@ -1,10 +1,7 @@
 <?php
 class app
 {
-
-    protected $controller ='QLyGuiXe';
-
-
+    protected $controller ='Home';
     protected $action = 'Get_data';
     protected $param = [];
 

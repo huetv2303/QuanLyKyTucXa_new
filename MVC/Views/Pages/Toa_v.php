@@ -128,7 +128,7 @@ select:hover{
                                 <input type="text" class="form-control" name="txtManv" id="txtManv" value="" >
                                 <label>Tên nhân viên</label>
                                 <input type="text" class="form-control" name="txtTennv" id="txtTennv" value="">
-                                <label>Trạng thái</label>
+                                <label>SĐT</label>
                                 <input type="text" class="form-control" name="txtSDT" id="txtSDT" value="">
                             </div>
                             <div class="modal-footer">

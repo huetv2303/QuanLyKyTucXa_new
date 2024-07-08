@@ -12,8 +12,13 @@
     <script src="https://kit.fontawesome.com/7c35a47a4f.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<<<<<<< HEAD
     <link rel="stylesheet" href="http://localhost:9090/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
     <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
+=======
+    <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
+>>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
 
     <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=1"> </script>
     <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/phong.js?v=1"> </script>
@@ -161,8 +166,13 @@
                     </div>
                     <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
+<<<<<<< HEAD
                             <a href="http://localhost:9090/QuanLyKyTucXa_new/HopDong" class="btn">Danh sách hợp đồng</a>
                             <a href="http://localhost:9090/QuanLyKyTucXa_new/HopDongGiaHan" class="btn">Gia hạn hợp đồng</a>
+=======
+                            <a href="http://localhost/QuanLyKyTucXa_new/HopDong" class="btn">Danh sách hợp đồng</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan" class="btn">Gia hạn hợp đồng</a>
+>>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
                         </div>
                     </div>
                 </div>
@@ -175,10 +185,17 @@
                     </div>
                     <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
+<<<<<<< HEAD
                             <a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPDV" class="btn">Đăng ký dịch vụ</a>
                             <a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDN" class="btn">Điện nước</a>
                             <a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV" class="btn">Dịch vụ khác</a>
                             <a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachHDDV" class="btn">Hóa đơn dịch vụ</a>
+=======
+                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachPDV" class="btn">Đăng ký dịch vụ</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDN" class="btn">Điện nước</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV/" class="btn">Dịch vụ khác</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV" class="btn">Hóa đơn dịch vụ</a>
+>>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
                         </div>
                     </div>
                 </div>

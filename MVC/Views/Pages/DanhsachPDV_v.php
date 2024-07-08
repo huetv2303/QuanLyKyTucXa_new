@@ -1,11 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <!-- <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/DichVu_js.js"> </script> -->
+=======
+    <!-- <script src="http://localhost/QuanLyKyTucXa_new//Public/JS/DichVu_js.js"> </script> -->
+>>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
     <title>Quản lý dịch vụ</title>
 </head>
 
@@ -14,7 +17,6 @@
         <div class="header">
             <h3>Đăng ký dịch vụ</h3>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal"> Thêm </button>
 
             <!-- Modal -->
             <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPDV/themmoi">
@@ -24,7 +26,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="addServiceModalLabel">Thêm dịch vụ</h5>
+                                    <h5 class="modal-title" id="addServiceModalLabel">Đăng ký dịch vụ</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -66,6 +68,32 @@
                                         </select>
                                         <span class="error-message" id="errorTxtMaDV"></span>
 
+                                        <table>
+                                            <thead>
+                                                <td>Tháng</td>
+                                                <td>
+                                                    <p style="margin-left: 20px;">Năm</p>
+                                                </td>
+                                            </thead>
+
+                                            <tbody>
+                                                <td><input type="text" placeholder="Nhập tháng" class="form-control" name="txtThang" required></td>
+                                                <!-- <td> <select name="" id="" class="form-control">
+                                                        <option value="">------Chọn-------</option>
+                                                        <?php
+                                                        for ($t = 1; $t <= 12; $t++) {
+                                                        ?>
+                                                            <option value="<?php echo $t ?>"><?php echo $t ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </td> -->
+                                                <td><input style="margin-left: 20px;" type="text" placeholder="Nhập năm" class="form-control" name="txtNam" required></td>
+                                            </tbody>
+                                        </table>
+                                        <br>
+
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -79,7 +107,11 @@
             </form>
 
         </div>
+<<<<<<< HEAD
         <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPDV/suadl">
+=======
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new//DanhsachPDV/suadl">
+>>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
             <!-- Modal -->
             <div class="modal-update">
                 <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
@@ -118,6 +150,19 @@
                                     }
                                     ?>
                                 </select>
+                                <table>
+                                    <thead>
+                                        <td>Tháng</td>
+                                        <td>
+                                            <p style="margin-left: 20px;">Năm</p>
+                                        </td>
+                                    </thead>
+
+                                    <tbody>
+                                        <td><input type="text" class="form-control" name="txtThang" id="txtThang" required></td>
+                                        <td><input style="margin-left: 20px;" type="text" class="form-control" name="txtNam" id="txtNam" required></td>
+                                    </tbody>
+                                </table>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -128,28 +173,56 @@
                 </div>
             </div>
         </form>
+<<<<<<< HEAD
         <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPDV/timkiem">
+=======
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new//DanhsachPDV/timkiem">
+>>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
             <div class="form-inline">
                 <div class="head_timkiem">
                     <div>
-                        <label style="width: 100px;">Mã phòng</label>
-                        <input type="text" name="txtMaPhong" placeholder="Mã Phòng" class="form-control" value="<?php echo isset($_POST['txtMaPhong']) ? htmlspecialchars($_POST['txtMaPhong']) : ''; ?>">
-                    </div>
-                    <div>
                         <label style="width: 100px;">Mã dịch vụ</label>
-                        <input type="text" name="txtMaDV" placeholder="Mã Dịch Vụ" class="form-control" value="<?php echo isset($_POST['txtMaDV']) ? htmlspecialchars($_POST['txtMaDV']) : ''; ?>">
+                        <input type="text" placeholder="Tìm mã dịch vụ" class="form-control" name="txtMaDV" value="<?php echo isset($_POST['txtMaDV']) ? htmlspecialchars($_POST['txtMaDV']) : ''; ?>">
                     </div>
                     <div>
-                        <button type="submit" style="margin: 24px 0px;" class="btn btn-success" name="btnTimKiem">Tìm kiếm</button>
+                        <label style="width: 100px;">Mã phòng</label>
+                        <input type="text" placeholder="Tìm mã phòng" class="form-control" name="txtMaPhong" value="<?php echo isset($_POST['txtMaPhong']) ? htmlspecialchars($_POST['txtMaPhong']) : ''; ?>">
+
+                    </div>
+                    <div>
+                        <label style="width: 50px;">Tháng</label>
+                        <input style="width: 50px;" type="text" placeholder="Tìm tháng" class="form-control" name="txtThang" value="<?php echo isset($_POST['txtThang']) ? htmlspecialchars($_POST['txtThang']) : ''; ?>">
+                        <!-- <select name="txtThang" id="" class="form-control">
+                            <option value="">------Chọn-------</option>
+                            <?php
+                            for ($t = 1; $t <= 12; $t++) {
+                            ?>
+                                <option value="<?php echo $t ?>" <?php echo isset($_POST['txtThang']) && $_POST['txtThang'] ==  $t ? 'selected' : ''; ?>><?php echo $t ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select> -->
+
+                    </div>
+                    <div>
+                        <label style="width: 50px;">Năm</label>
+                        <input style="width: 80px;" type="text" placeholder="Tìm năm" class="form-control" name="txtNam" value="<?php echo isset($_POST['txtNam']) ? htmlspecialchars($_POST['txtNam']) : ''; ?>">
+
+                    </div>
+                    <div>
+                        <button type="submit" style="margin: 24px 0px" class="btn btn-success" name="btnTimKiem">Tìm kiếm</button>
+                        <a href="http://localhost/QuanLyKyTucXa_new/DanhsachPDV" style="margin: 24px 0px" class="btn btn-success" name="btnReLoad"><i class="fa-solid fa-rotate-right"></i> Reload</a>
                     </div>
                 </div>
-
-                <table class="table table-hover">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addServiceModal"> <i class="fa-solid fa-plus"></i> Thêm mới </button>
+                <table class="table table-striped table-hover">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Mã phòng</th>
                             <th>Mã dịch vụ</th>
+                            <th>Tháng</th>
+                            <th>Năm</th>
                             <th>Thao tác</th>
                         </tr>
                     </thead>
@@ -163,10 +236,16 @@
                                 <td><?php echo htmlspecialchars($row['id']) ?></td>
                                 <td><?php echo htmlspecialchars($row['id_room']) ?></td>
                                 <td><?php echo htmlspecialchars($row['id_service']) ?></td>
+                                <td><?php echo htmlspecialchars($row['month']) ?></td>
+                                <td><?php echo htmlspecialchars($row['year']) ?></td>
                                 <td>
 
                                     <a class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal" onclick="updateDataPDV('<?php echo htmlspecialchars(json_encode($row)) ?>')"><i class="fa-regular fa-pen-to-square"></i></a>
+<<<<<<< HEAD
                                     <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPDV/xoa/<?php echo $row['id'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+=======
+                                    <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new//DanhsachPDV/xoa/<?php echo $row['id'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+>>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
                                 </td>
 
                             </tr>
@@ -177,30 +256,30 @@
                     </tbody>
                 </table>
             </div>
+           
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item <?php if ($data['page_number'] <= 1) echo 'disabled'; ?>">
+                        <a class="page-link" href="<?php if ($data['page_number'] > 1) echo "?page=" . ($data['page_number'] - 1);
+                                                    else echo '#'; ?>" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <?php for ($i = 1; $i <= $data['total_page']; $i++) { ?>
+                        <li style="padding: 0px;" class="page-item <?php if ($data['page_number'] == $i) echo 'active'; ?>">
+                            <a class="page-link"  href="?page=<?php echo ($i); ?>"><?php echo ($i); ?></a>
+                        </li>
+                    <?php } ?>
+                    <li  style="padding: 0px;" class="page-item <?php if ($data['page_number'] >= $data['total_page']) echo 'disabled'; ?>">
+                        <a class="page-link"  href="<?php if ($data['page_number'] < $data['total_page']) echo "?page=" . ($data['page_number'] + 1);
+                                                    else echo '#'; ?>" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+       </form>    
 </body>
-<script>
-    function VadlidateForm() {
-        var id_room = document.getElementById('txtMaPhong1').value;
-        var id_service = document.getElementById('txtMaDV1').value;
 
-        var valid = true;
-
-        if (id_room.trim() === '') {
-            document.getElementById('errorTxtMaPhong').textContent = 'Vui lòng chọn mã phòng';
-            valid = false;
-        } else {
-            document.getElementById('errorTxtMaPhong').textContent = '';
-        }
-
-        if (id_service.trim() === '') {
-            document.getElementById('errorTxtMaDV').textContent = 'Vui lòng chọn dịch vụ';
-            valid = false;
-        } else {
-            document.getElementById('errorTxtMaPhong').textContent = '';
-        }
-
-        return valid;
-    }
-</script>
 
 </html>

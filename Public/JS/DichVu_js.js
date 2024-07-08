@@ -29,6 +29,9 @@ function updateDataPDV(data) {
     document.getElementById('txtID').value = newData.id;
     document.getElementById('txtMaPhong').value = newData.id_room;
     document.getElementById('txtMaDV').value = newData.id_service;
+    document.getElementById('txtThang').value = newData.month;
+    document.getElementById('txtNam').value = newData.year;
+
     console.log(newData);
     
 }
@@ -43,6 +46,11 @@ function updateDataHDDV(data) {
     document.getElementById('txtNgayTao').value = newData.created_day;
     document.getElementById('txtNgayKT').value = newData.ended_day;
     document.getElementById('txtTrangThai').value = newData.status;
+    document.getElementById('Thang').value = newData.month;
+    document.getElementById('Nam').value = newData.year;
+    document.getElementById('txtDienBD').value = newData.soDien;
+    document.getElementById('txtNuocBD').value = newData.khoiNuoc;
+    document.getElementById('txtMaToa').value = newData.maToa;
     console.log(newData);
 
 }
@@ -52,14 +60,18 @@ function updateDataExportHDDV(data) {
 
     document.getElementById('MaHD').innerText = `Mã hóa đơn: ${newData.id_invoice}`;
     document.getElementById('MaPhong').innerText = `Mã phòng: ${newData.id_room}`;
-    document.getElementById('Dien').innerText = `${newData.electricity} kWh`;
-    document.getElementById('Nuoc').innerText = `${newData.water} m3`;
+    document.getElementById('Dien').innerText = `${newData.electricity_usage} kWh`;
+    document.getElementById('Nuoc').innerText = `${newData.water_usage} m3`;
     document.getElementById('TrangThai').innerText = newData.status;
-    document.getElementById('TongDN').innerText = `${newData.tong_dien_nuoc} VND`;
-    document.getElementById('TongDV').innerText = `${newData.tong_dich_vu_khac} VND`;
-    document.getElementById('Tong').innerText = `Tổng: ${newData.tong_tat_ca} VND`;
+    document.getElementById('TongDN').innerText = `${newData.total_electricity_water_cost} VND`;
+    document.getElementById('TongDV').innerText = `${newData.total_service_cost} VND`;
+    document.getElementById('Tong').innerText = `Tổng: ${newData.total_cost} VND`;
+    // document.getElementById('month').innerText = newData.month;
+    document.getElementById('year').innerText =`Tháng ${newData.month} Năm ${newData.year}` ;
     document.getElementById('MaHD1').value = newData.id_invoice;
     document.getElementById('MaPhong1').value = newData.id_room;
+    document.getElementById('month1').value = newData.month;
+    document.getElementById('year1').value = newData.year;
 
     console.log(newData);
 }

@@ -77,8 +77,6 @@ p{
     padding: 0px 0px 10px 20px;
 }
 
-<<<<<<< HEAD
-=======
 .error-message {
     color: red;
     font-size: 14px;
@@ -90,5 +88,13 @@ p{
     display: flex;
     gap: 10px
 }
->>>>>>> 94688866de83f24a8b807f90948041736ba5cc57
 
+.overdue {
+    color: red;
+}
+.paid {
+    color: green;
+}
+.pending {
+    color: orange;
+}

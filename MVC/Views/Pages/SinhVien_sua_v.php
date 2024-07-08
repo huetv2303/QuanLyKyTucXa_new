@@ -11,11 +11,12 @@
 <body>
     <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachSV/suadl">
         <div id="wrapper" style="height: -webkit-fill-available;">
-            <div class="header" style="color: #08449b">
+            <!-- <div class="header" style="color: #08449b">
                 <h2>Sửa thông tin sinh viên</h2>
-            </div>
+            </div> -->
 
             <div class="form-inline" style="width: 60%; margin-left: 284px; text-align: left;">
+            <h2>Sửa thông tin sinh viên</h2>
                 <?php
                 if (isset($data['dulieu'])) {
                     if (mysqli_num_rows($data['dulieu']) > 0) {

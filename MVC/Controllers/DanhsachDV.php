@@ -10,16 +10,23 @@ class DanhsachDV extends controller
 
     function Get_data()
     {
-
-        $dulieu = $this->dsdv->dichvu_all();
-
+        $page = 1;
+        if (isset($_GET['page']))  $page = $_GET['page'];
+        $limit = 5;
+        $dulieu = $this->dsdv->dichvu_all($page, $limit);
+        $total = $this->dsdv->count();
+        $total_page = ceil($total / $limit);
         $this->view('MasterLayout', [
             'page' => 'DanhsachDV_v',
             'dulieu' => $dulieu,
-
+            'total_page' => $total_page,
+            'limit' => $limit,
+            'page_number' => $page
 
         ]);
     }
+
+
 
     function them()
     {
@@ -96,11 +103,19 @@ class DanhsachDV extends controller
 
     function timkiem()
     {
+        $page = 1;
+        if (isset($_GET['page']))  $page = $_GET['page'];
+        $limit = 5;
+        $total = $this->dsdv->count();
+        $total_page = ceil($total / $limit);
         if (isset($_POST['btnTimKiem'])) {
             $id_service = $_POST['txtMaDV'];
             $name = $_POST['txtTenDV'];
-            $dulieu = $this->dsdv->dichvu_find($id_service, $name);
-            $dulieu1 = $this->dsdv->dichvu_all();
+            if ($id_service == '' &&  $name == '') {
+                $dulieu = $this->dsdv->dichvu_all($page, $limit);
+            } else {
+                $dulieu = $this->dsdv->dichvu_find($id_service, $name);
+            }
             //Gọi lại giao diện và truyền $dulieu ra
 
             $this->view('MasterLayout', [
@@ -108,7 +123,9 @@ class DanhsachDV extends controller
                 'dulieu' => $dulieu,
                 'madv' => $id_service,
                 'tendv' => $name,
-                'dulieu1' => $dulieu1,
+                'total_page' => $total_page,
+                'limit' => $limit,
+                'page_number' => $page
             ]);
         }
     }
@@ -123,6 +140,8 @@ class DanhsachDV extends controller
 
     function suadl()
     {
+
+
         if (isset($_POST['btnLuu'])) {
 
             $id_service = $_POST['txtMaDV'];
@@ -146,13 +165,23 @@ class DanhsachDV extends controller
 
             //Gọi lại giao diện và truyền $dulieu ra
 
-            $dulieu = $this->dsdv->dichvu_all();
-            $this->view('MasterLayout', [
-                'page' => 'DanhsachDV_v',
-                'dulieu' => $dulieu,
 
-            ]);
         }
+        $page = 1;
+        if (isset($_GET['page']))  $page = $_GET['page'];
+        $limit = 5;
+
+        $total = $this->dsdv->count();
+        $total_page = ceil($total / $limit);
+        $dulieu = $this->dsdv->dichvu_all($page, $limit);
+        $this->view('MasterLayout', [
+            'page' => 'DanhsachDV_v',
+            'dulieu' => $dulieu,
+            'total_page' => $total_page,
+            'limit' => $limit,
+            'page_number' => $page
+
+        ]);
     }
 
     function xoa($id_service)
@@ -165,10 +194,18 @@ class DanhsachDV extends controller
         //Gọi lại giao diện và truyền $dulieu ra
 
 
-        $dulieu = $this->dsdv->dichvu_all();
+        $page = 1;
+        if (isset($_GET['page']))  $page = $_GET['page'];
+        $limit = 5;
+        $dulieu = $this->dsdv->dichvu_all($page, $limit);
+        $total = $this->dsdv->count();
+        $total_page = ceil($total / $limit);
         $this->view('MasterLayout', [
             'page' => 'DanhsachDV_v',
             'dulieu' => $dulieu,
+            'total_page' => $total_page,
+            'limit' => $limit,
+            'page_number' => $page
 
         ]);
     }
@@ -207,10 +244,18 @@ class DanhsachDV extends controller
                 }
             }
         }
-        $dulieu = $this->dsdv->dichvu_all();
+        $page = 1;
+        if (isset($_GET['page']))  $page = $_GET['page'];
+        $limit = 5;
+        $dulieu = $this->dsdv->dichvu_all($page, $limit);
+        $total = $this->dsdv->count();
+        $total_page = ceil($total / $limit);
         $this->view('MasterLayout', [
             'page' => 'DanhsachDV_v',
             'dulieu' => $dulieu,
+            'total_page' => $total_page,
+            'limit' => $limit,
+            'page_number' => $page
 
         ]);
     }

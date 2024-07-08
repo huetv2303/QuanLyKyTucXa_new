@@ -34,10 +34,16 @@
                     <input type="text" class="form-control" placeholder="Số điện thoại" name="txtSdt" value="<?php echo $row['SoDienThoai'] ?>">
                     <label>Mã tòa</label>
                     <select name="txtMaToa" class="form-control">
+<<<<<<< HEAD
                         <option value="">---Chọn mã tòa---</option>
                         <option value="A" <?php if ($row['maToa'] == 'A') echo 'selected'; ?>>A</option>
                         <option value="B" <?php if ($row['maToa'] == 'B') echo 'selected'; ?>>B</option>
                         <option value="C" <?php if ($row['maToa'] == 'C') echo 'selected'; ?>>C</option>
+=======
+                        <option value="A" <?php if ($row['MaToa'] == 'A') echo 'selected'; ?>>A</option>
+                        <option value="B" <?php if ($row['MaToa'] == 'B') echo 'selected'; ?>>B</option>
+                        <option value="C" <?php if ($row['MaToa'] == 'C') echo 'selected'; ?>>C</option>
+>>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
                     </select>
             <?php
                 }

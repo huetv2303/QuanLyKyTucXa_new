@@ -28,7 +28,7 @@ class Phong_m extends connectDB{
     }
     
     function find($maphong,$matoa,$trangthai){
-        $sql="SELECT * FROM phong  WHERE maPhong like N'%$maphong%'  AND maToa like '$matoa' OR trangThai like N'%$trangthai%' " ;
+        $sql="SELECT * FROM phong  WHERE maPhong like '%$maphong%'  OR maToa like '%$matoa%' OR trangThai like '%$trangthai%' " ;
         return mysqli_query($this->conn,$sql);
     }
     function find2($maphong){
