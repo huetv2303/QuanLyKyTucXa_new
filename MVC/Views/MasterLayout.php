@@ -12,13 +12,9 @@
     <script src="https://kit.fontawesome.com/7c35a47a4f.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<<<<<<< HEAD
     <link rel="stylesheet" href="http://localhost:9090/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
     <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
-=======
-    <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
-    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
->>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
+
 
     <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=1"> </script>
     <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/phong.js?v=1"> </script>
@@ -90,10 +86,18 @@
 
 
     </style>
+
+    <link rel="stylesheet" href="http://localhost:9090/QuanLyKyTucXa_new/Public/CSS/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="http://localhost:9090/QuanLyKyTucXa_new/Public/CSS/master.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="http://localhost:9090/QuanLyKyTucXa_new/Public/CSS/l1.css">
+    <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=<?php echo time(); ?>"></script>
+    <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/phong.js?v=1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
-
 <body>
+<<<<<<< HEAD
     <div class="container-fluid">
         <!-- Start: Header -->
         <div id="header1">
@@ -166,13 +170,10 @@
                     </div>
                     <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
-<<<<<<< HEAD
+
                             <a href="http://localhost:9090/QuanLyKyTucXa_new/HopDong" class="btn">Danh sách hợp đồng</a>
                             <a href="http://localhost:9090/QuanLyKyTucXa_new/HopDongGiaHan" class="btn">Gia hạn hợp đồng</a>
-=======
-                            <a href="http://localhost/QuanLyKyTucXa_new/HopDong" class="btn">Danh sách hợp đồng</a>
-                            <a href="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan" class="btn">Gia hạn hợp đồng</a>
->>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
+
                         </div>
                     </div>
                 </div>
@@ -185,17 +186,12 @@
                     </div>
                     <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
-<<<<<<< HEAD
+
                             <a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPDV" class="btn">Đăng ký dịch vụ</a>
                             <a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDN" class="btn">Điện nước</a>
                             <a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV" class="btn">Dịch vụ khác</a>
                             <a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachHDDV" class="btn">Hóa đơn dịch vụ</a>
-=======
-                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachPDV" class="btn">Đăng ký dịch vụ</a>
-                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDN" class="btn">Điện nước</a>
-                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV/" class="btn">Dịch vụ khác</a>
-                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV" class="btn">Hóa đơn dịch vụ</a>
->>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
+
                         </div>
                     </div>
                 </div>
@@ -215,19 +211,75 @@
                         </div>
                     </div>
                 </div>
+
+    <div class="d-flex">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img style="width:200px; height: 130px" src="https://th.bing.com/th/id/R.e86a2f7c0d27cb5c409a7b3f3a315fe8?rik=uKc2dRGoVuQNWA&riu=http%3a%2f%2futt.edu.vn%2fhome%2fimages%2fstories%2flogo-utt-border.png&ehk=xwQfVRyFndxbb5TeE0GZhK6TfE%2fZO6f0UtTKNHkKLko%3d&risl=&pid=ImgRaw&r=0" alt="">
             </div>
 
-
-
-            <div id="content-right1">
+            <hr >
+            <ul class="menu list-unstyled">
+                <li>
+                    <a href="http://localhost/QuanLyKyTucXa_new/Home"  aria-expanded="false" >Home</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="#formsSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lý</a>
+                    <ul class="collapse list-unstyled" id="formsSubmenu">
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/Toa_c">Danh sách tòa</a></li>
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c">Danh sách phòng</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#uiElementsSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lý thông tin</a>
+                    <ul class="collapse list-unstyled" id="uiElementsSubmenu">
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien">Danh sách nhân viên</a></li>
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachSV">Danh sách sinh viên</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#tablesSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Quản lý hợp đồng</a>
+                    <ul class="collapse list-unstyled" id="tablesSubmenu">
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/HopDong">Danh sách hợp đồng</a></li>
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan">Gia hạn hợp đồng</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#dataPresentationSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dịch vụ</a>
+                    <ul class="collapse list-unstyled" id="dataPresentationSubmenu">
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachPDV">Đăng ký dịch vụ</a></li>
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachDN">Điện nước</a></li>
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV/">Dịch vụ khác</a></li>
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV">Hóa đơn dịch vụ</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#layoutsSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Thống kê</a>
+                    <ul class="collapse list-unstyled" id="layoutsSubmenu">
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/TKNuoc">Thống kê nước</a></li>
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/TKDien">Thống kê điện</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </aside>
+        <main class="main-content flex-grow-1">
+            <header class="header">
+                <div class="header-content d-flex justify-content-between align-items-center">
+                    <h1>Quản lý ký túc xá</h1>
+                </div>
+            </header>
+            <section id="content-right1">
                 <?php
-                // echo "Masterlayout";
+                // Include the specific page content
                 include_once './MVC/Views/Pages/' . $data['page'] . '.php';
                 ?>
-            </div>
-        </div>
-        <!-- End: Content -->
+            </section>
+        </main>
     </div>
+    <script src="scripts.js"></script>
 </body>
 
 </html>

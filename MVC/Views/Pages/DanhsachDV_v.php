@@ -14,11 +14,7 @@
             <!-- Button trigger modal -->
         </div>
         <!-- Thêm mới -->
-<<<<<<< HEAD
-        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV/themmoi" id="addServiceForm">
-=======
         <form method="post" action="http://localhost/QuanLyKyTucXa_new//DanhsachDV/themmoi" id="addServiceForm">
->>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
             <!-- Modal -->
             <div class="modal-add">
                 <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
@@ -63,11 +59,7 @@
         </form>
 
         <!-- Sửa -->
-<<<<<<< HEAD
-        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV/suadl">
-=======
         <form method="post" action="http://localhost/QuanLyKyTucXa_new//DanhsachDV/suadl">
->>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
             <!-- Modal -->
             <div class="modal-update">
                 <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
@@ -100,11 +92,7 @@
         </form>
 
         <!-- Nhập excel -->
-<<<<<<< HEAD
-        <form action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV/import" enctype="multipart/form-data" method="post">
-=======
         <form action="http://localhost/QuanLyKyTucXa_new//DanhsachDV/import" enctype="multipart/form-data" method="post">
->>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
             <label for="myFile2"></label>
             <table>
                 <tr>
@@ -119,13 +107,8 @@
         </form>
 
         <!-- Tìm kiếm -->
-<<<<<<< HEAD
-        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV/timkiem">
-            <div class="form-inline">
-=======
         <form method="post" action="http://localhost/QuanLyKyTucXa_new//DanhsachDV/timkiem">
             <div style="padding: 0 40px;" class="form-inline">
->>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
                 <div class="head_timkiem">
                     <div>
                         <label style="width: 100px;">Mã dịch vụ</label>
@@ -140,41 +123,6 @@
                         <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV" style="margin: 24px 0px" class="btn btn-success" name="btnReLoad"><i class="fa-solid fa-rotate-right"></i> Reload</a>
                     </div>
                 </div>
-<<<<<<< HEAD
-            </div>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>Mã dịch vụ</th>
-                        <th>Tên dịch vụ</th>
-                        <th>Giá</th>
-                        <th>Đơn vị</th>
-                        <th>Ghi chú</th>
-                        <th>Thao tác</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $i = 1;
-                    if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
-                        while ($row = mysqli_fetch_assoc($data['dulieu'])) {
-                    ?>
-                            <tr>
-                                <td><?php echo htmlspecialchars($i++) ?></td>
-                                <td><?php echo htmlspecialchars($row['id_service']) ?></td>
-                                <td><?php echo htmlspecialchars($row['name_service']) ?></td>
-                                <td><?php echo htmlspecialchars($row['price']) ?></td>
-                                <td><?php echo htmlspecialchars($row['unit']) ?></td>
-                                <td><?php echo htmlspecialchars($row['note']) ?></td>
-                                <td>
-                                    <button onclick="updateDataDV('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
-                                    <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV/xoa/<?php echo $row['id_service'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
-                                    <!-- <a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV/sua/" onclick="updateData('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></a> -->
-                                </td>
-                            </tr>
-                    <?php
-=======
 
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addServiceModal"> <i class="fa-solid fa-plus"></i> Thêm mới </button>
                 <table class="table table-striped table-hover">
@@ -211,7 +159,6 @@
                         <?php
                                 $i++;
                             }
->>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
                         }
                         ?>
 
