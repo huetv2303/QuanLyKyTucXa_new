@@ -8,13 +8,27 @@ class DichVu_m extends connectDB
         return mysqli_query($this->conn, $sql);
     }
 
-    public function dichvu_all()
+    public function dichvu_all($page , $limit )
     {
-        $sql = "SELECT * FROM dich_vu_khac";
+        $offset = ($page - 1)* $limit;
+        $sql = "SELECT * FROM dich_vu_khac limit  $offset,$limit ";
+        return mysqli_query($this->conn, $sql);
+    }
+    function count() {
+        $sql = "SELECT COUNT(*) as total FROM dich_vu_khac";
+        $result = mysqli_query($this->conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row['total'];
+    }
+    
+    function dichvu_find($id_service, $name)
+    {
+        $sql = "SELECT * FROM dich_vu_khac WHERE id_service like '%$id_service%' 
+    AND name_service like '%$name%' " ;
+    
         return mysqli_query($this->conn, $sql);
     }
 
-   
 
     function check_trung_ma($id_service)
     {
@@ -38,13 +52,7 @@ class DichVu_m extends connectDB
         return $kq;
     }
 
-    function dichvu_find($id_service, $name)
-    {
-        $sql = "SELECT * FROM dich_vu_khac WHERE id_service like '%$id_service%' 
-    AND name_service like '%$name%'";
-    
-        return mysqli_query($this->conn, $sql);
-    }
+   
 
     function dichvu_del($id_service)
     {
@@ -54,9 +62,12 @@ class DichVu_m extends connectDB
 
     function dichvu_upd($id_service,$name, $price, $unit,$note)
     {
-        $sql = "UPDATE dich_vu_khac SET name_service ='$name', price ='$price', unit ='$unit'  , note ='$note' WHERE id_service ='$id_service'";
+        $sql = "UPDATE dich_vu_khac SET name_service ='$name', price ='$price', unit ='$unit'  , note ='$note' WHERE id_service ='$id_service' ";
         return mysqli_query($this->conn, $sql);
     }
+
+
+ 
 
    
 }

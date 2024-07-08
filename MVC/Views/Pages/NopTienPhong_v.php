@@ -7,15 +7,62 @@
     <title>Quản lý dịch vụ</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <style>
+        #dd1 {
+            text-align: center;
+        }
+
+        #wrapper {
+            padding: 50px;
+            background-color: #0dcaf02b;
+            height: 100%;
+            position: absolute;
+            width: 87%;
+        }
+
+        /* #wrapper1 {
+            padding: 50px;
+            background-color: #0dcaf02b;
+            min-height: 100vh;
+         
+            width: 87%;
+            overflow: auto;
+          
+        }  */
+
+        .form-inline {
+            border-radius: 20px;
+            background-color: white;
+            padding: 40px;
+            text-align: left;
+        }
+
+        .container-fluid {
+            padding: 0px;
+        }
+
+        #tableTimKiem {
+            margin-left: 400px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+
+
+        #inputTenSinhVien {
+            margin-left: 10px;
+        }
+    </style>
+
 </head>
+
+
 
 <body>
     <div class="main">
         <div class="header">
             <h3>Nộp tiền phòng</h3>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal"> Thêm </button>
-            <a href="http://localhost:2929/QuanLyKyTucXa_new/NopTienPhong" style="margin: 24px 0px" class="btn btn-success" name="btnReLoad"><i class="fa-solid fa-rotate-right"></i> Reload</a>
 
             <form method="post" action="http://localhost:2929/QuanLyKyTucXa_new/NopTienPhong/themmoi" id="addInvoiceForm">
                 <!-- Modal -->
@@ -342,8 +389,8 @@
         </script>
 
         <form method="post" action="http://localhost:2929/QuanLyKyTucXa_new/NopTienPhong/timkiem">
-            <div class="form-inline">
-                <div class="head_timkiem">
+            <div class="form-inline" id="wrapper1">
+                <div class="head_timkiem" style = "padding-left: 260px;">
                     <div>
                         <label style="width: 100px;">Mã giao dịch</label>
                         <input type="text" placeholder="Tìm mã dịch vụ" class="form-control" name="txtMaGiaoDich" value="<?php echo isset($_POST['txtMaGiaoDich']) ? htmlspecialchars($_POST['txtMaGiaoDich']) : ''; ?>">
@@ -356,9 +403,15 @@
                     <div>
                         <button type="submit" style="margin: 24px 0px" class="btn btn-success" name="btnTimKiem">Tìm kiếm</button>
                     </div>
+                    <div>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal" style = "margin-top: 24px;"> Thêm </button>
+                    </div>
+                    <div>
+                        <a href="http://localhost:2929/QuanLyKyTucXa_new/NopTienPhong" style="margin: 24px 0px" class="btn btn-success" name="btnReLoad"><i class="fa-solid fa-rotate-right"></i> Reload</a>
+                    </div>
                 </div>
 
-                <table class="table table-hover">
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>STT</th>
