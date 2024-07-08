@@ -14,7 +14,7 @@
             <!-- Button trigger modal -->
 
         </div>
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachDN/suadl">
+        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDN/suadl">
             <!-- Modal -->
             <div class="modal-update">
                 <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </form>
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachDN/timkiem">
+        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDN/timkiem">
             <div class="form-inline">
                 <!-- <label style="width: 100px;">Mã dịch vụ</label>
             <input type="text" placeholder="Tìm mã dịch vụ" class="form-control" name="txtMaDV" >
@@ -79,7 +79,7 @@
 
                                         <!-- htmlspecialchars dùng để các chuỗi chứa ký tự đặc biệt không gây ra vấn đề bảo mật khi được nhúng vào HTML. -->
                                         <button onclick="updateDataDN('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
-                                        <!-- <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV/sua/" onclick="updateData('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></a> -->
+                                        <!-- <a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDV/sua/" onclick="updateData('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></a> -->
                                     </td>
                                 </tr>
                         <?php

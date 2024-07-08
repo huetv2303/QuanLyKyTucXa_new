@@ -189,7 +189,8 @@ class DsNhanVien extends controller
     {
         $this->view('Masterlayout', [
             'page' => 'NhanVien_sua_v',
-            'dulieu' => $this->dsnv->searchNhanVien($mnv, '')
+            'dulieu' => $this->dsnv->searchNhanVien($mnv, ''),
+            'matoa' => $this->dsnv->getMaToa()
         ]);
     }
 

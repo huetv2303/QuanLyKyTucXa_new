@@ -11,7 +11,7 @@
     <div class="main">
         <div>
             <h3 class="header">Danh sách hợp đồng hết hạn</h3>
-            <form class="content1" action="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan/timkiem" class="text-center padd" method="post"> <!-- form tìm kiếm -->
+            <form class="content1" action="http://localhost:9090/QuanLyKyTucXa_new/HopDongGiaHan/timkiem" class="text-center padd" method="post"> <!-- form tìm kiếm -->
                 <table class="text-center">
                     <tr>
                         <td>
@@ -83,7 +83,7 @@
                                 <td><?php echo $row['tinhTrang'] ?></td>
                                 <td>
                                     <!-- <a href="">Xóa</a> -->
-                                    <a href="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan/giahan/<?php echo $row['maHopDong'] ?>" class="btn btn-outline-success">Gia hạn</a>
+                                    <a href="http://localhost:9090/QuanLyKyTucXa_new/HopDongGiaHan/giahan/<?php echo $row['maHopDong'] ?>" class="btn btn-outline-success">Gia hạn</a>
 
                                 </td>
                             </tr>
