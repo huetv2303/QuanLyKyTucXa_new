@@ -7,47 +7,51 @@
     <title>Quản lý phòng</title>
     <style>
         .center-dulieu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 10px;
-}
-.td2{
-    width: 250px;
-}
-select:hover{
-    color: blue;
-}
-/* .cbo{
-    background-color: lightblue; 
-    color: black; 
-    border: 1px solid #ccc; 
-    padding: 5px; 
-} */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 10px;
+        }
+        .td2{
+            width: 250px;
+        }
+        
+        input[type="text"], textarea, input[type="number"],input[type="date"],select,input[type="email"],input[type="file"]{
+            width: 300px;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            
+        }
+
     </style>
 </head>
 
 <body>
     
-        <div class="header">
-            <h3>Thông tin tòa KTX</h3>
-            <!-- Button trigger modal -->
-
-
-
-        </div>
-      
+        
  <!-- Thông tin tòa -->
  <form method="post" action="http://localhost/QuanLyKyTucXa_new/Toa_c/thongtin">
-            <div class="form-inline">
-            <div class="center-dulieu">
+    <div class="form-inline">
+        <!-- <div sytle="text-align:center , ">
+            <h2>Thông tin tòa KTX</h2>
+        </div> -->
+        <marquee behavior="alternate" direction="right" scrollamount="5">
+            <h2><i>Thông tin tòa KTX</i></h2>
+        </marquee>
+        <br>
+        <br>
+        <div class="center-dulieu">
     
-        <table style="margin: auto; background-color:blue">
+        <table>
             <tr>
                 <td>
                     
-                    <select id="txtMatoa" name="txtMatoa" onchange="this.form.submit()" class="form-control" >
+                    <select id="txtMatoa" name="txtMatoa" onchange="this.form.submit()" >
                         <option value="">Chọn mã tòa</option>
                         <?php
                         if (isset($data['ma']) && mysqli_num_rows($data['ma']) > 0) {
@@ -64,9 +68,6 @@ select:hover{
     
 </div>
 
-            <br>
-            
-         <br>
          
          <br>
             <div class="form-inline" >
@@ -128,7 +129,7 @@ select:hover{
                                 <input type="text" class="form-control" name="txtManv" id="txtManv" value="" >
                                 <label>Tên nhân viên</label>
                                 <input type="text" class="form-control" name="txtTennv" id="txtTennv" value="">
-                                <label>Trạng thái</label>
+                                <label>SĐt</label>
                                 <input type="text" class="form-control" name="txtSDT" id="txtSDT" value="">
                             </div>
                             <div class="modal-footer">
@@ -141,6 +142,7 @@ select:hover{
             </div>
         </form>
 
+        
         
 
             

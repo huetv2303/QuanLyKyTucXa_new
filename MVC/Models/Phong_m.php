@@ -18,6 +18,20 @@ class Phong_m extends connectDB{
         }
         return $kq;
     }
+    function checktrungma2($maphong, $matoa){
+        // Sử dụng câu truy vấn SQL để kiểm tra xem có dòng nào khớp với cả mã phòng và mã tòa hay không
+        $sql = "SELECT * FROM phong WHERE maPhong = '$maphong' AND maToa = '$matoa'";
+        $dl = mysqli_query($this->conn, $sql);
+        $kq = false;
+    
+        // Nếu số hàng trả về lớn hơn 0, tức là có trùng mã phòng và mã tòa
+        if(mysqli_num_rows($dl) > 0){
+            $kq = true;  // Trùng mã
+        }
+    
+        // Trả về kết quả
+        return $kq;
+    }
     
     function checkrong($maphong,$matoa,$songuoi,$tienphong,$trangthai){
         if(empty($maphong) || empty($matoa) || empty($songuoi)||empty($tienphong)||empty($trangthai)){
@@ -28,7 +42,7 @@ class Phong_m extends connectDB{
     }
     
     function find($maphong,$matoa,$trangthai){
-        $sql="SELECT * FROM phong  WHERE maPhong like N'%$maphong%'  AND maToa like '$matoa' OR trangThai like N'%$trangthai%' " ;
+        $sql="SELECT * FROM phong  WHERE maPhong like N'%$maphong%'  OR maToa like '$matoa' OR trangThai like N'%$trangthai%' " ;
         return mysqli_query($this->conn,$sql);
     }
     function find2($maphong){
@@ -51,6 +65,21 @@ class Phong_m extends connectDB{
         $sql = "SELECT maPhong, COUNT(*) AS soNguoi FROM phong WHERE maPhong = '$maphong' GROUP BY maPhong HAVING COUNT(*) = 8";
         return mysqli_query($this->conn, $sql);
     }
+    //danh sách phòng hiện ra danh sách sinh viên//
+    //
+
+    public function ds_sinhvien($manhomsinhvien){
+        $sql = "SELECT thongtinsinhvien.maSinhVien,thongtinsinhvien.hoTen,thongtinsinhvien.soDienThoai,thongtinsinhvien.gioiTinh
+                FROM thongtinsinhvien, phong
+                where thongtinsinhvien.maNhomSinhVien=phong.maNhomSinhVien and phong.maNhomSinhVien=N'$manhomsinhvien'";
+        return  mysqli_query($this->conn, $sql);
+        
+    }
+    function find3($manhomsinhvien){
+        $sql="SELECT * FROM phong WHERE maNhomSinhVien = '$manhomsinhvien' " ;
+        return mysqli_query($this->conn,$sql);
+    }
+
    
 }
 ?>

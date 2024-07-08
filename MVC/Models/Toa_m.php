@@ -15,15 +15,15 @@ class Toa_m extends connectDB{
    
 }
 
-    // function checktrungma($maphong){
-    //     $sql="SELECT * From phong Where maPhong='$maphong'";
-    //     $dl=mysqli_query($this->conn,$sql);
-    //     $kq=false;
-    //     if(mysqli_num_rows($dl)>0){
-    //         $kq=true;  //trùng mã
-    //     }
-    //     return $kq;
-    // }
+    function checktrungma($matoa){
+        $sql="SELECT * From toa Where maToa='$matoa'";
+        $dl=mysqli_query($this->conn,$sql);
+        $kq=false;
+        if(mysqli_num_rows($dl)>0){
+            $kq=true;  //trùng mã
+        }
+        return $kq;
+    }
     
     
     // function find($matoa,$sonv){
@@ -78,6 +78,8 @@ class Toa_m extends connectDB{
         $sql="SELECT * FROM nhanvien  WHERE TenNhanVien like N'%$tennv%'" ;
         return mysqli_query($this->conn,$sql);
     }
+    //
+    
     
 }
 ?>

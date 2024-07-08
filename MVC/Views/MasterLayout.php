@@ -13,9 +13,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
-<<<<<<< HEAD
-    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
-=======
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
 
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=1"> </script>
@@ -23,7 +20,6 @@
 
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
 
->>>>>>> afa79e69154fea50d178dffb74a0167b55b9b1f7
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/l1.css">
     
@@ -160,40 +156,13 @@
                 <div class="card">
                     <div class="card-header">
                         <a class="btn" data-bs-toggle="collapse" href="#collapseTwo">
-<<<<<<< HEAD
-                         Phòng KTX
-=======
-                            Quản lý hợp đồng
->>>>>>> afa79e69154fea50d178dffb74a0167b55b9b1f7
-                        </a>
-                    </div>
-                    <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
-                        <div class="card-body">
-<<<<<<< HEAD
-                            <a href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c" class="btn">Danh sách phòng</a>
-                            <a href="http://localhost/QuanLyKyTucXa_new/Toa_c" class="btn">Thông tin tòa KTX</a>
-                            <a href="" class="btn">Chuc nang 3</a>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="card">
-                    <div class="card-header">
-                        <a class="btn" data-bs-toggle="collapse" href="#collapseTwo">
                             Quản lý hợp đồng
                         </a>
                     </div>
                     <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
-                            <a href="http://localhost/QuanLyKyTucXa_new/HopDong" class="btn">Danh sách hợp đồng</a>
-                            <a href="" class="btn">Chuc nang 2</a>
-                            <a href="" class="btn">Chuc nang 3</a>
-=======
                             <a href="http://localhost/QuanLyKyTucXa_new/HopDong" class="btn">Danh sách hợp đồng</a>
                             <a href="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan" class="btn">Gia hạn hợp đồng</a>
->>>>>>> afa79e69154fea50d178dffb74a0167b55b9b1f7
                         </div>
                     </div>
                 </div>
