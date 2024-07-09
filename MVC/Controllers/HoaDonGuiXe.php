@@ -52,7 +52,8 @@ class HoaDonGuiXe extends controller
         $dulieu = $this->hdgx->load_Data();
         $this->view('MasterLayout', [
             'page' => 'HoaDonGuiXe_v',
-            'dulieu' => $dulieu
+            'dulieu' => $dulieu,
+            'id' => $this->hdgx->get_ID()
         ]);
     }
 
@@ -61,7 +62,8 @@ class HoaDonGuiXe extends controller
     {
         $this->view('Masterlayout', [
             'page' => 'HoaDonGuiXe_sua_v',
-            'dulieu' => $this->hdgx->search_Data($mhd, '', '')
+            'dulieu' => $this->hdgx->search_Data($mhd, '', ''),
+            'id' => $this->hdgx->get_ID()
         ]);
     }
 
@@ -86,7 +88,8 @@ class HoaDonGuiXe extends controller
             $dulieu = $this->hdgx->load_Data();
             $this->view('Masterlayout', [
                 'page' => 'HoaDonGuiXe_v',
-                'dulieu' => $dulieu
+                'dulieu' => $dulieu,
+                'id' => $this->hdgx->get_ID()
             ]);
         }
 
@@ -95,7 +98,8 @@ class HoaDonGuiXe extends controller
             $dulieu = $this->hdgx->load_Data();
             $this->view('Masterlayout', [
                 'page' => 'HoaDonGuiXe_v',
-                'dulieu' => $dulieu
+                'dulieu' => $dulieu,
+                'id' => $this->hdgx->get_ID()
             ]);
         }
     }
@@ -113,7 +117,8 @@ class HoaDonGuiXe extends controller
         $dulieu = $this->hdgx->load_Data();
         $this->view('Masterlayout', [
             'page' => 'HoaDonGuiXe_v',
-            'dulieu' => $dulieu
+            'dulieu' => $dulieu,
+            'id' => $this->hdgx->get_ID()
         ]);
     }
 
@@ -126,7 +131,8 @@ class HoaDonGuiXe extends controller
 
         $this->view('Masterlayout', [
             'page' => 'HoaDonGuiXe_v',
-            'dulieu' => $this->hdgx->search_Data($mhd, $id, $status)
+            'dulieu' => $this->hdgx->search_Data($mhd, $id, $status),
+            'id' => $this->hdgx->get_ID()
         ]);
     }
 
