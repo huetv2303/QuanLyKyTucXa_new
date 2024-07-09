@@ -21,14 +21,6 @@
 </head>
 
 <body>
-    <div>
-        <div class="header">
-            <h3>Danh sách phòng</h3>
-            <!-- Button trigger modal -->
-
-
-
-        </div>
         <!-- Thêm mới -->
         <form method="post" action="http://localhost/QuanLyKyTucXa_new/themPhong_c/themmoi">
     <div class="modal-add">
@@ -61,8 +53,10 @@
                             <label>Tiền phòng</label>
                             <input type="text" class="form-control" placeholder="Nhập tiền phòng" name="txtTienphong">
                             <label>Trạng thái</label>
-                            <input type="text" class="form-control" placeholder="Nhập trạng thái phòng" name="txtTrangthai">
-
+                            <br>
+                            <!-- <input type="text" class="form-control" placeholder="Nhập trạng thái phòng" name="txtTrangthai"> -->
+                            <input type="radio" name="txtTrangthai" id="txtTrangthai" value="Còn phòng" required>Còn phòng
+                            <input type="radio" name="txtTrangthai" id="txtTrangthai" value="Phòng đủ" required>Phòng đủ
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -108,7 +102,9 @@
                                 <label>Tiền phòng</label>
                                 <input type="text" class="form-control" name="txtTienphong" id="txtTienphong" value="">
                                 <label>Trạng thái</label>
-                                <input type="text" class="form-control" name="txtTrangthai" id="txtTrangthai" value="">
+                                <br>
+                                <input type="radio" name="txtTrangthai" id="txtTrangthai1" value="Còn phòng" required>Còn phòng
+                                <input type="radio" name="txtTrangthai" id="txtTrangthai2" value="Phòng đủ" required>Phòng đủ
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -120,27 +116,15 @@
             </div>
         </form>
 
-
-        <!-- Nhập excel -->
-        <form action="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/import" enctype="multipart/form-data" method="post">
-            <label for="myFile2"></label>
-            <table>
-                <tr>
-                    <td class="dv">
-                        <div class="file">
-                            <input type="file" class="btn btn-outline-primary" name="txtfile">
-                            <button  type="submit" class="btn btn-primary" name="btnUpLoad">Lưu</button>
-                        </div>
-                        
-                    </td>
-                </tr>
-            </table>
-            
-        </form>
-
         <!-- Tìm kiếm -->
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/timkiem">
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/timkiem" enctype="multipart/form-data">
             <div class="form-inline">
+            <div>
+                <div class="header">
+                    <h3>Danh sách phòng</h3>
+                    <!-- Button trigger modal -->
+
+                </div>
             <div class="center-dulieu">
             <table style=" text-align:center">
                 <tr></tr>
@@ -151,20 +135,53 @@
                     <td>
                         <button type="submit" class="btn btn-primary" name="btnTimkiem" id="btnTimkiem"><i class="fa-solid fa-magnifying-glass">&nbsp;&nbsp;</i></button>
                     </td>
-                    </tr>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                        <input type="radio" name="txtTimkiem2" id="" value="Còn phòng" >Còn phòng &nbsp;
+                        <input type="radio" name="txtTimkiem2" id="" value="Phòng đủ" >Phòng đủ
+                    </td>
+                </tr>
             </table>
             </div>
             <br>
             <br>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">Thêm mới </button>
-       
-            
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalExcel" id="btnNhapExcel"><i class="fa-regular fa-file-excel">&nbsp;&nbsp;</i>Nhập Excel</button>
+            <button type="submit" class="btn btn-primary" name="btnXuat"><i class="fa-regular fa-file-excel">&nbsp;&nbsp;</i>Xuất Excel</button>
             <br>
-            
+
+            <!-- Nhập excel -->
+            <div class="center-dulieu">
+            <div class="modal" id="modalExcel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">CHỌN FILE EXCEL</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="file" class="form-control-file" name="txtfile">
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" name="btnNhap">Nhập dữ liệu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+   
          <br>
-         
-         <br>
-            <div class="form-inline" >
+        <div class="form-inline" >
         <table class="table table-striped" style="text-align:center " >        
                 <tr style="background:ccc">
                     <th>STT</th>
@@ -189,8 +206,9 @@
                          <td><?php echo $row['trangThai'] ?></td>
                          <td>
                          <button onclick="updateDataP('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
-                         <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/xoa/<?php echo $row['maPhong'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
-                         </td>
+                         <a onclick="return confirm('Bạn có muốn xóa phòng này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/xoa/<?php echo $row['maPhong'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+                         <a href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/lien_ket/<?php echo $row['maNhomSinhVien'] ?>" class="btn btn-outline-danger"><i style="color: red;" ></i>Chi tiết</a> 
+                        </td>
                      </tr>
                          <?php
                     }
@@ -198,7 +216,7 @@
                 ?>
         </table>
         </div>
-            
+        
 </body>
 <script>
     function updateDataP(data) {
@@ -206,10 +224,15 @@
 
     // Target the specific modal by ID and update the input values
     document.getElementById('txtMaphong').value = newData.maPhong;
-     document.getElementById('txtMatoa').value = newData.maToa;
+    document.getElementById('txtMatoa').value = newData.maToa;
     document.getElementById('txtSonguoi').value = newData.soNguoi;
     document.getElementById('txtTienphong').value = newData.tienPhong;
-    document.getElementById('txtTrangthai').value = newData.trangThai;
+    // Check lại trạng thái và truyen
+    if (newData.trangThai === 'Còn phòng') {
+        document.getElementById('txtTrangthai1').checked = true;
+    } else if (newData.trangThai === 'Phòng đủ') {
+        document.getElementById('txtTrangthai2').checked = true;
+    }
     
 }
 
