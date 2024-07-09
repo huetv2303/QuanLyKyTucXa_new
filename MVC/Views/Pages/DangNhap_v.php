@@ -168,7 +168,7 @@
                 </div>
                 <button type="submit" class="btn">Đăng nhập</button>
                 <?php if (isset($data['error'])) : ?>
-                    <p style="color: darkred;"><?php echo $data['error']; ?></p>
+                    <p style="color: dark;"><?php echo $data['error']; ?></p>
                 <?php endif; ?>
              
             </form>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/DichVu_js.js"> </script> -->
+    <!-- <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js"> </script> -->
 
 
     <!-- <script src="http://localhost/QuanLyKyTucXa_new//Public/JS/DichVu_js.js"> </script> -->
@@ -262,7 +263,7 @@
 
                                     <a class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal" onclick="updateDataPDV('<?php echo htmlspecialchars(json_encode($row)) ?>')"><i class="fa-regular fa-pen-to-square"></i></a>
 
-                                    <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new//DanhsachPDV/xoa/<?php echo $row['id'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+                                    <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachPDV/xoa/<?php echo $row['id'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
                                 </td>
 
                             </tr>

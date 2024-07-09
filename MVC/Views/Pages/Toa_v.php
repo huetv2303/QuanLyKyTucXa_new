@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý phòng</title>
+    <title></title>
     <style>
         .center-dulieu {
             display: flex;
@@ -30,6 +30,7 @@
 } */
     </style>
 </head>
+
 
 <body>
     <div class="main">
@@ -138,10 +139,66 @@
                     </div>
                 </div>
             </form>
-
         </div>
-    </div>
 
+        <!-- Tìm kiếm -->
+            <div class="form-inline">
+            <div>
+                <!-- <div class="header">
+                    <h3>Danh sách tòa</h3>
+                    
+
+                </div> -->
+            <div class="center-dulieu">
+            <table style=" text-align:center">
+               
+            </table>
+            </div>
+            <br>
+            <br>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">Thêm mới </button>
+          
+            <br>
+
+      
+            
+        
+   
+         <br>
+        <div class="form-inline" >
+        <table class="table table-striped" style="text-align:center " >        
+                <tr style="background:ccc">
+                    <th>STT</th>
+                    <th>Mã tòa</th>
+                    <th>Số lượng phòng</th>
+                    <th>Thao tác</th>
+                    
+                </tr>
+                <?php
+                if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
+                    $i = 0;
+                    while ($row = mysqli_fetch_assoc($data['dulieu'])) {
+                        ?>
+                    <tr >
+                         <td><?php echo (++$i) ?></td>
+                        <td><?php echo $row['maToa'] ?></td>
+                         <td><?php echo $row['soPhong'] ?></td>
+                         <td><?php echo $row['TenNhanVien'] ?></td>
+                         <td><?php echo $row['SoDienThoai'] ?></td>
+                      
+                         <td>
+                         <button onclick="updateDataT('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
+                         <a onclick="return confirm('Bạn có muốn xóa tòa này không?');" href="http://localhost/QuanLyKyTucXa_new/Toa_c/xoa/<?php echo $row['maToa'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+                         <a href="http://localhost/QuanLyKyTucXa_new/Toa_c/lien_ket/<?php echo $row['maToa'] ?>" class="btn btn-outline-danger"><i style="color: red;" ></i>Chi tiết</a> 
+                        </td>
+                     </tr>
+                         <?php
+                    }
+                }
+                ?>
+        </table>
+       
+      </form>
 </body>
 <script>
     function updateDataT(data) {

@@ -29,9 +29,11 @@ class HopDong_m extends connectDB
         $query1 = "DELETE FROM hopdong WHERE maPhong = '$maPhong'";
         $query2 = "DELETE FROM noptienphong WHERE maPhong = '$maPhong'";
         $query3 = "DELETE FROM hoa_don_dich_vu WHERE id_room = '$maPhong'";
+        $query4 = "DELETE FROM dang_ky_dich_vu WHERE id_room = '$maPhong'";
         mysqli_query($this->conn, $query1);
         mysqli_query($this->conn, $query2);
         mysqli_query($this->conn, $query3);
+        mysqli_query($this->conn, $query4);
 
     }
 
