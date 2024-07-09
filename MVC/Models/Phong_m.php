@@ -42,13 +42,18 @@ class Phong_m extends connectDB{
     }
     
     function find($maphong,$matoa,$trangthai){
-        $sql="SELECT * FROM phong  WHERE maPhong like N'%$maphong%'  OR maToa like '$matoa' OR trangThai like N'%$trangthai%' " ;
+        $sql="SELECT * FROM phong  WHERE maPhong like '%$maphong%'  OR maToa like '%$matoa%' OR trangThai like '%$trangthai%' " ;
         return mysqli_query($this->conn,$sql);
     }
     function find2($maphong){
         $sql="SELECT * FROM phong WHERE maPhong = '$maphong' " ;
         return mysqli_query($this->conn,$sql);
     }
+    function find_radio($maphong,$matoa,$trangthai){
+        $sql="SELECT * FROM phong  WHERE( maPhong like '%$maphong%'  or maToa like '%$matoa%') and trangThai like '%$trangthai%' " ;
+        return mysqli_query($this->conn,$sql);
+    }
+
     function delete($maphong){
         $sql="DELETE FROM phong WHERE maPhong='$maphong'";
         return mysqli_query($this->conn,$sql);

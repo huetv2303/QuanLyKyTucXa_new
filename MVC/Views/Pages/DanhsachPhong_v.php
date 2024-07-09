@@ -53,8 +53,10 @@
                             <label>Tiền phòng</label>
                             <input type="text" class="form-control" placeholder="Nhập tiền phòng" name="txtTienphong">
                             <label>Trạng thái</label>
-                            <input type="text" class="form-control" placeholder="Nhập trạng thái phòng" name="txtTrangthai">
-
+                            <br>
+                            <!-- <input type="text" class="form-control" placeholder="Nhập trạng thái phòng" name="txtTrangthai"> -->
+                            <input type="radio" name="txtTrangthai" id="txtTrangthai" value="Còn phòng" required>Còn phòng
+                            <input type="radio" name="txtTrangthai" id="txtTrangthai" value="Phòng đủ" required>Phòng đủ
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -100,7 +102,9 @@
                                 <label>Tiền phòng</label>
                                 <input type="text" class="form-control" name="txtTienphong" id="txtTienphong" value="">
                                 <label>Trạng thái</label>
-                                <input type="text" class="form-control" name="txtTrangthai" id="txtTrangthai" value="">
+                                <br>
+                                <input type="radio" name="txtTrangthai" id="txtTrangthai1" value="Còn phòng" required>Còn phòng
+                                <input type="radio" name="txtTrangthai" id="txtTrangthai2" value="Phòng đủ" required>Phòng đủ
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -131,7 +135,14 @@
                     <td>
                         <button type="submit" class="btn btn-primary" name="btnTimkiem" id="btnTimkiem"><i class="fa-solid fa-magnifying-glass">&nbsp;&nbsp;</i></button>
                     </td>
-                    </tr>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                        <input type="radio" name="txtTimkiem2" id="" value="Còn phòng" >Còn phòng &nbsp;
+                        <input type="radio" name="txtTimkiem2" id="" value="Phòng đủ" >Phòng đủ
+                    </td>
+                </tr>
             </table>
             </div>
             <br>
@@ -213,10 +224,15 @@
 
     // Target the specific modal by ID and update the input values
     document.getElementById('txtMaphong').value = newData.maPhong;
-     document.getElementById('txtMatoa').value = newData.maToa;
+    document.getElementById('txtMatoa').value = newData.maToa;
     document.getElementById('txtSonguoi').value = newData.soNguoi;
     document.getElementById('txtTienphong').value = newData.tienPhong;
-    document.getElementById('txtTrangthai').value = newData.trangThai;
+    // Check lại trạng thái và truyen
+    if (newData.trangThai === 'Còn phòng') {
+        document.getElementById('txtTrangthai1').checked = true;
+    } else if (newData.trangThai === 'Phòng đủ') {
+        document.getElementById('txtTrangthai2').checked = true;
+    }
     
 }
 

@@ -8,9 +8,6 @@ class connectDB
 
     protected $dbName = "qlktx1";
 
-    
-
-
     function __construct()
     {
         $this->conn = mysqli_connect($this->serverName, $this->userName, $this->pwd, $this->dbName);

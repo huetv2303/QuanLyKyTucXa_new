@@ -34,7 +34,7 @@
     
 </head>
 <body>
-<form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/timkiem">
+<form method="post" action="">
     
         <br>
         <div class="form-inline" >
@@ -47,28 +47,14 @@
                 <br>
                 
                     <div style="padding-left: 230px">
-                        <label  for="txtMaphong">Mã phòng:</label> 
-                        <input type="text"  name="txtMaphong" value="<?php echo $row['maPhong'] ?> "  readonly>
-                        <!--  -->
-                        <br>
                         <label  for="txtMatoa">Mã tòa:</label> 
-                        <input type="text" name="txtMatoa" value="<?php echo $row['maToa'] ?>"  readonly>
+                        <input type="text"  name="txtMatoa" value="<?php echo $row['maToa'] ?> "  readonly>
                         <!--  -->
                         <br>
-                        <label  for="txtSonguoi">Số người:</label> 
-                        <input type="text" name="txtSonguoi" value="<?php echo $row['soNguoi'] ?>"  readonly>
-                        <!--  -->
-                        <br>
-                        <label  for="txtTienphong">Tiền phòng:</label> 
-                        <input type="text" name="txtTienphong" value="<?php echo $row['tienPhong'] ?>"  readonly>
-                        <!--  -->
-                        <br>
-                        <label  for="txtTrangthai">Trạng thái:</label> 
-                        <input type="text" name="txtTrangthai" value="<?php echo $row['trangThai'] ?>" readonly >
-                        
+                        <label  for="txtSophong">Số phòng:</label> 
+                        <input type="number" name="txtSophong" value="<?php echo $row['soPhong'] ?>"  readonly>
                         <!--  -->
                         
-                        <!--  -->
                     </div>
                 
                 
@@ -81,12 +67,10 @@
         <table class="table table-striped" style="text-align:center " >        
                 <tr style="background:ccc">
                     <th>STT</th>
-                    <th>Mã sinh viên</th>
+                    <th>Mã nhân viên</th>
                     <th>Họ tên</th>
-                   
-                    <th>Số điện thoại</th>
-                    
                     <th>Giới tính</th>
+                    <th>Số điện thoại</th>
                    
                     
                 </tr>
@@ -97,12 +81,10 @@
                         ?>
                     <tr >
                          <td><?php echo (++$i) ?></td>
-                        <td><?php echo $row['maSinhVien'] ?></td>
-                         <td><?php echo $row['hoTen'] ?></td>
-                        
-                         <td><?php echo $row['soDienThoai'] ?></td>
-                     
-                         <td><?php echo $row['gioiTinh'] ?></td>
+                        <td><?php echo $row['MaNhanVien'] ?></td>
+                        <td><?php echo $row['TenNhanVien'] ?></td>
+                        <td><?php echo $row['GioiTinh'] ?></td>
+                        <td><?php echo $row['SoDienThoai'] ?></td>
                         
                      </tr>
                          <?php

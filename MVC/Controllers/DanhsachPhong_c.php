@@ -25,9 +25,9 @@ class DanhsachPhong_c extends controller
         if (isset($_POST['btnTimkiem'])) {
             $maphong = $_POST['txtTimkiem'];
             $matoa = $_POST['txtTimkiem'];
-            $trangthai = $_POST['txtTimkiem'];
+            $trangthai = isset($_POST['txtTimkiem2']) ? $_POST['txtTimkiem2'] : "";
             // $tienphong=$_POST['txtTimkiem'];
-            $dulieu = $this->ds->find($maphong, $matoa, $trangthai);
+            $dulieu = $this->ds->find_radio($maphong, $matoa, $trangthai);
             $ma = $this->ds->toa_All();
             $ma1 = $this->ds->toa_All();
             //Gọi lại giao diện và truyền $dulieu ra

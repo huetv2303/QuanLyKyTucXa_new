@@ -4,7 +4,6 @@ class app
 
     protected $controller ='Home';
 
-
     protected $action = 'Get_data';
     protected $param = [];
 

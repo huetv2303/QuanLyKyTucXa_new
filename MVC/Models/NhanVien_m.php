@@ -15,6 +15,7 @@ class NhanVien_m extends connectDB
         return mysqli_query($this->conn, $sql);
     }
 
+
     // Func kiểm tra trùng mã nhân viên
     function ktraTrungMa($mnv)
     {
@@ -48,6 +49,13 @@ class NhanVien_m extends connectDB
         $sql = "UPDATE nhanvien SET TenNhanVien = N'$tnv', GioiTinh = N'$gt', 
         NgaySinh = '$ns', DiaChi = '$dc', SoDienThoai = '$sdt', maToa = '$matoa' 
         WHERE MaNhanVien = '$mnv'";
+        return mysqli_query($this->conn, $sql);
+    }
+
+    // Func lấy dữ liệu mã tòa
+    function getMaToa()
+    {
+        $sql = " SELECT MaToa FROM toa";
         return mysqli_query($this->conn, $sql);
     }
 }

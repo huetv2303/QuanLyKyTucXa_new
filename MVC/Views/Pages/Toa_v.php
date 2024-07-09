@@ -4,134 +4,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý phòng</title>
+    <title></title>
     <style>
         .center-dulieu {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding-top: 10px;
-        }
-        .td2{
-            width: 250px;
-        }
-        
-        input[type="text"], textarea, input[type="number"],input[type="date"],select,input[type="email"],input[type="file"]{
-            width: 300px;
-            padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            outline: none;
-            
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10px;
+}
+.td2{
+    width: 250px;
+}
 
     </style>
 </head>
 
+
 <body>
     
-        
- <!-- Thông tin tòa -->
- <form method="post" action="http://localhost/QuanLyKyTucXa_new/Toa_c/thongtin">
-    <div class="form-inline">
-        <!-- <div sytle="text-align:center , ">
-            <h2>Thông tin tòa KTX</h2>
-        </div> -->
-        <marquee behavior="alternate" direction="right" scrollamount="5">
-            <h2><i>Thông tin tòa KTX</i></h2>
-        </marquee>
-        <br>
-        <br>
-        <div class="center-dulieu">
-    
-        <table>
-            <tr>
-                <td>
-                    
-                    <select id="txtMatoa" name="txtMatoa" onchange="this.form.submit()" >
-                        <option value="">Chọn mã tòa</option>
-                        <?php
-                        if (isset($data['ma']) && mysqli_num_rows($data['ma']) > 0) {
-                            while ($r1 = mysqli_fetch_assoc($data['ma'])) {
-                                echo '<option value="' . $r1["maToa"] . '">' . $r1["maToa"] . '</option>';
-                            }
-                        }
-                       
-                        ?>
-                    </select>
-                </td>
-            </tr>
-        </table>
-    
-</div>
+        <!-- Thêm mới -->
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new/themToa_c/themmoi">
+            <div class="form-inline">
+            <div style="text-align:center">
+                    <h3>TÒA KTX</h3>
+                    <!-- Button trigger modal -->
 
-         
-         <br>
-            <div class="form-inline" >
-        <table class="table table-striped" style="text-align:center " >        
-                <tr style="background:ccc">
-                    <th>STT</th>
-                    <th>Mã tòa</th>
-                    <th>Số phòng</th>
-                    <th>Tên nhân viên</th>
-                    <th>Số điện thoại</th>
-                    <th>Tác vụ</th>
-                   
-                </tr>
-                <?php 
-                    if(isset($data['dulieu']) && mysqli_num_rows($data['dulieu'])>0){
-                        $i=0;
-                        while($row=mysqli_fetch_assoc($data['dulieu'])){
-                ?>
-                        <tr >
-                           <td><?php echo (++$i) ?></td>
-                          
-                           <td><?php echo $row['maToa'] ?></td>
-                           <td><?php echo $row['soPhong'] ?></td>
-                           <td><?php echo $row['TenNhanVien'] ?></td>
-                           <td><?php echo $row['SoDienThoai'] ?></td>
-                           <td>
-                           <button onclick="updateDataT('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
+                </div>
+            <div>
+            <div class="center-dulieu">
+            <table style=" text-align:center">
+    <div class="modal-add">
+        <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addServiceModalLabel">Thêm tòa</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <div class="form-group">
+                            <h4>Thêm tòa</h4>
+
+                            <label>Mã tòa</label>
+                            <input type="text" class="form-control" placeholder="Nhập mã tòa" name="txtMatoa">
                            
-                           <a onclick="return confirm('Bạn có muốn xóa nhanvien này không?');" href="http://localhost/QuanLyKyTucXa_new/Toa_c/xoa/<?php echo $row['TenNhanVien'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
-                           </td>
-                        </tr>
-                <?php
-                        }
-                    }
-                ?>
-        </table>
+                            <label>Số phòng</label>
+                            <input type="text" class="form-control" placeholder="Nhập số lượng phòng" name="txtSophong">
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" name="btnLuuToa">Lưu</button>
+                    </div>
+                </div>
+            </div>
         </div>
-            
-
-    </form>
-
-    <form method="post" action="http://localhost/QuanLyKyTucXa_new/Toa_c/suadl">
-            <!-- Modal Sửa dữ liệu tòa --> 
+    </div>
+</form>
+<form method="post" action="http://localhost/QuanLyKyTucXa_new/Toa_c/suadl">
+            <!-- Modal Sửa dữ liệu phòng --> 
             <div class="modal-update">
                 <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editServiceModalLabel">Sửa thông tin</h5>
+                                <h5 class="modal-title" id="editServiceModalLabel">Sửa tòa</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <label>Mã tòa</label>
-                                <input type="text" class="form-control" name="txtMatoa" id="txtMatoa1" value="" readonly>
-
+                                <input type="text" class="form-control" name="txtMatoa" id="txtMatoa" value="">
                                 <label>Số phòng</label>
                                 <input type="text" class="form-control" name="txtSophong" id="txtSophong" value="">
-                                <label>Mã nhân viên</label>
-                                <input type="text" class="form-control" name="txtManv" id="txtManv" value="" >
-                                <label>Tên nhân viên</label>
-                                <input type="text" class="form-control" name="txtTennv" id="txtTennv" value="">
-                                <label>SĐt</label>
-                                <input type="text" class="form-control" name="txtSDT" id="txtSDT" value="">
+
+                                <br>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">Thêm mới </button>
+                                <br>
                             </div>
+
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" name="btnLuu" class="btn btn-primary">Lưu</button>
@@ -142,21 +95,70 @@
             </div>
         </form>
 
-        
-        
+        <!-- Tìm kiếm -->
+            <div class="form-inline">
+            <div>
+                <!-- <div class="header">
+                    <h3>Danh sách tòa</h3>
+                    
 
+                </div> -->
+            <div class="center-dulieu">
+            <table style=" text-align:center">
+               
+            </table>
+            </div>
+            <br>
+            <br>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">Thêm mới </button>
+          
+            <br>
+
+      
             
+        
+   
+         <br>
+        <div class="form-inline" >
+        <table class="table table-striped" style="text-align:center " >        
+                <tr style="background:ccc">
+                    <th>STT</th>
+                    <th>Mã tòa</th>
+                    <th>Số lượng phòng</th>
+                    <th>Thao tác</th>
+                    
+                </tr>
+                <?php
+                if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
+                    $i = 0;
+                    while ($row = mysqli_fetch_assoc($data['dulieu'])) {
+                        ?>
+                    <tr >
+                         <td><?php echo (++$i) ?></td>
+                        <td><?php echo $row['maToa'] ?></td>
+                         <td><?php echo $row['soPhong'] ?></td>
+                      
+                         <td>
+                         <button onclick="updateDataT('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
+                         <a onclick="return confirm('Bạn có muốn xóa tòa này không?');" href="http://localhost/QuanLyKyTucXa_new/Toa_c/xoa/<?php echo $row['maToa'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+                         <a href="http://localhost/QuanLyKyTucXa_new/Toa_c/lien_ket/<?php echo $row['maToa'] ?>" class="btn btn-outline-danger"><i style="color: red;" ></i>Chi tiết</a> 
+                        </td>
+                     </tr>
+                         <?php
+                    }
+                }
+                ?>
+        </table>
+       
+      </form>
 </body>
 <script>
     function updateDataT(data) {
     let newData = JSON.parse(data);
 
     // Target the specific modal by ID and update the input values
-    document.getElementById('txtMatoa1').value = newData.maToa;
+    document.getElementById('txtMatoa').value = newData.maToa;
     document.getElementById('txtSophong').value = newData.soPhong;
-    document.getElementById('txtManv').value = newData.MaNhanVien;
-    document.getElementById('txtTennv').value = newData.TenNhanVien;
-    document.getElementById('txtSDT').value = newData.SoDienThoai;
     
 }
 
