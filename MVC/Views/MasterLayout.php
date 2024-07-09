@@ -96,8 +96,11 @@
                 <!-- <div class="header_1" >
                 </div> -->
                 <p></p>
-                <h1 class="h1">Quản lý ký túc xá</h1>
-                <a  href="http://localhost/QuanLyKyTucXa_new/DangNhap">Thoát</a>
+                <marquee behavior="" direction="right"><h1>Quản lý ký túc xá</h1></marquee>
+                <div class="out">
+                <i style="color:#0A9DE2" class="fa-solid fa-right-from-bracket"></i>
+                <a  href="http://localhost/QuanLyKyTucXa_new/DangNhap"></i>Thoát</a>
+                </div>
             </header>
             <section id="content-right1">
                 <?php

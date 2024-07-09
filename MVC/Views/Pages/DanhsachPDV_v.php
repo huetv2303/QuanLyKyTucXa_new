@@ -275,6 +275,11 @@
                 </table>
             </div>
            
+            <?php
+        if (isset($_POST['btnTimKiem'])) {
+        } else {
+
+        ?>
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
                     <li class="page-item <?php if ($data['page_number'] <= 1) echo 'disabled'; ?>">
@@ -285,18 +290,20 @@
                     </li>
                     <?php for ($i = 1; $i <= $data['total_page']; $i++) { ?>
                         <li style="padding: 0px;" class="page-item <?php if ($data['page_number'] == $i) echo 'active'; ?>">
-                            <a class="page-link"  href="?page=<?php echo ($i); ?>"><?php echo ($i); ?></a>
+                            <a class="page-link" href="?page=<?php echo ($i); ?>"><?php echo ($i); ?></a>
                         </li>
                     <?php } ?>
-                    <li  style="padding: 0px;" class="page-item <?php if ($data['page_number'] >= $data['total_page']) echo 'disabled'; ?>">
-                        <a class="page-link"  href="<?php if ($data['page_number'] < $data['total_page']) echo "?page=" . ($data['page_number'] + 1);
+                    <li style="padding: 0px;" class="page-item <?php if ($data['page_number'] >= $data['total_page']) echo 'disabled'; ?>">
+                        <a class="page-link" href="<?php if ($data['page_number'] < $data['total_page']) echo "?page=" . ($data['page_number'] + 1);
                                                     else echo '#'; ?>" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
                 </ul>
             </nav>
-       </form>    
+        <?php
+        }
+        ?>   
 </body>
      
 <script>

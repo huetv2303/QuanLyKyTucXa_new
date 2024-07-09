@@ -26,13 +26,12 @@
         <!-- Thêm mới -->
         <form method="post" action="http://localhost/QuanLyKyTucXa_new/themToa_c/themmoi">
             <div class="form-inline">
-            <div>
                 <div class="" style="text-align:center">
                     <h2 style="font-size:50px; color:#3333CC">Tòa KTX</h2>
                     <!-- Button trigger modal -->
 
-                </div>
-            <div class="center-dulieu">
+               
+            <div >
             <table style=" text-align:center">
     <div class="modal-add">
         <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
@@ -105,19 +104,12 @@
                 </div> -->
             <div class="center-dulieu">
             <table style=" text-align:center">
-               
             </table>
             </div>
             <br>
             <br>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">Thêm mới </button>
-          
             <br>
-
-      
-            
-        
-   
          <br>
         <div class="form-inline" >
         <table class="table table-striped" style="text-align:center " >        
