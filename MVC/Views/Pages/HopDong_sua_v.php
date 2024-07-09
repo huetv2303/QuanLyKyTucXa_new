@@ -29,9 +29,9 @@
             <a style="margin: 20px;" class="text-black content1" href="http://localhost/QuanLyKyTucXa_new/HopDong">
                 << Quay lại</a>
                     <br>
-                    <div class="header">
-                        <h3>Sửa hợp đồng</h3>
-                    </div>
+                    <!-- <div class="header">
+                        <h3 class="content1">Sửa hợp đồng</h3>
+                    </div> -->
                     <form class="content1" action="http://localhost/QuanLyKyTucXa_new/HopDong/suadl" method="post">
                         <?php
                         if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
@@ -80,7 +80,7 @@
                                         <label for="mtn" class="form-label">Tên trưởng nhóm</label>
                                     </div>
                                     <div class="col">
-                                        <select style="width:700px" class="maTruongNhom form-select" name="txtMaTruongNhom" id="mtn">
+                                        <select disabled style="width:700px" class="maTruongNhom form-select" name="txtMaTruongNhom" id="mtn">
                                             <option value="">-----Chọn-----</option>
                                             <?php
                                             if (isset($data['truongnhom']) && mysqli_num_rows($data['truongnhom']) > 0) {

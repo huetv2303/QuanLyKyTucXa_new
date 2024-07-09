@@ -56,20 +56,22 @@ class HopDong extends controller
         if (isset($_POST['btnLuu'])) {
             $mhd = $_POST['txtMaHopDong'];
             $mnv = $_POST['txtMaNhanVien'];
-            $msv = $_POST['txtMaTruongNhom'];
+            // $msv = $_POST['txtMaTruongNhom'];
             $mt = $_POST['txtMaToa'];
             $mp = $_POST['txtMaPhong'];
             $start = $_POST['txtNgayBatDau'];
             $end = $_POST['txtNgayKetThuc'];
             $tt = $_POST['txtTinhTrang'];
 
-            $kq = $this->hopdong->hopdong_upd($mhd, $mnv, $msv, $mt, $mp, $start, $end, $tt);
+            $kq = $this->hopdong->hopdong_upd($mhd, $mnv, $mt, $mp, $start, $end, $tt);
             if ($kq) {
                 echo "<script>alert('Sửa thành công!')</script>";
             } else
                 echo "<script>alert('Sửa thất bại!')</script>";
 
-            //Gọi lại giao diện và truyền $dulieu ra
+            
+            // header("Location: http://localhost/QuanLyKyTucXa_new/HopDong");
+            // Gọi lại giao diện và truyền $dulieu ra
             $dulieu = $this->hopdong->hopdong_all();
             $this->view('Masterlayout', [
                 'page' => 'HopDong_v',

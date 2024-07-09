@@ -41,9 +41,9 @@ class HopDong_m extends connectDB
         return mysqli_query($this->conn, $query);
     }
 
-    public function hopdong_upd($mhd, $mnv, $msv, $mt,  $mp, $start, $end, $tt)
+    public function hopdong_upd($mhd, $mnv, $mt,  $mp, $start, $end, $tt)
     {
-        $query = "UPDATE hopdong SET MaNhanVien='$mnv', maTruongNhom='$msv', maToa = '$mt', maPhong='$mp', ngayBatDau='$start', ngayKetThuc='$end', tinhTrang='$tt' WHERE maHopDong='$mhd'";
+        $query = "UPDATE hopdong SET MaNhanVien='$mnv',maToa = '$mt', maPhong='$mp', ngayBatDau='$start', ngayKetThuc='$end', tinhTrang='$tt' WHERE maHopDong='$mhd'";
         return mysqli_query($this->conn, $query);
     }
 
