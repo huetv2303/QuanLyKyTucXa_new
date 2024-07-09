@@ -33,7 +33,7 @@
 
 <body>
     <div>
-        <h6>DANH SÁCH SINH VIÊN ĐĂNG KÝ GỬI XE</h6>
+        <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">DANH SÁCH SINH VIÊN ĐĂNG KÝ GỬI XE</h3>
         <br>
         <div class="form-inline">
             <table>
@@ -49,9 +49,9 @@
                         <td>
                             <button type="submit" class="btn btn-primary" name="btnTimKiem" id="btnTimKiem"><i class="fa-solid fa-magnifying-glass">&nbsp;&nbsp;</i>Tìm Kiếm </button>
                         </td>
-                    <td>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" id="btnThemMoi"><i class="fa-solid fa-plus">&nbsp;&nbsp;</i>Thêm Mới</button>
-                    </td>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" id="btnThemMoi"><i class="fa-solid fa-plus">&nbsp;&nbsp;</i>Thêm Mới</button>
+                        </td>
                 </tr>
             </table>
             <br>
@@ -118,7 +118,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
 
-                <form action="">
+                <form action="http://localhost:9090/QuanLyKyTucXa_new/QLyGuiXe/Insert" method="post">
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h5 class="modal-title">THÊM MỚI SINH VIÊN ĐĂNG KÝ GỬI XE</h5>
@@ -129,19 +129,20 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Mã sinh viên :</label>
-                            <select name="txtID" id="ID" class="form-control">
-                                <?php
-                                if (isset($data['id']) && mysqli_num_rows($data['id']) > 0) {
-                                    while ($row = mysqli_fetch_assoc($data['id'])) {
-                                ?>
-                                        <option value="<?php echo $row['maSinhVien'] ?>"><?php echo $row['maSinhVien'] ?></option>
-                                <?php
-                                    }
-                                }
-                                ?>
-                            </select>
+                            <!-- <select name="txtID" id="ID" class="form-control"> -->
+                            <?php
+                            //if (isset($data['id']) && mysqli_num_rows($data['id']) > 0) {
+                            // while ($row = mysqli_fetch_assoc($data['id'])) {
+                            ?>
+                            <!-- <option value="<?php echo $row['maSinhVien'] ?>"><?php echo $row['maSinhVien'] ?></option> -->
+                            <?php
+                            //  }
+                            //}
+                            ?>
+                            <!-- </select> -->
+                            <input type="text" class="form-control" placeholder="Nhập mã sinh viên" name="txtID">
                             <label>Tên sinh viên :</label>
-                            <input type="text" class="form-control" placeholder="Nhập họ tên" name="txtTenNv" require id="TenSV">
+                            <input type="text" class="form-control" placeholder="Nhập họ tên" name="txtTenSv" require id="TenSV">
                             <label>Mã phòng :</label>
                             <input type="text" class="form-control" placeholder="Nhập mã phòng" name="txtPhong" require id="maPhong">
                             <label>Mã tòa :</label>
@@ -149,11 +150,11 @@
                             <label>Số điện thoại :</label>
                             <input type="number" class="form-control" placeholder="Nhập số điện thoại" name="txtSdt" require id="Sdt">
                             <label>Email :</label>
-                            <input type="text" class="form-control" placeholder="Nhập email" name="" require id="email">
+                            <input type="text" class="form-control" placeholder="Nhập email" name="txtEmail" require id="email">
                             <label>Ngày đăng ký :</label>
-                            <input type="date" class="form-control" placeholder="Chọn ngày đăng ký" name="" require>
+                            <input type="date" class="form-control" placeholder="Chọn ngày đăng ký" name="txtDate" require>
                             <label>Loại xe :</label>
-                            <select name="" id="" class="form-control">
+                            <select name="txtType" id="" class="form-control">
                                 <option value="">--- Chọn loại xe</option>
                                 <option value="Xe máy">Xe máy</option>
                                 <option value="Xe máy điện">Xe máy điên</option>
@@ -161,7 +162,7 @@
                                 <option value="Xe đạp">Xe đạp</option>
                             </select>
                             <label>Biển kiểm soát :</label>
-                            <input type="text" class="form-control" placeholder="Nhập biển số xe" name="" require>
+                            <input type="text" class="form-control" placeholder="Nhập biển số xe" name="txtPlate" require>
                         </div>
                     </div>
 

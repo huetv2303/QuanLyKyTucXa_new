@@ -29,10 +29,16 @@ class QLyGuiXe_m extends connectDB
         return mysqli_query($this->conn, $sql);
     }
 
-    // Func lấy thông tin của một sinh viên nào đó
-    function getInfo()
+    // Func kiểm tra sinh viên đã đăng ký gửi xe hay chưa
+    function Check($msv)
     {
-        
+        $sql = "SELECT * FROM dich_vu_gui_xe WHERE ID = '$msv'";
+        $dl = mysqli_query($this->conn, $sql);
+        $kq = false;
+        if (mysqli_num_rows($dl) > 0) {
+            $kq = true;  //trùng mã
+        }
+        return $kq;
     }
 
     // Func cập nhật thông tin đăng kí gửi xe của sinh viên
