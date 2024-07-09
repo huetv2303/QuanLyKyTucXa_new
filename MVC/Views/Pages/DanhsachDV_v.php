@@ -118,7 +118,7 @@
 
         <!-- Tìm kiếm -->
         <form method="post" action="http://localhost/QuanLyKyTucXa_new//DanhsachDV/timkiem">
-            <div style="padding: 0 40px;" class="form-inline">
+            <div style="padding: 40px 40px;" class="form-inline">
                 <div class="head_timkiem">
                     <div>
                         <label style="width: 100px;">Mã dịch vụ</label>
