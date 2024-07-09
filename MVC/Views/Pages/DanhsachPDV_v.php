@@ -20,6 +20,7 @@
         border-block-end-color: black;
     } */
 </style>
+
 <body>
     <div class="main">
         <div class="header">
@@ -41,7 +42,7 @@
                                     <div class="form-group">
                                         <!-- <label>Mã Phòng</label>
                                             <input type="text" class="form-control" placeholder="Nhập mã dịch vụ" name="txtMaPhong" > -->
-                                            <label>Mã tòa</label>
+                                        <label>Mã tòa</label>
                                         <select name="txtMaToa" class="form-control maToa" id="maToa" required>
                                             <option value="">-------Chọn--------</option>
                                             <?php
@@ -63,9 +64,9 @@
                                         <br>
                                         <!-- <label>Mã dịch vụ</label>
                                             <input type="text" class="form-control" placeholder="Nhập tên dịch" name="txtMaDV" > -->
-                                     
-                                     
-                                            <label>Chọn dịch vụ</label>
+
+
+                                        <label>Chọn dịch vụ</label>
                                         <select name="txtMaDV" class="form-control" id="txtMaDV1" required>
                                             <option value="">-------Chọn--------</option>
                                             <?php
@@ -135,7 +136,7 @@
                                 <label>ID</label>
                                 <input type="text" class="form-control" name="txtID" id="txtID" value="" readonly>
                                 <label>Mã tòa</label>
-                                <select name="txtMaToa"  class="form-control maToa" id="txtMaToa" required>
+                                <select name="txtMaToa" class="form-control maToa" id="txtMaToa" required>
                                     <option value="">-------Chọn--------</option>
                                     <?php
                                     if (isset($data['toa1']) && mysqli_num_rows($data['toa1']) > 0) {
@@ -274,40 +275,40 @@
                     </tbody>
                 </table>
             </div>
-           
-            <?php
-        if (isset($_POST['btnTimKiem'])) {
-        } else {
 
-        ?>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item <?php if ($data['page_number'] <= 1) echo 'disabled'; ?>">
-                        <a class="page-link" href="<?php if ($data['page_number'] > 1) echo "?page=" . ($data['page_number'] - 1);
-                                                    else echo '#'; ?>" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <?php for ($i = 1; $i <= $data['total_page']; $i++) { ?>
-                        <li style="padding: 0px;" class="page-item <?php if ($data['page_number'] == $i) echo 'active'; ?>">
-                            <a class="page-link" href="?page=<?php echo ($i); ?>"><?php echo ($i); ?></a>
+            <?php
+            if (isset($_POST['btnTimKiem'])) {
+            } else {
+
+            ?>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item <?php if ($data['page_number'] <= 1) echo 'disabled'; ?>">
+                            <a class="page-link" href="<?php if ($data['page_number'] > 1) echo "?page=" . ($data['page_number'] - 1);
+                                                        else echo '#'; ?>" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
                         </li>
-                    <?php } ?>
-                    <li style="padding: 0px;" class="page-item <?php if ($data['page_number'] >= $data['total_page']) echo 'disabled'; ?>">
-                        <a class="page-link" href="<?php if ($data['page_number'] < $data['total_page']) echo "?page=" . ($data['page_number'] + 1);
-                                                    else echo '#'; ?>" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        <?php
-        }
-        ?>   
+                        <?php for ($i = 1; $i <= $data['total_page']; $i++) { ?>
+                            <li style="padding: 0px;" class="page-item <?php if ($data['page_number'] == $i) echo 'active'; ?>">
+                                <a class="page-link" href="?page=<?php echo ($i); ?>"><?php echo ($i); ?></a>
+                            </li>
+                        <?php } ?>
+                        <li style="padding: 0px;" class="page-item <?php if ($data['page_number'] >= $data['total_page']) echo 'disabled'; ?>">
+                            <a class="page-link" href="<?php if ($data['page_number'] < $data['total_page']) echo "?page=" . ($data['page_number'] + 1);
+                                                        else echo '#'; ?>" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            <?php
+            }
+            ?>
 </body>
-     
+
 <script>
-     $(document).ready(function() {
+    $(document).ready(function() {
         $('.maToa').change(function() {
             var maToa = $(this).val();
             if (maToa != '') {

@@ -33,7 +33,7 @@ class DsNhanVien extends controller
             ]);
         }
 
-        // Kiểm tra xem người dùng có nhấn nút nhập Excel không
+        // Kiểm tra xem người dùng có nhấn nút xuất Excel không
         if (isset($_POST['btnXuatExcel'])) {
             //code xuất excel
             $objExcel = new PHPExcel();
@@ -60,9 +60,9 @@ class DsNhanVien extends controller
             $sheet->getColumnDimension('G')->setAutoSize(true);
             $sheet->getColumnDimension('H')->setAutoSize(true);
             //gán màu nền
-            $sheet->getStyle('A1:C1')->getFill()->setFillType(\PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('00FF00');
+            $sheet->getStyle('A1:H1')->getFill()->setFillType(\PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('00FF00');
             //căn giữa
-            $sheet->getStyle('A1:C1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+            $sheet->getStyle('A1:H1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
             //Điền dữ liệu vào các dòng. Dữ liệu lấy từ DB
             $data = $this->dsnv->loadNhanVien();
 

@@ -93,7 +93,7 @@
 
         <!-- Nhập excel -->
         <form action="http://localhost/QuanLyKyTucXa_new//DanhsachDV/import" enctype="multipart/form-data" method="post">
-        
+
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -110,7 +110,7 @@
                                 </div>
                             </td>
                         </div>
-                    
+
                     </div>
                 </div>
             </div>
@@ -136,7 +136,7 @@
                 </div>
 
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addServiceModal"> <i class="fa-solid fa-plus"></i> Thêm mới </button>
-                
+
 
                 <table class="table table-striped table-hover">
                     <thead>
