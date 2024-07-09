@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form method="post" action="http://localhost:2929/QuanLyKyTucXa_new/DanhsachSV/suadl">
+    <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachSV/suadl">
         <div id="wrapper" style="height: -webkit-fill-available;">
             <!-- <div class="header" style="color: #08449b">
                 <h2>Sửa thông tin sinh viên</h2>

@@ -15,7 +15,6 @@
             if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
                 while ($row = mysqli_fetch_array($data['dulieu'])) {
             ?>
-
                     <label>Mã nhân viên</label>
                     <input type="text" class="form-control" placeholder="Mã nhân viên" name="txtMaNv" value="<?php echo $row['MaNhanVien'] ?>" readonly>
                     <label>Tên nhân viên</label>
@@ -35,9 +34,9 @@
                     <input type="text" class="form-control" placeholder="Số điện thoại" name="txtSdt" value="<?php echo $row['SoDienThoai'] ?>">
                     <label>Mã tòa</label>
                     <select name="txtMaToa" class="form-control">
-                        <option value="A" <?php if ($row['MaToa'] == 'A') echo 'selected'; ?>>A</option>
-                        <option value="B" <?php if ($row['MaToa'] == 'B') echo 'selected'; ?>>B</option>
-                        <option value="C" <?php if ($row['MaToa'] == 'C') echo 'selected'; ?>>C</option>
+                        <option value="A" <?php if ($row['maToa'] == 'A') echo 'selected'; ?>>A</option>
+                        <option value="B" <?php if ($row['maToa'] == 'B') echo 'selected'; ?>>B</option>
+                        <option value="C" <?php if ($row['maToa'] == 'C') echo 'selected'; ?>>C</option>
                     </select>
             <?php
                 }
@@ -48,7 +47,6 @@
             <button type="submit" class="btn btn-primary" name="btnBack">Quay lại</button>
         </div>
     </form>
-</div>
 </body>
 
 </html>

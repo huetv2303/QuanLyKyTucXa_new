@@ -160,12 +160,6 @@ class DanhsachDV extends controller
                 } else
                     echo "<script>alert('Sửa thất bại!')</script>";
             }
-
-
-
-            //Gọi lại giao diện và truyền $dulieu ra
-
-
         }
         $page = 1;
         if (isset($_GET['page']))  $page = $_GET['page'];
