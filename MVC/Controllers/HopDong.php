@@ -22,6 +22,8 @@ class HopDong extends controller
 
     public function xoa($mhd)
     {
+        $kq2 = $this->hopdong-> update_ctphong();
+        $kq = $this->hopdong->hopdong_del($mhd);
         // $kq = FALSE;
         $kq = $this->hopdong->hopdong_del($mhd);
         if ($kq) echo "<script>alert('xoa thành công')</script>";

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <style>
+    <!-- <style>
         .center-dulieu {
     display: flex;
     justify-content: center;
@@ -17,7 +17,7 @@
     width: 250px;
 }
 
-    </style>
+    </style> -->
 </head>
 
 
@@ -25,19 +25,7 @@
     
         <!-- Thêm mới -->
         <form method="post" action="http://localhost/QuanLyKyTucXa_new/themToa_c/themmoi">
-            <div class="form-inline">
-<<<<<<< HEAD
-            
-            <div class="center-dulieu">
-=======
-                <div class="" style="text-align:center">
-                    <h2 style="font-size:50px; color:#3333CC">Tòa KTX</h2>
-                    <!-- Button trigger modal -->
-
-               
-            <div >
->>>>>>> 5830c80ec779cf709eb1894dbf7eddd89d7bd485
-            <table style=" text-align:center">
+          
     <div class="modal-add">
         <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -96,14 +84,13 @@
         </form>
 
         <!-- Tìm kiếm -->
-    <form>
-        <div class="" style="text-align:center">
-                    <h2 style="font-size:45px; color:#3333CC">Tòa KTX</h2>
-                    <!-- Button trigger modal -->
-
+    <form>  
+        <div class="main">
+        <div class="header">
+            <h2>Tòa</h2>
+            <!-- Button trigger modal -->
         </div>
-            <div class="form-inline">
-            <div>
+           
             <div>
             <div class="center-dulieu">
             <table style=" text-align:center">
@@ -112,10 +99,6 @@
             <a href="http://localhost/QuanLyKyTucXa_new/Toa_c/" style="margin: 10px 0px; background-color: #0d6efd;" class="btn btn-success" name="btnReLoad"><i class="fa-solid fa-rotate-right"></i> Reload</a>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">Thêm mới </button>
             <br>
-<<<<<<< HEAD
-
-=======
->>>>>>> 5830c80ec779cf709eb1894dbf7eddd89d7bd485
          <br>
         <div class="form-inline" >
             <table class="table table-striped" style="text-align:center " >        
