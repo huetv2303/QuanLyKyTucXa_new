@@ -12,25 +12,49 @@ class DanhsachPDV extends controller
 
     function Get_data()
     {
-        $dulieu = $this->dsdv->dichvuPDV_all();
+
+        $page = 1;
+        if (isset($_GET['page']))  $page = $_GET['page'];
+        $limit = 5;
+        $dulieu = $this->dsdv->dichvuPDV_all($page, $limit);
+        $total = $this->dsdv->count();
+        $total_page = ceil($total / $limit);
+
         $dulieu1 = $this->dsdv->dichvu_idnamdv();
         $dulieu2 = $this->dsdv->dichvu_idP();
         $dulieu3 = $this->dsdv->dichvu_idnamdv();
-        $dulieu4 = $this->dsdv->dichvu_idP();
-
-        // var_dump($_GET);
-
+        $phong = $this->dsdv->dichvu_idP();
+        $toa = $this->dsdv->get_all_toa();
+        $toa1 = $this->dsdv->get_all_toa();
         $this->view('MasterLayout', [
             'page' => 'DanhsachPDV_v',
             'dulieu' => $dulieu,
             'dulieu1' => $dulieu1,
             'dulieu2' => $dulieu2,
             'dulieu3' => $dulieu3,
-            'dulieu4' => $dulieu4,
+            'phong' => $phong,
+            'toa' => $toa,
+            'toa1' => $toa1,
+            'total_page' => $total_page,
+            'limit' => $limit,
+            'page_number' => $page
 
         ]);
     }
 
+
+    function get_phong_by_toa()
+    {
+        if (isset($_POST['maToa'])) {
+            $maToa = $_POST['maToa'];
+            $result = $this->dsdv->get_phong_by_toa($maToa);
+            $rooms = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $rooms[] = $row;
+            }
+            echo json_encode($rooms);
+        }
+    }
     function them()
     {
         $this->view('MasterLayout', [
@@ -41,37 +65,44 @@ class DanhsachPDV extends controller
 
     function timkiem()
     {
+        $page = 1;
+        if (isset($_GET['page']))  $page = $_GET['page'];
+        $limit = 5;
+        // $dulieu = $this->dsdv->dichvuPDV_all($page, $limit);
+        $total = $this->dsdv->count();
+        $total_page = ceil($total / $limit);
         if (isset($_POST['btnTimKiem'])) {
-            $id_room = $_POST['txtMaPhong'];
             $id_service = $_POST['txtMaDV'];
+            $id_room = $_POST['txtMaPhong'];
+            $month = $_POST['txtThang'];
+            $year = $_POST['txtNam'];
 
-            $timkiem = $this->dsdv->dichvuPDV_find($id_room, $id_service);
-            // Gọi lại giao diện và truyền $dulieu ra
-            // $this->view('MasterLayout', [
-            //     'page' => 'DanhsachPDV_v',
-            //     'dulieu' => $timkiem,
-            //     'madv' => $id_service,
-            //     'map' => $id_room,
-            // ]);
+            $timkiem = $this->dsdv->dichvuPDV_find($id_room, $id_service, $month, $year);
             $dulieu1 = $this->dsdv->dichvu_idnamdv();
             $dulieu2 = $this->dsdv->dichvu_idP();
-            // $dulieu = $this->dsdv->dichvuPDV_all();
             $dulieu3 = $this->dsdv->dichvu_idnamdv();
             $dulieu4 = $this->dsdv->dichvu_idP();
+            $phong = $this->dsdv->dichvu_idP();
+            $toa = $this->dsdv->get_all_toa();
+            $toa1 = $this->dsdv->get_all_toa();
             $this->view('MasterLayout', [
                 'page' => 'DanhsachPDV_v',
-                // 'dulieu' => $dulieu,
                 'dulieu1' => $dulieu1,
                 'dulieu2' => $dulieu2,
                 'dulieu3' => $dulieu3,
                 'dulieu4' => $dulieu4,
                 'dulieu' => $timkiem,
+                'phong' => $phong,
+                'toa' => $toa,
+                'toa1' => $toa1,
                 'madv' => $id_service,
                 'map' => $id_room,
-    
+                'total_page' => $total_page,
+                'limit' => $limit,
+                'page_number' => $page
+
             ]);
         }
-       
     }
 
 
@@ -85,25 +116,16 @@ class DanhsachPDV extends controller
 
     function suadl()
     {
-
-
-
-        $dulieu1 = $this->dsdv->dichvu_idnamdv();
-        $dulieu2 = $this->dsdv->dichvu_idP();
-        $dulieu = $this->dsdv->dichvuPDV_all();
-        $dulieu3 = $this->dsdv->dichvu_idnamdv();
-        $dulieu4 = $this->dsdv->dichvu_idP();
-
-
-
-
         if (isset($_POST['btnLuu'])) {
 
             $id = $_POST['txtID'];
-            $id_room = $_POST['txtMaPhong'];
             $id_service = $_POST['txtMaDV'];
+            $id_room = $_POST['txtMaPhong'];
+            $month = $_POST['txtThang'];
+            $year = $_POST['txtNam'];
+            $maToa = $_POST['txtMaToa'];
             //gọi hàm sủa dl tacgia_udp trong model
-            $kq = $this->dsdv->dichvuPDV_upd($id, $id_room, $id_service);
+            $kq = $this->dsdv->dichvuPDV_upd($maToa, $id, $id_room, $id_service, $month, $year);
 
             if ($kq) {
                 echo "<script>alert('Sửa thành công!')</script>";
@@ -115,31 +137,40 @@ class DanhsachPDV extends controller
 
             // var_dump($_GET);
 
-            $dulieu = $this->dsdv->dichvuPDV_all();
-            $this->view('MasterLayout', [
-                'page' => 'DanhsachPDV_v',
-                'dulieu' => $dulieu,
-                'dulieu1' => $dulieu1,
-                'dulieu2' => $dulieu2,
-                'dulieu3' => $dulieu3,
-                'dulieu4' => $dulieu4,
-
-            ]);
         }
+        $phong = $this->dsdv->dichvu_idP();
+        $toa = $this->dsdv->get_all_toa();
+        $toa1 = $this->dsdv->get_all_toa();
+        $dulieu1 = $this->dsdv->dichvu_idnamdv();
+        // $dulieu2 = $this->dsdv->dichvu_idP();
+        $dulieu3 = $this->dsdv->dichvu_idnamdv();
+        // $dulieu4 = $this->dsdv->dichvu_idP();
+        $page = 1;
+        if (isset($_GET['page']))  $page = $_GET['page'];
+        $limit = 3;
+        $total = $this->dsdv->count();
+        $total_page = ceil($total / $limit);
+        $dulieu = $this->dsdv->dichvuPDV_all($page, $limit);
+
+        $this->view('MasterLayout', [
+            'page' => 'DanhsachPDV_v',
+            'dulieu' => $dulieu,
+            'dulieu1' => $dulieu1,
+            // 'dulieu2' => $dulieu2,
+            'dulieu3' => $dulieu3,
+            'phong' => $phong,
+            'toa' => $toa,
+            'toa1' => $toa1,
+            // 'dulieu4' => $dulieu4,
+            'total_page' => $total_page,
+            'limit' => $limit,
+            'page_number' => $page
+
+        ]);
     }
 
     function xoa($id)
     {
-
-        // var_dump($_GET);
-        $dulieu1 = $this->dsdv->dichvu_idnamdv();
-        $dulieu2 = $this->dsdv->dichvu_idP();
-        $dulieu = $this->dsdv->dichvuPDV_all();
-        $dulieu3 = $this->dsdv->dichvu_idnamdv();
-        $dulieu4 = $this->dsdv->dichvu_idP();
-
-
-
         $kq = $this->dsdv->dichvuPDV_del($id);
         if ($kq)
             echo "<script>alert('Xóa thành công!')</script>";
@@ -150,14 +181,34 @@ class DanhsachPDV extends controller
         // $tsv = $_POST['txtTenSinhVien'];
 
 
-        $dulieu = $this->dsdv->dichvuPDV_all();
+        $page = 1;
+        if (isset($_GET['page']))  $page = $_GET['page'];
+        $limit = 5;
+        $dulieu = $this->dsdv->dichvuPDV_all($page, $limit);
+        $total = $this->dsdv->count();
+        $total_page = ceil($total / $limit);
+
+        $phong = $this->dsdv->dichvu_idP();
+        $toa = $this->dsdv->get_all_toa();
+        $toa1 = $this->dsdv->get_all_toa();
+        $dulieu1 = $this->dsdv->dichvu_idnamdv();
+        // $dulieu2 = $this->dsdv->dichvu_idP();
+        $dulieu3 = $this->dsdv->dichvu_idnamdv();
+        // $dulieu4 = $this->dsdv->dichvu_idP();
+
         $this->view('MasterLayout', [
             'page' => 'DanhsachPDV_v',
             'dulieu' => $dulieu,
             'dulieu1' => $dulieu1,
-            'dulieu2' => $dulieu2,
+            // 'dulieu2' => $dulieu2,
             'dulieu3' => $dulieu3,
-            'dulieu4' => $dulieu4,
+            'phong' => $phong,
+            'toa' => $toa,
+            'toa1' => $toa1,
+            // 'dulieu4' => $dulieu4,
+            'total_page' => $total_page,
+            'limit' => $limit,
+            'page_number' => $page
 
         ]);
     }
@@ -173,14 +224,18 @@ class DanhsachPDV extends controller
 
             $id_service = $_POST['txtMaDV'];
             $id_room = $_POST['txtMaPhong'];
+            $month = $_POST['txtThang'];
+            $year = $_POST['txtNam'];
+            $maToa = $_POST['txtMaToa'];
 
 
 
-            $kq1 = $this->dsdv->check_trung_ma($id_room, $id_service);
+            $kq1 = $this->dsdv->check_trung_ma($id_room, $id_service, $month,$year );
+            var_dump($kq1);
             if ($kq1) {
                 echo "<script>alert('Phòng đã sử dụng dịch vụ này!')</script>";
             } else {
-                $kq = $this->dsdv->dichvuPDV_ins($id_room, $id_service);
+                $kq = $this->dsdv->dichvuPDV_ins($maToa, $id_room, $id_service, $month, $year);
                 if ($kq)
                     echo "<script>alert('Thêm mới thành công!')</script>";
                 else
@@ -188,18 +243,35 @@ class DanhsachPDV extends controller
                     echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
             }
         }
+        $page = 1;
+        if (isset($_GET['page']))  $page = $_GET['page'];
+        $limit = 5;
+        $dulieu = $this->dsdv->dichvuPDV_all($page, $limit);
+        $total = $this->dsdv->count();
+        $total_page = ceil($total / $limit);
+
+
+        $phong = $this->dsdv->dichvu_idP();
+        $toa = $this->dsdv->get_all_toa();
+        $toa1 = $this->dsdv->get_all_toa();
         $dulieu1 = $this->dsdv->dichvu_idnamdv();
-        $dulieu2 = $this->dsdv->dichvu_idP();
-        $dulieu = $this->dsdv->dichvuPDV_all();
+        // $dulieu2 = $this->dsdv->dichvu_idP();
         $dulieu3 = $this->dsdv->dichvu_idnamdv();
-        $dulieu4 = $this->dsdv->dichvu_idP();
+        // $dulieu4 = $this->dsdv->dichvu_idP();
+
         $this->view('MasterLayout', [
             'page' => 'DanhsachPDV_v',
             'dulieu' => $dulieu,
             'dulieu1' => $dulieu1,
-            'dulieu2' => $dulieu2,
+            // 'dulieu2' => $dulieu2,
             'dulieu3' => $dulieu3,
-            'dulieu4' => $dulieu4,
+            'phong' => $phong,
+            'toa' => $toa,
+            'toa1' => $toa1,
+            // 'dulieu4' => $dulieu4,
+            'total_page' => $total_page,
+            'limit' => $limit,
+            'page_number' => $page
 
         ]);
     }

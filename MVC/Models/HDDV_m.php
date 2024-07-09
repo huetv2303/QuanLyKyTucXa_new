@@ -1,57 +1,152 @@
 <?php
 class HDDV_m extends connectDB
 {
-    public function hddv_ins($id_invoice, $id_room, $electricity, $water, $created_day,$ended_day, $status)
+    public function hddv_ins($id_invoice, $maToa, $id_room, $soDien, $khoiNuoc, $electricity, $water, $month, $year, $ended_day, $status)
     {
-        $sql = "INSERT INTO hoa_don_dich_vu(id_invoice, id_room, electricity, water, created_day, ended_day, status) VALUES ('$id_invoice','$id_room','$electricity','$water','$created_day','$ended_day','$status')";
+        $sql = "INSERT INTO hoa_don_dich_vu(id_invoice, maToa ,id_room, soDien , khoiNuoc, electricity, water, month, year, created_day, ended_day, status) 
+        
+        VALUES ('$id_invoice','$maToa','$id_room','$soDien', '$khoiNuoc', '$electricity','$water',' $month','$year',CURRENT_DATE,'$ended_day','$status')";
 
         return mysqli_query($this->conn, $sql);
     }
 
-    public function hddv_invoice()
-    {
-        $sql = " SELECT
-    hdv.id_invoice,
-    hdv.status,
-    hdv.electricity,
-    hdv.water,
-    hdv.created_day,
-    hdv.ended_day,
-    dien_nuoc.id_room,
-     FLOOR(dien_nuoc.tong_dien_nuoc) AS tong_dien_nuoc,
-    FLOOR(COALESCE(dich_vu_khac.tong_dich_vu_khac, 0)) AS tong_dich_vu_khac,
-    FLOOR(dien_nuoc.tong_dien_nuoc + COALESCE(dich_vu_khac.tong_dich_vu_khac, 0)) AS tong_tat_ca
-    FROM
-    hoa_don_dich_vu hdv
-    JOIN
-    (SELECT
-        hdv.id_room,
-        SUM(hdv.electricity * dv_dien.price + hdv.water * dv_nuoc.price) AS tong_dien_nuoc
-    FROM
-        hoa_don_dich_vu hdv
-    JOIN
-        dich_vu_dien_nuoc dv_dien ON dv_dien.id_service = 'Dien'
-    JOIN
-        dich_vu_dien_nuoc dv_nuoc ON dv_nuoc.id_service = 'Nuoc'
-    GROUP BY
-        id_room) AS dien_nuoc ON hdv.id_room = dien_nuoc.id_room
-    LEFT JOIN
-    (SELECT
-        id_room,
-        COALESCE(SUM(dvk.price), 0) AS tong_dich_vu_khac
-    FROM
-        dang_ky_dich_vu
-    LEFT JOIN
-        dich_vu_khac dvk ON dvk.id_service = dang_ky_dich_vu.id_service
-    GROUP BY
-        id_room) AS dich_vu_khac ON hdv.id_room = dich_vu_khac.id_room";
 
+    function hddv_upd($id_invoice, $maToa, $id_room, $soDien, $khoiNuoc, $electricity, $water, $month, $year,  $ended_day, $status)
+    {
+        $sql = "UPDATE hoa_don_dich_vu SET id_room ='$id_room', maToa  = '$maToa',soDien = '$soDien' , khoiNuoc = '$khoiNuoc' , electricity ='$electricity', water ='$water'  , month = '$month', year = '$year', ended_day ='$ended_day'  , status ='$status' WHERE id_invoice ='$id_invoice'";
         return mysqli_query($this->conn, $sql);
+    }
+
+    public function hddv_invoice($page, $limit)
+    {
+        $offset = ($page - 1) * $limit;
+    
+        $sql = "WITH service_prices AS (
+            SELECT 
+                id_service,
+                price
+            FROM 
+                dich_vu_dien_nuoc dn
+            WHERE 
+                id_service IN ('Dien', 'Nuoc') -- Giả sử id_service = 'Dien' là điện và id_service = 'Nuoc' là nước
+        ),
+        
+        -- Tính lượng điện và nước tiêu thụ trong tháng
+        electricity_water_usage AS (
+            SELECT 
+                hd.id_invoice,
+                hd.id_room,
+                (hd.electricity - hd.SoDien) AS electricity_usage,
+                (hd.water - hd.KhoiNuoc) AS water_usage,
+                hd.month,
+                hd.year,
+                hd.status,
+                hd.electricity,
+                hd.water,
+                hd.created_day,
+                hd.ended_day,
+                hd.soDien,
+                hd.khoiNuoc,
+                hd.maToa,
+                -- hd.advance_deposit,
+                CASE 
+                    WHEN ended_day < CURDATE() AND status != 'Đã thanh toán' THEN 'Hóa đơn quá hạn'
+                    WHEN status = 'Đã thanh toán' THEN 'Đã thanh toán'
+                    ELSE 'Chưa thanh toán'
+                END AS notifications
+            FROM 
+                hoa_don_dich_vu hd
+        ),
+        
+        -- Tính tiền điện và nước
+        electric_water_cost AS (
+            SELECT 
+                e.id_room,
+                e.month,
+                e.year,
+                ROUND(COALESCE(e.electricity_usage, 0) * sp1.price, 2) AS electricity_cost,
+                ROUND(COALESCE(e.water_usage, 0) * sp2.price, 2) AS water_cost
+            FROM 
+                electricity_water_usage e
+            JOIN 
+                service_prices sp1 ON sp1.id_service = 'Dien' -- Giả sử id_service = 'Dien' là điện
+            JOIN 
+                service_prices sp2 ON sp2.id_service = 'Nuoc' -- Giả sử id_service = 'Nuoc' là nước
+        ),
+        
+        -- Tính tổng tiền dịch vụ đã đăng ký
+        service_cost AS (
+            SELECT 
+                r.id_room,
+                r.month,
+                r.year,
+                ROUND(COALESCE(SUM(dv.price), 0), 2) AS total_service_cost
+            FROM 
+                dang_ky_dich_vu r
+            JOIN 
+                dich_vu_khac dv ON r.id_service = dv.id_service
+            GROUP BY 
+                r.id_room, r.month, r.year
+        )
+        
+        -- Tổng hợp tất cả lại để tính tổng tiền phải trả cho mỗi phòng
+        SELECT 
+            ec.id_room,
+            ec.month,
+            ec.year,
+            -- ewu.advance_deposit,
+            ROUND(COALESCE(ec.electricity_cost, 0), 2) AS electricity_cost,
+            ROUND(COALESCE(ec.water_cost, 0), 2) AS water_cost,
+            ROUND(COALESCE(ec.electricity_cost, 0) + COALESCE(ec.water_cost, 0))  AS total_electricity_water_cost,
+            ROUND(COALESCE(sc.total_service_cost, 0)) AS total_service_cost,
+            ROUND((COALESCE(ec.electricity_cost, 0) + COALESCE(ec.water_cost, 0) + COALESCE(sc.total_service_cost, 0) )) AS total_cost,
+            ewu.id_invoice,
+            ewu.status,
+            ewu.electricity,
+            ewu.water,
+            ewu.created_day,
+            ewu.ended_day,
+            ewu.soDien,
+            ewu.khoiNuoc,
+            ewu.electricity_usage,
+            ewu.water_usage,
+            ewu.maToa,
+            ewu.notifications
+        
+        FROM 
+            electric_water_cost ec
+        LEFT JOIN 
+            service_cost sc ON ec.id_room = sc.id_room AND ec.month = sc.month AND ec.year = sc.year
+        LEFT JOIN 
+            electricity_water_usage ewu ON ec.id_room = ewu.id_room AND ec.month = ewu.month AND ec.year = ewu.year
+        LIMIT $offset, $limit;";
+    
+        return mysqli_query($this->conn, $sql);
+    }
+    
+    function count() {
+        $sql = "SELECT COUNT(*) as total FROM hoa_don_dich_vu";
+        $result = mysqli_query($this->conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row['total'];
     }
 
     function check_trung_ma($id_invoice)
     {
         $sql = "SELECT * FROM hoa_don_dich_vu WHERE id_invoice ='$id_invoice' ";
+
+        $dl = mysqli_query($this->conn, $sql);
+        $kq = false;
+        if (mysqli_num_rows($dl) > 0) {
+            $kq = true;  //trùng mã
+        }
+        return $kq;
+    }
+
+    function check_trung_thangnam($month, $year)
+    {
+        $sql = "SELECT * FROM hoa_don_dich_vu WHERE  month ='$month' and  year ='$year' ";
+
         $dl = mysqli_query($this->conn, $sql);
         $kq = false;
         if (mysqli_num_rows($dl) > 0) {
@@ -72,46 +167,116 @@ class HDDV_m extends connectDB
         return mysqli_query($this->conn, $sql);
     }
 
-    function hddv_find($id_invoice, $id_room)
+    function hddv_find($id_invoice, $id_room, $month, $year, $notifications)
     {
-        $sql = "SELECT
-               hdv.id_invoice,
-                hdv.status,
-                hdv.electricity,
-                hdv.water,
-                hdv.created_day,
-                hdv.ended_day,
-                dien_nuoc.id_room,
-                FLOOR(dien_nuoc.tong_dien_nuoc) AS tong_dien_nuoc,
-                FLOOR(COALESCE(dich_vu_khac.tong_dich_vu_khac, 0)) AS tong_dich_vu_khac,
-                FLOOR(dien_nuoc.tong_dien_nuoc + COALESCE(dich_vu_khac.tong_dich_vu_khac, 0)) AS tong_tat_ca
-            FROM
-                hoa_don_dich_vu hdv
-            JOIN
-                (SELECT
-                    hdv.id_room,
-                    SUM(hdv.electricity * dv_dien.price + hdv.water * dv_nuoc.price) AS tong_dien_nuoc
-                 FROM
-                    hoa_don_dich_vu hdv
-                 JOIN
-                    dich_vu_dien_nuoc dv_dien ON dv_dien.id_service = 'Dien'
-                 JOIN
-                    dich_vu_dien_nuoc dv_nuoc ON dv_nuoc.id_service = 'Nuoc'
-                 GROUP BY
-                    id_room) AS dien_nuoc ON hdv.id_room = dien_nuoc.id_room
-            LEFT JOIN
-                (SELECT
-                    id_room,
-                    COALESCE(SUM(dvk.price), 0) AS tong_dich_vu_khac
-                 FROM
-                    dang_ky_dich_vu
-                 LEFT JOIN
-                    dich_vu_khac dvk ON dvk.id_service = dang_ky_dich_vu.id_service
-                 GROUP BY
-                    id_room) AS dich_vu_khac ON hdv.id_room = dich_vu_khac.id_room
-            WHERE
-                hdv.id_invoice LIKE '%$id_invoice%'
-                AND hdv.id_room LIKE '%$id_room%'";
+
+        $sql = "WITH service_prices AS (
+            SELECT 
+                id_service,
+                price
+            FROM 
+                dich_vu_dien_nuoc
+            WHERE 
+                id_service IN ('Dien', 'Nuoc') -- Giả sử id_service = 'Dien' là điện và id_service = 'Nuoc' là nước
+            ),
+        
+            -- Tính lượng điện và nước tiêu thụ trong tháng
+            electricity_water_usage AS (
+                SELECT 
+                    hd.id_invoice,
+                    hd.id_room,
+                    (hd.electricity - hd.SoDien) AS electricity_usage,
+                    (hd.water - hd.KhoiNuoc) AS water_usage,
+                    hd.month,
+                    hd.year,
+                    hd.status,
+                    hd.electricity,
+                    hd.water,
+                    hd.created_day,
+                    hd.ended_day,
+                    hd.soDien,
+                    hd.khoiNuoc,
+                    hd.maToa,
+                    -- hd.advance_deposit,
+                      CASE 
+                    WHEN ended_day < CURDATE() AND status != 'Đã thanh toán' THEN 'Hóa đơn quá hạn'
+                    WHEN status = 'Đã thanh toán' THEN 'Đã thanh toán'
+                    ELSE 'Chưa thanh toán'
+                    END AS notifications
+                    
+                FROM 
+                    hoa_don_dich_vu hd
+            ),
+        
+            -- Tính tiền điện và nước
+            electric_water_cost AS (
+                SELECT 
+                    e.id_room,
+                    e.month,
+                    e.year,
+                    ROUND(COALESCE(e.electricity_usage, 0) * sp1.price, 2) AS electricity_cost,
+                    ROUND(COALESCE(e.water_usage, 0) * sp2.price, 2) AS water_cost
+                FROM 
+                    electricity_water_usage e
+                JOIN 
+                    service_prices sp1 ON sp1.id_service = 'Dien' -- Giả sử id_service = 'Dien' là điện
+                JOIN 
+                    service_prices sp2 ON sp2.id_service = 'Nuoc' -- Giả sử id_service = 'Nuoc' là nước
+            ),
+        
+            -- Tính tổng tiền dịch vụ đã đăng ký
+            service_cost AS (
+                SELECT 
+                    r.id_room,
+                    r.month,
+                    r.year,
+                    ROUND(COALESCE(SUM(dv.price), 0), 2) AS total_service_cost
+                FROM 
+                    dang_ky_dich_vu r
+                JOIN 
+                    dich_vu_khac dv ON r.id_service = dv.id_service
+                GROUP BY 
+                    r.id_room, r.month, r.year
+            )
+        
+            -- Tổng hợp tất cả lại để tính tổng tiền phải trả cho mỗi phòng
+            SELECT 
+                ec.id_room,
+                ec.month,
+                ec.year,
+                -- ewu.advance_deposit,
+                ROUND(COALESCE(ec.electricity_cost, 0), 2) AS electricity_cost,
+                ROUND(COALESCE(ec.water_cost, 0), 2) AS water_cost,
+                ROUND(COALESCE(ec.electricity_cost, 0) + COALESCE(ec.water_cost, 0))  AS total_electricity_water_cost,
+                ROUND(COALESCE(sc.total_service_cost, 0), 2) AS total_service_cost,
+                ROUND((COALESCE(ec.electricity_cost, 0) + COALESCE(ec.water_cost, 0) + COALESCE(sc.total_service_cost, 0)  ), 0) AS total_cost,
+                ewu.id_invoice,
+                ewu.status,
+                ewu.electricity,
+                ewu.water,
+                ewu.created_day,
+                ewu.ended_day,
+                ewu.soDien,
+                ewu.khoiNuoc,
+                ewu.electricity_usage,
+                ewu.water_usage,
+                ewu.maToa,
+                ewu.notifications
+              
+            FROM 
+                electric_water_cost ec
+            LEFT JOIN 
+                service_cost sc ON ec.id_room = sc.id_room AND ec.month = sc.month AND ec.year = sc.year
+            LEFT JOIN 
+                electricity_water_usage ewu ON ec.id_room = ewu.id_room AND ec.month = ewu.month AND ec.year = ewu.year
+              Where 
+                        ewu.id_invoice LIKE '%$id_invoice%'
+                       AND ewu.id_room LIKE '%$id_room%'
+                       AnD   ewu.month LIKE '%$month%'
+                       AND ewu.year LIKE '%$year%'
+                       AND ewu.notifications LIKE '%$notifications%' " ;                       
+
+        // var_dump($sql);
 
         return mysqli_query($this->conn, $sql);
     }
@@ -125,10 +290,21 @@ class HDDV_m extends connectDB
         return mysqli_query($this->conn, $sql);
     }
 
-    function hddv_upd($id_invoice, $id_room, $electricity, $water, $created_day, $ended_day, $status)
+    public function get_all_toa()
     {
-        $sql = "UPDATE hoa_don_dich_vu SET id_room ='$id_room', electricity ='$electricity', water ='$water'  , created_day ='$created_day', ended_day ='$ended_day'  , status ='$status' WHERE id_invoice ='$id_invoice'";
+        $sql = "SELECT maToa FROM toa";
+        return mysqli_query($this->conn, $sql);
+    }
 
+    public function get_all_phong()
+    {
+        $sql = "SELECT maPhong FROM phong ";
+        return mysqli_query($this->conn, $sql);
+    }
+
+    public function get_phong_by_toa($maToa)
+    {
+        $sql = "SELECT maPhong FROM phong WHERE maToa = '$maToa'";
         return mysqli_query($this->conn, $sql);
     }
 }

@@ -79,6 +79,9 @@ html, body {
     padding: 10px 20px;
     border-bottom: 1px solid #ccc;
     height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header-content {
@@ -112,3 +115,4 @@ html, body {
 hr{
     margin: 0;
 }
+
