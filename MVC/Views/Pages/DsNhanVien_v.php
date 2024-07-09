@@ -38,126 +38,124 @@
 </style>
 
 <body>
-    <form method="post" action="http://localhost/QuanLyKyTucXa_new/DsNhanVien/Search">
-        <div>
-            <h6>DANH SÁCH NHÂN VIÊN</h6>
-            <br>
-            <div class="form-inline">
-                <table>
-                    <tr>
-                        <td>
-                            <input placeholder="Nhập mã nhân viên" type="text" id="txtMaNv" class="form-control" name="txtMaNV" value="<?php if (isset($data['maNv'])) echo $data['maNv'] ?>">
-                        </td>
+    <div class="main">
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DsNhanVien/Search">
+            <div>
+                <div class="header">
+                    <h6>DANH SÁCH NHÂN VIÊN</h6>
+                </div>
+                <br>
+                <div class="form-inline">
+                    <table>
+                        <tr>
+                            <td>
+                                <input placeholder="Nhập mã nhân viên" type="text" id="txtMaNv" class="form-control" name="txtMaNV" value="<?php if (isset($data['maNv'])) echo $data['maNv'] ?>">
+                            </td>
 
-                        <td>
-                            <input placeholder="Nhập tên nhân viên" type="text" id="txtTenNv" class="form-control" name="txtTenNV" value="<?php if (isset($data['tenNv'])) echo $data['tenNv'] ?>">
-                        </td>
-                        <td>
-                            <button type="submit" class="btn btn-primary" name="btnTimKiem" id="btnTimKiem"><i class="fa-solid fa-magnifying-glass">&nbsp;&nbsp;</i>Tìm Kiếm </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" id="btnThemMoi"><i class="fa-solid fa-plus">&nbsp;&nbsp;</i>Thêm Mới</button>
-                        </td>
-                    </tr>
+                            <td>
+                                <input placeholder="Nhập tên nhân viên" type="text" id="txtTenNv" class="form-control" name="txtTenNV" value="<?php if (isset($data['tenNv'])) echo $data['tenNv'] ?>">
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-primary" name="btnTimKiem" id="btnTimKiem"><i class="fa-solid fa-magnifying-glass">&nbsp;&nbsp;</i>Tìm Kiếm </button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" id="btnThemMoi"><i class="fa-solid fa-plus">&nbsp;&nbsp;</i>Thêm Mới</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <br>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalExcel" id="btnNhapExcel"><i class="fa-regular fa-file-excel">&nbsp;&nbsp;</i>Nhập Excel</button>
+                <button type="submit" class="btn btn-success" name="btnXuatExcel"><i class="fa-regular fa-file-excel">&nbsp;&nbsp;</i>Xuất Excel</button>
+                <br>
+                <br>
+                <table class="table table-hover" border="1px solid black">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Mã Nhân Viên</th>
+                            <th>Tên Nhân Viên</th>
+                            <th>Giới Tính</th>
+                            <th>Ngày Sinh</th>
+                            <th>Địa Chỉ</th>
+                            <th>Số Điện thoại</th>
+                            <th>Chức Năng</th>
+                        </tr>
+                    </thead>
+
+                    <!--Table body  -->
+                    <tbody>
+                        <?php
+                        if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
+                            $i = 0;
+                            while ($row = mysqli_fetch_assoc($data['dulieu'])) {
+                        ?>
+                                <tr>
+                                    <td><?php echo (++$i) ?></td>
+                                    <td><?php echo $row['MaNhanVien'] ?></td>
+                                    <td><?php echo $row['TenNhanVien'] ?></td>
+                                    <td><?php echo $row['GioiTinh'] ?></td>
+                                    <td><?php echo $row['NgaySinh'] ?></td>
+                                    <td><?php echo $row['DiaChi'] ?></td>
+                                    <td><?php echo $row['SoDienThoai'] ?></td>
+                                    <td>
+
+                                        <a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien/loadForm/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square">&nbsp;&nbsp;</i>Sửa</a> &nbsp;
+                                        <a onclick="return confirm('Bạn có muốn xóa nhân viên này không ?')" href="http://localhost/QuanLyKyTucXa_new/DsNhanVien/Delete/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash">&nbsp;&nbsp;</i>Xóa</a>
+                                    </td>
+                                </tr>
+                        <?php
+                            }
+                        }
+                        ?>
+                    </tbody>
                 </table>
             </div>
-            <br>
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalExcel" id="btnNhapExcel"><i class="fa-regular fa-file-excel">&nbsp;&nbsp;</i>Nhập Excel</button>
-            <button type="submit" class="btn btn-success" name="btnXuatExcel"><i class="fa-regular fa-file-excel">&nbsp;&nbsp;</i>Xuất Excel</button>
-            <br>
-            <br>
-            <table class="table table-hover" border="1px solid black">
-                <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>Mã Nhân Viên</th>
-                        <th>Tên Nhân Viên</th>
-                        <th>Giới Tính</th>
-                        <th>Ngày Sinh</th>
-                        <th>Địa Chỉ</th>
-                        <th>Số Điện thoại</th>
-                        <th>Mã Tòa</th>
-                        <th>Chức Năng</th>
-                    </tr>
-                </thead>
+    </div>
 
-                <!--Table body  -->
-                <tbody>
-                    <?php
-                    if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
-                        $i = 0;
-                        while ($row = mysqli_fetch_assoc($data['dulieu'])) {
-                    ?>
-                            <tr>
-                                <td><?php echo (++$i) ?></td>
-                                <td><?php echo $row['MaNhanVien'] ?></td>
-                                <td><?php echo $row['TenNhanVien'] ?></td>
-                                <td><?php echo $row['GioiTinh'] ?></td>
-                                <td><?php echo $row['NgaySinh'] ?></td>
-                                <td><?php echo $row['DiaChi'] ?></td>
-                                <td><?php echo $row['SoDienThoai'] ?></td>
-                                <td><?php echo $row['MaToa'] ?></td>
-                                <td>
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-                                    <a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien/loadForm/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square">&nbsp;&nbsp;</i>Sửa</a> &nbsp;
-                                    <a onclick="return confirm('Bạn có muốn xóa nhân viên này không ?')" href="http://localhost/QuanLyKyTucXa_new/DsNhanVien/Delete/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash">&nbsp;&nbsp;</i>Xóa</a>
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">THÊM NHÂN VIÊN</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
 
-
-                                   
-
-                                </td>
-                            </tr>
-                    <?php
-                        }
-                    }
-                    ?>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- The Modal -->
-        <div class="modal" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">THÊM NHÂN VIÊN</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Mã Nhân Viên :</label>
+                        <input type="text" class="form-control" placeholder="Nhập mã" name="txtMaNv" require>
+                        <label>Họ và Tên :</label>
+                        <input type="text" class="form-control" placeholder="Nhập họ tên" name="txtTenNv" require>
+                        <label>Giới tính:</label>
+                        <select class="form-control" name="txtGioiTinh">
+                            <option>--- Chọn giới tính ---</option>
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                            <option value="Khác">Khác</option>
+                        </select>
+                        <label>Ngày Sinh :</label>
+                        <input type="date" class="form-control" placeholder="Chọn ngày sinh" name="txtNgaySinh">
+                        <label>Địa Chỉ :</label>
+                        <input type="text" class="form-control" placeholder="Nhập địa chỉ" name="txtDiaChi">
+                        <label>Số Điện Thoại :</label>
+                        <input type="number" class="form-control" placeholder="Nhập số điện thoại" name="txtSdt" require>
+                        <label>Mã Tòa :</label>
+                        <input type="text" class="form-control" placeholder="Nhập phân khu" name="txtMaToa" require>
                     </div>
+                </div>
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Mã Nhân Viên :</label>
-                            <input type="text" class="form-control" placeholder="Nhập mã" name="txtMaNv" require>
-                            <label>Họ và Tên :</label>
-                            <input type="text" class="form-control" placeholder="Nhập họ tên" name="txtTenNv" require>
-                            <label>Giới tính:</label>
-                            <select class="form-control" name="txtGioiTinh">
-                                <option>--- Chọn giới tính ---</option>
-                                <option value="Nam">Nam</option>
-                                <option value="Nữ">Nữ</option>
-                                <option value="Khác">Khác</option>
-                            </select>
-                            <label>Ngày Sinh :</label>
-                            <input type="date" class="form-control" placeholder="Chọn ngày sinh" name="txtNgaySinh">
-                            <label>Địa Chỉ :</label>
-                            <input type="text" class="form-control" placeholder="Nhập địa chỉ" name="txtDiaChi">
-                            <label>Số Điện Thoại :</label>
-                            <input type="number" class="form-control" placeholder="Nhập số điện thoại" name="txtSdt" require>
-                            <label>Mã Tòa :</label>
-                            <input type="text" class="form-control" placeholder="Nhập phân khu" name="txtMaToa" require>
-                        </div>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" name="btnLuu">Lưu</button>
-                    </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" name="btnLuu">Lưu</button>
                 </div>
             </div>
         </div>
+    </div>
     </form>
 
     <!-- Modal choose file Excel -->

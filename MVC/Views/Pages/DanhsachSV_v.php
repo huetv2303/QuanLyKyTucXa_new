@@ -10,24 +10,34 @@
             text-align: center;
         }
 
-        #wrapper {
+        /* #wrapper {
             padding: 50px;
-            /* background-color: #0dcaf02b; */
+            background-color: #0dcaf02b;
             height: 100%;
             position: absolute;
             width: 87%;
+        } */
+
+        #wrapper {
+            padding: 50px;
+            background-color: #0dcaf02b;
+            min-height: 100vh;
+            /* Đảm bảo phần tử có chiều cao tối thiểu */
+            width: 87%;
+            overflow: auto;
+            /* Cho phép cuộn nếu nội dung vượt quá chiều cao */
         }
 
-        .form-inline {
+        /* .form-inline {
             border-radius: 20px;
             background-color: white;
             padding: 40px;
             text-align: left;
-        }
+        } */
 
-        .container-fluid {
+        /* .container-fluid {
             padding: 0px;
-        }
+        } */
 
         #tableTimKiem {
             margin-left: 400px;
@@ -47,15 +57,17 @@
 <body>
     <div id="wrapper" style="height: -webkit-fill-available;">
         <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachSV/timKiem">
-            <!-- <div class="header" style="color: #08449b">
-                
-            </div> -->
+            <div class="header" style="color: #08449b">
+                <h2>Quản lý thông tin sinh viên</h2>
+            </div>
 
             <div class="form-inline">
 
                 <table id="tableThem" style="width: 100%">
                     <tr>
-                        <td style="float: left;"><h2>Quản lý thông tin sinh viên</h2></td>
+                        <td style="float: left;">
+                            <h2>Quản lý thông tin sinh viên</h2>
+                        </td>
                         <td style="float: right;  margin: 10px">
                             <button type="submit" class="btn btn-success" name=""><a href="http://localhost/QuanLyKyTucXa_new/SinhVien" style="text-decoration: none; color:white">Thêm mới</a></button>
                         </td>
@@ -84,7 +96,7 @@
 
 
 
-                <button type="submit" class="btn btn-primary" name="btnTimKiem" style="margin-bottom: 20px; margin-right: 10px; margin-left: 570px;">Tìm kiếm</button>
+                <button type="submit" class="btn btn-primary" name="btnTimKiem" style="margin-bottom: 20px; margin-right: 10px; margin-left: 580px;">Tìm kiếm</button>
 
                 <table class="table table-striped" style="text-align: center;">
 

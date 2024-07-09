@@ -1,11 +1,5 @@
-.header1{
-    background-color: rgb(93, 201, 255);
-    height: 100px;
-    width: auto;
-    color: white;
-    font-size: 20px;
-    padding: 30px;
-}
+
+   
 nav>ul>li:hover{
     display: inline-block;
     border-radius: 10px;
@@ -98,3 +92,12 @@ p{
 .pending {
     color: orange;
 }
+
+/* .modal-body input  {
+    border-block-end-color: black;
+}
+
+.modal-body select  {
+    border-block-end-color: black;
+} */
+
