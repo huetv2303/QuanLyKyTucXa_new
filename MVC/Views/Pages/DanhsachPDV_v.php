@@ -4,16 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <!-- <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js"> </script> -->
-=======
-=======
-
-
->>>>>>> c7c697899384b4ccaf6a073e5261709a9761c392
-    <!-- <script src="http://localhost/QuanLyKyTucXa_new//Public/JS/DichVu_js.js"> </script> -->
->>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
     <title>Quản lý dịch vụ</title>
 </head>
 <style>
@@ -25,6 +15,7 @@
         border-block-end-color: black;
     } */
 </style>
+
 <body>
     <div class="main">
         <div class="header">
@@ -46,7 +37,7 @@
                                     <div class="form-group">
                                         <!-- <label>Mã Phòng</label>
                                             <input type="text" class="form-control" placeholder="Nhập mã dịch vụ" name="txtMaPhong" > -->
-                                            <label>Mã tòa</label>
+                                        <label>Mã tòa</label>
                                         <select name="txtMaToa" class="form-control maToa" id="maToa" required>
                                             <option value="">-------Chọn--------</option>
                                             <?php
@@ -68,9 +59,9 @@
                                         <br>
                                         <!-- <label>Mã dịch vụ</label>
                                             <input type="text" class="form-control" placeholder="Nhập tên dịch" name="txtMaDV" > -->
-                                     
-                                     
-                                            <label>Chọn dịch vụ</label>
+
+
+                                        <label>Chọn dịch vụ</label>
                                         <select name="txtMaDV" class="form-control" id="txtMaDV1" required>
                                             <option value="">-------Chọn--------</option>
                                             <?php
@@ -126,9 +117,6 @@
             </form>
 
         </div>
-
-        <!-- <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachPDV/suadl"> -->
-
         <form method="post" action="http://localhost/QuanLyKyTucXa_new//DanhsachPDV/suadl">
             <!-- Modal -->
             <div class="modal-update">
@@ -143,7 +131,7 @@
                                 <label>ID</label>
                                 <input type="text" class="form-control" name="txtID" id="txtID" value="" readonly>
                                 <label>Mã tòa</label>
-                                <select name="txtMaToa"  class="form-control maToa" id="txtMaToa" required>
+                                <select name="txtMaToa" class="form-control maToa" id="txtMaToa" required>
                                     <option value="">-------Chọn--------</option>
                                     <?php
                                     if (isset($data['toa1']) && mysqli_num_rows($data['toa1']) > 0) {
@@ -204,11 +192,7 @@
                 </div>
             </div>
         </form>
-<<<<<<< HEAD
         <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachPDV/timkiem">
-=======
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new//DanhsachPDV/timkiem">
->>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
             <div class="form-inline">
                 <div class="head_timkiem">
                     <div>
@@ -274,11 +258,7 @@
                                 <td>
 
                                     <a class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal" onclick="updateDataPDV('<?php echo htmlspecialchars(json_encode($row)) ?>')"><i class="fa-regular fa-pen-to-square"></i></a>
-<<<<<<< HEAD
                                     <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachPDV/xoa/<?php echo $row['id'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
-=======
-                                    <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new//DanhsachPDV/xoa/<?php echo $row['id'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
->>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
                                 </td>
 
                             </tr>
@@ -289,33 +269,40 @@
                     </tbody>
                 </table>
             </div>
-           
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item <?php if ($data['page_number'] <= 1) echo 'disabled'; ?>">
-                        <a class="page-link" href="<?php if ($data['page_number'] > 1) echo "?page=" . ($data['page_number'] - 1);
-                                                    else echo '#'; ?>" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <?php for ($i = 1; $i <= $data['total_page']; $i++) { ?>
-                        <li style="padding: 0px;" class="page-item <?php if ($data['page_number'] == $i) echo 'active'; ?>">
-                            <a class="page-link"  href="?page=<?php echo ($i); ?>"><?php echo ($i); ?></a>
+
+            <?php
+            if (isset($_POST['btnTimKiem'])) {
+            } else {
+
+            ?>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item <?php if ($data['page_number'] <= 1) echo 'disabled'; ?>">
+                            <a class="page-link" href="<?php if ($data['page_number'] > 1) echo "?page=" . ($data['page_number'] - 1);
+                                                        else echo '#'; ?>" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
                         </li>
-                    <?php } ?>
-                    <li  style="padding: 0px;" class="page-item <?php if ($data['page_number'] >= $data['total_page']) echo 'disabled'; ?>">
-                        <a class="page-link"  href="<?php if ($data['page_number'] < $data['total_page']) echo "?page=" . ($data['page_number'] + 1);
-                                                    else echo '#'; ?>" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-       </form>    
+                        <?php for ($i = 1; $i <= $data['total_page']; $i++) { ?>
+                            <li style="padding: 0px;" class="page-item <?php if ($data['page_number'] == $i) echo 'active'; ?>">
+                                <a class="page-link" href="?page=<?php echo ($i); ?>"><?php echo ($i); ?></a>
+                            </li>
+                        <?php } ?>
+                        <li style="padding: 0px;" class="page-item <?php if ($data['page_number'] >= $data['total_page']) echo 'disabled'; ?>">
+                            <a class="page-link" href="<?php if ($data['page_number'] < $data['total_page']) echo "?page=" . ($data['page_number'] + 1);
+                                                        else echo '#'; ?>" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            <?php
+            }
+            ?>
 </body>
-     
+
 <script>
-     $(document).ready(function() {
+    $(document).ready(function() {
         $('.maToa').change(function() {
             var maToa = $(this).val();
             if (maToa != '') {

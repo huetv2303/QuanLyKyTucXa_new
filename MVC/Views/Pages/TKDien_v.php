@@ -9,7 +9,8 @@
 <body>
     <div class="main">
         <form action="http://localhost/QuanLyKyTucXa_new/TKDien/thongkedien" method="POST">
-            <h1 style="padding-left: 450px; color: red ;">Thống Kê Điện</h1>
+            <div style="padding-left: 30px;" class="head_tkdien">
+                <h1>Thống Kê Điện Theo Tháng</h1>
 
             <div style="padding-left: 30px;" class="head_timkiem">
 

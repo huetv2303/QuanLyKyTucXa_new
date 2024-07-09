@@ -13,7 +13,8 @@ class HoaDonGuiXe extends controller
         $dulieu = $this->hdgx->load_Data();
         $this->view('Masterlayout', [
             'page' => 'HoaDonGuiXe_v',
-            'dulieu' => $dulieu
+            'dulieu' => $dulieu,
+            'id' => $this->hdgx->get_ID()
         ]);
     }
 
@@ -51,7 +52,8 @@ class HoaDonGuiXe extends controller
         $dulieu = $this->hdgx->load_Data();
         $this->view('MasterLayout', [
             'page' => 'HoaDonGuiXe_v',
-            'dulieu' => $dulieu
+            'dulieu' => $dulieu,
+            'id' => $this->hdgx->get_ID()
         ]);
     }
 
@@ -60,7 +62,8 @@ class HoaDonGuiXe extends controller
     {
         $this->view('Masterlayout', [
             'page' => 'HoaDonGuiXe_sua_v',
-            'dulieu' => $this->hdgx->search_Data($mhd, '', '')
+            'dulieu' => $this->hdgx->search_Data($mhd, '', ''),
+            'id' => $this->hdgx->get_ID()
         ]);
     }
 
@@ -85,7 +88,8 @@ class HoaDonGuiXe extends controller
             $dulieu = $this->hdgx->load_Data();
             $this->view('Masterlayout', [
                 'page' => 'HoaDonGuiXe_v',
-                'dulieu' => $dulieu
+                'dulieu' => $dulieu,
+                'id' => $this->hdgx->get_ID()
             ]);
         }
 
@@ -94,7 +98,8 @@ class HoaDonGuiXe extends controller
             $dulieu = $this->hdgx->load_Data();
             $this->view('Masterlayout', [
                 'page' => 'HoaDonGuiXe_v',
-                'dulieu' => $dulieu
+                'dulieu' => $dulieu,
+                'id' => $this->hdgx->get_ID()
             ]);
         }
     }
@@ -112,7 +117,8 @@ class HoaDonGuiXe extends controller
         $dulieu = $this->hdgx->load_Data();
         $this->view('Masterlayout', [
             'page' => 'HoaDonGuiXe_v',
-            'dulieu' => $dulieu
+            'dulieu' => $dulieu,
+            'id' => $this->hdgx->get_ID()
         ]);
     }
 
@@ -125,7 +131,81 @@ class HoaDonGuiXe extends controller
 
         $this->view('Masterlayout', [
             'page' => 'HoaDonGuiXe_v',
-            'dulieu' => $this->hdgx->search_Data($mhd, $id, $status)
+            'dulieu' => $this->hdgx->search_Data($mhd, $id, $status),
+            'id' => $this->hdgx->get_ID()
         ]);
+    }
+
+    // Func in hóa đơn
+    function ExportExcel()
+    {
+        //code xuất excel
+        $objExcel = new PHPExcel();
+        $objExcel->setActiveSheetIndex(0);
+        $sheet = $objExcel->getActiveSheet()->setTitle('HD');
+        $rowCount = 1;
+        //Tạo tiêu đề cho cột trong excel
+        $sheet->setCellValue('A' . $rowCount, 'Mã hóa đơn');
+        $sheet->setCellValue('B' . $rowCount, 'Mã sinh viên');
+        $sheet->setCellValue('C' . $rowCount, 'Tên sinh viên');
+        $sheet->setCellValue('D' . $rowCount, 'Tháng');
+        $sheet->setCellValue('E' . $rowCount, 'Thành tiền');
+        $sheet->setCellValue('F' . $rowCount, 'Ngày lập');
+        $sheet->setCellValue('G' . $rowCount, 'Loại xe');
+        $sheet->setCellValue('H' . $rowCount, 'Biển số xe');
+        $sheet->setCellValue('I' . $rowCount, 'Trạng thái');
+        $sheet->setCellValue('J' . $rowCount, 'Ghi chú');
+
+        $sheet->getColumnDimension('A')->setAutoSize(true);
+        $sheet->getColumnDimension('B')->setAutoSize(true);
+        $sheet->getColumnDimension('C')->setAutoSize(true);
+        $sheet->getColumnDimension('D')->setAutoSize(true);
+        $sheet->getColumnDimension('E')->setAutoSize(true);
+        $sheet->getColumnDimension('F')->setAutoSize(true);
+        $sheet->getColumnDimension('G')->setAutoSize(true);
+        $sheet->getColumnDimension('H')->setAutoSize(true);
+        $sheet->getColumnDimension('I')->setAutoSize(true);
+        $sheet->getColumnDimension('J')->setAutoSize(true);
+        //gán màu nền
+        $sheet->getStyle('A1:J1')->getFill()->setFillType(\PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('00FF00');
+        //căn giữa
+        $sheet->getStyle('A1:J1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+        //Điền dữ liệu vào các dòng. Dữ liệu lấy từ DB
+
+        $mhd = $_POST['MaHD1'];
+        $id = $_POST['MaSV1'];
+        $dulieu = $this->hdgx->search_Data($mhd, $id, '');
+        while ($row = mysqli_fetch_array($dulieu)) {
+            $rowCount++;
+            $sheet->setCellValue('A' . $rowCount, $row['billCode']);
+            $sheet->setCellValue('B' . $rowCount, $row['ID']);
+            $sheet->setCellValue('C' . $rowCount, $row['studentName']);
+            $sheet->setCellValue('D' . $rowCount, $row['month']);
+            $sheet->setCellValue('E' . $rowCount, $row['price']);
+            $sheet->setCellValue('F' . $rowCount, $row['invoiceDate']);
+            $sheet->setCellValue('G' . $rowCount, $row['vehicle']);
+            $sheet->setCellValue('H' . $rowCount, $row['plate']);
+            $sheet->setCellValue('I' . $rowCount, $row['status']);
+            $sheet->setCellValue('J' . $rowCount, $row['note']);
+        }
+        //  Kẻ bảng 
+        $styleAray = array(
+            'borders' => array(
+                'allborders' => array(
+                    'style' => PHPExcel_Style_Border::BORDER_THIN
+                )
+            )
+        );
+        $sheet->getStyle('A1:' . 'J' . ($rowCount))->applyFromArray($styleAray);
+        $objWriter = new PHPExcel_Writer_Excel2007($objExcel);
+        $fileName = 'ExportExcel.xlsx';
+        $objWriter->save($fileName);
+        header('Content-Disposition: attachment; filename="' . $fileName . '"');
+        header('Content-Type: application/vnd.openxlmformatsofficedocument.speadsheetml.sheet');
+        header('Content-Length: ' . filesize($fileName));
+        header('Content-Transfer-Encoding:binary');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: no-cache');
+        readfile($fileName);
     }
 }

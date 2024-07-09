@@ -36,7 +36,7 @@
 <body>
     <div class="main">
         <br>
-        <a style="margin: 20px;" class="text-black" href="http://localhost/QuanLyKyTucXa_new/HopDong">&lt;&lt; Quay lại</a>
+        <a style="margin: 20px;" class="btn btn-secondary mb-3" href="http://localhost/QuanLyKyTucXa_new/HopDong">&laquo; Quay lại</a>
         <br>
         <h3 class="content1">Thêm hợp đồng mới</h3>
 

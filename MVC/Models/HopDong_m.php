@@ -10,6 +10,8 @@ class HopDong_m extends connectDB
     public function hopdong_ins($mhd, $mnv, $msv, $mt, $mp, $start, $end, $tt)
     {
         $query = "INSERT INTO hopdong VALUES ('$mhd', '$mnv', '$msv', '$mt','$mp', '$start', '$end', '$tt')";
+        $query2 = "UPDATE nhomsinhvien set maPhong = '$mp' where maTruongNhom = '$msv'";
+        mysqli_query($this->conn, $query2);
         return mysqli_query($this->conn, $query);
     }
 
@@ -30,10 +32,12 @@ class HopDong_m extends connectDB
         $query2 = "DELETE FROM noptienphong WHERE maPhong = '$maPhong'";
         $query3 = "DELETE FROM hoa_don_dich_vu WHERE id_room = '$maPhong'";
         $query4 = "DELETE FROM dang_ky_dich_vu WHERE id_room = '$maPhong'";
+        $query5 = "DELETE FROM nhomsinhvien WHERE maPhong = '$maPhong'";
         mysqli_query($this->conn, $query1);
         mysqli_query($this->conn, $query2);
         mysqli_query($this->conn, $query3);
         mysqli_query($this->conn, $query4);
+        mysqli_query($this->conn, $query5);
 
     }
 
@@ -158,7 +162,7 @@ class HopDong_m extends connectDB
 
     public function check_no_phi_dv($m)
     {
-        $sql = "SELECT * FROM hoa_don_dich_vu WHERE id_room = '$m' and status = 'Chưa thanh toán'";
+        $sql = "SELECT * FROM hoa_don_dich_vu WHERE id_room = '$m' and status = 'Chưa thanh toán'";
         $dl = mysqli_query($this->conn, $sql);
         $kq = false;
         if (mysqli_num_rows($dl) > 0) $kq = true; //chua thanh toan hoa don dv
@@ -167,7 +171,7 @@ class HopDong_m extends connectDB
 
     public function check_no_tien_phong($m)
     {
-        $sql = "SELECT * FROM noptienphong WHERE maPhong = '$m' and trangThai = 'Chưa thanh toán'";
+        $sql = "SELECT * FROM noptienphong WHERE maPhong = '$m' and trangThai = 'Chưa thanh toán'";
         $dl = mysqli_query($this->conn, $sql); 
         $kq = false;
         if (mysqli_num_rows($dl) > 0) $kq = true; //chua thanh toan tien phong
