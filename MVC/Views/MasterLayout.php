@@ -12,88 +12,23 @@
     <script src="https://kit.fontawesome.com/7c35a47a4f.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="http://localhost:9090/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
-    <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
+    <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/master.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
 
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=1"> </script>
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/phong.js?v=1"> </script>
 
-    <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=1"> </script>
-    <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/phong.js?v=1"> </script>
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
 
-    <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/XemSV_js.js?v= <?php echo time() ?>"> </script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="http://localhost:9090/QuanLyKyTucXa_new/Public/CSS/l1.css">
-    
-    
-    <link rel="stylesheet" href="/Public/CSS/masterlayout.css">
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        .color-hover {
-            color: #e43f32;
-        }
-
-        #nav1 ul {
-            background-color: #212526;
-        }
-
-        #nav1 a {
-            color: #000000;
-            font-weight: 500;
-        }
-
-        #nav1 a:hover {
-            color: #e43f32;
-        }
-
-        #menu-left1 {
-            float: left;
-            width: 20%;
-            width: 210px;
-        }
-
-        #menu-left1 img {
-            width: 100%;
-        }
-
-        #menu-left1 .main-list {
-            background: #dddddd;
-            font-weight: 500;
-            text-align: left;
-        }
-
-
-        #content-right1 {
-            float: left;
-            width: 80%;
-        }
-
-        #content-right1 .textbox1 {
-            width: 200px;
-        }
-
-        #content-right1 .label1 {
-            width: 80px;
-        }
-
-        #content-right1 .label2 {
-            width: 60px;
-        }
-
-
-    </style>
-
-    <link rel="stylesheet" href="http://localhost:9090/QuanLyKyTucXa_new/Public/CSS/style.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="http://localhost:9090/QuanLyKyTucXa_new/Public/CSS/master.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="http://localhost:9090/QuanLyKyTucXa_new/Public/CSS/l1.css">
-    <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=<?php echo time(); ?>"></script>
-    <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/phong.js?v=1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/l1.css">
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=<?php echo time(); ?>"></script>
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/phong.js?v=1"></script>
+    <script src="https:/cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -121,15 +56,17 @@
                 <li>
                     <a href="#uiElementsSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lý thông tin</a>
                     <ul class="collapse list-unstyled" id="uiElementsSubmenu">
-                        <li><a href="http://localhost:9090/QuanLyKyTucXa_new/DsNhanVien">Danh sách nhân viên</a></li>
-                        <li><a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachSV">Danh sách sinh viên</a></li>
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien">Danh sách nhân viên</a></li>
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachSV">Danh sách sinh viên</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#tablesSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Quản lý hợp đồng</a>
                     <ul class="collapse list-unstyled" id="tablesSubmenu">
                         <li><a href="http://localhost/QuanLyKyTucXa_new/HopDong">Danh sách hợp đồng</a></li>
-                        <li><a href="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan">Gia hạn hợp đồng</a></li>
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/HopDongThem">Thêm mới hợp đồng</a></li>
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan">Gia hạn hợp đồng</a></li>                      
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/HopDongKetThuc">Kết thúc hợp đồng</a></li>
                     </ul>
                 </li>
                 <li>
@@ -138,9 +75,10 @@
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachPDV">Đăng ký dịch vụ</a></li>
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachDN">Điện nước</a></li>
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV/">Dịch vụ khác</a></li>
-                        <li><a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachHDDV">Hóa đơn dịch vụ</a></li>
-                        <li><a href="http://localhost:9090/QuanLyKyTucXa_new/QLyGuiXe">Dịch vụ gửi xe</a></li>
-                        <li><a href="http://localhost:9090/QuanLyKyTucXa_new/HoaDonGuiXe">Hóa đơn gửi xe</a></li>
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV">Hóa đơn dịch vụ</a></li>
+                        <li><a href="http://localhost//QuanLyKyTucXa_new/NopTienPhong">Nộp tiền phòng</a></li>
+                        <li><a href="http://localhost//QuanLyKyTucXa_new/QLyGuiXe">Dịch vụ gửi xe</a></li>
+                        <li><a href="http://localhost//QuanLyKyTucXa_new/HoaDonGuiXe">Hóa đơn gửi xe</a></li>
                     </ul>
                 </li>
                 <li>
@@ -154,10 +92,12 @@
             </ul>
         </aside>
         <main class="main-content flex-grow-1">
-            <header class="header">
-                <div class="header-content d-flex justify-content-between align-items-center">
-                    <h1>Quản lý ký túc xá</h1>
-                </div>
+            <header class="header1">
+                <!-- <div class="header_1" >
+                </div> -->
+                <p></p>
+                <h1 class="h1">Quản lý ký túc xá</h1>
+                <p>Thoát</p>
             </header>
             <section id="content-right1">
                 <?php

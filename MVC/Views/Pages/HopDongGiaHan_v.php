@@ -4,60 +4,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gia hạn hợp đồng</title>
+    <title>Gia hạn hợp đồng</title>  
+    <style>
+        .search-box {
+            /* border: 1px solid black;
+            border-radius: 45px; */
+            padding: 5px;
+        }
+
+        .inputSearch {
+            width: 400px;
+            height: 60px
+        }
+
+        .input-td {
+            padding: 5px 10px;
+        }
+
+        .padd {
+            padding: 10px 0px;
+        }
+
+        .dd2 {
+            padding-left: 10px !important;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="main">
+<div class="main">
         <div>
+
+            <div class="search-box">
+                <!-- <h3 class="text-center align-middle">Tìm kiếm</h3> -->
+                <form class="content1" action="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan/timkiem" class="text-center padd" method="post"> <!-- form tìm kiếm -->
+                    <table  class="d-flex justify-content-center align-items-center">
+                        <tbody>
+                            <tr>
+                                <td class="input-td">
+                                    <div class="form-floating">
+                                        <input type="text" name="txtMaHopDong" id="mhd" class="form-control" placeholder="" value="<?php if (isset($data['maHopDong'])) echo $data['maHopDong'] ?>">
+                                        <label for="mhd">Mã hợp đồng</label>
+                                    </div>
+                                </td>
+                                <td class="input-td">
+                                    <div class="form-floating">
+                                        <input type="text" name="txtMaNhanVien" id="mnv" placeholder="" class="form-control" value="<?php if (isset($data['maNhanVien'])) echo $data['maNhanVien'] ?>">
+                                        <label for="mnv">Mã nhân viên</label>
+                                    </div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="input-td">
+                                    <div class="form-floating">
+                                        <input type="text" name="txtMaTruongNhom" id="msv" placeholder="" class="form-control inputSearch" value="<?php if (isset($data['maSinhVien'])) echo $data['maSinhVien'] ?>">
+                                        <label for="msv">Mã trưởng nhóm</label>
+                                    </div>
+                                </td>
+                                <td class="input-td">
+                                    <div class="form-floating">
+                                        <input type="text" name="txtMaPhong" id="mp" placeholder="" class="form-control inputSearch" value="<?php if (isset($data['maPhong'])) echo $data['maPhong'] ?>">
+                                        <label for="mp">Mã phòng</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="text-center align-middle padd">
+                                    <button type="submit" class="btn btn-success" name="btnTimkiem"><i class="fa-solid fa-magnifying-glass">&nbsp;&nbsp;</i>Tìm kiếm</button>
+                                    <button type="submit" class="btn-outline-success btn" name="btnXuatExcel"><i class="fa-regular fa-file-excel">&nbsp;&nbsp;</i>Xuất excel</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- thẻ div chứa các button thêm mới, nhập, xuất excel
+                    <div class="text-center">
+                        <a href="http://localhost/QuanLyKyTucXa_new/HopDongThem" class="btn btn-primary">+ Thêm mới</a>
+                        <a href="http://localhost/QuanLyKyTucXa_new/HopDongFile" class="btn btn-outline-primary">Nhập excel</a>
+                        <button type="submit" class="btn-outline-primary btn" name="btnXuatExcel">Xuất excel</button>
+                    </div> -->
+
+                </form>
+            </div>
             <h3 class="header">Danh sách hợp đồng hết hạn</h3>
-            <form class="content1" action="http://localhost:9090/QuanLyKyTucXa_new/HopDongGiaHan/timkiem" class="text-center padd" method="post"> <!-- form tìm kiếm -->
-                <table class="text-center">
-                    <tr>
-                        <td>
-                            <label class="dd2" for="">Mã hợp đồng</label>
-                        </td>
-                        <td>
-                            <input type="text" name="txtMaHopDong" placeholder="" class="form-control inputSearch" value="<?php if (isset($data['maHopDong'])) echo $data['maHopDong'] ?>">
-                        </td>
-                        <td>
-                            <label for="">Mã nhân viên</label>
-                        </td>
-                        <td>
-                            <input type="text" name="txtMaNhanVien" placeholder="" class="form-control inputSearch" value="<?php if (isset($data['maNhanVien'])) echo $data['maNhanVien'] ?>">
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="">Mã sinh viên</label>
-                        </td>
-                        <td>
-                            <input type="text" name="txtMaSinhVien" placeholder="" class="form-control inputSearch" value="<?php if (isset($data['maSinhVien'])) echo $data['maSinhVien'] ?>">
-                        </td>
-                        <td>
-                            <label for="">Mã phòng</label>
-                        </td>
-                        <td>
-                            <input type="text" name="txtMaPhong" placeholder="" class="form-control inputSearch" value="<?php if (isset($data['maPhong'])) echo $data['maPhong'] ?>">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="4">
-                            <button type="submit" class="btn btn-primary" name="btnTimkiem">Tìm kiếm</button>
-                        </td>
-                    </tr>
-                </table>
-
-            </form>
-
             <table class="table table-striped">
                 <thead>
                     <tr class="thead-light">
                         <th>STT</th>
                         <th>Mã HĐ</th>
                         <th>Mã NV</th>
-                        <th>Mã SV</th>
+                        <th>Mã trưởng nhóm</th>
+                        <th>Mã tòa</th>
                         <th>Mã phòng</th>
                         <th>Ngày bắt đầu</th>
                         <th>Ngày kết thúc</th>
@@ -75,16 +113,16 @@
                             <tr>
                                 <td><?php echo (++$i) ?></td>
                                 <td><?php echo $row['maHopDong'] ?></td>
-                                <td><?php echo $row['maNhanVien'] ?></td>
-                                <td><?php echo $row['maSinhVien'] ?></td>
+                                <td><?php echo $row['MaNhanVien'] ?></td>
+                                <td><?php echo $row['maTruongNhom'] ?></td>
+                                <td><?php echo $row['maToa'] ?></td>
                                 <td><?php echo $row['maPhong'] ?></td>
                                 <td><?php echo $row['ngayBatDau'] ?></td>
                                 <td><?php echo $row['ngayKetThuc'] ?></td>
                                 <td><?php echo $row['tinhTrang'] ?></td>
                                 <td>
                                     <!-- <a href="">Xóa</a> -->
-                                    <a href="http://localhost:9090/QuanLyKyTucXa_new/HopDongGiaHan/giahan/<?php echo $row['maHopDong'] ?>" class="btn btn-outline-success">Gia hạn</a>
-
+                                    <a href="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan/giahan/<?php echo $row['maHopDong'] ?>" class="btn btn-outline-primary">Gia hạn</a>
                                 </td>
                             </tr>
                     <?php

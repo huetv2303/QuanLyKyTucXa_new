@@ -8,6 +8,8 @@ class DanhsachHDDV extends controller
         $this->dsdv = $this->model('HDDV_m');
     }
 
+
+  
     function Get_data()
     {
 
@@ -16,18 +18,18 @@ class DanhsachHDDV extends controller
         $limit = 5;
         $total = $this->dsdv->count();
         $total_page = ceil($total / $limit);
-      
+
         $dulieu = $this->dsdv->hddv_invoice($page, $limit);
-        $dulieu1 = $this->dsdv->hddv_idP();
-        $dulieu3 = $this->dsdv->hddv_idP();
-        $toa = $this->dsdv->get_all_toa();
-        $toa1 = $this->dsdv->get_all_toa();
-        $phong = $this->dsdv->get_all_phong();
+        // $dulieu1 = $this->dsdv->hddv_idP();
+        // $dulieu3 = $this->dsdv->hddv_idP();
+        $phong = $this->dsdv->hopdong_idP();
+         $toa = $this->dsdv->get_all_toa_hopdong();
+         $toa1 = $this->dsdv->get_all_toa_hopdong();
         $this->view('MasterLayout', [
             'page' => 'DanhsachHDDV_v',
             'dulieu' => $dulieu,
-            'dulieu1' => $dulieu1,
-            'dulieu3' => $dulieu3,
+            // 'dulieu1' => $dulieu1,
+            // 'dulieu3' => $dulieu3,
             'toa' => $toa,
             'toa1' => $toa1,
             'phong' => $phong,
@@ -58,9 +60,9 @@ class DanhsachHDDV extends controller
             $month = $_POST['txtThang'];
             $year = $_POST['txtNam'];
             $notifications = $_POST['TrangThai'];
-            $toa = $this->dsdv->get_all_toa();
-            $toa1 = $this->dsdv->get_all_toa();
-            $phong = $this->dsdv->get_all_phong();
+            $phong = $this->dsdv->hopdong_idP();
+            $toa = $this->dsdv->get_all_toa_hopdong();
+            $toa1 = $this->dsdv->get_all_toa_hopdong();
             $dulieu = $this->dsdv->hddv_find($id_invoice, $id_room, $month, $year, $notifications);
             $dulieu1 = $this->dsdv->hddv_idP();
             $dulieu3 = $this->dsdv->hddv_idP();
@@ -110,11 +112,13 @@ class DanhsachHDDV extends controller
             //căn giữa
             $sheet->getStyle('A1:K1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
             //Điền dữ liệu vào các dòng. Dữ liệu lấy từ DB
+            
             $id_invoice = $_POST['MaHD1'];
             $id_room = $_POST['MaPhong1'];
             $month = $_POST['month1'];
             $year = $_POST['year1'];
-            $dulieu = $this->dsdv->hddv_find($id_invoice, $id_room, $month, $year);
+            $status = $_POST['TrangThai1'];
+            $dulieu = $this->dsdv->hddv_find($id_invoice, $id_room, $month, $year,$status );
 
             $rowCount = 2;
             while ($row = mysqli_fetch_array($dulieu)) {
@@ -155,13 +159,13 @@ class DanhsachHDDV extends controller
             exit;
         }
     }
+    
 
-
-    function get_phong_by_toa()
+    function get_phong_by_toa_hopdong()
     {
         if (isset($_POST['maToa'])) {
             $maToa = $_POST['maToa'];
-            $result = $this->dsdv->get_phong_by_toa($maToa);
+            $result = $this->dsdv->get_phong_by_toa_hopdong($maToa);
             $rooms = array();
             while ($row = mysqli_fetch_assoc($result)) {
                 $rooms[] = $row;
@@ -194,15 +198,12 @@ class DanhsachHDDV extends controller
             $maToa  = $_POST['txtMaToa'];
 
             //gọi hàm sủa dl tacgia_udp trong model
-            
 
-           
-
-                    $kq = $this->dsdv->hddv_upd($id_invoice, $maToa, $id_room, $soDien, $khoiNuoc, $electricity, $water, $month, $year,  $ended_day, $status);
-                    if ($kq) {
-                        echo "<script>alert('Sửa thành công!')</script>";
-                    } else
-                        echo "<script>alert('Sửa thất bại!')</script>";
+            $kq = $this->dsdv->hddv_upd($id_invoice, $maToa, $id_room, $soDien, $khoiNuoc, $electricity, $water, $month, $year,  $ended_day, $status);
+            if ($kq) {
+                echo "<script>alert('Sửa thành công!')</script>";
+            } else
+                echo "<script>alert('Sửa thất bại!')</script>";
         }
         $page = 1;
         if (isset($_GET['page']))  $page = $_GET['page'];
@@ -212,9 +213,9 @@ class DanhsachHDDV extends controller
         $dulieu = $this->dsdv->hddv_invoice($page, $limit);
         $dulieu1 = $this->dsdv->hddv_idP();
         $dulieu3 = $this->dsdv->hddv_idP();
-        $toa = $this->dsdv->get_all_toa();
-        $toa1 = $this->dsdv->get_all_toa();
-        $phong = $this->dsdv->get_all_phong();
+        $phong = $this->dsdv->hopdong_idP();
+        $toa = $this->dsdv->get_all_toa_hopdong();
+        $toa1 = $this->dsdv->get_all_toa_hopdong();
         $this->view('MasterLayout', [
             'page' => 'DanhsachHDDV_v',
             'dulieu' => $dulieu,
@@ -252,9 +253,9 @@ class DanhsachHDDV extends controller
         $dulieu = $this->dsdv->hddv_invoice($page, $limit);
         $dulieu1 = $this->dsdv->hddv_idP();
         $dulieu3 = $this->dsdv->hddv_idP();
-        $toa = $this->dsdv->get_all_toa();
-        $toa1 = $this->dsdv->get_all_toa();
-        $phong = $this->dsdv->get_all_phong();
+        $phong = $this->dsdv->hopdong_idP();
+        $toa = $this->dsdv->get_all_toa_hopdong();
+        $toa1 = $this->dsdv->get_all_toa_hopdong();
         $this->view('MasterLayout', [
             'page' => 'DanhsachHDDV_v',
             'dulieu' => $dulieu,
@@ -267,7 +268,6 @@ class DanhsachHDDV extends controller
             'limit' => $limit,
             'page_number' => $page
         ]);
-
     }
 
     function themmoi()
@@ -288,6 +288,7 @@ class DanhsachHDDV extends controller
             $month = $_POST['txtThang'];
             $year = $_POST['txtNam'];
             $maToa = $_POST['txtMaToa'];
+            // $TienCoc = $_POST['TienCoc'];
 
 
 
@@ -309,7 +310,7 @@ class DanhsachHDDV extends controller
                   </script>";
                 } else {
                     // Gọi hàm thêm dl trong model
-                    $kq = $this->dsdv->hddv_ins($id_invoice, $maToa, $id_room, $soDien, $khoiNuoc, $electricity, $water, $month, $year, $ended_day, $status);
+                    $kq = $this->dsdv->hddv_ins($id_invoice, $maToa, $id_room, $soDien, $khoiNuoc, $electricity, $water, $month, $year , $ended_day, $status);
 
                     if ($kq) {
                         echo "<script>
@@ -331,9 +332,9 @@ class DanhsachHDDV extends controller
         $dulieu = $this->dsdv->hddv_invoice($page, $limit);
         $dulieu1 = $this->dsdv->hddv_idP();
         $dulieu3 = $this->dsdv->hddv_idP();
-        $toa = $this->dsdv->get_all_toa();
-        $toa1 = $this->dsdv->get_all_toa();
-        $phong = $this->dsdv->get_all_phong();
+        $phong = $this->dsdv->hopdong_idP();
+         $toa = $this->dsdv->get_all_toa_hopdong();
+         $toa1 = $this->dsdv->get_all_toa_hopdong();
         $this->view('MasterLayout', [
             'page' => 'DanhsachHDDV_v',
             'dulieu' => $dulieu,

@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <body>
-    <form action="http://localhost:9090/QuanLyKyTucXa_new/HoaDonGuiXe/Search" method="post">
+    <form action="http://localhost/QuanLyKyTucXa_new/HoaDonGuiXe/Search" method="post">
         <div>
             <h3>DANH SÁCH HÓA ĐƠN GỬI XE</h3>
             <br>
@@ -84,8 +84,8 @@
                                 <td><?php echo $row['status'] ?></td>
                                 <td><?php echo $row['note'] ?></td>
                                 <td>
-                                    <a href="http://localhost:9090/QuanLyKyTucXa_new/HoaDonGuiXe/Update/<?php echo $row['billCode'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp;
-                                    <a onclick="return confirm('Bạn chắc chắn muốn xóa hóa đơn này?')" href="http://localhost:9090/QuanLyKyTucXa_new/HoaDonGuiXe/Delete/<?php echo $row['billCode'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="http://localhost/QuanLyKyTucXa_new/HoaDonGuiXe/Update/<?php echo $row['billCode'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp;
+                                    <a onclick="return confirm('Bạn chắc chắn muốn xóa hóa đơn này?')" href="http://localhost/QuanLyKyTucXa_new/HoaDonGuiXe/Delete/<?php echo $row['billCode'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                     <?php
@@ -103,7 +103,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
 
-            <form action="http://localhost:9090/QuanLyKyTucXa_new/HoaDonGuiXe/Insert" method="post">
+            <form action="http://localhost/QuanLyKyTucXa_new/HoaDonGuiXe/Insert" method="post">
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h5 class="modal-title">THÊM MỚI HÓA ĐƠN</h5>

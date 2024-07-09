@@ -1,86 +1,52 @@
 <?php
-class HopDong extends controller
+class HopDongKetThuc extends controller
 {
-    protected $hopdong;
-    public function __construct()
-    {
-        $this->hopdong = $this->model('HopDong_m');
-    }
-
+    protected $hopdongketthuc;
     public function Get_data()
     {
-        
-        $dulieu = $this->hopdong->hopdong_all(); //load toàn bộ danh sách hợp đồng
+        $dulieu = $this->hopdongketthuc->hopdonggiahan_all(); //load toàn bộ danh sách hợp đồng có trạng thái là hết hạn
         $this->view('Masterlayout', [
-            'page' => 'HopDong_v',
-            'dulieu' => $dulieu,
-            // 'nhanvien' => $nhanvien,
-            // 'sinhvien' => $sinhvien,
-            // 'phong' => $phong
+            'page' => 'HopDongKetThuc_v',
+            'dulieu' => $dulieu
         ]);
     }
 
-    public function xoa($mhd)
+    public function __construct()
     {
-        $kq = $this->hopdong->hopdong_del($mhd);
-        if ($kq) echo "<script>alert('xoa thành công')</script>";
-        else echo "<script>alert('xoa thất bai')</script>";
+        $this->hopdongketthuc = $this->model('HopDong_m');
+    }
 
 
-        $dulieu = $this->hopdong->hopdong_all();
+
+    public function ketthuc($mp)
+    {
+
+        $nophidv = $this->hopdongketthuc->check_no_phi_dv($mp);
+        $notienphong  = $this->hopdongketthuc->check_no_tien_phong($mp);
+
+        if ($notienphong || $nophidv) {
+            if ($notienphong) echo "<script>alert('Chưa thanh toán tiền phòng, không thể kết thúc hợp đồng')</script>";
+            if ($nophidv) echo "<script>alert('Chưa thanh toán phí dịch vụ, không thể kết thúc hợp đồng')</script>";
+        }
+        else
+        {
+            $this->hopdongketthuc->hopdong_ketthuc($mp);
+            echo "<script>alert('Kết thúc hợp đồng thành công rực rỡ😍😍')</script>";
+        }
+
+
+        $dulieu = $this->hopdongketthuc->hopdonggiahan_all();
         //Goi lai giao dien va truyen $duleiu ra
         $this->view('Masterlayout', [
-            'page' => 'HopDong_v',
+            'page' => 'HopDongKetThuc_v',
             'dulieu' => $dulieu,
         ]);
     }
-    
-    public function sua($mhd){
-        $nhanvien = $this->hopdong->nhanvien_all();
-        // $sinhvien = $this->hopdong->sinhvien_all();
-        $phong = $this->hopdong->phong_all();
-        $truongnhom = $this->hopdong->truongnhom_all();
-        $phong = $this->hopdong->phong_all();
-        $toa = $this->hopdong->toa_all();
-        $this->view('Masterlayout', [
-            'page' => 'HopDong_sua_v',
-            'dulieu' => $this->hopdong->hopdong_find($mhd, '','',''),
-            'nhanvien' => $nhanvien,
-            'truongnhom' => $truongnhom,
-            'phong' => $phong,
-            'toa' => $toa,
-        ]);
-    }
 
-    public function suadl(){
-        if (isset($_POST['btnLuu'])) {
-            $mhd = $_POST['txtMaHopDong'];
-            $mnv = $_POST['txtMaNhanVien'];
-            // $msv = $_POST['txtMaTruongNhom'];
-            $mt = $_POST['txtMaToa'];
-            $mp = $_POST['txtMaPhong'];
-            $start = $_POST['txtNgayBatDau'];
-            $end = $_POST['txtNgayKetThuc'];
-            $tt = $_POST['txtTinhTrang'];
 
-            $kq = $this->hopdong->hopdong_upd($mhd, $mnv, $mt, $mp, $start, $end, $tt);
-            if ($kq) {
-                echo "<script>alert('Sửa thành công!')</script>";
-            } else
-                echo "<script>alert('Sửa thất bại!')</script>";
 
-            
-            // header("Location: http://localhost/QuanLyKyTucXa_new/HopDong");
-            // Gọi lại giao diện và truyền $dulieu ra
-            $dulieu = $this->hopdong->hopdong_all();
-            $this->view('Masterlayout', [
-                'page' => 'HopDong_v',
-                'dulieu' => $dulieu
-            ]);
-        }
-    }
-
-    public function timkiem(){
+    public function timkiem()
+    {
         //code nút tìm kiếm
         if (isset($_POST['btnTimkiem'])) {
             $mhd = $_POST['txtMaHopDong'];
@@ -88,14 +54,14 @@ class HopDong extends controller
             $msv = $_POST['txtMaTruongNhom'];
             $mp = $_POST['txtMaPhong'];
 
-            $dulieu = $this->hopdong->hopdong_find($mhd, $mnv, $msv, $mp);
+            $dulieu = $this->hopdongketthuc->hopdonghethan_find($mhd, $mnv, $msv, $mp);
             $this->view('Masterlayout', [
-                'page' => 'HopDong_v',
+                'page' => 'HopDongKetThuc_v',
                 'dulieu' => $dulieu,
-                'maHopDong'=> $mhd,
-                'maNhanVien'=>$mnv,
-                'maSinhVien'=>$msv,
-                'maPhong'=>$mp
+                'maHopDong' => $mhd,
+                'maNhanVien' => $mnv,
+                'maSinhVien' => $msv,
+                'maPhong' => $mp
             ]);
         }
 
@@ -106,7 +72,7 @@ class HopDong extends controller
             $objExcel->setActiveSheetIndex(0);
             $sheet = $objExcel->getActiveSheet()->setTitle('Danh sach');
             $rowCount = 1;
-            
+
             //Tạo tiêu đề cho cột trong excel
             $sheet->setCellValue('A' . $rowCount, 'STT');
             $sheet->setCellValue('B' . $rowCount, 'Mã Hợp đồng');
@@ -116,7 +82,7 @@ class HopDong extends controller
             $sheet->setCellValue('F' . $rowCount, 'Ngày bắt dầu');
             $sheet->setCellValue('G' . $rowCount, 'Ngày kết thúc');
             $sheet->setCellValue('H' . $rowCount, 'Tình trạng');
-            
+
 
             //định dạng cột tiêu đề
             $sheet->getColumnDimension('A')->setAutoSize(true);
@@ -133,15 +99,15 @@ class HopDong extends controller
             //căn giữa
             $sheet->getStyle('A1:H1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
             //bôi đậm dòng tiêu đề
-            $sheet->getStyle('A1:H1')->getFont()->setBold(true); 
-            
+            $sheet->getStyle('A1:H1')->getFont()->setBold(true);
+
             //Điền dữ liệu vào các dòng. Dữ liệu lấy từ DB
             $mhd = $_POST['txtMaHopDong'];
             $mnv = $_POST['txtMaNhanVien'];
             $msv = $_POST['txtMaTruongNhom'];
             $mp = $_POST['txtMaPhong'];
 
-            $data = $this->hopdong->hopdong_find($mhd, $mnv, $msv, $mp);
+            $data = $this->hopdongketthuc->hopdonghethan_find($mhd, $mnv, $msv, $mp);
 
             while ($row = mysqli_fetch_array($data)) {
                 $rowCount++;
@@ -164,9 +130,9 @@ class HopDong extends controller
             );
             $sheet->getStyle('A1:' . 'H' . ($rowCount))->applyFromArray($styleAray);
             //căn giữa cột stt
-            $sheet->getStyle('A2:A'.($rowCount))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER); 
+            $sheet->getStyle('A2:A' . ($rowCount))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
-            
+
             $objWriter = new PHPExcel_Writer_Excel2007($objExcel);
             $fileName = 'DanhSachHopDong.xlsx';
             $objWriter->save($fileName);
@@ -181,35 +147,4 @@ class HopDong extends controller
             readfile($fileName);
         }
     }
-
-
-    function get_phong_by_toa()
-    {
-        if (isset($_POST['maToa'])) {
-            $maToa = $_POST['maToa'];
-            $result = $this->hopdong->get_phong_by_toa($maToa);
-            $rooms = array();
-            while ($row = mysqli_fetch_assoc($result)) {
-                $rooms[] = $row;
-            }
-            echo json_encode($rooms);
-        }
-    }
-    function get_tien_phong_by_phong()
-    {
-        if (isset($_POST['maPhong'])) {
-            $maPhong = $_POST['maPhong'];
-            $result = $this->hopdong->get_tien_phong_by_phong($maPhong);
-
-            // Assuming the result returns only one row with 'tienPhong' column
-            if ($row = mysqli_fetch_assoc($result)) {
-                $response = array('tienPhong' => $row['tienPhong']);
-                echo json_encode($response);
-            } else {
-                // Handle the case where no data is found
-                echo json_encode(array('tienPhong' => null));
-            }
-        }
-    }
-
 }

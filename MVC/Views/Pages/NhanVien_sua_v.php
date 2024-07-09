@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DsNhanVien/Update">
+    <form method="post" action="http://localhost/QuanLyKyTucXa_new/DsNhanVien/Update">
         <div class="form-group">
             <?php
             if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
@@ -34,9 +34,9 @@
                     <input type="text" class="form-control" placeholder="Số điện thoại" name="txtSdt" value="<?php echo $row['SoDienThoai'] ?>">
                     <label>Mã tòa</label>
                     <select name="txtMaToa" class="form-control">
-                        <option value="A" <?php if ($row['MaToa'] == 'A') echo 'selected'; ?>>A</option>
-                        <option value="B" <?php if ($row['MaToa'] == 'B') echo 'selected'; ?>>B</option>
-                        <option value="C" <?php if ($row['MaToa'] == 'C') echo 'selected'; ?>>C</option>
+                        <option value="A" <?php if ($row['maToa'] == 'A') echo 'selected'; ?>>A</option>
+                        <option value="B" <?php if ($row['maToa'] == 'B') echo 'selected'; ?>>B</option>
+                        <option value="C" <?php if ($row['maToa'] == 'C') echo 'selected'; ?>>C</option>
                     </select>
             <?php
                 }

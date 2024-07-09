@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-<form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/HoaDonGuiXe/UpdateData">
+<form method="post" action="http://localhost/QuanLyKyTucXa_new/HoaDonGuiXe/UpdateData">
         <div class="form-group">
             <?php
             if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {

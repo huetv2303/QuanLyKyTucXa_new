@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách hợp đồng</title>
-
-    <link rel="stylesheet" href="/Public/CSS/style.css">
+    <title>Gia hạn hợp đồng</title>  
     <style>
         .search-box {
             /* border: 1px solid black;
@@ -34,12 +32,12 @@
 </head>
 
 <body>
-    <div class="main">
+<div class="main">
         <div>
 
             <div class="search-box">
                 <!-- <h3 class="text-center align-middle">Tìm kiếm</h3> -->
-                <form class="content1" action="http://localhost/QuanLyKyTucXa_new/HopDong/timkiem" class="text-center padd" method="post"> <!-- form tìm kiếm -->
+                <form class="content1" action="http://localhost/QuanLyKyTucXa_new/HopDongKetThuc/timkiem" class="text-center padd" method="post"> <!-- form tìm kiếm -->
                     <table  class="d-flex justify-content-center align-items-center">
                         <tbody>
                             <tr>
@@ -75,7 +73,6 @@
                                 <td colspan="4" class="text-center align-middle padd">
                                     <button type="submit" class="btn btn-success" name="btnTimkiem"><i class="fa-solid fa-magnifying-glass">&nbsp;&nbsp;</i>Tìm kiếm</button>
                                     <button type="submit" class="btn-outline-success btn" name="btnXuatExcel"><i class="fa-regular fa-file-excel">&nbsp;&nbsp;</i>Xuất excel</button>
-                                    <a class="btn-outline-success btn" href="http://localhost/QuanLyKyTucXa_new/HopDongFile">Nhập excel</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -90,7 +87,7 @@
 
                 </form>
             </div>
-            <h3 class="header">Danh sách hợp đồng</h3>
+            <h3 class="header">Danh sách hợp đồng hết hạn</h3>
             <table class="table table-striped">
                 <thead>
                     <tr class="thead-light">
@@ -125,9 +122,7 @@
                                 <td><?php echo $row['tinhTrang'] ?></td>
                                 <td>
                                     <!-- <a href="">Xóa</a> -->
-                                    <a href="http://localhost:9090/QuanLyKyTucXa_new/HopDong/sua/<?php echo $row['maHopDong'] ?>" class="btn btn-outline-primary">Sửa</a>
-                                    <a href="http://localhost:9090/QuanLyKyTucXa_new/HopDong/xoa/<?php echo $row['maHopDong'] ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa ko?')" class="btn btn-outline-danger">Xóa</a>
-
+                                    <a href="http://localhost/QuanLyKyTucXa_new/HopDongKetThuc/ketthuc/<?php echo $row['maPhong'] ?>" onclick="return confirm('Bạn có chắc chắn muốn kết thúc hợp đồng này ko?')" class="btn btn-outline-danger">Kết thúc</a>
                                 </td>
                             </tr>
                     <?php

@@ -33,7 +33,7 @@
                                         <br>
 
                                         <label>Mã tòa</label>
-                                        <select name="txtMaToa" class="form-control maToa" id="maToa" require>
+                                        <select name="txtMaToa" class="form-control maToa" id="maToa" required>
                                             <option value="">-------Chọn--------</option>
                                             <?php
                                             if (isset($data['toa']) && mysqli_num_rows($data['toa']) > 0) {
@@ -47,32 +47,40 @@
                                         </select>
 
                                         <label>Mã phòng</label>
-                                        <select name="txtMaPhong" class="form-control maPhong" id="maPhong" require>
+                                        <select name="txtMaPhong" class="form-control maPhong" id="maPhong" required>
                                             <option value="">-------Chọn--------</option>
                                         </select>
                                         <br>
 
                                         <label for="txtDien">Số điện ban đầu:</label>
-                                        <input type="number" class="form-control" placeholder="Nhập số điện ban đầu" name="txtDienBD" id="txtDienBD1" require>
+                                        <input type="number" class="form-control" placeholder="Nhập số điện ban đầu" name="txtDienBD" id="txtDienBD1" required>
 
                                         <label for="txtDien">Điện:</label>
-                                        <input type="number" class="form-control" placeholder="Nhập khối điện hiện tại" name="txtDien" id="txtDien1" require>
+                                        <input type="number" class="form-control" placeholder="Nhập khối điện hiện tại" name="txtDien" id="txtDien1" required>
                                         <span class="error-message" id="errorTxtDien"></span>
                                         <br>
 
 
 
                                         <label for="txtNuoc">Khối nước ban đầu:</label>
-                                        <input type="number" class="form-control" placeholder="Nhập số nước ban đầu" name="txtNuocBD" id="txtNuocBD1" require>
+                                        <input type="number" class="form-control" placeholder="Nhập số nước ban đầu" name="txtNuocBD" id="txtNuocBD1" required>
 
                                         <label for="txtNuoc">Nước:</label>
                                         <input type="number" class="form-control" placeholder="Nhập số nước hiện tại" name="txtNuoc" id="txtNuoc1" required>
                                         <span class="error-message" id="errorTxtNuoc"></span>
                                         <br>
+                                        
+                                        <!-- <label for="">Tổng tiền điện</label>
+                                        <input type="number" disabled class="form-control" name="nuoc" id="nuoc" required>
+                                        <br>    -->
 
                                         <label for="">Tổng tiền điện nước</label>
                                         <input type="number" disabled class="form-control" name="total" id="total" required>
                                         <br>
+<!-- 
+                                        <label for="">Tiền đóng trước</label>
+                                        <input type="number" class="form-control" name="TienCoc" id="TienCoc1" required>
+                                        <br> -->
 
                                         <table>
                                             <thead>
@@ -99,7 +107,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary" name="btnLuu">Lưu</button>
+                                    <button type="submit" class="btn btn-success" name="btnLuu">Lưu</button>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +132,7 @@
 
 
                                 <label>Mã tòa</label>
-                                <select name="txtMaToa" class="form-control maToa" id="txtMaToa" require>
+                                <select name="txtMaToa"  class="form-control maToa" id="txtMaToa" required>
                                     <option value="">-------Chọn--------</option>
                                     <?php
                                     if (isset($data['toa1']) && mysqli_num_rows($data['toa1']) > 0) {
@@ -138,7 +146,7 @@
                                 </select>
 
                                 <label>Mã phòng</label>
-                                <select type name="txtMaPhong" class="form-control maPhong" id="txtMaPhong" require>
+                                <select type name="txtMaPhong" class="form-control maPhong" id="txtMaPhong" required>
                                     <?php
                                     if (isset($data['phong']) && mysqli_num_rows($data['phong']) > 0) {
                                         while ($c = mysqli_fetch_assoc($data['phong'])) {
@@ -167,7 +175,10 @@
                                 <input type="number" class="form-control" name="txtNuoc" id="txtNuoc">
                                 <span class="error-message" id="errorTxtNuoc"></span>
                                 <br>
-
+<!-- 
+                                <label for="">Tiền đóng trước</label>
+                                <input type="number" class="form-control" name="TienCoc" id="TienCoc" required>
+                                <br> -->
                                 <table>
                                     <thead>
                                         <td>Tháng</td>
@@ -223,65 +234,81 @@
                                                 <input type="hidden" name="MaHD1" id="MaHD1" value="">
                                                 <input type="hidden" name="month1" id="month1" value="">
                                                 <input type="hidden" name="year1" id="year1" value="">
+                                                <input type="hidden" name="TrangThai1" id="TrangThai1" value="">
                                             </ul>
                                             <hr>
                                             <div class="col-xl-10">
                                                 <p style="margin: 0;">Số Điện đã dùng</p>
                                             </div>
-                                            <div class="col-xl-12">
+                                            <div style="padding:10px" class="col-xl-12">
                                                 <p class="float-end" id="Dien"><span>kWh</span></p>
                                             </div>
                                             <hr>
                                         </div>
+
+
                                         <div class="row">
                                             <div class="col-xl-10">
                                                 <p>Số Nước đã dùng</p>
                                             </div>
-                                            <div class="col-xl-12">
+                                            <div style="padding:10px" class="col-xl-12">
                                                 <p class="float-end" id="Nuoc"></p>
                                             </div>
                                             <hr>
                                         </div>
+
                                         <div class="row">
                                             <div class="col-xl-10">
                                                 <p>Tổng điện nước</p>
                                             </div>
-                                            <div class="col-xl-12">
+                                            <div style="padding:10px" class="col-xl-12">
                                                 <p class="float-end" id="TongDN"></p>
                                             </div>
                                             <hr>
                                         </div>
+
                                         <div class="row">
                                             <div class="col-xl-10">
                                                 <p>Tổng dịch vụ khác</p>
                                             </div>
-                                            <div class="col-xl-12">
+                                            <div style="padding:10px" class="col-xl-12">
                                                 <p class="float-end" id="TongDV"></p>
                                             </div>
-                                            <hr style="border: 2px solid black;">
+                                            <hr>
                                         </div>
-
+                                         
+                                        <!-- <div class="row">
+                                            <div class="col-xl-10">
+                                                <p>Tiền cọc</p>
+                                            </div>
+                                            <div style="padding:10px" class="col-xl-12">
+                                                <p class="float-end" id="TienCoc2"></p>
+                                            </div>
+                                            <hr>
+                                        </div> -->
 
                                         <div class="row">
                                             <div class="col-xl-10">
                                                 <p>Tiền tháng</p>
                                             </div>
-                                            <div class="col-xl-12">
+                                            <div style="padding:10px" class="col-xl-12">
                                                 <p class="float-end" id="year"></p>
                                             </div>
                                             <hr style="border: 2px solid black;">
                                         </div>
+
                                         <div class="row">
                                             <div class="col-xl-10">
                                                 <p>Trạng thái</p>
                                             </div>
-                                            <div class="col-xl-12">
+                                            <div style="padding:10px" class="col-xl-12">
                                                 <p class="float-end" id="TrangThai"></p>
                                             </div>
                                             <hr style="border: 2px solid black;">
                                         </div>
+
                                         <div class="row text-black">
-                                            <div class="col-x1-12">
+                                            <div style="padding:10px" class="col-x1-12">
                                                 <p class="float-end fw-bold" id="Tong">Total:</p>
                                             </div>
                                             <hr style="border: 2px solid black;">
@@ -326,10 +353,10 @@
                         <select name="TrangThai" id="" class="form-control">
 
                             <option value="">-------Chọn--------</option>
-                            <option value="Đã thanh toán" <?php echo isset($_POST['TrangThai']) && $_POST['TrangThai'] == 'Đã thanh toán' ? 'selected' : ''; ?> >Đã thanh toán</option>
+                            <option value="Đã thanh toán" <?php echo isset($_POST['TrangThai']) && $_POST['TrangThai'] == 'Đã thanh toán' ? 'selected' : ''; ?>>Đã thanh toán</option>
                             <option value="Chưa thanh toán" <?php echo isset($_POST['TrangThai']) && $_POST['TrangThai'] == 'Chưa thanh toán' ? 'selected' : ''; ?>>Chưa thanh toán</option>
-                            <option value="Hóa đơn quá hạn"<?php echo isset($_POST['TrangThai']) && $_POST['TrangThai'] == 'Hóa đơn quá hạn' ? 'selected' : ''; ?> >Hóa đơn quá hạn</option>
-                           
+                            <option value="Hóa đơn quá hạn" <?php echo isset($_POST['TrangThai']) && $_POST['TrangThai'] == 'Hóa đơn quá hạn' ? 'selected' : ''; ?>>Hóa đơn quá hạn</option>
+
                         </select>
 
                     </div>
@@ -347,6 +374,7 @@
                             <th>Mã phòng</th>
                             <th>Tổng điện nước</th>
                             <th>Tổng dịch vụ khác</th>
+                            <!-- <th>Tiền cọc</th> -->
                             <th>Tổng</th>
                             <th>Tháng</th>
                             <th>Năm</th>
@@ -388,10 +416,10 @@
                                     <td style="display:none;"><?php echo htmlspecialchars($row['electricity_cost']) ?></td>
                                     <td style="display:none;"><?php echo htmlspecialchars($row['water_cost']) ?></td>
                                     <td><?php echo htmlspecialchars($row['total_service_cost']) ?></td>
+                                    <!-- <td><?php echo htmlspecialchars($row['advance_deposit']) ?></td> -->
                                     <td><?php echo htmlspecialchars($row['total_cost']) ?></td>
                                     <td><?php echo htmlspecialchars($row['month']) ?></td>
                                     <td><?php echo htmlspecialchars($row['year']) ?></td>
-                                    <!-- <td><?php echo htmlspecialchars($row['notifications']) ?></td> -->
                                     <td><span class="<?php echo $notificationClass; ?>"><?php echo $notificationText; ?></span></td>
                                     <td style="display:none;"><?php echo htmlspecialchars($row['status']) ?></td>
                                     <td>
@@ -401,7 +429,7 @@
                                     </td>
                                 </tr>
                         <?php
-                        $i++;
+                                $i++;
                             }
                         }
                         ?>
@@ -410,11 +438,10 @@
             </div>
         </form>
         <?php
-                if(isset($_POST['btnTimKiem'])){
+        if (isset($_POST['btnTimKiem'])) {
+        } else {
 
-                }else{
-
-            ?>
+        ?>
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
                     <li class="page-item <?php if ($data['page_number'] <= 1) echo 'disabled'; ?>">
@@ -425,20 +452,20 @@
                     </li>
                     <?php for ($i = 1; $i <= $data['total_page']; $i++) { ?>
                         <li style="padding: 0px;" class="page-item <?php if ($data['page_number'] == $i) echo 'active'; ?>">
-                            <a class="page-link"  href="?page=<?php echo ($i); ?>"><?php echo ($i); ?></a>
+                            <a class="page-link" href="?page=<?php echo ($i); ?>"><?php echo ($i); ?></a>
                         </li>
                     <?php } ?>
-                    <li  style="padding: 0px;" class="page-item <?php if ($data['page_number'] >= $data['total_page']) echo 'disabled'; ?>">
-                        <a class="page-link"  href="<?php if ($data['page_number'] < $data['total_page']) echo "?page=" . ($data['page_number'] + 1);
+                    <li style="padding: 0px;" class="page-item <?php if ($data['page_number'] >= $data['total_page']) echo 'disabled'; ?>">
+                        <a class="page-link" href="<?php if ($data['page_number'] < $data['total_page']) echo "?page=" . ($data['page_number'] + 1);
                                                     else echo '#'; ?>" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
                 </ul>
             </nav>
-            <?php
-                }
-           ?>
+        <?php
+        }
+        ?>
     </div>
 
 </body>
@@ -449,12 +476,15 @@
     function calculateTotal() {
         const electricityUsage = parseFloat(document.getElementById('txtDien1').value) - parseFloat(document.getElementById('txtDienBD1').value);
         const waterUsage = parseFloat(document.getElementById('txtNuoc1').value) - parseFloat(document.getElementById('txtNuocBD1').value);
+        // const advanceDeposit = parseFloat(document.getElementById('TienCoc1').value) ;
 
         const totalElectricityCost = electricityUsage * priceElectricity;
-        const totalWaterCost = waterUsage * priceWater;
+        const totalWaterCost = waterUsage * priceWater ;
 
-        const totalCost = totalElectricityCost + totalWaterCost;
+        const totalCost = (totalElectricityCost + totalWaterCost) ;
 
+        
+       
 
         if (!isNaN(totalCost)) {
             document.getElementById('total').value = totalCost;
@@ -466,6 +496,7 @@
     document.getElementById('txtDienBD1').addEventListener('input', calculateTotal);
     document.getElementById('txtNuoc1').addEventListener('input', calculateTotal);
     document.getElementById('txtNuocBD1').addEventListener('input', calculateTotal);
+    // document.getElementById('TienCoc1').addEventListener('input', calculateTotal);
 
 
 
@@ -474,7 +505,7 @@
             var maToa = $(this).val();
             if (maToa != '') {
                 $.ajax({
-                    url: 'http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/get_phong_by_toa',
+                    url: 'http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/get_phong_by_toa_hopdong',
                     method: 'POST',
                     data: {
                         maToa: maToa

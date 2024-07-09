@@ -38,7 +38,7 @@
         <div class="form-inline">
             <table>
                 <tr>
-                    <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/QLyGuiXe/search">
+                    <form method="post" action="http://localhost/QuanLyKyTucXa_new/QLyGuiXe/search">
                         <td>
                             <input placeholder="Nhập mã sinh viên" type="text" id="txtMaSv" class="form-control" name="txtMaSV" value="<?php if (isset($data['maNv'])) echo $data['maNv'] ?>">
                         </td>
@@ -101,8 +101,8 @@
                             <td><?php echo $row['typeOfVehicle'] ?></td>
                             <td><?php echo $row['plate'] ?></td>
                             <td>
-                                <a href="http://localhost:9090/QuanLyKyTucXa_new/QLyGuiXe/update_load/<?php echo $row['ID'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square">&nbsp;&nbsp;</i>Sửa</a> &nbsp;
-                                <a onclick="return confirm('Bạn có muốn xóa nhân viên này không ?')" href="http://localhost:9090/QuanLyKyTucXa_new/QLyGuiXe/DeleteInfo/<?php echo $row['ID'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash">&nbsp;&nbsp;</i>Xóa</a>
+                                <a href="http://localhost/QuanLyKyTucXa_new/QLyGuiXe/update_load/<?php echo $row['ID'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square">&nbsp;&nbsp;</i>Sửa</a> &nbsp;
+                                <a onclick="return confirm('Bạn có muốn xóa nhân viên này không ?')" href="http://localhost/QuanLyKyTucXa_new/QLyGuiXe/DeleteInfo/<?php echo $row['ID'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash">&nbsp;&nbsp;</i>Xóa</a>
                             </td>
                         </tr>
                 <?php
@@ -118,7 +118,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
 
-                <form action="http://localhost:9090/QuanLyKyTucXa_new/QLyGuiXe/Insert" method="post">
+                <form action="http://localhost/QuanLyKyTucXa_new/QLyGuiXe/Insert" method="post">
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h5 class="modal-title">THÊM MỚI SINH VIÊN ĐĂNG KÝ GỬI XE</h5>
@@ -175,7 +175,7 @@
         </div>
     </div>
     <!-- Modal choose file Excel -->
-    <form action="http://localhost:9090/QuanLyKyTucXa_new/QLyGuiXe/ImportExcel" method="post" enctype="multipart/form-data">
+    <form action="http://localhost/QuanLyKyTucXa_new/QLyGuiXe/ImportExcel" method="post" enctype="multipart/form-data">
         <div class="modal" id="modalExcel">
             <div class="modal-dialog">
                 <div class="modal-content">

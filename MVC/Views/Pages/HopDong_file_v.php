@@ -5,16 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nhập excel Hợp đồng</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- <link rel="stylesheet" href="/Public/CSS/style.css"> -->
 
 </head>
 
 <body>
 <div class="main">
 <div class="content">
-    <form class = "content1" action="http://localhost:9090/QuanLyKyTucXa_new/HopDongFile/themmoi" method="post" enctype="multipart/form-data">
+    <form class = "content1" action="http://localhost/QuanLyKyTucXa_new/HopDongFile/nhapexcel" method="post" enctype="multipart/form-data">
         <br>
         <a  style="margin: 20px;" class="text-black" href="http://localhost:9090/QuanLyKyTucXa_new/HopDong">
             << Quay lại</a>
