@@ -19,71 +19,15 @@ class DanhsachPhong_c extends controller
             'ma1' => $ma1
         ]);
     }
-    function import()
-    {
-        if (isset($_POST['btnUpLoad'])) {
-            $file = $_FILES['txtfile']['tmp_name'];
-            $objReader = PHPExcel_IOFactory::createReaderForFile($file);
-            $objExcel = $objReader->load($file);
-            //Lấy sheet hiện tại
-            $sheetData = $objExcel->getActiveSheet()->toArray(null, true, true, true);
-            $highestRow = $objExcel->setActiveSheetIndex()->getHighestRow();
-
-            for ($i = 2; $i <= $highestRow; $i++) {
-                $maphong = $sheetData[$i]["A"];
-                $matoa = $sheetData[$i]["B"];
-                $songuoi = $sheetData[$i]["C"];
-                $tienphong = $sheetData[$i]["D"];
-                $trangthai = $sheetData[$i]["E"];
-                $kq = $this->ds->find($maphong, $matoa, $songuoi, $tienphong, $trangthai);
-            }
-
-            if ($maphong == '' || $matoa == '' || $songuoi == '' || $tienphong == '' || $trangthai) {
-                echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
-            } else {
-                //Kiểm tra trùng mã tác giả
-                $kq1 = $this->ds->check_trung_ma($maphong);
-                $kq2 = $this->ds->check_name($matoa);
-                if ($kq1) {
-                    echo "<script>alert('Mã dịch vụ đã tồn tại!')</script>";
-                } else if ($kq2) {
-                    echo "<script>alert(' Tên dịch vụ này đã tồn tại!')</script>";
-                } else {
-                    //gọi hàm thêm dl tacgia_ins trong model
-                    $kq = $this->ds->find($maphong, $matoa, $songuoi, $tienphong, $trangthai);
-
-                    if ($kq) {
-                        echo "<script>alert('Import thành công!')</script>";
-                    } else
-
-                        echo "<script>alert('Import thất bại!')</script>";
-                }
-            }
-
-        }
-        $dulieu1 = $this->ds->find();
-        $dulieu = $this->ds->all();
-        $ma = $this->ds->toa_All();
-        $ma1 = $this->ds->toa_All();
-        $this->view('Masterlayout', [
-            'page' => 'DanhsachPhong_v',
-            'dulieu' => $dulieu,
-            'ma' => $ma,// Lấy tất cả dữ liệu từ bảng lớp học, nếu bài bạn là phòng thì đây là tòa
-            'ma1' => $ma1,
-            'dulieu1' => $dulieu1,
-
-        ]);
-
-
-    }
+    
     function timkiem()
     {
         if (isset($_POST['btnTimkiem'])) {
             $maphong = $_POST['txtTimkiem'];
             $matoa = $_POST['txtTimkiem'];
-            $trangthai = $_POST['txtTimkiem'];
+            $trangthai = isset($_POST['txtTimkiem2']) ? $_POST['txtTimkiem2'] : "";
             // $tienphong=$_POST['txtTimkiem'];
-            $dulieu = $this->ds->find($maphong, $matoa, $trangthai);
+            $dulieu = $this->ds->find_radio($maphong, $matoa, $trangthai);
             $ma = $this->ds->toa_All();
             $ma1 = $this->ds->toa_All();
             //Gọi lại giao diện và truyền $dulieu ra
@@ -98,69 +42,140 @@ class DanhsachPhong_c extends controller
 
             ]);
         }
-        // Kiểm tra xem người dùng có nhấn nút nhập Excel không
-        if (isset($_POST['btnXuatExcel'])) {
-            //code xuất excel
+        //xuất excel//
+        if(isset($_POST['btnXuat'])){
             $objExcel = new PHPExcel();
             $objExcel->setActiveSheetIndex(0);
-            $sheet = $objExcel->getActiveSheet()->setTitle('DSLS');
+            $sheet = $objExcel->getActiveSheet()->setTitle('Danh sách');
             $rowCount = 1;
-            //Tạo tiêu đề cho cột trong excel
-            $sheet->setCellValue('A' . $rowCount, 'Số thứ tự');
-            $sheet->setCellValue('B' . $rowCount, 'Mã phòng');
-            $sheet->setCellValue('C' . $rowCount, 'Mã tòa');
-            $sheet->setCellValue('D' . $rowCount, 'Số người');
-            $sheet->setCellValue('E' . $rowCount, 'Tiền phòng');
-            $sheet->setCellValue('F' . $rowCount, 'Trạng thái');
-           
-            //định dạng cột tiêu đề
+        
+            // Tạo tiêu đề cho cột trong Excel
+            $sheet->setCellValue('A'.$rowCount, 'STT');
+            $sheet->setCellValue('B'.$rowCount, 'Mã phòng');
+            $sheet->setCellValue('C'.$rowCount, 'Mã tòa');
+            $sheet->setCellValue('D'.$rowCount, 'Số người');
+            $sheet->setCellValue('E'.$rowCount, 'Tiền phòng');
+            $sheet->setCellValue('F'.$rowCount, 'Trạng thái');
+            // Định dạng cột tiêu đề
             $sheet->getColumnDimension('A')->setAutoSize(true);
             $sheet->getColumnDimension('B')->setAutoSize(true);
             $sheet->getColumnDimension('C')->setAutoSize(true);
-            $sheet->getColumnDimension('D')->setAutoSize(true);
-            $sheet->getColumnDimension('E')->setAutoSize(true);
-            $sheet->getColumnDimension('F')->setAutoSize(true);
-            
-            //gán màu nền
-            $sheet->getStyle('A1:C1')->getFill()->setFillType(\PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('00FF00');
-            //căn giữa
-            $sheet->getStyle('A1:C1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-            //Điền dữ liệu vào các dòng. Dữ liệu lấy từ DB
-            $data = $this->ds->Get_data();
-
-            while ($row = mysqli_fetch_array($data)) {
-                $rowCount++;
-                $sheet->setCellValue('A' . $rowCount, $rowCount);
-                $sheet->setCellValue('B' . $rowCount, $row['maPhong']);
-                $sheet->setCellValue('C' . $rowCount, $row['maToa']);
-                $sheet->setCellValue('D' . $rowCount, $row['soNguoi']);
-                $sheet->setCellValue('E' . $rowCount, $row['tienPhong']);
-                $sheet->setCellValue('F' . $rowCount, $row['trangThai']);
-               
+        
+            // Gán màu nền
+            $sheet->getStyle('A1:F1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('00FF00');
+            // Căn giữa
+            $sheet->getStyle('A1:F1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+        
+            // Điền dữ liệu vào các dòng. Dữ liệu lấy từ DB
+            $maphong = $_POST['txtTimkiem'];
+            $matoa = $_POST['txtTimkiem'];
+            $trangthai = $_POST['txtTimkiem'];
+            $dulieu = $this->ds->find($maphong, $matoa, $trangthai);
+        
+            if ($dulieu && mysqli_num_rows($dulieu) > 0) {
+                while ($row = mysqli_fetch_array($dulieu)) {
+                    $rowCount++;
+                    $sheet->setCellValue('A'.$rowCount, $rowCount - 1); // sửa lại giá trị của STT cho đúng
+                    $sheet->setCellValue('B'.$rowCount, $row['maPhong']);
+                    $sheet->setCellValue('C'.$rowCount, $row['maToa']);
+                    $sheet->setCellValue('D'.$rowCount, $row['soNguoi']);
+                    $sheet->setCellValue('E'.$rowCount, $row['tienPhong']);
+                    $sheet->setCellValue('F'.$rowCount, $row['trangThai']);
+                }
+            } else {
+                // Handle the case where no data is found
+                echo "<script>alert('Không có dữ liệu để xuất');</script>";
+                return;
             }
-            //Kẻ bảng 
-            $styleAray = array(
+        
+            // Kẻ bảng 
+            $styleArray = array(
                 'borders' => array(
                     'allborders' => array(
                         'style' => PHPExcel_Style_Border::BORDER_THIN
                     )
                 )
             );
-            $sheet->getStyle('A1:' . 'C' . ($rowCount))->applyFromArray($styleAray);
+            $sheet->getStyle('A1:' . 'F' . ($rowCount))->applyFromArray($styleArray);
+        
             $objWriter = new PHPExcel_Writer_Excel2007($objExcel);
-            $fileName = 'ExportExcel.xlsx';
+            $fileName = 'Danh sách.xlsx';
             $objWriter->save($fileName);
+        
             header('Content-Disposition: attachment; filename="' . $fileName . '"');
-            header('Content-Type: application/vnd.openxlmformatsofficedocument.speadsheetml.sheet');
+            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
             header('Content-Length: ' . filesize($fileName));
-            header('Content-Transfer-Encoding:binary');
+            header('Content-Transfer-Encoding: binary');
             header('Cache-Control: must-revalidate');
             header('Pragma: no-cache');
             readfile($fileName);
+            exit;
         }
+        ///////  Nhập     //////
+        if (isset($_POST['btnNhap'])) {
+            if (empty($_FILES['txtfile']['name'])) {
+                echo "<script>alert('Vui lòng chọn file!')</script>";
+            } elseif ($_FILES['txtfile']['size'] == 0) {
+                echo "<script>alert('File không được để trống!')</script>";
+            } else {
+                $file = $_FILES['txtfile']['tmp_name'];
+                // require 'PHPExcel/IOFactory.php';  // Đảm bảo bạn đã bao gồm thư viện PHPExcel
 
+                try {
+                    $objReader = PHPExcel_IOFactory::createReaderForFile($file);
+                    $objExcel = $objReader->load($file);
+                    $sheetData = $objExcel->getActiveSheet()->toArray(null, true, true, true);
+                    $highestRow = $objExcel->setActiveSheetIndex(0)->getHighestRow();
+                    $importSuccess = true;
 
+                    for ($i = 2; $i <= $highestRow; $i++) {
+                        $maphong = $sheetData[$i]["A"];
+                        $matoa = $sheetData[$i]["B"];
+                        $songuoi = $sheetData[$i]["C"];
+                        $tienphong = $sheetData[$i]["D"];
+                        $trangthai = $sheetData[$i]["E"];
+                        if (empty($maphong) || empty($matoa) || empty($songuoi) || empty($tienphong) || empty($trangthai)) {
+                            echo "<script>alert('Vui lòng điền đầy đủ thông tin ở hàng {$i}!')</script>";
+                            $importSuccess = false;
+                            continue;
+                        }
 
+                        // Kiểm tra trùng mã 
+                        $kq1 = $this->ds->checktrungma2($maphong,$matoa);
+                        if ($kq1) {
+                            echo "<script>alert('Mã phòng ở hàng {$i} đã tồn tại!')</script>";
+                            $importSuccess = false;
+                            continue;
+                        } else {
+                            // Gọi hàm thêm dữ liệu insert trong model
+                            $kq = $this->ds->insert($maphong,$matoa,$songuoi,$tienphong,$trangthai);
+                            if (!$kq) {
+                                echo "<script>alert('Import thất bại ở hàng {$i}!')</script>";
+                                $importSuccess = false;
+                            }
+                        }
+                    }
+
+                    if ($importSuccess) {
+                        echo "<script>alert('Import thành công!')</script>";
+                    } else {
+                        echo "<script>alert('Có lỗi xảy ra khi import! Vui lòng kiểm tra lại.')</script>";
+                    }
+                } catch (Exception $e) {
+                    echo "<script>alert('Có lỗi xảy ra khi xử lý file: ".$e->getMessage()."')</script>";
+                }
+            }
+        }
+        $dulieu = $this->ds->all();
+        $ma = $this->ds->toa_All();
+        $ma1 = $this->ds->toa_All();
+        //Gọi lại giao diện và truyền $dulieu ra
+        $this->view('Masterlayout', [
+            'page' => 'DanhsachPhong_v',
+            'dulieu' => $dulieu,
+            'ma' => $ma,
+            'ma1' => $ma1,
+        ]);
     }
 
 
@@ -248,6 +263,17 @@ class DanhsachPhong_c extends controller
         }
         //Gọi lại giao diện và truyền $dulieu ra
     }
+    function lien_ket($manhomsinhvien)
+    {
+
+        $dulieu = $this->ds->find3($manhomsinhvien);
+        $this->view('Masterlayout', [
+            'page' => 'Chitietphong_v',
+            'dulieu1' => $this->ds->ds_sinhvien($manhomsinhvien),
+            'dulieu' => $dulieu,
+        ]);
+    }
+    
 
     
 }

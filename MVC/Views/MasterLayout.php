@@ -36,7 +36,7 @@
     <div class="d-flex">
         <aside class="sidebar">
             <div class="sidebar-header">
-                <img style="width:200px; height: 130px" src="https://th.bing.com/th/id/R.e86a2f7c0d27cb5c409a7b3f3a315fe8?rik=uKc2dRGoVuQNWA&riu=http%3a%2f%2futt.edu.vn%2fhome%2fimages%2fstories%2flogo-utt-border.png&ehk=xwQfVRyFndxbb5TeE0GZhK6TfE%2fZO6f0UtTKNHkKLko%3d&risl=&pid=ImgRaw&r=0" alt="">
+                <img style="width:200px; height: 130px" src="https://utt.edu.vn/home/images/stories/logo-utt-border.png" alt="">
             </div>
 
             <hr >
@@ -58,6 +58,7 @@
                     <ul class="collapse list-unstyled" id="uiElementsSubmenu">
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien">Danh sách nhân viên</a></li>
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachSV">Danh sách sinh viên</a></li>
+                         <li><a href="http://localhost/QuanLyKyTucXa_new/NhomSV">Danh sách nhóm sv</a></li>
                     </ul>
                 </li>
                 <li>
@@ -96,8 +97,11 @@
                 <!-- <div class="header_1" >
                 </div> -->
                 <p></p>
-                <h1 class="h1">Quản lý ký túc xá</h1>
-                <p>Thoát</p>
+                <marquee behavior="" direction="right"><h1>Quản lý ký túc xá</h1></marquee>
+                <div class="out">
+                <i style="color:#0A9DE2" class="fa-solid fa-right-from-bracket"></i>
+                <a  href="http://localhost/QuanLyKyTucXa_new/DangNhap"></i>Thoát</a>
+                </div>
             </header>
             <section id="content-right1">
                 <?php

@@ -505,7 +505,7 @@
             var maToa = $(this).val();
             if (maToa != '') {
                 $.ajax({
-                    url: 'http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/get_phong_by_toa_hopdong',
+                    url: 'http://localhost/QuanLyKyTucXa_new/DanhsachHDDV//get_phong_by_toa_hopdong',
                     method: 'POST',
                     data: {
                         maToa: maToa

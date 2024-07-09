@@ -143,9 +143,9 @@ class HDDV_m extends connectDB
         return $kq;
     }
 
-    function check_trung_thangnam($month, $year)
+    function check_trung_thangnam($maPhong, $month, $year)
     {
-        $sql = "SELECT * FROM hoa_don_dich_vu WHERE  month ='$month' and  year ='$year' ";
+        $sql = "SELECT * FROM hoa_don_dich_vu WHERE id_room = '$maPhong' and  month ='$month' and  year ='$year' ";
 
         $dl = mysqli_query($this->conn, $sql);
         $kq = false;

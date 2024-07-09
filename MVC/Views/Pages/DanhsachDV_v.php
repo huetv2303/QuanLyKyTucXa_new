@@ -93,17 +93,27 @@
 
         <!-- Nhập excel -->
         <form action="http://localhost/QuanLyKyTucXa_new//DanhsachDV/import" enctype="multipart/form-data" method="post">
-            <label for="myFile2"></label>
-            <table>
-                <tr>
-                    <td class="dv">
-                        <div class="file">
-                            <input type="file" class="btn btn-outline-primary" name="txtfile">
-                            <button type="submit" class="btn btn-success" name="btnUpLoad">Lưu</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Nhập Excel</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                    </td>
-                </tr>
-            </table>
+                        <div class="modal-body">
+                            <td class="dv">
+                                <div class="file">
+                                    <input type="file" class="btn btn-outline-primary" name="txtfile">
+                                    <button type="submit" class="btn btn-success" name="btnUpLoad">Lưu</button>
+                                </div>
+                            </td>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </form>
 
         <!-- Tìm kiếm -->
@@ -120,11 +130,14 @@
                     </div>
                     <div>
                         <button type="submit" style="margin: 24px 0px;" class="btn btn-success" name="btnTimKiem" id="btnTimKiem"><i class="fa-solid fa-magnifying-glass">&nbsp;&nbsp;</i>Tìm Kiếm </button>
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"> Nhập excel</button>
                         <a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV" style="margin: 24px 0px" class="btn btn-success" name="btnReLoad"><i class="fa-solid fa-rotate-right"></i> Reload</a>
                     </div>
                 </div>
 
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addServiceModal"> <i class="fa-solid fa-plus"></i> Thêm mới </button>
+
+
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -169,12 +182,11 @@
 
 
         </form>
-            <?php
-                if(isset($_POST['btnTimKiem'])){
+        <?php
+        if (isset($_POST['btnTimKiem'])) {
+        } else {
 
-                }else{
-
-            ?>
+        ?>
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
                     <li class="page-item <?php if ($data['page_number'] <= 1) echo 'disabled'; ?>">
@@ -185,22 +197,22 @@
                     </li>
                     <?php for ($i = 1; $i <= $data['total_page']; $i++) { ?>
                         <li style="padding: 0px;" class="page-item <?php if ($data['page_number'] == $i) echo 'active'; ?>">
-                            <a class="page-link"  href="?page=<?php echo ($i); ?>"><?php echo ($i); ?></a>
+                            <a class="page-link" href="?page=<?php echo ($i); ?>"><?php echo ($i); ?></a>
                         </li>
                     <?php } ?>
-                    <li  style="padding: 0px;" class="page-item <?php if ($data['page_number'] >= $data['total_page']) echo 'disabled'; ?>">
-                        <a class="page-link"  href="<?php if ($data['page_number'] < $data['total_page']) echo "?page=" . ($data['page_number'] + 1);
+                    <li style="padding: 0px;" class="page-item <?php if ($data['page_number'] >= $data['total_page']) echo 'disabled'; ?>">
+                        <a class="page-link" href="<?php if ($data['page_number'] < $data['total_page']) echo "?page=" . ($data['page_number'] + 1);
                                                     else echo '#'; ?>" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
                 </ul>
             </nav>
-            <?php
-                }
-           ?>
+        <?php
+        }
+        ?>
 
-    </div>       
+    </div>
 </body>
 
 

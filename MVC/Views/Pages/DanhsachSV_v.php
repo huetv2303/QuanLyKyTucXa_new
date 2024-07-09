@@ -56,9 +56,8 @@
 
 <body>
     <div id="wrapper" style="height: -webkit-fill-available;">
-        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachSV/timKiem">
-            <div class="header" style="color: #08449b">
-                <h2>Quản lý thông tin sinh viên</h2>
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachSV/timKiem">
+            <div  style="color: #08449b">
             </div>
 
             <div class="form-inline">
@@ -69,7 +68,7 @@
                             <h2>Quản lý thông tin sinh viên</h2>
                         </td>
                         <td style="float: right;  margin: 10px">
-                            <button type="submit" class="btn btn-success" name=""><a href="http://localhost:9090/QuanLyKyTucXa_new/SinhVien" style="text-decoration: none; color:white">Thêm mới</a></button>
+                            <button type="submit" class="btn btn-success" name=""><a href="http://localhost/QuanLyKyTucXa_new/SinhVien" style="text-decoration: none; color:white">Thêm mới</a></button>
                         </td>
 
                         <td style="float: right; margin: 10px">
@@ -134,8 +133,8 @@
 
 
                                 <td>
-                                    <a href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachSV/sua/<?php echo $row['maSinhVien'] ?>" class="btn btn-outline-primary">Sửa</a> &nbsp;
-                                    <a onclick="return confirm('Bạn có muốn xóa sinh viên này không?');" href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachSV/xoa/<?php echo $row['maSinhVien'] ?>" class="btn btn-outline-danger">Xóa</a>
+                                    <a href="http://localhost/QuanLyKyTucXa_new/DanhsachSV/sua/<?php echo $row['maSinhVien'] ?>" class="btn btn-outline-primary">Sửa</a> &nbsp;
+                                    <a onclick="return confirm('Bạn có muốn xóa sinh viên này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachSV/xoa/<?php echo $row['maSinhVien'] ?>" class="btn btn-outline-danger">Xóa</a>
                                 </td>
                             </tr>
                     <?php
@@ -151,7 +150,7 @@
     </div>
 
     <!-- Modal choose file Excel -->
-    <form action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachSv/ImportExcel" method="post" enctype="multipart/form-data">
+    <form action="http://localhost/QuanLyKyTucXa_new/DanhsachSv/ImportExcel" method="post" enctype="multipart/form-data">
         <div class="modal" id="modalExcel">
             <div class="modal-dialog">
                 <div class="modal-content">
