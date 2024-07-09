@@ -59,6 +59,7 @@
                     <ul class="collapse list-unstyled" id="uiElementsSubmenu">
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien">Danh sách nhân viên</a></li>
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachSV">Danh sách sinh viên</a></li>
+                         <li><a href="http://localhost/QuanLyKyTucXa_new/NhomSV">Danh sách nhóm sv</a></li>
                     </ul>
                 </li>
                 <li>
@@ -76,12 +77,20 @@
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachPDV">Đăng ký dịch vụ</a></li>
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachDN">Điện nước</a></li>
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV/">Dịch vụ khác</a></li>
+                        <li><a href="http://localhost//QuanLyKyTucXa_new/QLyGuiXe">Dịch vụ gửi xe</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#invoiceSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lý hóa đơn</a>
+                    <ul class="collapse list-unstyled" id="invoiceSubmenu">
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV">Hóa đơn dịch vụ</a></li>
                         <li><a href="http://localhost//QuanLyKyTucXa_new/NopTienPhong">Nộp tiền phòng</a></li>
-                        <li><a href="http://localhost//QuanLyKyTucXa_new/QLyGuiXe">Dịch vụ gửi xe</a></li>
                         <li><a href="http://localhost//QuanLyKyTucXa_new/HoaDonGuiXe">Hóa đơn gửi xe</a></li>
                     </ul>
                 </li>
+                
+
                 <li>
                     <a href="#layoutsSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Thống kê</a>
                     <ul class="collapse list-unstyled" id="layoutsSubmenu">
@@ -97,8 +106,12 @@
                 <!-- <div class="header_1" >
                 </div> -->
                 <p></p>
-                <h1 class="h1">Quản lý ký túc xá</h1>
-                <a  href="http://localhost/QuanLyKyTucXa_new/DangNhap">Thoát</a>
+                <!-- <marquee behavior="" direction="right"><h1>Quản lý ký túc xá</h1></marquee> -->
+                <h1>Quản lý ký túc xá</h1>
+                <div class="out">
+                <i style="color:#0A9DE2" class="fa-solid fa-right-from-bracket"></i>
+                <a  href="http://localhost/QuanLyKyTucXa_new/DangNhap"></i>Thoát</a>
+                </div>
             </header>
             <section id="content-right1">
                 <?php

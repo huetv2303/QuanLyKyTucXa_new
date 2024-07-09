@@ -92,11 +92,21 @@ class DanhsachDV extends controller
                 }
             }
         }
+        
+        $page = 1;
+        if (isset($_GET['page']))  $page = $_GET['page'];
+        $limit = 5;
 
-        $dulieu = $this->dsdv->dichvu_all();
+        $total = $this->dsdv->count();
+        $total_page = ceil($total / $limit);
+        $dulieu = $this->dsdv->dichvu_all($page, $limit);
         $this->view('MasterLayout', [
             'page' => 'DanhsachDV_v',
             'dulieu' => $dulieu,
+            'total_page' => $total_page,
+            'limit' => $limit,
+            'page_number' => $page
+
         ]);
     }
 

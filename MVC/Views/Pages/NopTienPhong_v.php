@@ -12,23 +12,15 @@
             text-align: center;
         }
 
-        #wrapper {
+        /* #wrapper {
             padding: 50px;
             background-color: #0dcaf02b;
             height: 100%;
             position: absolute;
             width: 87%;
-        }
+            
+        } */
 
-        /* #wrapper1 {
-            padding: 50px;
-            background-color: #0dcaf02b;
-            min-height: 100vh;
-         
-            width: 87%;
-            overflow: auto;
-          
-        }  */
 
         .form-inline {
             border-radius: 20px;

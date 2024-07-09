@@ -125,17 +125,12 @@ class DanhsachPDV extends controller
             $year = $_POST['txtNam'];
             $maToa = $_POST['txtMaToa'];
             //gọi hàm sủa dl tacgia_udp trong model
-            $kq = $this->dsdv->dichvuPDV_upd($maToa, $id, $id_room, $id_service, $month, $year);
+            $kq = $this->dsdv->dichvuPDV_upd( $id,$maToa, $id_room, $id_service, $month, $year);
 
             if ($kq) {
                 echo "<script>alert('Sửa thành công!')</script>";
             } else
                 echo "<script>alert('Sửa thất bại!')</script>";
-
-            $id = $_POST['txtID'];
-            //Gọi lại giao diện và truyền $dulieu ra
-
-            // var_dump($_GET);
 
         }
         $phong = $this->dsdv->hopdong_idP();

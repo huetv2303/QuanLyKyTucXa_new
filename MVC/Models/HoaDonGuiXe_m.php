@@ -47,4 +47,11 @@ class HoaDonGuiXe_m extends connectDB
         $sql = "DELETE FROM hoa_don_gui_xe WHERE billCode = '$mhd'";
         return mysqli_query($this->conn, $sql);
     }
+
+    // Func lấy ID của sinh viên đã đăng ký gửi xe
+    function get_ID()
+    {
+        $sql = "SELECT ID, studentName, typeOfVehicle, plate FROM dich_vu_gui_xe";
+        return mysqli_query($this->conn, $sql); 
+    }
 }

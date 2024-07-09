@@ -16,28 +16,41 @@
 
                     <label>Mã Tòa</label>
                     <!-- <input type="input" name="SearchToa" class="form-control tkn" placeholder="Tìm tòa" id="SearchToa" value="<?php echo isset($_POST['SearchToa']) ? htmlspecialchars($_POST['SearchToa']) : ''; ?>"> -->
+                    <label>Mã tòa</label>
+                    <select name="txtMaToa" class="form-control maToa" id="maToa">
+                        <option value="">-------Chọn--------</option>
+                        <?php
+                        if (isset($data['toa']) && mysqli_num_rows($data['toa']) > 0) {
+                            while ($c = mysqli_fetch_assoc($data['toa'])) {
+                                $selected = (isset($_POST['txtMaToa']) && $_POST['txtMaToa'] == $c['maToa']) ? 'selected' : '';
+                                echo "<option value='{$c['maToa']}' $selected>{$c['maToa']}</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+<!-- 
                     <select name="SearchToa" class="form-control tkn" id="SearchToa">
                         <option value="">-----Chọn mã phòng-----</option>
                         <?php
-                        if (isset($data['toa']) && mysqli_num_rows($data['toa']) > 0) {
+                        if (isset($data['phong']) && mysqli_num_rows($data['phong']) > 0) {
                             while ($c = mysqli_fetch_assoc($data['toa'])) {
                                 $selected = (isset($_POST['SearchToa']) && $_POST['SearchToa'] == $c['maToa']) ? 'selected' : '';
                                 echo "<option value='{$c['maToa']}' $selected>{$c['maToa']}</option>";
                             }
                         }
                         ?>
-                    </select>
+                    </select> -->
 
                 </div>
 
                 <div>
-                    <label>Mã phòng</label>
-                    <select name="txtTKN" class="form-control tkn" id="txtTKN">
-                        <option value="">-----Chọn mã phòng-----</option>
+                    <label>Mã phòng</label>
+                    <select name="txtMaPhong" class="form-control maPhong" id="maPhong">
+                        <option value="">-------Chọn--------</option>
                         <?php
-                        if (isset($data['dulieu1']) && mysqli_num_rows($data['dulieu1']) > 0) {
-                            while ($c = mysqli_fetch_assoc($data['dulieu1'])) {
-                                $selected = (isset($_POST['txtTKN']) && $_POST['txtTKN'] == $c['maPhong']) ? 'selected' : '';
+                        if (isset($data['phong']) && mysqli_num_rows($data['phong']) > 0) {
+                            while ($c = mysqli_fetch_assoc($data['phong'])) {
+                                $selected = (isset($_POST['txtMaPhong']) && $_POST['txtMaPhong'] == $c['maPhong']) ? 'selected' : '';
                                 echo "<option value='{$c['maPhong']}' $selected>{$c['maPhong']}</option>";
                             }
                         }
@@ -74,6 +87,32 @@
             ?>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script>
+                $(document).ready(function() {
+                    $('.maToa').change(function() {
+                        var maToa = $(this).val();
+                        if (maToa != '') {
+                            $.ajax({
+                                url: 'http://localhost/QuanLyKyTucXa_new/TKNuoc/get_phong_by_toa_hopdong',
+                                method: 'POST',
+                                data: {
+                                    maToa: maToa
+                                },
+                                dataType: 'json',
+                                success: function(data) {
+                                    $('.maPhong').html('<option value="">-------Chọn--------</option>');
+                                    $.each(data, function(index, room) {
+                                        $('.maPhong').append('<option value="' + room.maPhong + '">' + room.maPhong + '</option>');
+                                    });
+                                },
+                                error: function(jqXHR, textStatus, errorThrown) {
+                                    console.error(textStatus, errorThrown);
+                                }
+                            });
+                        } else {
+                            $('.maPhong').html('<option value="">-------Chọn--------</option>');
+                        }
+                    });
+                });
                 var ctx = document.getElementById('waterUsageChart').getContext('2d');
                 var waterUsageChart = new Chart(ctx, {
                     type: 'bar',

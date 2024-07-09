@@ -294,7 +294,7 @@ class DanhsachHDDV extends controller
 
             // Gọi lại giao diện và truyền $dulieu ra
             $kq1 = $this->dsdv->check_trung_ma($id_invoice);
-            $kq2 = $this->dsdv->check_trung_thangnam($month, $year);
+            $kq2 = $this->dsdv->check_trung_thangnam($id_room,$month, $year);
             if ($month > 12) {
                 echo "<script>alert('Tháng này không tồn tại, vui lòng điền tháng <= 12!')
                 </script>";
@@ -306,7 +306,7 @@ class DanhsachHDDV extends controller
                   </script>";
                 } else if ($kq2) {
                     echo "<script>
-                    alert('Tháng năm của hóa đơn này đã tồn tại!');
+                    alert('Tháng năm của phòng này đã tồn tại!');
                   </script>";
                 } else {
                     // Gọi hàm thêm dl trong model
