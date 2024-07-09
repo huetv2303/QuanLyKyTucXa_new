@@ -21,11 +21,11 @@ class DanhsachPDV extends controller
         $total_page = ceil($total / $limit);
 
         $dulieu1 = $this->dsdv->dichvu_idnamdv();
-        $dulieu2 = $this->dsdv->dichvu_idP();
+        $dulieu2 = $this->dsdv->hopdong_idP();
         $dulieu3 = $this->dsdv->dichvu_idnamdv();
-        $phong = $this->dsdv->dichvu_idP();
-        $toa = $this->dsdv->get_all_toa();
-        $toa1 = $this->dsdv->get_all_toa();
+        $phong = $this->dsdv->hopdong_idP();
+         $toa = $this->dsdv->get_all_toa_hopdong();
+         $toa1 = $this->dsdv->get_all_toa_hopdong();
         $this->view('MasterLayout', [
             'page' => 'DanhsachPDV_v',
             'dulieu' => $dulieu,
@@ -43,11 +43,11 @@ class DanhsachPDV extends controller
     }
 
 
-    function get_phong_by_toa()
+    function get_phong_by_toa_hopdong()
     {
         if (isset($_POST['maToa'])) {
             $maToa = $_POST['maToa'];
-            $result = $this->dsdv->get_phong_by_toa($maToa);
+            $result = $this->dsdv->get_phong_by_toa_hopdong($maToa);
             $rooms = array();
             while ($row = mysqli_fetch_assoc($result)) {
                 $rooms[] = $row;
@@ -82,9 +82,9 @@ class DanhsachPDV extends controller
             $dulieu2 = $this->dsdv->dichvu_idP();
             $dulieu3 = $this->dsdv->dichvu_idnamdv();
             $dulieu4 = $this->dsdv->dichvu_idP();
-            $phong = $this->dsdv->dichvu_idP();
-            $toa = $this->dsdv->get_all_toa();
-            $toa1 = $this->dsdv->get_all_toa();
+            $phong = $this->dsdv->hopdong_idP();
+            $toa = $this->dsdv->get_all_toa_hopdong();
+            $toa1 = $this->dsdv->get_all_toa_hopdong();
             $this->view('MasterLayout', [
                 'page' => 'DanhsachPDV_v',
                 'dulieu1' => $dulieu1,
@@ -138,9 +138,9 @@ class DanhsachPDV extends controller
             // var_dump($_GET);
 
         }
-        $phong = $this->dsdv->dichvu_idP();
-        $toa = $this->dsdv->get_all_toa();
-        $toa1 = $this->dsdv->get_all_toa();
+        $phong = $this->dsdv->hopdong_idP();
+        $toa = $this->dsdv->get_all_toa_hopdong();
+        $toa1 = $this->dsdv->get_all_toa_hopdong();;
         $dulieu1 = $this->dsdv->dichvu_idnamdv();
         // $dulieu2 = $this->dsdv->dichvu_idP();
         $dulieu3 = $this->dsdv->dichvu_idnamdv();
@@ -188,9 +188,9 @@ class DanhsachPDV extends controller
         $total = $this->dsdv->count();
         $total_page = ceil($total / $limit);
 
-        $phong = $this->dsdv->dichvu_idP();
-        $toa = $this->dsdv->get_all_toa();
-        $toa1 = $this->dsdv->get_all_toa();
+        $phong = $this->dsdv->hopdong_idP();
+        $toa = $this->dsdv->get_all_toa_hopdong();
+        $toa1 = $this->dsdv->get_all_toa_hopdong();
         $dulieu1 = $this->dsdv->dichvu_idnamdv();
         // $dulieu2 = $this->dsdv->dichvu_idP();
         $dulieu3 = $this->dsdv->dichvu_idnamdv();
@@ -231,7 +231,6 @@ class DanhsachPDV extends controller
 
 
             $kq1 = $this->dsdv->check_trung_ma($id_room, $id_service, $month,$year );
-            var_dump($kq1);
             if ($kq1) {
                 echo "<script>alert('Phòng đã sử dụng dịch vụ này!')</script>";
             } else {
@@ -251,9 +250,9 @@ class DanhsachPDV extends controller
         $total_page = ceil($total / $limit);
 
 
-        $phong = $this->dsdv->dichvu_idP();
-        $toa = $this->dsdv->get_all_toa();
-        $toa1 = $this->dsdv->get_all_toa();
+        $phong = $this->dsdv->hopdong_idP();
+        $toa = $this->dsdv->get_all_toa_hopdong();
+        $toa1 = $this->dsdv->get_all_toa_hopdong();
         $dulieu1 = $this->dsdv->dichvu_idnamdv();
         // $dulieu2 = $this->dsdv->dichvu_idP();
         $dulieu3 = $this->dsdv->dichvu_idnamdv();

@@ -290,21 +290,22 @@ class HDDV_m extends connectDB
         return mysqli_query($this->conn, $sql);
     }
 
-    public function get_all_toa()
+   
+    public function hopdong_idP()
     {
-        $sql = "SELECT maToa FROM toa";
+        $sql = "SELECT maPhong FROM hopdong";
         return mysqli_query($this->conn, $sql);
     }
 
-    public function get_all_phong()
+    public function get_phong_by_toa_hopdong($maToa)
     {
-        $sql = "SELECT maPhong FROM phong ";
+        $sql = "SELECT maPhong FROM hopdong WHERE maToa = '$maToa'";
         return mysqli_query($this->conn, $sql);
     }
 
-    public function get_phong_by_toa($maToa)
+    public function get_all_toa_hopdong()
     {
-        $sql = "SELECT maPhong FROM phong WHERE maToa = '$maToa'";
+        $sql = "SELECT maToa FROM hopdong";
         return mysqli_query($this->conn, $sql);
     }
 }

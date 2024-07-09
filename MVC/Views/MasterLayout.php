@@ -46,14 +46,16 @@
                     <a href="#uiElementsSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lý thông tin</a>
                     <ul class="collapse list-unstyled" id="uiElementsSubmenu">
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien">Danh sách nhân viên</a></li>
-                        <li><a href="http://http://localhost//QuanLyKyTucXa_new/DanhsachSV">Danh sách sinh viên</a></li>
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachSV">Danh sách sinh viên</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#tablesSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Quản lý hợp đồng</a>
                     <ul class="collapse list-unstyled" id="tablesSubmenu">
                         <li><a href="http://localhost/QuanLyKyTucXa_new/HopDong">Danh sách hợp đồng</a></li>
-                        <li><a href="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan">Gia hạn hợp đồng</a></li>
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/HopDongThem">Thêm mới hợp đồng</a></li>
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan">Gia hạn hợp đồng</a></li>                      
+                        <li><a href="http://localhost/QuanLyKyTucXa_new/HopDongKetThuc">Kết thúc hợp đồng</a></li>
                     </ul>
                 </li>
                 <li>
@@ -77,7 +79,7 @@
             </ul>
         </aside>
         <main class="main-content flex-grow-1">
-            <header class="header">
+            <header class="header1">
                 <!-- <div class="header_1" >
                 </div> -->
                 <p></p>

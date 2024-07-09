@@ -4,10 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <!-- <script src="http://localhost/QuanLyKyTucXa_new//Public/JS/DichVu_js.js"> </script> -->
     <title>Quản lý dịch vụ</title>
 </head>
+<style>
+    /* .modal-body input  {
+        border-block-end-color: black;
+    }
 
+    .modal-body select  {
+        border-block-end-color: black;
+    } */
+</style>
 <body>
     <div class="main">
         <div class="header">
@@ -91,7 +101,7 @@
                                                         ?>
                                                     </select>
                                                 </td> -->
-                                                <td><input style="margin-left: 20px;" type="text" placeholder="Nhập năm" class="form-control" name="txtNam" required></td>
+                                                <td><input style="margin-left: 20px; width: 225px;" type="text" placeholder="Nhập năm" class="form-control" name="txtNam" required></td>
                                             </tbody>
                                         </table>
                                         <br>
@@ -99,7 +109,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary" name="btnLuu" onclick="VadlidateForm()">Lưu</button>
+                                        <button type="submit" class="btn btn-success" name="btnLuu" onclick="VadlidateForm()">Lưu</button>
                                     </div>
                                 </div>
                             </div>
@@ -171,7 +181,7 @@
 
                                     <tbody>
                                         <td><input type="text" class="form-control" name="txtThang" id="txtThang" required></td>
-                                        <td><input style="margin-left: 20px;" type="text" class="form-control" name="txtNam" id="txtNam" required></td>
+                                        <td><input style="margin-left: 20px;  width: 225px;" type="text" class="form-control" name="txtNam" id="txtNam" required></td>
                                     </tbody>
                                 </table>
                             </div>
@@ -292,7 +302,7 @@
             var maToa = $(this).val();
             if (maToa != '') {
                 $.ajax({
-                    url: 'http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/get_phong_by_toa',
+                    url: 'http://localhost/QuanLyKyTucXa_new/DanhsachPDV/get_phong_by_toa_hopdong',
                     method: 'POST',
                     data: {
                         maToa: maToa

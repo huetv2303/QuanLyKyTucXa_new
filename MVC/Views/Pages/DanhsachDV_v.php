@@ -50,7 +50,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary" name="btnLuuDV" onclick="validateForm()">Lưu</button>
+                                <button type="submit" class="btn btn-success" name="btnLuuDV" onclick="validateForm()">Lưu</button>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                     <td class="dv">
                         <div class="file">
                             <input type="file" class="btn btn-outline-primary" name="txtfile">
-                            <button type="submit" class="btn btn-primary" name="btnUpLoad">Lưu</button>
+                            <button type="submit" class="btn btn-success" name="btnUpLoad">Lưu</button>
                         </div>
                     </td>
                 </tr>

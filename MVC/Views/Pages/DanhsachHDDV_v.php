@@ -108,7 +108,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary" name="btnLuu">Lưu</button>
+                                    <button type="submit" class="btn btn-success" name="btnLuu">Lưu</button>
                                 </div>
                             </div>
                         </div>
@@ -506,7 +506,7 @@
             var maToa = $(this).val();
             if (maToa != '') {
                 $.ajax({
-                    url: 'http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/get_phong_by_toa',
+                    url: 'http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/get_phong_by_toa_hopdong',
                     method: 'POST',
                     data: {
                         maToa: maToa

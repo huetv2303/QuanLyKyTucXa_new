@@ -22,9 +22,9 @@ class DanhsachHDDV extends controller
         $dulieu = $this->dsdv->hddv_invoice($page, $limit);
         // $dulieu1 = $this->dsdv->hddv_idP();
         // $dulieu3 = $this->dsdv->hddv_idP();
-        $toa = $this->dsdv->get_all_toa();
-        $toa1 = $this->dsdv->get_all_toa();
-        $phong = $this->dsdv->get_all_phong();
+        $phong = $this->dsdv->hopdong_idP();
+         $toa = $this->dsdv->get_all_toa_hopdong();
+         $toa1 = $this->dsdv->get_all_toa_hopdong();
         $this->view('MasterLayout', [
             'page' => 'DanhsachHDDV_v',
             'dulieu' => $dulieu,
@@ -60,9 +60,9 @@ class DanhsachHDDV extends controller
             $month = $_POST['txtThang'];
             $year = $_POST['txtNam'];
             $notifications = $_POST['TrangThai'];
-            $toa = $this->dsdv->get_all_toa();
-            $toa1 = $this->dsdv->get_all_toa();
-            $phong = $this->dsdv->get_all_phong();
+            $phong = $this->dsdv->hopdong_idP();
+            $toa = $this->dsdv->get_all_toa_hopdong();
+            $toa1 = $this->dsdv->get_all_toa_hopdong();
             $dulieu = $this->dsdv->hddv_find($id_invoice, $id_room, $month, $year, $notifications);
             $dulieu1 = $this->dsdv->hddv_idP();
             $dulieu3 = $this->dsdv->hddv_idP();
@@ -161,11 +161,11 @@ class DanhsachHDDV extends controller
     }
     
 
-    function get_phong_by_toa()
+    function get_phong_by_toa_hopdong()
     {
         if (isset($_POST['maToa'])) {
             $maToa = $_POST['maToa'];
-            $result = $this->dsdv->get_phong_by_toa($maToa);
+            $result = $this->dsdv->get_phong_by_toa_hopdong($maToa);
             $rooms = array();
             while ($row = mysqli_fetch_assoc($result)) {
                 $rooms[] = $row;
@@ -213,9 +213,9 @@ class DanhsachHDDV extends controller
         $dulieu = $this->dsdv->hddv_invoice($page, $limit);
         $dulieu1 = $this->dsdv->hddv_idP();
         $dulieu3 = $this->dsdv->hddv_idP();
-        $toa = $this->dsdv->get_all_toa();
-        $toa1 = $this->dsdv->get_all_toa();
-        $phong = $this->dsdv->get_all_phong();
+        $phong = $this->dsdv->hopdong_idP();
+        $toa = $this->dsdv->get_all_toa_hopdong();
+        $toa1 = $this->dsdv->get_all_toa_hopdong();
         $this->view('MasterLayout', [
             'page' => 'DanhsachHDDV_v',
             'dulieu' => $dulieu,
@@ -253,9 +253,9 @@ class DanhsachHDDV extends controller
         $dulieu = $this->dsdv->hddv_invoice($page, $limit);
         $dulieu1 = $this->dsdv->hddv_idP();
         $dulieu3 = $this->dsdv->hddv_idP();
-        $toa = $this->dsdv->get_all_toa();
-        $toa1 = $this->dsdv->get_all_toa();
-        $phong = $this->dsdv->get_all_phong();
+        $phong = $this->dsdv->hopdong_idP();
+        $toa = $this->dsdv->get_all_toa_hopdong();
+        $toa1 = $this->dsdv->get_all_toa_hopdong();
         $this->view('MasterLayout', [
             'page' => 'DanhsachHDDV_v',
             'dulieu' => $dulieu,
@@ -332,9 +332,9 @@ class DanhsachHDDV extends controller
         $dulieu = $this->dsdv->hddv_invoice($page, $limit);
         $dulieu1 = $this->dsdv->hddv_idP();
         $dulieu3 = $this->dsdv->hddv_idP();
-        $toa = $this->dsdv->get_all_toa();
-        $toa1 = $this->dsdv->get_all_toa();
-        $phong = $this->dsdv->get_all_phong();
+        $phong = $this->dsdv->hopdong_idP();
+         $toa = $this->dsdv->get_all_toa_hopdong();
+         $toa1 = $this->dsdv->get_all_toa_hopdong();
         $this->view('MasterLayout', [
             'page' => 'DanhsachHDDV_v',
             'dulieu' => $dulieu,
