@@ -26,8 +26,8 @@
     <div class="main">
         <div class="content">
             <br>
-            <a style="margin: 20px;" class="text-black content1" href="http://localhost/QuanLyKyTucXa_new/HopDong">
-                << Quay lại</a>
+            <a style="margin: 20px;" class="btn btn-secondary mb-3" href="http://localhost/QuanLyKyTucXa_new/HopDong">
+                &laquo; Quay lại</a>
                     <br>
                     <!-- <div class="header">
                         <h3 class="content1">Sửa hợp đồng</h3>

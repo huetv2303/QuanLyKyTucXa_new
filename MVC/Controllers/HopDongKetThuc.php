@@ -30,7 +30,7 @@ class HopDongKetThuc extends controller
         }
         else
         {
-            $this->hopdongketthuc->hopdong_ketthuc($mp);
+            // $this->hopdongketthuc->hopdong_ketthuc($mp);
             echo "<script>alert('Kết thúc hợp đồng thành công rực rỡ😍😍')</script>";
         }
 

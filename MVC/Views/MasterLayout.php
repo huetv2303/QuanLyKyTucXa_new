@@ -29,6 +29,7 @@
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=<?php echo time(); ?>"></script>
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/phong.js?v=1"></script>
     <script src="https:/cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>

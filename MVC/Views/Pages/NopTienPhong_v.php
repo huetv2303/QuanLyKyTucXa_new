@@ -64,7 +64,7 @@
             <h3>Nộp tiền phòng</h3>
             <!-- Button trigger modal -->
 
-            <form method="post" action="http://localhost:2929/QuanLyKyTucXa_new/NopTienPhong/themmoi" id="addInvoiceForm">
+            <form method="post" action="http://localhost/QuanLyKyTucXa_new/NopTienPhong/themmoi" id="addInvoiceForm">
                 <!-- Modal -->
                 <div class="modal-add">
                     <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
@@ -150,7 +150,7 @@
                         var maToa = $(this).val();
                         if (maToa !== '') {
                             $.ajax({
-                                url: 'http://localhost:2929/QuanLyKyTucXa_new/NopTienPhong/get_phong_by_toa',
+                                url: 'http://localhost/QuanLyKyTucXa_new/NopTienPhong/get_phong_by_toa',
                                 method: 'POST',
                                 data: {
                                     maToa: maToa
@@ -180,7 +180,7 @@
                         var maPhong = $(this).val();
                         if (maPhong !== '') {
                             $.ajax({
-                                url: 'http://localhost:2929/QuanLyKyTucXa_new/NopTienPhong/get_tienphong_by_phong',
+                                url: 'http://localhost/QuanLyKyTucXa_new/NopTienPhong/get_tienphong_by_phong',
                                 method: 'POST',
                                 data: {
                                     maPhong: maPhong
@@ -209,7 +209,7 @@
 
 
         </div>
-        <form method="post" action="http://localhost:2929/QuanLyKyTucXa_new/NopTienPhong/suadl">
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new/NopTienPhong/suadl">
             <!-- Modal -->
             <div class="modal-update">
                 <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
@@ -308,7 +308,7 @@
         </script>
 
         <!--Hóa đơn  -->
-        <form action="http://localhost:2929/QuanLyKyTucXa_new/NopTienPhong/timkiem" method="POST">
+        <form action="http://localhost/QuanLyKyTucXa_new/NopTienPhong/timkiem" method="POST">
             <div class="modal fade" id="ExPortModal" tabindex="-1" aria-labelledby="ExPortModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -388,7 +388,7 @@
             }
         </script>
 
-        <form method="post" action="http://localhost:2929/QuanLyKyTucXa_new/NopTienPhong/timkiem">
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new/NopTienPhong/timkiem">
             <div class="form-inline" id="wrapper1">
                 <div class="head_timkiem" style = "padding-left: 260px;">
                     <div>
@@ -407,7 +407,7 @@
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal" style = "margin-top: 24px;"> Thêm </button>
                     </div>
                     <div>
-                        <a href="http://localhost:2929/QuanLyKyTucXa_new/NopTienPhong" style="margin: 24px 0px" class="btn btn-success" name="btnReLoad"><i class="fa-solid fa-rotate-right"></i> Reload</a>
+                        <a href="http://localhost/QuanLyKyTucXa_new/NopTienPhong" style="margin: 24px 0px" class="btn btn-success" name="btnReLoad"><i class="fa-solid fa-rotate-right"></i> Reload</a>
                     </div>
                 </div>
 
@@ -448,7 +448,7 @@
                                     <td>
                                         <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ExPortModal" onclick="hienThiDuLieuHoaDon('<?php echo htmlspecialchars(json_encode($row)) ?>')"><i class="fa-solid fa-file-invoice"></i></a>
                                         <a class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal" onclick="hienThiMaGiaoDich('<?php echo htmlspecialchars(json_encode($row)) ?>')"><i class="fa-regular fa-pen-to-square"></i></a>
-                                        <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost:2929/QuanLyKyTucXa_new/NopTienPhong/xoa/<?php echo $row['maGiaoDich'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+                                        <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/NopTienPhong/xoa/<?php echo $row['maGiaoDich'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>
                         <?php
