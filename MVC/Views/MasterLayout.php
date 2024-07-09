@@ -20,6 +20,8 @@
 
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
 
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/XemSV_js.js?v= <?php echo time() ?>"> </script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/l1.css">
     
@@ -162,7 +164,9 @@
                     <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
                         <div class="card-body">
                             <a href="http://localhost/QuanLyKyTucXa_new/HopDong" class="btn">Danh sách hợp đồng</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/HopDongThem" class="btn">Thêm mới hợp đồng</a>
                             <a href="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan" class="btn">Gia hạn hợp đồng</a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/HopDongKetThuc" class="btn">Kết thúc hợp đồng</a>
                         </div>
                     </div>
                 </div>

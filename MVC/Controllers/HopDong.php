@@ -37,14 +37,18 @@ class HopDong extends controller
     
     public function sua($mhd){
         $nhanvien = $this->hopdong->nhanvien_all();
-        $sinhvien = $this->hopdong->sinhvien_all();
+        // $sinhvien = $this->hopdong->sinhvien_all();
         $phong = $this->hopdong->phong_all();
+        $truongnhom = $this->hopdong->truongnhom_all();
+        $phong = $this->hopdong->phong_all();
+        $toa = $this->hopdong->toa_all();
         $this->view('Masterlayout', [
             'page' => 'HopDong_sua_v',
             'dulieu' => $this->hopdong->hopdong_find($mhd, '','',''),
             'nhanvien' => $nhanvien,
-            'sinhvien' => $sinhvien,
-            'phong' => $phong
+            'truongnhom' => $truongnhom,
+            'phong' => $phong,
+            'toa' => $toa,
         ]);
     }
 
@@ -52,13 +56,14 @@ class HopDong extends controller
         if (isset($_POST['btnLuu'])) {
             $mhd = $_POST['txtMaHopDong'];
             $mnv = $_POST['txtMaNhanVien'];
-            $msv = $_POST['txtMaSinhVien'];
+            $msv = $_POST['txtMaTruongNhom'];
+            $mt = $_POST['txtMaToa'];
             $mp = $_POST['txtMaPhong'];
             $start = $_POST['txtNgayBatDau'];
             $end = $_POST['txtNgayKetThuc'];
             $tt = $_POST['txtTinhTrang'];
 
-            $kq = $this->hopdong->hopdong_upd($mhd, $mnv, $msv, $mp, $start, $end, $tt);
+            $kq = $this->hopdong->hopdong_upd($mhd, $mnv, $msv, $mt, $mp, $start, $end, $tt);
             if ($kq) {
                 echo "<script>alert('Sửa thành công!')</script>";
             } else
@@ -78,7 +83,7 @@ class HopDong extends controller
         if (isset($_POST['btnTimkiem'])) {
             $mhd = $_POST['txtMaHopDong'];
             $mnv = $_POST['txtMaNhanVien'];
-            $msv = $_POST['txtMaSinhVien'];
+            $msv = $_POST['txtMaTruongNhom'];
             $mp = $_POST['txtMaPhong'];
 
             $dulieu = $this->hopdong->hopdong_find($mhd, $mnv, $msv, $mp);
@@ -104,7 +109,7 @@ class HopDong extends controller
             $sheet->setCellValue('A' . $rowCount, 'STT');
             $sheet->setCellValue('B' . $rowCount, 'Mã Hợp đồng');
             $sheet->setCellValue('C' . $rowCount, 'Mã Nhân viên');
-            $sheet->setCellValue('D' . $rowCount, 'Mã Sinh viên');
+            $sheet->setCellValue('D' . $rowCount, 'Mã trưởng nhóm');
             $sheet->setCellValue('E' . $rowCount, 'Mã phòng');
             $sheet->setCellValue('F' . $rowCount, 'Ngày bắt dầu');
             $sheet->setCellValue('G' . $rowCount, 'Ngày kết thúc');
@@ -131,7 +136,7 @@ class HopDong extends controller
             //Điền dữ liệu vào các dòng. Dữ liệu lấy từ DB
             $mhd = $_POST['txtMaHopDong'];
             $mnv = $_POST['txtMaNhanVien'];
-            $msv = $_POST['txtMaSinhVien'];
+            $msv = $_POST['txtMaTruongNhom'];
             $mp = $_POST['txtMaPhong'];
 
             $data = $this->hopdong->hopdong_find($mhd, $mnv, $msv, $mp);
@@ -140,8 +145,8 @@ class HopDong extends controller
                 $rowCount++;
                 $sheet->setCellValue('A' . $rowCount, $rowCount - 1);
                 $sheet->setCellValue('B' . $rowCount, $row['maHopDong']);
-                $sheet->setCellValue('C' . $rowCount, $row['maNhanVien']);
-                $sheet->setCellValue('D' . $rowCount, $row['maSinhVien']);
+                $sheet->setCellValue('C' . $rowCount, $row['MaNhanVien']);
+                $sheet->setCellValue('D' . $rowCount, $row['maTruongNhom']);
                 $sheet->setCellValue('E' . $rowCount, $row['maPhong']);
                 $sheet->setCellValue('F' . $rowCount, $row['ngayBatDau']);
                 $sheet->setCellValue('G' . $rowCount, $row['ngayKetThuc']);
@@ -161,7 +166,7 @@ class HopDong extends controller
 
             
             $objWriter = new PHPExcel_Writer_Excel2007($objExcel);
-            $fileName = 'xuattttt.xlsx';
+            $fileName = 'DanhSachHopDong.xlsx';
             $objWriter->save($fileName);
 
             header('Content-Disposition: attachment; filename="' . $fileName . '"');
@@ -176,6 +181,33 @@ class HopDong extends controller
     }
 
 
+    function get_phong_by_toa()
+    {
+        if (isset($_POST['maToa'])) {
+            $maToa = $_POST['maToa'];
+            $result = $this->hopdong->get_phong_by_toa($maToa);
+            $rooms = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $rooms[] = $row;
+            }
+            echo json_encode($rooms);
+        }
+    }
+    function get_tien_phong_by_phong()
+    {
+        if (isset($_POST['maPhong'])) {
+            $maPhong = $_POST['maPhong'];
+            $result = $this->hopdong->get_tien_phong_by_phong($maPhong);
 
+            // Assuming the result returns only one row with 'tienPhong' column
+            if ($row = mysqli_fetch_assoc($result)) {
+                $response = array('tienPhong' => $row['tienPhong']);
+                echo json_encode($response);
+            } else {
+                // Handle the case where no data is found
+                echo json_encode(array('tienPhong' => null));
+            }
+        }
+    }
 
 }

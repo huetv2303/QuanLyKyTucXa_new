@@ -1,63 +1,47 @@
 <?php
-class HopDongGiaHan extends controller
+class HopDongKetThuc extends controller
 {
-    protected $hopdonggiahan;
+    protected $hopdongketthuc;
     public function Get_data()
     {
-        $dulieu = $this->hopdonggiahan->hopdonggiahan_all(); //load toàn bộ danh sách hợp đồng
+        $dulieu = $this->hopdongketthuc->hopdonggiahan_all(); //load toàn bộ danh sách hợp đồng có trạng thái là hết hạn
         $this->view('Masterlayout', [
-            'page' => 'HopDongGiaHan_v',
+            'page' => 'HopDongKetThuc_v',
             'dulieu' => $dulieu
         ]);
     }
 
     public function __construct()
     {
-        $this->hopdonggiahan = $this->model('HopDong_m');
+        $this->hopdongketthuc = $this->model('HopDong_m');
     }
 
-    public function giahan($mhd)
+
+
+    public function ketthuc($mp)
     {
-        $nhanvien = $this->hopdonggiahan->nhanvien_all();
-        $truongnhom = $this->hopdonggiahan->truongnhom_all();
-        $phong = $this->hopdonggiahan->phong_all();
-        $toa = $this->hopdonggiahan->toa_all();
+
+        $nophidv = $this->hopdongketthuc->check_no_phi_dv($mp);
+        $notienphong  = $this->hopdongketthuc->check_no_tien_phong($mp);
+
+        if ($notienphong || $nophidv) {
+            if ($notienphong) echo "<script>alert('Chưa thanh toán tiền phòng, không thể kết thúc hợp đồng')</script>";
+            if ($nophidv) echo "<script>alert('Chưa thanh toán phí dịch vụ, không thể kết thúc hợp đồng')</script>";
+        }
+        else
+        {
+            $this->hopdongketthuc->hopdong_ketthuc($mp);
+            echo "<script>alert('Kết thúc hợp đồng thành công rực rỡ😍😍')</script>";
+        }
+
+
+        $dulieu = $this->hopdongketthuc->hopdonggiahan_all();
+        //Goi lai giao dien va truyen $duleiu ra
         $this->view('Masterlayout', [
-            'page' => 'HopDongGiaHan_giahan_v',
-            'dulieu' => $this->hopdonggiahan->hopdong_find($mhd, '', '', ''),
-            'nhanvien' => $nhanvien,
-            'truongnhom' => $truongnhom,
-            'phong' => $phong,
-            'toa' => $toa
+            'page' => 'HopDongKetThuc_v',
+            'dulieu' => $dulieu,
         ]);
     }
-
-    public function giahanhd()
-    {
-        if (isset($_POST['btnLuu'])) {
-            $mhd = $_POST['txtMaHopDong'];
-            $end = $_POST['txtNgayKetThuc'];
-            $giahan = $_POST['txtNgayGiaHan'];
-
-            if ($end >= $giahan) echo "<script>alert('Ngày gia hạn thêm phải lớn hơn ngày kết thúc hợp đồng!')</script>";
-            else {
-                $kq = $this->hopdonggiahan->hopdonggiahan_giahan($mhd, $giahan);
-                if ($kq) {
-                    echo "<script>alert('Gia hạn hợp đồng thành công')</script>";
-                } else {
-                    echo "<script>alert('Gia hạn thất bại')</script>";
-                }
-                //Gọi lại giao diện và truyền $dulieu ra
-                $dulieu = $this->hopdonggiahan->hopdonggiahan_all();
-                $this->view('Masterlayout', [
-                    'page' => 'HopDongGiaHan_v',
-                    'dulieu' => $dulieu
-                ]);
-            }
-            $this->giahan($mhd);
-        }
-    }
-
 
 
 
@@ -70,9 +54,9 @@ class HopDongGiaHan extends controller
             $msv = $_POST['txtMaTruongNhom'];
             $mp = $_POST['txtMaPhong'];
 
-            $dulieu = $this->hopdonggiahan->hopdonghethan_find($mhd, $mnv, $msv, $mp);
+            $dulieu = $this->hopdongketthuc->hopdonghethan_find($mhd, $mnv, $msv, $mp);
             $this->view('Masterlayout', [
-                'page' => 'HopDongGiaHan_v',
+                'page' => 'HopDongKetThuc_v',
                 'dulieu' => $dulieu,
                 'maHopDong' => $mhd,
                 'maNhanVien' => $mnv,
@@ -123,7 +107,7 @@ class HopDongGiaHan extends controller
             $msv = $_POST['txtMaTruongNhom'];
             $mp = $_POST['txtMaPhong'];
 
-            $data = $this->hopdonggiahan->hopdong_find($mhd, $mnv, $msv, $mp);
+            $data = $this->hopdongketthuc->hopdonghethan_find($mhd, $mnv, $msv, $mp);
 
             while ($row = mysqli_fetch_array($data)) {
                 $rowCount++;
