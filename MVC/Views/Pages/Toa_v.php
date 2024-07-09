@@ -39,7 +39,7 @@ select:hover{
         </div>
       
  <!-- Thông tin tòa -->
- <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/Toa_c/thongtin">
+ <form method="post" action="http://localhost/QuanLyKyTucXa_new/Toa_c/thongtin">
             <div class="form-inline">
             <div class="center-dulieu">
     
@@ -95,7 +95,7 @@ select:hover{
                            <td>
                            <button onclick="updateDataT('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
                            
-                           <a onclick="return confirm('Bạn có muốn xóa nhanvien này không?');" href="http://localhost:9090/QuanLyKyTucXa_new/Toa_c/xoa/<?php echo $row['TenNhanVien'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+                           <a onclick="return confirm('Bạn có muốn xóa nhanvien này không?');" href="http://localhost/QuanLyKyTucXa_new/Toa_c/xoa/<?php echo $row['TenNhanVien'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
                            </td>
                         </tr>
                 <?php
@@ -108,7 +108,7 @@ select:hover{
 
     </form>
 
-    <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/Toa_c/suadl">
+    <form method="post" action="http://localhost/QuanLyKyTucXa_new/Toa_c/suadl">
             <!-- Modal Sửa dữ liệu tòa --> 
             <div class="modal-update">
                 <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">

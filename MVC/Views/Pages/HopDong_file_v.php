@@ -13,7 +13,7 @@
 <div class="content">
     <form class = "content1" action="http://localhost/QuanLyKyTucXa_new/HopDongFile/nhapexcel" method="post" enctype="multipart/form-data">
         <br>
-        <a  style="margin: 20px;" class="text-black" href="http://localhost:9090/QuanLyKyTucXa_new/HopDong">
+        <a  style="margin: 20px;" class="text-black" href="http://localhost/QuanLyKyTucXa_new/HopDong">
             << Quay lại</a>
                 <br>
         <div class="mb-3">

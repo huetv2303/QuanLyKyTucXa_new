@@ -151,7 +151,7 @@
     <div class="login-container">
         <div class="login-card">
             <div class="avatar">
-                <img src="https://th.bing.com/th/id/R.e86a2f7c0d27cb5c409a7b3f3a315fe8?rik=uKc2dRGoVuQNWA&riu=http%3a%2f%2futt.edu.vn%2fhome%2fimages%2fstories%2flogo-utt-border.png&ehk=xwQfVRyFndxbb5TeE0GZhK6TfE%2fZO6f0UtTKNHkKLko%3d&risl=&pid=ImgRaw&r=0" alt="Avatar">
+                <img src="https://utt.edu.vn/home/images/stories/logo-utt-border.png" alt="Avatar">
             </div>
             <h2>WELCOME</h2>
             <p>Đăng nhập thông tin của bạn ở bên dưới!</p>
@@ -166,7 +166,7 @@
                 </div>
                 <button type="submit" class="btn">Đăng nhập</button>
                 <?php if (isset($data['error'])) : ?>
-                    <p style="color: darkred;"><?php echo $data['error']; ?></p>
+                    <p style="color: dark;"><?php echo $data['error']; ?></p>
                 <?php endif; ?>
              
             </form>
