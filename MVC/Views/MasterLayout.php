@@ -14,6 +14,17 @@
 
     <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/master.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/style.css?v= <?php echo time() ?>">
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
+
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=1"> </script>
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/phong.js?v=1"> </script>
+
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v= <?php echo time() ?>"> </script>
+
+    <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/XemSV_js.js?v= <?php echo time() ?>"> </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="http://localhost/QuanLyKyTucXa_new/Public/CSS/l1.css">
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/DichVu_js.js?v=<?php echo time(); ?>"></script>
     <script src="http://localhost/QuanLyKyTucXa_new/Public/JS/phong.js?v=1"></script>
