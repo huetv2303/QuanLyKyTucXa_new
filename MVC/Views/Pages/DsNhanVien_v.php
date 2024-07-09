@@ -33,7 +33,11 @@
     }
 
     #btnNhapExcel {
-        margin-left: 400px;
+        margin-left: 1000px;
+    }
+
+    .form-inline{
+        text-align: center;
     }
 </style>
 
@@ -42,11 +46,11 @@
         <form method="post" action="http://localhost/QuanLyKyTucXa_new/DsNhanVien/Search">
             <div>
                 <div class="header">
-                    <h6>DANH SÁCH NHÂN VIÊN</h6>
+                    <h3>Danh sách nhân viên</h3>
                 </div>
                 <br>
                 <div class="form-inline">
-                    <table>
+                    <table style="margin: auto;">
                         <tr>
                             <td>
                                 <input placeholder="Nhập mã nhân viên" type="text" id="txtMaNv" class="form-control" name="txtMaNV" value="<?php if (isset($data['maNv'])) echo $data['maNv'] ?>">
@@ -64,12 +68,11 @@
                         </tr>
                     </table>
                 </div>
-                <br>
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalExcel" id="btnNhapExcel"><i class="fa-regular fa-file-excel">&nbsp;&nbsp;</i>Nhập Excel</button>
                 <button type="submit" class="btn btn-success" name="btnXuatExcel"><i class="fa-regular fa-file-excel">&nbsp;&nbsp;</i>Xuất Excel</button>
                 <br>
                 <br>
-                <table class="table table-hover" border="1px solid black">
+                <table class="table table-hover" border="1px solid black" style="width: 90%; margin-left: 70px;">
                     <thead>
                         <tr>
                             <th>STT</th>
@@ -98,7 +101,7 @@
                                     <td><?php echo $row['NgaySinh'] ?></td>
                                     <td><?php echo $row['DiaChi'] ?></td>
                                     <td><?php echo $row['SoDienThoai'] ?></td>
-                                    <td>
+                                    <td style="width: 200px;">
 
                                         <a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien/loadForm/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square">&nbsp;&nbsp;</i>Sửa</a> &nbsp;
                                         <a onclick="return confirm('Bạn có muốn xóa nhân viên này không ?')" href="http://localhost/QuanLyKyTucXa_new/DsNhanVien/Delete/<?php echo $row['MaNhanVien'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash">&nbsp;&nbsp;</i>Xóa</a>

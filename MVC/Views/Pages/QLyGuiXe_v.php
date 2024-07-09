@@ -27,16 +27,18 @@
     }
 
     #btnNhapExcel {
-        margin-left: 400px;
+        margin-left: 100px;
     }
 </style>
 
 <body>
-    <div>
-        <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">DANH SÁCH SINH VIÊN ĐĂNG KÝ GỬI XE</h3>
+    <div class="main">
+        <div class="header">
+            <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Danh sách sinh viên gửi xe</h3>
+        </div>
         <br>
-        <div class="form-inline">
-            <table>
+        <div class="form-inline" style="text-align: center;">
+            <table style="margin: auto;">
                 <tr>
                     <form method="post" action="http://localhost/QuanLyKyTucXa_new/QLyGuiXe/search">
                         <td>
@@ -60,8 +62,7 @@
             </form>
         </div>
         <br>
-        <br>
-        <table class="table table-hover" border="1px solid black">
+        <table class="table table-hover" border="1px solid black" style="width: 95%; margin-left: 70px;">
             <thead>
                 <tr>
                     <th>STT</th>
@@ -100,7 +101,7 @@
                             <td><?php echo $row['registerDate'] ?></td>
                             <td><?php echo $row['typeOfVehicle'] ?></td>
                             <td><?php echo $row['plate'] ?></td>
-                            <td>
+                            <td style="width: 200px;">
                                 <a href="http://localhost/QuanLyKyTucXa_new/QLyGuiXe/update_load/<?php echo $row['ID'] ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square">&nbsp;&nbsp;</i>Sửa</a> &nbsp;
                                 <a onclick="return confirm('Bạn có muốn xóa nhân viên này không ?')" href="http://localhost/QuanLyKyTucXa_new/QLyGuiXe/DeleteInfo/<?php echo $row['ID'] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash">&nbsp;&nbsp;</i>Xóa</a>
                             </td>
