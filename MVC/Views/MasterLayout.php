@@ -47,6 +47,7 @@
                     <ul class="collapse list-unstyled" id="uiElementsSubmenu">
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DsNhanVien">Danh sách nhân viên</a></li>
                         <li><a href="http://localhost:2929/QuanLyKyTucXa_new/DanhsachSV">Danh sách sinh viên</a></li>
+                         <li><a href="http://localhost:2929/QuanLyKyTucXa_new/NhomSV">Danh sách nhóm sv</a></li>
                     </ul>
                 </li>
                 <li>

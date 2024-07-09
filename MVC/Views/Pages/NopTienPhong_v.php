@@ -12,23 +12,15 @@
             text-align: center;
         }
 
-        #wrapper {
+        /* #wrapper {
             padding: 50px;
             background-color: #0dcaf02b;
             height: 100%;
             position: absolute;
             width: 87%;
-        }
+            
+        } */
 
-        /* #wrapper1 {
-            padding: 50px;
-            background-color: #0dcaf02b;
-            min-height: 100vh;
-         
-            width: 87%;
-            overflow: auto;
-          
-        }  */
 
         .form-inline {
             border-radius: 20px;
@@ -389,7 +381,7 @@
         </script>
 
         <form method="post" action="http://localhost:2929/QuanLyKyTucXa_new/NopTienPhong/timkiem">
-            <div class="form-inline" id="wrapper1">
+            <div class="form-inline">
                 <div class="head_timkiem" style = "padding-left: 260px;">
                     <div>
                         <label style="width: 100px;">Mã giao dịch</label>
