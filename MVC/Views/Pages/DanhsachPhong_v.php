@@ -55,8 +55,8 @@
                             <label>Trạng thái</label>
                             <br>
                             <!-- <input type="text" class="form-control" placeholder="Nhập trạng thái phòng" name="txtTrangthai"> -->
-                            <input type="radio" name="txtTrangthai" id="txtTrangthai" value="Còn phòng" required>Còn phòng
-                            <input type="radio" name="txtTrangthai" id="txtTrangthai" value="Phòng đủ" required>Phòng đủ
+                            <input type="radio" name="txtTrangthai" id="txtTrangthai" value="Trống" required>Trống
+                            <input type="radio" name="txtTrangthai" id="txtTrangthai" value="Hết" required>Hết
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -103,8 +103,8 @@
                                 <input type="text" class="form-control" name="txtTienphong" id="txtTienphong" value="">
                                 <label>Trạng thái</label>
                                 <br>
-                                <input type="radio" name="txtTrangthai" id="txtTrangthai1" value="Còn phòng" required>Còn phòng
-                                <input type="radio" name="txtTrangthai" id="txtTrangthai2" value="Phòng đủ" required>Phòng đủ
+                                <input type="radio" name="txtTrangthai" id="txtTrangthai1" value="Trống" required>Trống
+                                <input type="radio" name="txtTrangthai" id="txtTrangthai2" value="Hết" required>Hết
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -120,38 +120,43 @@
         <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/timkiem" enctype="multipart/form-data">
             <div class="form-inline">
             <div>
-                <div class="header">
-                    <h3>Danh sách phòng</h3>
+                <div class="" style="text-align:center;">
+                    <h2 style="color: #3333CC">Danh sách phòng</h2>
                     <!-- Button trigger modal -->
 
                 </div>
-            <div class="center-dulieu">
-            <table style=" text-align:center">
-                <tr></tr>
-                <tr >
-                    
-                    <td class="td2" ><input type="text" class="form-control dd2" name="txtTimkiem" value=""placeholder="Tìm kiếm "></td>
-                    <td></td>
-                    <td>
-                        <button type="submit" class="btn btn-primary" name="btnTimkiem" id="btnTimkiem"><i class="fa-solid fa-magnifying-glass">&nbsp;&nbsp;</i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <br>
-                        <input type="radio" name="txtTimkiem2" id="" value="Còn phòng" >Còn phòng &nbsp;
-                        <input type="radio" name="txtTimkiem2" id="" value="Phòng đủ" >Phòng đủ
-                    </td>
-                </tr>
-            </table>
+                <br>
+                <br>
+                <br>
+                
+            <div>
+                <table style=" text-align:center">
+                    <tr></tr>
+                    <tr >
+                        <td>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">Thêm mới </button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalExcel" id="btnNhapExcel"><i class="fa-regular fa-file-excel">&nbsp;&nbsp;</i>Nhập Excel</button>
+                            <button type="submit" class="btn btn-primary" name="btnXuat"><i class="fa-regular fa-file-excel">&nbsp;&nbsp;</i>Xuất Excel</button>
+                        </td>
+                        <td class="td2"  style="width:700px;padding-left: 500px;" >
+                            <input type="text" class="form-control dd2" name="txtTimkiem" value=""placeholder="Tìm kiếm ">
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-primary" name="btnTimkiem" id="btnTimkiem"><i class="fa-solid fa-magnifying-glass">&nbsp;&nbsp;</i></button>
+                            
+                        </td>
+                        <div><a href="http://localhost/QuanLyKyTucXa_new//DanhsachPhong_c/" style="margin: 10px 0px; background-color: #0d6efd;" class="btn btn-success" name="btnReLoad"><i class="fa-solid fa-rotate-right"></i> Reload</a></div>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="2" style="padding-left: 450px; text-align:center">
+                            <br>
+                            <input type="radio" name="txtTimkiem2" id="" value="Trống" >Trống &nbsp;
+                            <input type="radio" name="txtTimkiem2" id="" value="Hết" >Hết
+                        </td>
+                    </tr>
+                </table>
             </div>
-            <br>
-            <br>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">Thêm mới </button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalExcel" id="btnNhapExcel"><i class="fa-regular fa-file-excel">&nbsp;&nbsp;</i>Nhập Excel</button>
-            <button type="submit" class="btn btn-primary" name="btnXuat"><i class="fa-regular fa-file-excel">&nbsp;&nbsp;</i>Xuất Excel</button>
-            <br>
-
             <!-- Nhập excel -->
             <div class="center-dulieu">
             <div class="modal" id="modalExcel">
@@ -181,7 +186,7 @@
             </div>
    
          <br>
-        <div class="form-inline" >
+        <div>
         <table class="table table-striped" style="text-align:center " >        
                 <tr style="background:ccc">
                     <th>STT</th>
@@ -228,9 +233,9 @@
     document.getElementById('txtSonguoi').value = newData.soNguoi;
     document.getElementById('txtTienphong').value = newData.tienPhong;
     // Check lại trạng thái và truyen
-    if (newData.trangThai === 'Còn phòng') {
+    if (newData.trangThai === 'Trống') {
         document.getElementById('txtTrangthai1').checked = true;
-    } else if (newData.trangThai === 'Phòng đủ') {
+    } else if (newData.trangThai === 'Hết') {
         document.getElementById('txtTrangthai2').checked = true;
     }
     

@@ -9,11 +9,13 @@ class DanhsachPhong_c extends controller
 
     function Get_data()
     {
+        $update = $this->ds->update_ctphong();
         $dulieu = $this->ds->all();
         $ma = $this->ds->toa_All();
         $ma1 = $this->ds->toa_All();
         $this->view('Masterlayout', [
             'page' => 'DanhsachPhong_v',
+            'update' => $update,
             'dulieu' => $dulieu,
             'ma' => $ma,// Lấy tất cả dữ liệu từ bảng lớp học, nếu bài bạn là phòng thì đây là tòa
             'ma1' => $ma1

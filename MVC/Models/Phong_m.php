@@ -72,7 +72,14 @@ class Phong_m extends connectDB{
     }
     //danh sách phòng hiện ra danh sách sinh viên//
     //
-
+    public function update_ctphong()
+    {
+        $sql2 = "UPDATE phong
+        JOIN nhomsinhvien ON phong.maPhong = nhomsinhvien.maPhong
+        JOIN hopdong ON hopdong.maPhong = phong.maPhong
+        SET phong.manhomsinhvien = nhomsinhvien.manhomsinhvien;";
+        return mysqli_query($this->conn, $sql2);
+    }
     public function ds_sinhvien($manhomsinhvien){
         $sql = "SELECT thongtinsinhvien.maSinhVien,thongtinsinhvien.hoTen,thongtinsinhvien.soDienThoai,thongtinsinhvien.gioiTinh
                 FROM thongtinsinhvien, phong

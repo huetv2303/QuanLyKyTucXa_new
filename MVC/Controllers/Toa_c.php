@@ -18,12 +18,21 @@ class Toa_c extends controller
 
     function xoa($matoa)
     {
-        $kq = $this->ds->delete($matoa);
-        if ($kq)
-            echo "<script>alert('Xóa thành công!')</script>";
-        else
-            echo "<script>alert('Xóa thất bại!')</script>";
+        $kq2 = $this->ds->checktrungma3($matoa);
+        $kq3= $this->ds->checktrungma4($matoa);
+        
+        if ($kq2|| $kq3)
+            echo "<script>alert('Tồn tại các mục con chứa tòa!')</script>";
+        else{
+            $kq = $this->ds->delete($matoa);
+            if ($kq)
+                echo "<script>alert('Xóa thành công!')</script>";
+            else
+                echo "<script>alert('Xóa thất bại!')</script>";
 
+        }
+            
+        
         $dulieu = $this->ds->all();
         $this->view('Masterlayout', [
             'page' => 'Toa_v',
