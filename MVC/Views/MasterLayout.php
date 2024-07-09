@@ -95,7 +95,7 @@
                 </div> -->
                 <p></p>
                 <h1 class="h1">Quản lý ký túc xá</h1>
-                <p>Thoát</p>
+                <a  href="http://localhost/QuanLyKyTucXa_new/DangNhap">Thoát</a>
             </header>
             <section id="content-right1">
                 <?php
