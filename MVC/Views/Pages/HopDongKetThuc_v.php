@@ -33,12 +33,13 @@
 
 <body>
 <div class="main">
+<h3 class="header">Kết thúc hợp đồng</h3>
         <div>
 
             <div class="search-box">
                 <!-- <h3 class="text-center align-middle">Tìm kiếm</h3> -->
                 <form class="content1" action="http://localhost/QuanLyKyTucXa_new/HopDongKetThuc/timkiem" class="text-center padd" method="post"> <!-- form tìm kiếm -->
-                    <table  class="d-flex justify-content-center align-items-center">
+                    <table  class="">
                         <tbody>
                             <tr>
                                 <td class="input-td">
@@ -87,7 +88,6 @@
 
                 </form>
             </div>
-            <h3 class="header">Danh sách hợp đồng hết hạn</h3>
             <table class="table table-striped">
                 <thead>
                     <tr class="thead-light">

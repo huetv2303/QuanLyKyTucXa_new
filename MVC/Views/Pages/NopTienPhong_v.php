@@ -381,7 +381,7 @@
         </script>
 
         <form method="post" action="http://localhost/QuanLyKyTucXa_new/NopTienPhong/timkiem">
-            <div class="form-inline">
+            <div class="form-inline" id="wrapper1">
                 <div class="head_timkiem" style = "padding-left: 260px;">
                     <div>
                         <label style="width: 100px;">Mã giao dịch</label>
