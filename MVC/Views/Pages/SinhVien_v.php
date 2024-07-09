@@ -46,7 +46,7 @@
 </head>
 
 <body>
-    <form method="post" action="http://localhost:2929/QuanLyKyTucXa_new/SinhVien/themmoi">
+    <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/SinhVien/themmoi">
         <div id="wrapper" style="height: -webkit-fill-available;">
 
             <div class="header" style="color: #08449b">
@@ -112,7 +112,7 @@
                 var maToa = $(this).val();
                 if (maToa != '') {
                     $.ajax({
-                        url: 'http://localhost:2929/QuanLyKyTucXa_new/SinhVien/get_phong_by_toa',
+                        url: 'http://localhost:9090/QuanLyKyTucXa_new/SinhVien/get_phong_by_toa',
                         method: 'POST',
                         data: {
                             maToa: maToa

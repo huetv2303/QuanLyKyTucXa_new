@@ -76,7 +76,9 @@
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachDN">Điện nước</a></li>
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachDV/">Dịch vụ khác</a></li>
                         <li><a href="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV">Hóa đơn dịch vụ</a></li>
-                        <li><a href="http://http://localhost//QuanLyKyTucXa_new/NopTienPhong">Nộp tiền phòng</a></li>
+                        <li><a href="http://localhost//QuanLyKyTucXa_new/NopTienPhong">Nộp tiền phòng</a></li>
+                        <li><a href="http://localhost//QuanLyKyTucXa_new/QLyGuiXe">Dịch vụ gửi xe</a></li>
+                        <li><a href="http://localhost//QuanLyKyTucXa_new/HoaDonGuiXe">Hóa đơn gửi xe</a></li>
                     </ul>
                 </li>
                 <li>

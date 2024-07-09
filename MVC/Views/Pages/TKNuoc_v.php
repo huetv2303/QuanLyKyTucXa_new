@@ -7,7 +7,7 @@
 
 <body>
     <div class="main">
-        <form action="http://localhost/QuanLyKyTucXa_new/TKNuoc/thongkenuoc" method="POST">
+        <form action="http://localhost:9090/QuanLyKyTucXa_new/TKNuoc/thongkenuoc" method="POST">
             <h1 style="padding-left: 20px;">Thống Kê Nước Theo Tháng</h1>
 
             <div style="padding-left: 30px;" class="head_timkiem">

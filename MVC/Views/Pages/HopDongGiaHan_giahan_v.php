@@ -26,13 +26,13 @@
     <div class="main">
         <div class="content">
             <br>
-            <a style="margin: 20px;" class="text-black content1" href="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan">
+            <a style="margin: 20px;" class="text-black content1" href="http://localhost:9090/QuanLyKyTucXa_new/HopDongGiaHan">
                 << Quay lại</a>
                     <br>
                     <div class="header">
                         <h3>Gia hạn hợp đồng</h3>
                     </div>
-                    <form class="content1" action="http://localhost/QuanLyKyTucXa_new/HopDongGiaHan/giahanhd" method="post">
+                    <form class="content1" action="http://localhost:9090/QuanLyKyTucXa_new/HopDongGiaHan/giahanhd" method="post">
                         <?php
                         if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
                             while ($row = mysqli_fetch_array($data['dulieu'])) {

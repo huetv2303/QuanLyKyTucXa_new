@@ -30,7 +30,7 @@
 
         </div>
         <!-- Thêm mới -->
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new/themPhong_c/themmoi">
+        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/themPhong_c/themmoi">
     <div class="modal-add">
         <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -74,7 +74,7 @@
         </div>
     </div>
 </form>
-<form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/suadl">
+<form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPhong_c/suadl">
             <!-- Modal Sửa dữ liệu phòng --> 
             <div class="modal-update">
                 <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
@@ -122,7 +122,7 @@
 
 
         <!-- Nhập excel -->
-        <form action="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/import" enctype="multipart/form-data" method="post">
+        <form action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPhong_c/import" enctype="multipart/form-data" method="post">
             <label for="myFile2"></label>
             <table>
                 <tr>
@@ -139,7 +139,7 @@
         </form>
 
         <!-- Tìm kiếm -->
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/timkiem">
+        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPhong_c/timkiem">
             <div class="form-inline">
             <div class="center-dulieu">
             <table style=" text-align:center">
@@ -189,7 +189,7 @@
                          <td><?php echo $row['trangThai'] ?></td>
                          <td>
                          <button onclick="updateDataP('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
-                         <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/xoa/<?php echo $row['maPhong'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+                         <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPhong_c/xoa/<?php echo $row['maPhong'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
                          </td>
                      </tr>
                          <?php

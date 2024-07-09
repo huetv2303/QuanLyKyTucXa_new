@@ -14,7 +14,7 @@
             <!-- Button trigger modal -->
 
         </div>
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachDN/suadl">
+        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDN/suadl">
             <!-- Modal -->
             <div class="modal-update">
                 <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </form>
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachDN/timkiem">
+        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachDN/timkiem">
             <div class="form-inline">
                 <!-- <label style="width: 100px;">Mã dịch vụ</label>
             <input type="text" placeholder="Tìm mã dịch vụ" class="form-control" name="txtMaDV" >

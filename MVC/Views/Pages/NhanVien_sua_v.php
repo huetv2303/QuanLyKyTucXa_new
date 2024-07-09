@@ -15,7 +15,6 @@
             if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
                 while ($row = mysqli_fetch_array($data['dulieu'])) {
             ?>
-
                     <label>Mã nhân viên</label>
                     <input type="text" class="form-control" placeholder="Mã nhân viên" name="txtMaNv" value="<?php echo $row['MaNhanVien'] ?>" readonly>
                     <label>Tên nhân viên</label>
@@ -48,7 +47,6 @@
             <button type="submit" class="btn btn-primary" name="btnBack">Quay lại</button>
         </div>
     </form>
-</div>
 </body>
 
 </html>

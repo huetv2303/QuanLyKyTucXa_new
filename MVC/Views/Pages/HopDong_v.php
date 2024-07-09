@@ -125,8 +125,8 @@
                                 <td><?php echo $row['tinhTrang'] ?></td>
                                 <td>
                                     <!-- <a href="">Xóa</a> -->
-                                    <a href="http://localhost/QuanLyKyTucXa_new/HopDong/sua/<?php echo $row['maHopDong'] ?>" class="btn btn-outline-primary">Sửa</a>
-                                    <a href="http://localhost/QuanLyKyTucXa_new/HopDong/xoa/<?php echo $row['maHopDong'] ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa ko?')" class="btn btn-outline-danger">Xóa</a>
+                                    <a href="http://localhost:9090/QuanLyKyTucXa_new/HopDong/sua/<?php echo $row['maHopDong'] ?>" class="btn btn-outline-primary">Sửa</a>
+                                    <a href="http://localhost:9090/QuanLyKyTucXa_new/HopDong/xoa/<?php echo $row['maHopDong'] ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa ko?')" class="btn btn-outline-danger">Xóa</a>
 
                                 </td>
                             </tr>
