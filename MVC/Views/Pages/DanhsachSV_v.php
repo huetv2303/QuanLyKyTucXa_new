@@ -57,8 +57,7 @@
 <body>
     <div id="wrapper" style="height: -webkit-fill-available;">
         <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachSV/timKiem">
-            <div class="header" style="color: #08449b">
-                <h2>Quản lý thông tin sinh viên</h2>
+            <div  style="color: #08449b">
             </div>
 
             <div class="form-inline">

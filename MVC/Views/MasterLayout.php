@@ -36,7 +36,7 @@
     <div class="d-flex">
         <aside class="sidebar">
             <div class="sidebar-header">
-                <img style="width:200px; height: 130px" src="https://th.bing.com/th/id/R.e86a2f7c0d27cb5c409a7b3f3a315fe8?rik=uKc2dRGoVuQNWA&riu=http%3a%2f%2futt.edu.vn%2fhome%2fimages%2fstories%2flogo-utt-border.png&ehk=xwQfVRyFndxbb5TeE0GZhK6TfE%2fZO6f0UtTKNHkKLko%3d&risl=&pid=ImgRaw&r=0" alt="">
+                <img style="width:200px; height: 130px" src="https://utt.edu.vn/home/images/stories/logo-utt-border.png" alt="">
             </div>
 
             <hr >

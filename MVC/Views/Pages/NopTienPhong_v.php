@@ -64,7 +64,7 @@
             <h3>Nộp tiền phòng</h3>
             <!-- Button trigger modal -->
 
-            <form method="post" action="http://localhost:2929/QuanLyKyTucXa_new/NopTienPhong/themmoi" id="addInvoiceForm">
+            <form method="post" action="http://localhost/QuanLyKyTucXa_new/NopTienPhong/themmoi" id="addInvoiceForm">
                 <!-- Modal -->
                 <div class="modal-add">
                     <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
@@ -150,7 +150,7 @@
                         var maToa = $(this).val();
                         if (maToa !== '') {
                             $.ajax({
-                                url: 'http://localhost:2929/QuanLyKyTucXa_new/NopTienPhong/get_phong_by_toa',
+                                url: 'http://localhost/QuanLyKyTucXa_new/NopTienPhong/get_phong_by_toa',
                                 method: 'POST',
                                 data: {
                                     maToa: maToa

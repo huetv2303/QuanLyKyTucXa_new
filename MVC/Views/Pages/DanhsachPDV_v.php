@@ -4,16 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-<<<<<<< HEAD
     <!-- <script src="http://localhost:9090/QuanLyKyTucXa_new/Public/JS/DichVu_js.js"> </script> -->
-=======
-=======
 
 
->>>>>>> c7c697899384b4ccaf6a073e5261709a9761c392
     <!-- <script src="http://localhost/QuanLyKyTucXa_new//Public/JS/DichVu_js.js"> </script> -->
->>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
     <title>Quản lý dịch vụ</title>
 </head>
 <style>
@@ -32,7 +26,7 @@
             <!-- Button trigger modal -->
 
             <!-- Modal -->
-            <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPDV/themmoi">
+            <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachPDV/themmoi">
 
                 <div class="modal-add">
                     <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
@@ -126,11 +120,7 @@
             </form>
 
         </div>
-<<<<<<< HEAD
-        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPDV/suadl">
-=======
         <form method="post" action="http://localhost/QuanLyKyTucXa_new//DanhsachPDV/suadl">
->>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
             <!-- Modal -->
             <div class="modal-update">
                 <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
@@ -205,11 +195,7 @@
                 </div>
             </div>
         </form>
-<<<<<<< HEAD
-        <form method="post" action="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPDV/timkiem">
-=======
         <form method="post" action="http://localhost/QuanLyKyTucXa_new//DanhsachPDV/timkiem">
->>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
             <div class="form-inline">
                 <div class="head_timkiem">
                     <div>
@@ -275,11 +261,8 @@
                                 <td>
 
                                     <a class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal" onclick="updateDataPDV('<?php echo htmlspecialchars(json_encode($row)) ?>')"><i class="fa-regular fa-pen-to-square"></i></a>
-<<<<<<< HEAD
-                                    <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost:9090/QuanLyKyTucXa_new/DanhsachPDV/xoa/<?php echo $row['id'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
-=======
+
                                     <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new//DanhsachPDV/xoa/<?php echo $row['id'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
->>>>>>> 0adad5d168f90cdd8c7ccee10d7f3b0b7d0d026c
                                 </td>
 
                             </tr>

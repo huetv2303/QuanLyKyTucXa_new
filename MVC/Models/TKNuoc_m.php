@@ -46,16 +46,35 @@ class TKNuoc_m extends connectDB
         return mysqli_query($this->conn, $sql);
     }
 
-    public function getid_room()
+    // public function getid_room()
+    // {
+    //     $sql = "SELECT maPhong FROM phong  ";
+    //     return mysqli_query($this->conn, $sql);
+    // }
+
+    // public function get_all_toa()
+    // {
+    //     $sql = "SELECT maToa FROM toa";
+        
+    //     return mysqli_query($this->conn, $sql);
+    // }
+
+    public function hopdong_idP()
     {
-        $sql = "SELECT maPhong FROM phong  ";
+        $sql = "SELECT maPhong FROM hopdong";
         return mysqli_query($this->conn, $sql);
     }
 
-    public function get_all_toa()
+    public function get_phong_by_toa_hopdong($maToa)
     {
-        $sql = "SELECT maToa FROM toa";
-        
+        $sql = "SELECT maPhong FROM hopdong WHERE maToa = '$maToa'";
         return mysqli_query($this->conn, $sql);
     }
+
+    public function get_all_toa_hopdong()
+    {
+        $sql = "SELECT maToa FROM hopdong";
+        return mysqli_query($this->conn, $sql);
+    }
+
 }

@@ -12,7 +12,7 @@
 
 <body>
     <div class="main">
-        <form action="http://localhost:9090/QuanLyKyTucXa_new/TKDien/thongkedien" method="POST">
+        <form action="http://localhost/QuanLyKyTucXa_new/TKDien/thongkedien" method="POST">
             <div style="padding-left: 30px;" class="head_tkdien">
                 <h1>Thống Kê Điện Theo Tháng</h1>
 
