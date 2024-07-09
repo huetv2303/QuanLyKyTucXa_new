@@ -265,13 +265,13 @@ class DanhsachPhong_c extends controller
         }
         //Gọi lại giao diện và truyền $dulieu ra
     }
-    function lien_ket($manhomsinhvien)
+    function lien_ket($hopdong)
     {
 
-        $dulieu = $this->ds->find3($manhomsinhvien);
+        $dulieu = $this->ds->find3($hopdong);
         $this->view('Masterlayout', [
             'page' => 'Chitietphong_v',
-            'dulieu1' => $this->ds->ds_sinhvien($manhomsinhvien),
+            'dulieu1' => $this->ds->ds_sinhvien($hopdong),
             'dulieu' => $dulieu,
         ]);
     }

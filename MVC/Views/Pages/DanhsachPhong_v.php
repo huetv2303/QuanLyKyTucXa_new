@@ -4,23 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <style>
-        .center-dulieu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 10px;
-}
-.td2{
-    width: 250px;
-}
-
-    </style>
+    <title>Quản lí phòng</title>
+   
 </head>
 
 <body>
+
         <!-- Thêm mới -->
         <form method="post" action="http://localhost/QuanLyKyTucXa_new/themPhong_c/themmoi">
     <div class="modal-add">
@@ -118,13 +107,11 @@
 
         <!-- Tìm kiếm -->
         <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/timkiem" enctype="multipart/form-data">
-            <div class="form-inline">
-            <div>
-                <div class="" style="text-align:center;">
-                    <h2 style="color: #3333CC">Danh sách phòng</h2>
-                    <!-- Button trigger modal -->
-
-                </div>
+            <div class="main">
+        <div class="header">
+            <h3>Danh sách phòng</h3>
+            <!-- Button trigger modal -->
+        </div>
                 <br>
                 <br>
                 <br>
@@ -212,7 +199,7 @@
                          <td>
                          <button onclick="updateDataP('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
                          <a onclick="return confirm('Bạn có muốn xóa phòng này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/xoa/<?php echo $row['maPhong'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
-                         <a href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/lien_ket/<?php echo $row['maNhomSinhVien'] ?>" class="btn btn-outline-danger"><i style="color: red;" ></i>Chi tiết</a> 
+                         <a href="http://localhost/QuanLyKyTucXa_new/DanhsachPhong_c/lien_ket/<?php echo $row['maHopDong'] ?>" class="btn btn-outline-danger"><i style="color: red;" ></i>Chi tiết</a> 
                         </td>
                      </tr>
                          <?php
