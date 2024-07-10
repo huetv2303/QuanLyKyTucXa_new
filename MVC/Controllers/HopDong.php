@@ -113,10 +113,11 @@ class HopDong extends controller
             $sheet->setCellValue('B' . $rowCount, 'Mã Hợp đồng');
             $sheet->setCellValue('C' . $rowCount, 'Mã Nhân viên');
             $sheet->setCellValue('D' . $rowCount, 'Mã trưởng nhóm');
-            $sheet->setCellValue('E' . $rowCount, 'Mã phòng');
-            $sheet->setCellValue('F' . $rowCount, 'Ngày bắt dầu');
-            $sheet->setCellValue('G' . $rowCount, 'Ngày kết thúc');
-            $sheet->setCellValue('H' . $rowCount, 'Tình trạng');
+            $sheet->setCellValue('E' . $rowCount, 'Mã toà');
+            $sheet->setCellValue('F' . $rowCount, 'Mã phòng');
+            $sheet->setCellValue('G' . $rowCount, 'Ngày bắt dầu');
+            $sheet->setCellValue('H' . $rowCount, 'Ngày kết thúc');
+            $sheet->setCellValue('I' . $rowCount, 'Tình trạng');
             
 
             //định dạng cột tiêu đề
@@ -128,13 +129,14 @@ class HopDong extends controller
             $sheet->getColumnDimension('F')->setAutoSize(true);
             $sheet->getColumnDimension('G')->setAutoSize(true);
             $sheet->getColumnDimension('H')->setAutoSize(true);
+            $sheet->getColumnDimension('I')->setAutoSize(true);
 
             //gán màu nền
-            $sheet->getStyle('A1:H1')->getFill()->setFillType(\PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b9e0c1');
+            $sheet->getStyle('A1:I1')->getFill()->setFillType(\PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b9e0c1');
             //căn giữa
-            $sheet->getStyle('A1:H1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+            $sheet->getStyle('A1:I1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
             //bôi đậm dòng tiêu đề
-            $sheet->getStyle('A1:H1')->getFont()->setBold(true); 
+            $sheet->getStyle('A1:I1')->getFont()->setBold(true); 
             
             //Điền dữ liệu vào các dòng. Dữ liệu lấy từ DB
             $mhd = $_POST['txtMaHopDong'];
@@ -150,10 +152,11 @@ class HopDong extends controller
                 $sheet->setCellValue('B' . $rowCount, $row['maHopDong']);
                 $sheet->setCellValue('C' . $rowCount, $row['MaNhanVien']);
                 $sheet->setCellValue('D' . $rowCount, $row['maTruongNhom']);
-                $sheet->setCellValue('E' . $rowCount, $row['maPhong']);
-                $sheet->setCellValue('F' . $rowCount, $row['ngayBatDau']);
-                $sheet->setCellValue('G' . $rowCount, $row['ngayKetThuc']);
-                $sheet->setCellValue('H' . $rowCount, $row['tinhTrang']);
+                $sheet->setCellValue('E' . $rowCount, $row['maToa']);
+                $sheet->setCellValue('F' . $rowCount, $row['maPhong']);
+                $sheet->setCellValue('G' . $rowCount, $row['ngayBatDau']);
+                $sheet->setCellValue('H' . $rowCount, $row['ngayKetThuc']);
+                $sheet->setCellValue('I' . $rowCount, $row['tinhTrang']);
             }
             //Kẻ bảng 
             $styleAray = array(
@@ -163,7 +166,7 @@ class HopDong extends controller
                     )
                 )
             );
-            $sheet->getStyle('A1:' . 'H' . ($rowCount))->applyFromArray($styleAray);
+            $sheet->getStyle('A1:' . 'I' . ($rowCount))->applyFromArray($styleAray);
             //căn giữa cột stt
             $sheet->getStyle('A2:A'.($rowCount))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER); 
 
