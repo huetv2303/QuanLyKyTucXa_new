@@ -13,7 +13,8 @@ class DsNhanVien extends controller
         $dulieu = $this->dsnv->loadNhanVien();
         $this->view('Masterlayout', [
             'page' => 'DsNhanVien_v',
-            'dulieu' => $dulieu
+            'dulieu' => $dulieu,
+            'matoa' => $this->dsnv->getMaToa()
         ]);
     }
 

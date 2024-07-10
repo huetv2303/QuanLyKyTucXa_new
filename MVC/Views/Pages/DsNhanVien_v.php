@@ -148,7 +148,19 @@
                         <label>Số Điện Thoại :</label>
                         <input type="number" class="form-control" placeholder="Nhập số điện thoại" name="txtSdt" require>
                         <label>Mã Tòa :</label>
-                        <input type="text" class="form-control" placeholder="Nhập phân khu" name="txtMaToa" require>
+                        <!-- <input type="text" class="form-control" placeholder="Nhập phân khu" name="txtMaToa" require> -->
+                         <select name="txtMaToa" id="" require class="form-control">
+                            <option value="">--- Chọn mã tòa ---</option>
+                            <?php
+                            if(isset($data['matoa']) && mysqli_num_rows($data['matoa']) > 0){
+                                while($matoa = mysqli_fetch_array($data['matoa'])){
+                                    ?>
+                                    <option value="<?php echo $matoa['maToa']?>"><?php echo $matoa['maToa']?></option>
+                                    <?php
+                                }
+                            }
+                            ?>
+                         </select>
                     </div>
                 </div>
 
