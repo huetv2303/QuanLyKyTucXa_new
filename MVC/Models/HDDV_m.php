@@ -324,7 +324,7 @@ class HDDV_m extends connectDB
 
     public function get_all_toa_hopdong()
     {
-        $sql = "SELECT maToa FROM hopdong";
+        $sql = "SELECT maToa FROM toa";
         return mysqli_query($this->conn, $sql);
     }
 
