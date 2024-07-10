@@ -33,7 +33,7 @@
     }
 
     #btnNhapExcel {
-        margin-left: 1000px;
+        margin-left: 400px;
     }
 
     .form-inline{

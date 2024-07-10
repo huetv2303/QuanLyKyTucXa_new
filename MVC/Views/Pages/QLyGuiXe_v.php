@@ -62,7 +62,7 @@
             </form>
         </div>
         <br>
-        <table class="table table-hover" border="1px solid black" style="width: 95%; margin-left: 70px;">
+        <table class="table table-hover" border="1px solid black" style="width: 95%; margin-left: 30px;">
             <thead>
                 <tr>
                     <th>STT</th>

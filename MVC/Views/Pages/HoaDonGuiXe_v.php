@@ -14,7 +14,7 @@
 <style>
     #text {
         margin-left: 10px;
-        width: 300px;
+        width: 200px;
     }
 </style>
 
@@ -29,15 +29,15 @@
                 <div class="form-inline" style="text-align: center">
                     <table style="margin: auto;">
                         <tr>
-                            <td style="width: 300px;">
+                            <td style="width: 200px;">
                                 <input type="text" placeholder="Nhập mã hóa đơn" name="txtBillCode" id="text" class="form-control">
                             </td>
 
-                            <td style="width: 300px;">
+                            <td style="width: 200px;">
                                 <input type="text" placeholder="Nhập mã sinh viên" name="txtID" id="text" class="form-control">
                             </td>
 
-                            <td style="width: 300px;">
+                            <td style="width: 200px;">
                                 <select name="txtStatus" id="text" class="form-control" style="">
                                     <option value="">--- Chọn trạng thái ---</option>
                                     <option value="Chưa thanh toán">Chưa thanh toán</option>
@@ -56,7 +56,7 @@
                         </tr>
                     </table>
                 </div>
-                <table class="table table-hover" border="1px solid black" style="width: 95%; margin-left: 70px;">
+                <table class="table table-hover" border="1px solid black" style="width: 95%; margin-left: 30px;">
                     <!-- Table header -->
                     <thead>
                         <th>STT</th>

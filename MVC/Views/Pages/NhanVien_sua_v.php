@@ -9,13 +9,13 @@
 </head>
 <style>
     label{
-        margin-left: 900px;
+        margin-left: 300px;
     }
     input, select{
-        margin-left: 900px;
+        margin-left: 300px;
     }
     #text{
-        width: 700px;
+        width: 500px;
     }
 </style>
 <body>
@@ -54,7 +54,7 @@
                 }
                 ?>
                 <br>
-                <button type="submit" class="btn btn-primary" name="btnCapNhat" style="margin-left: 900px;">Cập nhật</button>
+                <button type="submit" class="btn btn-primary" name="btnCapNhat" style="margin-left: 300px;">Cập nhật</button>
                 <button type="submit" class="btn btn-primary" name="btnBack">Quay lại</button>
             </div>
         </form>
