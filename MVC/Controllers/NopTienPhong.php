@@ -165,8 +165,10 @@ class NopTienPhong extends controller
                   </script>";
         }
 
+        $dulieu4 = $this->noptienphong->noptienphong_find('','');
         $this->view('MasterLayout', [
             'page' => 'NopTienPhong_v',
+            'dulieu' => $dulieu4
         ]);
 
         exit();

@@ -12,13 +12,6 @@
             text-align: center;
         }
 
-        #wrapper {
-            padding: 50px;
-            
-            height: 100%;
-            
-        }
-
         .form-inline {
             border-radius: 20px;
             background-color: white;
@@ -49,11 +42,11 @@
     <form method="post" action="http://localhost/QuanLyKyTucXa_new/SinhVien/themmoi">
         <div id="wrapper" style="height: -webkit-fill-available;">
 
-            <div class="header" style="color: #08449b">
+            <!-- <div class="header" style="color: #08449b">
                 <h2 style="margin-left: 300px;">Thêm sinh viên</h2>
-            </div>
+            </div> -->
 
-            <div class="form-inline" style="width: 60%; margin-left: 284px; text-align: left;">
+            <div class="form-inline" style="width: 60%; margin-left: 220px; text-align: left;">
                 <label>Mã sinh viên</label>
                 <input type="text" class="form-control dd1" placeholder="Nhập mã sinh viên" name="txtMaSinhVien" required>
 
@@ -101,7 +94,7 @@
                 <input type="text" class="form-control" placeholder="Nhập địa chỉ" name="txtDiaChi" required>
 
                 <br>
-                <button type="submit" class="btn btn-success" name="btnLuu" style="margin-left: 366px;">Lưu</button>
+                <button type="submit" class="btn btn-success" name="btnLuu" style="margin-left: 400px;">Lưu</button>
             </div>
         </div>
     </form>

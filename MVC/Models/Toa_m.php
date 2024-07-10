@@ -29,6 +29,30 @@ class Toa_m extends connectDB{
         }
         return $kq;
     }
+    function checktrungma3($matoa){
+        $sql = "SELECT * 
+                FROM phong
+                Join toa on phong.maToa=toa.maToa
+                WHERE toa.maToa='$matoa'";
+        $dl = mysqli_query($this->conn, $sql);
+        $kq = false;
+        if(mysqli_num_rows($dl) > 0){
+            $kq = true;  //trùng mã
+        }
+        return $kq;
+    }
+    function checktrungma4($matoa){
+        $sql = "SELECT * 
+                FROM nhanvien
+                Join toa on nhanvien.maToa=toa.maToa
+                WHERE toa.maToa='$matoa'";
+        $dl = mysqli_query($this->conn, $sql);
+        $kq = false;
+        if(mysqli_num_rows($dl) > 0){
+            $kq = true;  //trùng mã
+        }
+        return $kq;
+    }
 
     function checkrong($matoa, $sophong){
         if(empty($matoa) || empty($sophong)){
@@ -42,7 +66,7 @@ class Toa_m extends connectDB{
         $sql = "DELETE FROM toa WHERE maToa='$matoa'";
         return mysqli_query($this->conn, $sql);
     }
-
+    
     function update($matoa, $sophong){
         $sql = "UPDATE toa SET soPhong='$sophong' WHERE maToa='$matoa'";
         return mysqli_query($this->conn, $sql);
