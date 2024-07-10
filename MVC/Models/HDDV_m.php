@@ -1,6 +1,8 @@
 <?php
 class HDDV_m extends connectDB
 {
+
+
     public function hddv_ins($id_invoice, $maToa, $id_room, $soDien, $khoiNuoc, $electricity, $water, $month, $year, $ended_day, $status)
     {
         $sql = "INSERT INTO hoa_don_dich_vu(id_invoice, maToa ,id_room, soDien , khoiNuoc, electricity, water, month, year, created_day, ended_day, status) 
@@ -17,10 +19,12 @@ class HDDV_m extends connectDB
         return mysqli_query($this->conn, $sql);
     }
 
+
+
     public function hddv_invoice($page, $limit)
     {
         $offset = ($page - 1) * $limit;
-    
+
         $sql = "WITH service_prices AS (
             SELECT 
                 id_service,
@@ -48,7 +52,6 @@ class HDDV_m extends connectDB
                 hd.soDien,
                 hd.khoiNuoc,
                 hd.maToa,
-                -- hd.advance_deposit,
                 CASE 
                     WHEN ended_day < CURDATE() AND status != 'Đã thanh toán' THEN 'Hóa đơn quá hạn'
                     WHEN status = 'Đã thanh toán' THEN 'Đã thanh toán'
@@ -94,12 +97,11 @@ class HDDV_m extends connectDB
             ec.id_room,
             ec.month,
             ec.year,
-            -- ewu.advance_deposit,
             ROUND(COALESCE(ec.electricity_cost, 0), 2) AS electricity_cost,
             ROUND(COALESCE(ec.water_cost, 0), 2) AS water_cost,
             ROUND(COALESCE(ec.electricity_cost, 0) + COALESCE(ec.water_cost, 0))  AS total_electricity_water_cost,
             ROUND(COALESCE(sc.total_service_cost, 0)) AS total_service_cost,
-            ROUND((COALESCE(ec.electricity_cost, 0) + COALESCE(ec.water_cost, 0) + COALESCE(sc.total_service_cost, 0) )) AS total_cost,
+            ROUND((COALESCE(ec.electricity_cost, 0) + COALESCE(ec.water_cost, 0) + COALESCE(sc.total_service_cost, 0))) AS total_cost,
             ewu.id_invoice,
             ewu.status,
             ewu.electricity,
@@ -120,11 +122,31 @@ class HDDV_m extends connectDB
         LEFT JOIN 
             electricity_water_usage ewu ON ec.id_room = ewu.id_room AND ec.month = ewu.month AND ec.year = ewu.year
         LIMIT $offset, $limit;";
-    
+
         return mysqli_query($this->conn, $sql);
     }
-    
-    function count() {
+
+
+    public function get_total_service_cost($maPhong, $thang, $nam)
+    {
+        $sql = "SELECT ROUND(COALESCE(SUM(dv.price), 0), 0) AS total_service_cost
+                FROM dang_ky_dich_vu r
+                JOIN dich_vu_khac dv ON r.id_service = dv.id_service
+                WHERE r.id_room = ? AND r.month = ? AND r.year = ?
+                GROUP BY r.id_room";
+        
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param('sii', $maPhong, $thang, $nam);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            return $row['total_service_cost'];
+        } else {
+            return 0;
+        }
+    }
+    function count()
+    {
         $sql = "SELECT COUNT(*) as total FROM hoa_don_dich_vu";
         $result = mysqli_query($this->conn, $sql);
         $row = mysqli_fetch_assoc($result);
@@ -143,9 +165,9 @@ class HDDV_m extends connectDB
         return $kq;
     }
 
-    function check_trung_thangnam($maPhong, $month, $year)
+    function check_trung_thangnam($month, $year)
     {
-        $sql = "SELECT * FROM hoa_don_dich_vu WHERE id_room = '$maPhong' and  month ='$month' and  year ='$year' ";
+        $sql = "SELECT * FROM hoa_don_dich_vu WHERE  month ='$month' and  year ='$year' ";
 
         $dl = mysqli_query($this->conn, $sql);
         $kq = false;
@@ -197,7 +219,6 @@ class HDDV_m extends connectDB
                     hd.soDien,
                     hd.khoiNuoc,
                     hd.maToa,
-                    -- hd.advance_deposit,
                       CASE 
                     WHEN ended_day < CURDATE() AND status != 'Đã thanh toán' THEN 'Hóa đơn quá hạn'
                     WHEN status = 'Đã thanh toán' THEN 'Đã thanh toán'
@@ -230,7 +251,7 @@ class HDDV_m extends connectDB
                     r.id_room,
                     r.month,
                     r.year,
-                    ROUND(COALESCE(SUM(dv.price), 0), 2) AS total_service_cost
+                    ROUND(COALESCE(SUM(dv.price), 0)) AS total_service_cost
                 FROM 
                     dang_ky_dich_vu r
                 JOIN 
@@ -244,12 +265,11 @@ class HDDV_m extends connectDB
                 ec.id_room,
                 ec.month,
                 ec.year,
-                -- ewu.advance_deposit,
-                ROUND(COALESCE(ec.electricity_cost, 0), 2) AS electricity_cost,
+                ROUND(COALESCE(ec.electricity_cost, 0)) AS electricity_cost,
                 ROUND(COALESCE(ec.water_cost, 0), 2) AS water_cost,
                 ROUND(COALESCE(ec.electricity_cost, 0) + COALESCE(ec.water_cost, 0))  AS total_electricity_water_cost,
-                ROUND(COALESCE(sc.total_service_cost, 0), 2) AS total_service_cost,
-                ROUND((COALESCE(ec.electricity_cost, 0) + COALESCE(ec.water_cost, 0) + COALESCE(sc.total_service_cost, 0)  ), 0) AS total_cost,
+                ROUND(COALESCE(sc.total_service_cost, 0)) AS total_service_cost,
+                ROUND((COALESCE(ec.electricity_cost, 0) + COALESCE(ec.water_cost, 0) + COALESCE(sc.total_service_cost, 0))) AS total_cost,
                 ewu.id_invoice,
                 ewu.status,
                 ewu.electricity,
@@ -274,7 +294,7 @@ class HDDV_m extends connectDB
                        AND ewu.id_room LIKE '%$id_room%'
                        AnD   ewu.month LIKE '%$month%'
                        AND ewu.year LIKE '%$year%'
-                       AND ewu.notifications LIKE '%$notifications%' " ;                       
+                       AND ewu.notifications LIKE '%$notifications%' ";
 
         // var_dump($sql);
 
@@ -290,7 +310,6 @@ class HDDV_m extends connectDB
         return mysqli_query($this->conn, $sql);
     }
 
-   
     public function hopdong_idP()
     {
         $sql = "SELECT maPhong FROM hopdong";
@@ -308,4 +327,5 @@ class HDDV_m extends connectDB
         $sql = "SELECT maToa FROM hopdong";
         return mysqli_query($this->conn, $sql);
     }
+
 }
