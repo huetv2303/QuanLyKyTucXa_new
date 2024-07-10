@@ -12,25 +12,6 @@
             text-align: center;
         }
 
-        /* #wrapper {
-            padding: 50px;
-            background-color: #0dcaf02b;
-            height: 100%;
-            position: absolute;
-            width: 87%;
-            
-        } */
-
-
-        /* .form-inline {
-            border-radius: 20px;
-            background-color: white;
-            padding: 40px;
-            text-align: left;
-        } */
-
-
-
         .container-fluid {
             padding: 0px;
         }
@@ -40,8 +21,6 @@
             margin-bottom: 10px;
             margin-top: 10px;
         }
-
-
 
         #inputTenSinhVien {
             margin-left: 10px;

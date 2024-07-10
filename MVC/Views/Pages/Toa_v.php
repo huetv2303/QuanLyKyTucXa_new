@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <style>
+    <!-- <style>
         .center-dulieu {
     display: flex;
     justify-content: center;
@@ -17,7 +17,7 @@
     width: 250px;
 }
 
-    </style>
+    </style> -->
 </head>
 
 
@@ -25,14 +25,7 @@
     
         <!-- Thêm mới -->
         <form method="post" action="http://localhost/QuanLyKyTucXa_new/themToa_c/themmoi">
-            <div class="form-inline">
-                <div class="" style="text-align:center">
-                    <h2 style="font-size:50px; color:#3333CC">Tòa KTX</h2>
-                    <!-- Button trigger modal -->
-
-               
-            <div >
-            <table style=" text-align:center">
+          
     <div class="modal-add">
         <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -78,10 +71,6 @@
                                 <input type="text" class="form-control" name="txtMatoa" id="txtMatoa" value="">
                                 <label>Số phòng</label>
                                 <input type="text" class="form-control" name="txtSophong" id="txtSophong" value="">
-
-                                <br>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">Thêm mới </button>
-                                <br>
                             </div>
 
                             <div class="modal-footer">
@@ -95,52 +84,53 @@
         </form>
 
         <!-- Tìm kiếm -->
-            <div class="form-inline">
+    <form>  
+        <div class="main">
+        <div class="header">
+            <h2>Tòa</h2>
+            <!-- Button trigger modal -->
+        </div>
+           
             <div>
-                <!-- <div class="header">
-                    <h3>Danh sách tòa</h3>
-                    
-
-                </div> -->
             <div class="center-dulieu">
             <table style=" text-align:center">
             </table>
             </div>
-            <br>
-            <br>
+            <a href="http://localhost/QuanLyKyTucXa_new/Toa_c/" style="margin: 10px 0px; background-color: #0d6efd;" class="btn btn-success" name="btnReLoad"><i class="fa-solid fa-rotate-right"></i> Reload</a>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">Thêm mới </button>
             <br>
          <br>
         <div class="form-inline" >
-        <table class="table table-striped" style="text-align:center " >        
-                <tr style="background:ccc">
-                    <th>STT</th>
-                    <th>Mã tòa</th>
-                    <th>Số lượng phòng</th>
-                    <th>Thao tác</th>
-                    
-                </tr>
-                <?php
-                if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
-                    $i = 0;
-                    while ($row = mysqli_fetch_assoc($data['dulieu'])) {
-                        ?>
-                    <tr >
-                         <td><?php echo (++$i) ?></td>
-                        <td><?php echo $row['maToa'] ?></td>
-                         <td><?php echo $row['soPhong'] ?></td>
-                      
-                         <td>
-                         <button onclick="updateDataT('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
-                         <a onclick="return confirm('Bạn có muốn xóa tòa này không?');" href="http://localhost/QuanLyKyTucXa_new/Toa_c/xoa/<?php echo $row['maToa'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
-                         <a href="http://localhost/QuanLyKyTucXa_new/Toa_c/lien_ket/<?php echo $row['maToa'] ?>" class="btn btn-outline-danger"><i style="color: red;" ></i>Chi tiết</a> 
-                        </td>
-                     </tr>
-                         <?php
+            <table class="table table-striped" style="text-align:center " >        
+                    <tr style="background:ccc">
+                        <th>STT</th>
+                        <th>Mã tòa</th>
+                        <th>Số lượng phòng</th>
+                        <th>Thao tác</th>
+                        
+                    </tr>
+                    <?php
+                    if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {
+                        $i = 0;
+                        while ($row = mysqli_fetch_assoc($data['dulieu'])) {
+                            ?>
+                        <tr >
+                            <td><?php echo (++$i) ?></td>
+                            <td><?php echo $row['maToa'] ?></td>
+                            <td><?php echo $row['soPhong'] ?></td>
+                        
+                            <td>
+                            <button onclick="updateDataT('<?php echo htmlspecialchars(json_encode($row)) ?>')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal"><i style="color: green; background: white;" class="fa-solid fa-pen-to-square"></i></button>
+                            <a onclick="return confirm('Bạn có muốn xóa tòa này không?');" href="http://localhost/QuanLyKyTucXa_new/Toa_c/xoa/<?php echo $row['maToa'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+                            <a href="http://localhost/QuanLyKyTucXa_new/Toa_c/lien_ket/<?php echo $row['maToa'] ?>" class="btn btn-outline-danger"><i style="color: red;" ></i>Chi tiết</a> 
+                            </td>
+                        </tr>
+                            <?php
+                        }
                     }
-                }
-                ?>
-        </table>
+                    ?>
+            </table>
+        </div>
        
       </form>
 </body>

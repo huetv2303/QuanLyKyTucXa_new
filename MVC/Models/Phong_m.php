@@ -72,16 +72,35 @@ class Phong_m extends connectDB{
     }
     //danh sách phòng hiện ra danh sách sinh viên//
     //
+    // public function update_ctphong()
+    // {
+    //     $sql2 = "UPDATE phong
+    //     JOIN nhomsinhvien ON phong.maPhong = nhomsinhvien.maPhong
+    //     JOIN hopdong ON hopdong.maPhong = phong.maPhong
+    //     SET phong.manhomsinhvien = nhomsinhvien.manhomsinhvien;";
+    //     return mysqli_query($this->conn, $sql2);
+    // }
+    public function update_ctphong()
+    {
+        $sql2 = "UPDATE phong
+        JOIN hopdong ON hopdong.maPhong = phong.maPhong
+        SET phong.maHopDong = hopdong.maHopDong;";
+        return mysqli_query($this->conn, $sql2);
+    }
 
-    public function ds_sinhvien($manhomsinhvien){
+
+    public function ds_sinhvien($hopdong){
         $sql = "SELECT thongtinsinhvien.maSinhVien,thongtinsinhvien.hoTen,thongtinsinhvien.soDienThoai,thongtinsinhvien.gioiTinh
-                FROM thongtinsinhvien, phong
-                where thongtinsinhvien.maNhomSinhVien=phong.maNhomSinhVien and phong.maNhomSinhVien=N'$manhomsinhvien'";
+                FROM hopdong
+                join phong on phong.maPhong= hopdong.maPhong
+                join nhomsinhvien on nhomsinhvien.maTruongNhom=hopdong.maTruongNhom
+                join thongtinsinhvien on thongtinsinhvien.maNhomSinhVien=nhomsinhvien.maNhomSinhVien
+                where phong.maHopDong=N'$hopdong'";
         return  mysqli_query($this->conn, $sql);
         
     }
-    function find3($manhomsinhvien){
-        $sql="SELECT * FROM phong WHERE maNhomSinhVien = '$manhomsinhvien' " ;
+    function find3($hopdong){
+        $sql="SELECT * FROM phong WHERE maHopDong = N'$hopdong' " ;
         return mysqli_query($this->conn,$sql);
     }
 

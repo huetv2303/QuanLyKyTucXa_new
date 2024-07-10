@@ -10,12 +10,12 @@
 
 <body>
     <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachSV/suadl">
-        <div id="wrapper" style="height: -webkit-fill-available;">
+        <div id="wrapper" style="height: -webkit-fill-available; padding-top: 10px;">
             <!-- <div class="header" style="color: #08449b">
                 <h2>Sửa thông tin sinh viên</h2>
             </div> -->
 
-            <div class="form-inline" style="width: 60%; margin-left: 284px; text-align: left;">
+            <div class="form-inline" style="width: 60%; margin-left: 220px; text-align: left;">
             <h2>Sửa thông tin sinh viên</h2>
                 <?php
                 if (isset($data['dulieu'])) {
@@ -70,7 +70,7 @@
                 }
                 ?>
                 <br>
-                <button type="submit" class="btn btn-success" name="btnLuu" style="margin-left: 366px;">Cập nhật</button>
+                <button type="submit" class="btn btn-success" name="btnLuu" style="margin-left: 400px;">Cập nhật</button>
             </div>
         </div>
     </form>

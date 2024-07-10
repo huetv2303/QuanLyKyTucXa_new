@@ -178,6 +178,17 @@ class HopDong_m extends connectDB
         return $kq;
     }
 
+    public function update_ctphong()
+    {
+        $sql2 = "UPDATE phong
+        JOIN hopdong ON hopdong.maPhong = phong.maPhong
+        SET phong.maHopDong = '';";
+        return mysqli_query($this->conn, $sql2);
+    }
+
+   
+
+
 
 
 }

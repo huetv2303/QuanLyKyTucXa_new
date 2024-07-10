@@ -86,12 +86,24 @@
                                         </select>
                                         <br>
 
-
                                         <label>Mã phòng</label>
                                         <select name="txtMaPhong" class="form-control maPhong" id="maPhong">
                                             <option value="">-------Chọn--------</option>
+                                            <?php
+                                            $phong = $this->noptienphong->get_all_phong();
+                                            while ($row = mysqli_fetch_assoc($phong)) {
+                                                echo "<option value='" . $row['maPhong'] . "'>" . $row['maPhong'] . "</option>";
+                                            }
+                                            ?>
                                         </select>
                                         <br>
+
+
+                                        <!-- <label>Mã phòng</label>
+                                        <select name="txtMaPhong" class="form-control maPhong" id="maPhong">
+                                            <option value="">-------Chọn--------</option>
+                                        </select>
+                                        <br> -->
 
 
                                         <label for="tienphong">Số tiền phòng</label>
@@ -138,34 +150,34 @@
             <script>
                 $(document).ready(function() {
                     // Khi thay đổi mã tòa
-                    $('.maToa').change(function() {
-                        var maToa = $(this).val();
-                        if (maToa !== '') {
-                            $.ajax({
-                                url: 'http://localhost/QuanLyKyTucXa_new/NopTienPhong/get_phong_by_toa',
-                                method: 'POST',
-                                data: {
-                                    maToa: maToa
-                                },
-                                dataType: 'json',
-                                success: function(data) {
-                                    $('.maPhong').html('<option value="">-------Chọn--------</option>');
-                                    $.each(data, function(index, room) {
-                                        $('.maPhong').append('<option value="' + room.maPhong + '">' + room.maPhong + '</option>');
-                                    });
+                    // $('.maToa').change(function() {
+                    //     var maToa = $(this).val();
+                    //     if (maToa !== '') {
+                    //         $.ajax({
+                    //             url: 'http://localhost/QuanLyKyTucXa_new/NopTienPhong/get_phong_by_toa',
+                    //             method: 'POST',
+                    //             data: {
+                    //                 maToa: maToa
+                    //             },
+                    //             dataType: 'json',
+                    //             success: function(data) {
+                    //                 $('.maPhong').html('<option value="">-------Chọn--------</option>');
+                    //                 $.each(data, function(index, room) {
+                    //                     $('.maPhong').append('<option value="' + room.maPhong + '">' + room.maPhong + '</option>');
+                    //                 });
 
-                                    // Reset giá trị tiền phòng khi thay đổi mã phòng
-                                    $('.tienPhong').val('');
-                                },
-                                error: function(jqXHR, textStatus, errorThrown) {
-                                    console.error(textStatus, errorThrown);
-                                }
-                            });
-                        } else {
-                            $('.maPhong').html('<option value="">-------Chọn--------</option>');
-                            $('.tienPhong').val(''); // Clear tiền phòng nếu không có mã tòa được chọn
-                        }
-                    });
+                    //                 // Reset giá trị tiền phòng khi thay đổi mã phòng
+                    //                 $('.tienPhong').val('');
+                    //             },
+                    //             error: function(jqXHR, textStatus, errorThrown) {
+                    //                 console.error(textStatus, errorThrown);
+                    //             }
+                    //         });
+                    //     } else {
+                    //         $('.maPhong').html('<option value="">-------Chọn--------</option>');
+                    //         $('.tienPhong').val(''); // Clear tiền phòng nếu không có mã tòa được chọn
+                    //     }
+                    // });
 
                     // Khi thay đổi mã phòng
                     $('.maPhong').change(function() {
@@ -321,19 +333,23 @@
                                             </ul>
                                         </div>
 
-
                                         <div class="row">
                                             <hr style="border: 2px solid black;">
 
                                             <div class="col-xl-10">
+                                                <br>
                                                 <p>Tiền phòng</p>
+                                                
                                             </div>
                                             <div class="col-xl-12">
                                                 <p class="float-end" id="tienPhong1"></p>
+                                                <br>
                                             </div>
 
                                             <hr style="border: 2px solid black;">
                                         </div>
+
+                                        <br>
 
                                         <div class="row">
                                             <div class="col-xl-10">
@@ -344,12 +360,14 @@
                                             </div>
                                             <hr style="border: 2px solid black;">
                                         </div>
+                                        <br>
                                         <div class="row text-black">
                                             <div class="col-x1-12">
                                                 <p class="float-end fw-bold" id="Tong">Total:</p>
                                             </div>
                                             <hr style="border: 2px solid black;">
                                         </div>
+                                        <br>
                                     </div>
                                 </div>
                             </div>
@@ -385,11 +403,11 @@
                 <div class="head_timkiem" style = "padding-left: 260px;">
                     <div>
                         <label style="width: 100px;">Mã giao dịch</label>
-                        <input type="text" placeholder="Tìm mã dịch vụ" class="form-control" name="txtMaGiaoDich" value="<?php echo isset($_POST['txtMaGiaoDich']) ? htmlspecialchars($_POST['txtMaGiaoDich']) : ''; ?>">
+                        <input type="text" placeholder="Tìm mã giao dịch" class="form-control" name="txtMaGiaoDich" value="<?php echo isset($_POST['txtMaGiaoDich']) ? htmlspecialchars($_POST['txtMaGiaoDich']) : ''; ?>">
                     </div>
                     <div>
                         <label style="width: 100px;">Mã phòng</label>
-                        <input type="text" placeholder="Tìm tên dịch vụ" class="form-control" name="txtMaPhong" value="<?php echo isset($_POST['txtMaPhong']) ? htmlspecialchars($_POST['txtMaPhong']) : ''; ?>">
+                        <input type="text" placeholder="Tìm mã phòng" class="form-control" name="txtMaPhong" value="<?php echo isset($_POST['txtMaPhong']) ? htmlspecialchars($_POST['txtMaPhong']) : ''; ?>">
 
                     </div>
                     <div>

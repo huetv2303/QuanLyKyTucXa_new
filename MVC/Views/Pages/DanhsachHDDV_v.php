@@ -15,7 +15,8 @@
             <h3>Danh sách hóa đơn dịch vụ</h3>
             <!-- Button trigger modal -->
 
-            <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/themmoi" id="addInvoiceForm">
+
+            <form method="post" action="http://localhost/QuanLyKyTucXa_new//DanhsachHDDV/themmoi" id="addInvoiceForm">
                 <!-- Modal -->
                 <div class="modal-add">
                     <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
@@ -31,9 +32,21 @@
                                         <input type="text" class="form-control" placeholder="Nhập mã dịch vụ" name="txtMaHD" id="txtMaHD1" required>
                                         <span class="error-message" id="errorTxtMaHD"></span>
                                         <br>
+                                        <table>
+                                            <thead>
+                                                <td>Tháng</td>
+                                                <td>
+                                                    <p style="margin-left: 20px;">Năm</p>
+                                                </td>
+                                            </thead>
 
+                                            <tbody>
+                                                <td><input type="text" placeholder="Nhập tháng" class="form-control" name="txtThang" id="txtThang" required></td>
+                                                <td><input style="margin-left: 13px;" type="text" placeholder="Nhập năm" class="form-control" name="txtNam" id="txtNam" required></td>
+                                            </tbody>
+                                        </table>
                                         <label>Mã tòa</label>
-                                        <select name="txtMaToa" class="form-control maToa" id="maToa" required>
+                                        <select name="txtMaToa" class="form-control maToa" id="maToa" require>
                                             <option value="">-------Chọn--------</option>
                                             <?php
                                             if (isset($data['toa']) && mysqli_num_rows($data['toa']) > 0) {
@@ -47,54 +60,40 @@
                                         </select>
 
                                         <label>Mã phòng</label>
-                                        <select name="txtMaPhong" class="form-control maPhong" id="maPhong" required>
+                                        <select name="txtMaPhong" class="form-control maPhong" id="maPhong" require>
                                             <option value="">-------Chọn--------</option>
                                         </select>
                                         <br>
 
                                         <label for="txtDien">Số điện ban đầu:</label>
-                                        <input type="number" class="form-control" placeholder="Nhập số điện ban đầu" name="txtDienBD" id="txtDienBD1" required>
+                                        <input type="number" class="form-control" placeholder="Nhập số điện ban đầu" name="txtDienBD" id="txtDienBD1" require>
 
                                         <label for="txtDien">Điện:</label>
-                                        <input type="number" class="form-control" placeholder="Nhập khối điện hiện tại" name="txtDien" id="txtDien1" required>
+                                        <input type="number" class="form-control" placeholder="Nhập khối điện hiện tại" name="txtDien" id="txtDien1" require>
                                         <span class="error-message" id="errorTxtDien"></span>
                                         <br>
 
 
 
                                         <label for="txtNuoc">Khối nước ban đầu:</label>
-                                        <input type="number" class="form-control" placeholder="Nhập số nước ban đầu" name="txtNuocBD" id="txtNuocBD1" required>
+                                        <input type="number" class="form-control" placeholder="Nhập số nước ban đầu" name="txtNuocBD" id="txtNuocBD1" require>
 
                                         <label for="txtNuoc">Nước:</label>
                                         <input type="number" class="form-control" placeholder="Nhập số nước hiện tại" name="txtNuoc" id="txtNuoc1" required>
                                         <span class="error-message" id="errorTxtNuoc"></span>
                                         <br>
-                                        
-                                        <!-- <label for="">Tổng tiền điện</label>
-                                        <input type="number" disabled class="form-control" name="nuoc" id="nuoc" required>
-                                        <br>    -->
 
                                         <label for="">Tổng tiền điện nước</label>
-                                        <input type="number" disabled class="form-control" name="total" id="total" required>
+                                        <input type="number" readonly style="background-color: darkgrey" class="form-control" name="total_dn" id="total_dn" required>
                                         <br>
-<!-- 
-                                        <label for="">Tiền đóng trước</label>
-                                        <input type="number" class="form-control" name="TienCoc" id="TienCoc1" required>
-                                        <br> -->
 
-                                        <table>
-                                            <thead>
-                                                <td>Tháng</td>
-                                                <td>
-                                                    <p style="margin-left: 20px;">Năm</p>
-                                                </td>
-                                            </thead>
 
-                                            <tbody>
-                                                <td><input type="text" placeholder="Nhập tháng" class="form-control" name="txtThang" id="txtThang" required></td>
-                                                <td><input style="margin-left: 20px;" type="text" placeholder="Nhập năm" class="form-control" name="txtNam" id="txtNam" required></td>
-                                            </tbody>
-                                        </table>
+                                        <label for="">Tổng tiền dịch vụ</label>
+                                        <input type="number" readonly style="background-color: darkgrey" class="form-control" name="total_service" id="total_service" required>
+
+                                        <!-- <label for="">Tổng tiền </label>
+                                        <input type="number" readonly class="form-control" name="total" id="total" required> -->
+
                                         <span class="error-message" id="errorTxtThang"></span>
 
                                         <label for="txtNgayKT">Hạn nộp:</label>
@@ -107,7 +106,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-success" name="btnLuu">Lưu</button>
+                                    <button type="submit" class="btn btn-primary" name="btnLuu">Lưu</button>
                                 </div>
                             </div>
                         </div>
@@ -116,7 +115,7 @@
             </form>
 
         </div>
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/suadl">
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new//DanhsachHDDV/suadl">
             <!-- Modal -->
             <div class="modal-update">
                 <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
@@ -132,7 +131,7 @@
 
 
                                 <label>Mã tòa</label>
-                                <select name="txtMaToa"  class="form-control maToa" id="txtMaToa" required>
+                                <select name="txtMaToa" class="form-control maToa" id="txtMaToa" require>
                                     <option value="">-------Chọn--------</option>
                                     <?php
                                     if (isset($data['toa1']) && mysqli_num_rows($data['toa1']) > 0) {
@@ -146,7 +145,7 @@
                                 </select>
 
                                 <label>Mã phòng</label>
-                                <select type name="txtMaPhong" class="form-control maPhong" id="txtMaPhong" required>
+                                <select type name="txtMaPhong" class="form-control maPhong" id="txtMaPhong" require>
                                     <?php
                                     if (isset($data['phong']) && mysqli_num_rows($data['phong']) > 0) {
                                         while ($c = mysqli_fetch_assoc($data['phong'])) {
@@ -175,10 +174,7 @@
                                 <input type="number" class="form-control" name="txtNuoc" id="txtNuoc">
                                 <span class="error-message" id="errorTxtNuoc"></span>
                                 <br>
-<!-- 
-                                <label for="">Tiền đóng trước</label>
-                                <input type="number" class="form-control" name="TienCoc" id="TienCoc" required>
-                                <br> -->
+
                                 <table>
                                     <thead>
                                         <td>Tháng</td>
@@ -214,7 +210,7 @@
         </form>
 
         <!--Hóa đơn  -->
-        <form action="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/timkiem" method="POST">
+        <form action="http://localhost/QuanLyKyTucXa_new//DanhsachHDDV/timkiem" method="POST">
             <div class="modal fade" id="ExPortModal" tabindex="-1" aria-labelledby="ExPortModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -240,75 +236,60 @@
                                             <div class="col-xl-10">
                                                 <p style="margin: 0;">Số Điện đã dùng</p>
                                             </div>
-                                            <div style="padding:10px" class="col-xl-12">
+                                            <div class="col-xl-12">
                                                 <p class="float-end" id="Dien"><span>kWh</span></p>
                                             </div>
                                             <hr>
                                         </div>
-
-
                                         <div class="row">
                                             <div class="col-xl-10">
                                                 <p>Số Nước đã dùng</p>
                                             </div>
-                                            <div style="padding:10px" class="col-xl-12">
+                                            <div class="col-xl-12">
                                                 <p class="float-end" id="Nuoc"></p>
                                             </div>
                                             <hr>
                                         </div>
-
                                         <div class="row">
                                             <div class="col-xl-10">
                                                 <p>Tổng điện nước</p>
                                             </div>
-                                            <div style="padding:10px" class="col-xl-12">
+                                            <div class="col-xl-12">
                                                 <p class="float-end" id="TongDN"></p>
                                             </div>
                                             <hr>
                                         </div>
-
                                         <div class="row">
                                             <div class="col-xl-10">
                                                 <p>Tổng dịch vụ khác</p>
                                             </div>
-                                            <div style="padding:10px" class="col-xl-12">
+                                            <div class="col-xl-12">
                                                 <p class="float-end" id="TongDV"></p>
                                             </div>
-                                            <hr>
+                                            <hr style="border: 2px solid black;">
                                         </div>
-                                         
-                                        <!-- <div class="row">
-                                            <div class="col-xl-10">
-                                                <p>Tiền cọc</p>
-                                            </div>
-                                            <div style="padding:10px" class="col-xl-12">
-                                                <p class="float-end" id="TienCoc2"></p>
-                                            </div>
-                                            <hr>
-                                        </div> -->
+
 
                                         <div class="row">
                                             <div class="col-xl-10">
                                                 <p>Tiền tháng</p>
                                             </div>
-                                            <div style="padding:10px" class="col-xl-12">
+                                            <div class="col-xl-12">
                                                 <p class="float-end" id="year"></p>
                                             </div>
                                             <hr style="border: 2px solid black;">
                                         </div>
-
                                         <div class="row">
                                             <div class="col-xl-10">
                                                 <p>Trạng thái</p>
                                             </div>
-                                            <div style="padding:10px" class="col-xl-12">
+                                            <div class="col-xl-12">
                                                 <p class="float-end" id="TrangThai"></p>
                                             </div>
                                             <hr style="border: 2px solid black;">
                                         </div>
-
                                         <div class="row text-black">
-                                            <div style="padding:10px" class="col-x1-12">
+                                            <div class="col-x1-12">
                                                 <p class="float-end fw-bold" id="Tong">Total:</p>
                                             </div>
                                             <hr style="border: 2px solid black;">
@@ -326,8 +307,8 @@
             </div>
         </form>
 
-        <form method="post" action="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/timkiem">
-            <div class="form-inline">
+        <form method="post" action="http://localhost/QuanLyKyTucXa_new//DanhsachHDDV/timkiem">
+            <div style="padding: 20px" class="form-inline">
                 <div class="head_timkiem">
                     <div>
                         <label style="width: 100px;">Mã hóa đơn</label>
@@ -374,7 +355,6 @@
                             <th>Mã phòng</th>
                             <th>Tổng điện nước</th>
                             <th>Tổng dịch vụ khác</th>
-                            <!-- <th>Tiền cọc</th> -->
                             <th>Tổng</th>
                             <th>Tháng</th>
                             <th>Năm</th>
@@ -416,16 +396,16 @@
                                     <td style="display:none;"><?php echo htmlspecialchars($row['electricity_cost']) ?></td>
                                     <td style="display:none;"><?php echo htmlspecialchars($row['water_cost']) ?></td>
                                     <td><?php echo htmlspecialchars($row['total_service_cost']) ?></td>
-                                    <!-- <td><?php echo htmlspecialchars($row['advance_deposit']) ?></td> -->
                                     <td><?php echo htmlspecialchars($row['total_cost']) ?></td>
                                     <td><?php echo htmlspecialchars($row['month']) ?></td>
                                     <td><?php echo htmlspecialchars($row['year']) ?></td>
+                                    <!-- <td><?php echo htmlspecialchars($row['notifications']) ?></td> -->
                                     <td><span class="<?php echo $notificationClass; ?>"><?php echo $notificationText; ?></span></td>
                                     <td style="display:none;"><?php echo htmlspecialchars($row['status']) ?></td>
                                     <td>
                                         <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ExPortModal" onclick="updateDataExportHDDV('<?php echo htmlspecialchars(json_encode($row)) ?>')"><i class="fa-solid fa-file-invoice"></i></a>
                                         <a class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editServiceModal" onclick="updateDataHDDV('<?php echo htmlspecialchars(json_encode($row)) ?>')"><i class="fa-regular fa-pen-to-square"></i></a>
-                                        <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/xoa/<?php echo $row['id_invoice'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
+                                        <a onclick="return confirm('Bạn có muốn xóa dịch vụ này không?');" href="http://localhost/QuanLyKyTucXa_new//DanhsachHDDV/xoa/<?php echo $row['id_invoice'] ?>" class="btn btn-outline-danger"><i style="color: red;" class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>
                         <?php
@@ -476,19 +456,25 @@
     function calculateTotal() {
         const electricityUsage = parseFloat(document.getElementById('txtDien1').value) - parseFloat(document.getElementById('txtDienBD1').value);
         const waterUsage = parseFloat(document.getElementById('txtNuoc1').value) - parseFloat(document.getElementById('txtNuocBD1').value);
-        // const advanceDeposit = parseFloat(document.getElementById('TienCoc1').value) ;
+        // const total_service = parseFloat(document.getElementById('total_service').value);
 
         const totalElectricityCost = electricityUsage * priceElectricity;
-        const totalWaterCost = waterUsage * priceWater ;
+        const totalWaterCost = waterUsage * priceWater;
 
-        const totalCost = (totalElectricityCost + totalWaterCost) ;
 
-        
-       
+        const total_Cost_dn = totalElectricityCost + totalWaterCost;
 
-        if (!isNaN(totalCost)) {
-            document.getElementById('total').value = totalCost;
+        // const totalCost = total_Cost_dn + total_service;
+
+
+        if (!isNaN(total_Cost_dn)) {
+            document.getElementById('total_dn').value = total_Cost_dn;
         }
+
+        // if (!isNaN(totalCost)) {
+        //     document.getElementById('total').value = totalCost;
+        // }
+
     }
 
     // Gắn hàm tính tổng tiền vào sự kiện thay đổi của các ô nhập liệu
@@ -496,7 +482,7 @@
     document.getElementById('txtDienBD1').addEventListener('input', calculateTotal);
     document.getElementById('txtNuoc1').addEventListener('input', calculateTotal);
     document.getElementById('txtNuocBD1').addEventListener('input', calculateTotal);
-    // document.getElementById('TienCoc1').addEventListener('input', calculateTotal);
+    // document.getElementById('total_service').addEventListener('input', calculateTotal);
 
 
 
@@ -505,7 +491,7 @@
             var maToa = $(this).val();
             if (maToa != '') {
                 $.ajax({
-                    url: 'http://localhost/QuanLyKyTucXa_new/DanhsachHDDV//get_phong_by_toa_hopdong',
+                    url: 'http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/get_phong_by_toa_hopdong',
                     method: 'POST',
                     data: {
                         maToa: maToa
@@ -523,6 +509,36 @@
                 });
             } else {
                 $('.maPhong').html('<option value="">-------Chọn--------</option>');
+            }
+        });
+
+        $('.maPhong').change(function() {
+            var maPhong = $(this).val();
+            var thang = $('#txtThang').val();
+            var nam = $('#txtNam').val();
+            if (maPhong != '' && thang != '' && nam != '') {
+                $.ajax({
+                    url: 'http://localhost/QuanLyKyTucXa_new/DanhsachHDDV/get_total_service_cost',
+                    method: 'POST',
+                    data: {
+                        maPhong: maPhong,
+                        thang: thang,
+                        nam: nam
+                    }, // Corrected parameter names
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.total_service_cost !== undefined) {
+                            $('#total_service').val(data.total_service_cost);
+                        } else {
+                            $('#total_service').val(0);
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error(textStatus, errorThrown);
+                    }
+                });
+            } else {
+                $('#total_service').val(0);
             }
         });
     });

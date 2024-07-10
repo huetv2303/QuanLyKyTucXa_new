@@ -9,11 +9,13 @@ class DanhsachPhong_c extends controller
 
     function Get_data()
     {
+        $update = $this->ds->update_ctphong();
         $dulieu = $this->ds->all();
         $ma = $this->ds->toa_All();
         $ma1 = $this->ds->toa_All();
         $this->view('Masterlayout', [
             'page' => 'DanhsachPhong_v',
+            'update' => $update,
             'dulieu' => $dulieu,
             'ma' => $ma,// Lấy tất cả dữ liệu từ bảng lớp học, nếu bài bạn là phòng thì đây là tòa
             'ma1' => $ma1
@@ -263,13 +265,13 @@ class DanhsachPhong_c extends controller
         }
         //Gọi lại giao diện và truyền $dulieu ra
     }
-    function lien_ket($manhomsinhvien)
+    function lien_ket($hopdong)
     {
 
-        $dulieu = $this->ds->find3($manhomsinhvien);
+        $dulieu = $this->ds->find3($hopdong);
         $this->view('Masterlayout', [
             'page' => 'Chitietphong_v',
-            'dulieu1' => $this->ds->ds_sinhvien($manhomsinhvien),
+            'dulieu1' => $this->ds->ds_sinhvien($hopdong),
             'dulieu' => $dulieu,
         ]);
     }
