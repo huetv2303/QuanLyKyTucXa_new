@@ -141,7 +141,7 @@
                             //}
                             ?>
                             <!-- </select> -->
-                            <input type="text" class="form-control" placeholder="Nhập mã sinh viên" name="txtID">
+                            <input type="text" class="form-control" placeholder="Nhập mã sinh viên" name="txtID" require>
                             <label>Tên sinh viên :</label>
                             <input type="text" class="form-control" placeholder="Nhập họ tên" name="txtTenSv" require id="TenSV">
                             <label>Mã phòng :</label>

@@ -6,7 +6,7 @@ class connectDB
     protected $userName = "root";
     protected $pwd = "";
 
-    protected $dbName = "qlktx2";
+    protected $dbName = "qlktx";
 
     function __construct()
     {
