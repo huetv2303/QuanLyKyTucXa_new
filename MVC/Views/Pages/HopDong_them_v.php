@@ -47,7 +47,7 @@
                     <label for="mhd" class="form-label">Mã hợp đồng</label>
                 </div>
                 <div class="col">
-                    <input style="width:700px" type="text" name="txtMaHopDong" class="form-control" id="mhd" value="<?php if (isset($data['maHopDong'])) echo $data['maHopDong'] ?>">
+                    <input style="width:700px" type="text" name="txtMaHopDong" class="form-control" required id="mhd" value="<?php if (isset($data['maHopDong'])) echo $data['maHopDong'] ?> ">
                 </div>
             </div>
 
