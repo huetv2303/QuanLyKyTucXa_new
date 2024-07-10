@@ -128,7 +128,7 @@
                         <input type="text" class="form-control" placeholder="Nhập mã hóa đơn" name="txtBillCode" require>
                         <label>Mã sinh viên :</label>
                         <!-- <input type="text" class="form-control" placeholder="Nhập mã sinh viên" name="txtID" require id=""> -->
-                        <select name="txtID" id="txtID" class="form-control" onchange="myFunction(event)">
+                        <select name="txtID" id="txtID" class="form-control" onchange="myFunction(event)" require>
                             <option value="">--- Chọn mã sinh viên ---</option>
                             <?php
                             if (isset($data['id']) && mysqli_num_rows($data['id']) > 0) {

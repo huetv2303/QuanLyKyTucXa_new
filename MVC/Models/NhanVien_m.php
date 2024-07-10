@@ -55,7 +55,7 @@ class NhanVien_m extends connectDB
     // Func lấy dữ liệu mã tòa
     function getMaToa()
     {
-        $sql = " SELECT MaToa FROM toa";
+        $sql = " SELECT maToa FROM toa";
         return mysqli_query($this->conn, $sql);
     }
 }
